@@ -34,4 +34,4 @@ $ bash -c "$(curl -fsSL raw.github.com/vitorbritto/forcefiles/master/bin/forcefi
   [https://github.com/cowboy/dotfiles](https://github.com/cowboy/dotfiles)
 
 
-> Que os ARQUIVOS DA FORÇA esteja com você! =]
+> Que o ARQUIVOS DA FORÇA esteja com você! =]
