@@ -16,9 +16,9 @@ I realized I could split my dotfiles, automation files, bash aliases, editor set
 
 # How to install
 
-    ```bash
-    $ bash -c "$(curl -fsSL raw.github.com/vitorbritto/forcefiles/master/bin/forcefiles)"
-    ```
+```bash
+$ bash -c "$(curl -fsSL raw.github.com/vitorbritto/forcefiles/master/bin/forcefiles)"
+```
 
 ## Suggestions
 
