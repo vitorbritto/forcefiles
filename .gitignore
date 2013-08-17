@@ -1,6 +1,7 @@
 # Useful `.gitignore` templates:
 #   - https://github.com/github/gitignore
 
+lib/apps
 
 # OSX       taken from: https://github.com/github/gitignore/blob/master/Global/OSX.gitignore
 # ----------------------------------------------------------------------------------------------
