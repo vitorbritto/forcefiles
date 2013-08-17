@@ -16,9 +16,9 @@ Percebi que poderia dividir meus arquivos de automação, atalhos do bash, confi
 
 ## Instalação
 
-    ```bash
-    $ bash -c "$(curl -fsSL raw.github.com/vitorbritto/forcefiles/master/bin/forcefiles)"
-    ```
+```bash
+$ bash -c "$(curl -fsSL raw.github.com/vitorbritto/forcefiles/master/bin/forcefiles)"
+```
 
 ## Sugestões
 
