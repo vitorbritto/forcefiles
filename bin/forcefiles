@@ -1,0 +1,153 @@
+#!/bin/bash
+
+FORCEFILES_DIRECTORY="${HOME}/.forcefiles"
+FORCEFILES_TARBALL_PATH="https://github.com/vitorbritto/forcefiles/tarball/master"
+FORCEFILES_GIT_REMOTE="https://github.com/vitorbritto/forcefiles"
+
+# If missing, download and extract the forcefiles repository
+if [[ ! -d ${FORCEFILES_DIRECTORY} ]]; then
+    printf "$(tput setaf 7)Downloading forcefiles...\033[m\n"
+    mkdir ${FORCEFILES_DIRECTORY}
+    # Get the tarball
+    curl -fsSLo ${HOME}/forcefiles.tar.gz ${FORCEFILES_TARBALL_PATH}
+    # Extract to the forcefiles directory
+    tar -zxf ${HOME}/forcefiles.tar.gz --strip-components 1 -C ${FORCEFILES_DIRECTORY}
+    # Remove the tarball
+    rm -rf ${HOME}/forcefiles.tar.gz
+fi
+
+cd ${FORCEFILES_DIRECTORY}
+
+source ./lib/help
+source ./lib/list
+source ./lib/utils
+source ./lib/brew
+source ./lib/npm
+
+# Help text
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    run_help
+    exit
+fi
+
+# List additional software to install
+if [[ "$1" == "-l" || "$1" == "--list" ]]; then
+    run_list
+    exit
+fi
+
+# Test for known flags
+for opt in $@
+do
+    case $opt in
+        --no-packages) no_packages=true ;;
+        --no-sync) no_sync=true ;;
+        -*|--*) e_warning "Warning: invalid option $opt" ;;
+    esac
+done
+
+# Before relying on Homebrew, check that packages can be compiled
+if ! type_exists 'gcc'; then
+    e_error "The XCode Command Line Tools must be installed first."
+    printf "  Download them from: https://developer.apple.com/downloads\n"
+    printf "  Then run: bash ~/.forcefiles/bin/forcefiles\n"
+    exit 1
+fi
+
+# Check for Homebrew
+if ! type_exists 'brew'; then
+    e_header "Installing Homebrew..."
+    ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+fi
+
+# Check for git
+if ! type_exists 'git'; then
+    e_header "Updating Homebrew..."
+    brew update
+    e_header "Installing Git..."
+    brew install git
+fi
+
+# Initialize the git repository if it's missing
+if ! is_git_repo; then
+    e_header "Initializing git repository..."
+    git init
+    git remote add origin ${FORCEFILES_GIT_REMOTE}
+    git fetch origin master
+    # Reset the index and working tree to the fetched HEAD
+    # (submodules are cloned in the subsequent sync step)
+    git reset --hard FETCH_HEAD
+    # Remove any untracked files
+    git clean -fd
+fi
+
+# Conditionally sync with the remote repository
+if [[ $no_sync ]]; then
+    printf "Skipped forcefiles sync.\n"
+else
+    e_header "Syncing forcefiles..."
+    # Pull down the latest changes
+    git pull --rebase origin master
+    # Update submodules
+    git submodule update --recursive --init --quiet
+fi
+
+# Install and update packages
+if [[ $no_packages ]]; then
+    printf "Skipped package installations.\n"
+else
+    printf "Updating packages...\n"
+    # Install Homebrew formulae
+    run_brew
+    # Install Node packages
+    run_npm
+fi
+
+link() {
+    # Force create/replace the symlink.
+    ln -fs "${FORCEFILES_DIRECTORY}/${1}" "${HOME}/${2}"
+}
+
+mirrorfiles() {
+    # Copy `.gitconfig`.
+    # Any global git commands in `~/.bash_profile.local` will be written to
+    # `.gitconfig`. This prevents them being committed to the repository.
+    rsync -avz --quiet ${FORCEFILES_DIRECTORY}/git/gitconfig  ${HOME}/.gitconfig
+
+    # Force remove the vim directory if it's already there.
+    if [ -e "${HOME}/.vim" ]; then
+        rm -rf "${HOME}/.vim"
+    fi
+
+    # Create the necessary symbolic links between the `.forcefiles` and `HOME`
+    # directory. The `bash_profile` sources other files directly from the
+    # `.forcefiles` repository.
+    link "bash/bashrc"        ".bashrc"
+    link "bash/bash_profile"  ".bash_profile"
+    link "bash/inputrc"       ".inputrc"
+    link "git/gitattributes"  ".gitattributes"
+    link "git/gitignore"      ".gitignore"
+
+    e_success "Forcefiles update complete!"
+}
+
+# Ask before potentially overwriting files
+seek_confirmation "Warning: This step may overwrite your existing forcefiles."
+
+if is_confirmed; then
+    mirrorfiles
+    source ${HOME}/.bash_profile
+else
+    printf "Aborting...\n"
+    exit 1
+fi
+
+# Ask before potentially overwriting OS X defaults
+seek_confirmation "Warning: This step may modify your OS X system defaults."
+
+if is_confirmed; then
+    bash ./bin/osxdefaults
+    e_success "OS X settings updated! You may need to restart."
+else
+    printf "Skipped OS X settings update.\n"
+fi

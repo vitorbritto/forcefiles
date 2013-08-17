@@ -1,0 +1,39 @@
+#!/bin/bash
+
+run_list() {
+
+cat <<EOT
+
+OS X dotfiles - Vitor Britto - http://www.vitorbritto.com.br
+
+Additional software to install
+
+Browsers:
+    Firefox Aurora
+    Google Chrome
+    Opera Next
+
+Development:
+    Mou
+    Filezilla
+    Sublime Text 2
+    SourceTree
+    Axure RP
+    MySQL Workbench
+    Codebox
+    VirtualBox
+    Vagrant
+    MAMP PRO
+
+Other:
+    Sparrow
+    Alfred
+    Dropbox
+    Feeds
+    Network Connect
+    Skype
+    Transmission
+    VLC
+EOT
+
+}

@@ -1,0 +1,42 @@
+# Useful `.gitignore` templates:
+#   - https://github.com/github/gitignore
+
+
+# OSX       taken from: https://github.com/github/gitignore/blob/master/Global/OSX.gitignore
+# ----------------------------------------------------------------------------------------------
+._*
+.AppleDouble
+.DS_Store
+.localized
+.LSOverride
+.Spotlight-V100
+.Trashes
+Icon
+
+# Windows   taken from: https://github.com/github/gitignore/blob/master/Global/Windows.gitignore
+# ----------------------------------------------------------------------------------------------
+Desktop.ini
+ehthumbs.db
+Thumbs.db
+
+# Linux
+# ----------------------------------------------------------------------------------------------
+*~
+
+
+# Tags      taken from: https://github.com/github/gitignore/blob/master/Global/Tags.gitignore
+# ----------------------------------------------------------------------------------------------
+# Ignore tags created by etags and ctags
+TAGS
+tags
+
+# Vim       taken from: https://github.com/github/gitignore/blob/master/Global/vim.gitignore
+# ----------------------------------------------------------------------------------------------
+.*.sw[a-z]
+.netrwhist
+*.un~
+Session.vim
+
+# Sass
+# ----------------------------------------------------------------------------------------------
+*.sass-cache
