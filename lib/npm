@@ -7,10 +7,10 @@ run_npm() {
         e_header "Installing Node.js packages..."
 
         # List of npm packages
-        local packages="bower grunt-cli jshint yo"
+        local packages="yo grunt-cli bower"
 
         # Install packages globally and quietly
-        npm install $packages --global --quiet
+        npm install -g $packages
 
         [[ $? ]] && e_success "Done"
     else
