@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# bash_functions
 
 # Create a data URI from a file
 datauri() {
@@ -98,15 +99,48 @@ copyfile() {
   cat $file_to_copy | pbcopy
 }
 
+workflow() {
+    # Check for npm
+    if type_exists 'npm'; then
+        e_header "Installing Node.js packages..."
 
-# # Check packages versions
-checkversion() {
-    local utilities="brew node npm rvm gem rails bower grunt yo"
-    printf " ──────────────────────────────────────────\n"
-    printf "Utilities Versions:" $utilities --version "\n"
-    printf " ──────────────────────────────────────────\n"
+        # List of npm packages
+        local packages="yo grunt-cli bower"
+
+        # Install packages globally and quietly
+        npm install -g $packages
+
+        [[ $? ]] && e_success "Done"
+    else
+        printf "\n"
+        e_error "Error: npm not found."
+        printf "Aborting...\n"
+        exit
+    fi
 }
 
+
+# Check packages versions
+checkversion() {
+    e_header "Checking versions of modules and packages..."
+        local -a modules_versions=(
+            "brew"
+            "node"
+            "npm"
+            "rvm"
+            "gem"
+            "rails"
+            "bower"
+            "grunt"
+            "yo"
+        )
+    printf " ──────────────────────────────────────────\n"
+    for index in ${!modules_versions[*]}
+        do
+            printf $modules_versions " Version:" $modules_versions --version "\n"
+        done
+    printf " ──────────────────────────────────────────\n"
+}
 
 # Registering Bower packages
 bowereg() {

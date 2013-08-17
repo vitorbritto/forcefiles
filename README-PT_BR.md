@@ -24,7 +24,6 @@ $ bash -c "$(curl -fsSL raw.github.com/vitorbritto/forcefiles/master/bin/forcefi
 
 [Deixe suas sugestões](https://github.com/vitorbritto/forcefiles/issues)
 
-
 ## Agradecimentos
 
 * [@necolas](https://github.com/necolas) (Nicolas Gallagher)

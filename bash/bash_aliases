@@ -163,12 +163,6 @@ alias db="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias ios="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
 
-# Install Bower, Grunt and Yeoman
-alias workflow="sudo npm install -g grunt-cli && \
-                npm install -g bower && \
-                npm install -g yo"
-
-
 # ------------------------------------------------------------------------------
 # | Package Manager                                                            |
 # ------------------------------------------------------------------------------

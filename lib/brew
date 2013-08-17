@@ -23,7 +23,6 @@ run_brew() {
             'ack'
             'bash-completion'
             'jpeg'
-            'macvim --override-system-vim'
             'node'
             'optipng'
             'phantomjs'
