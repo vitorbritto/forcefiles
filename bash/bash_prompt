@@ -2,16 +2,6 @@
 
 # bash_prompt
 
-# Example:
-# vitorbritto@host: ~/.forcefiles on master[+!?$]
-# $
-
-# Screenshot: http://i.imgur.com/DSJ1G.png
-# iTerm2 prefs: import Solarized theme (disable bright colors for bold text)
-# Color ref: http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
-# More tips: http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html
-
-
 # Check that terminfo exists before changing TERM var to xterm-256color
 # Prevents prompt flashing in Mac OS X 10.6 Terminal.app
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
@@ -114,12 +104,12 @@ prompt_git() {
 # Set the terminal title to the current working directory
 PS1="\[\033]0;\w\007\]"
 # Build the prompt
-PS1+="\n" # Newline
+PS1+="\n"
 PS1+="${style_user}\u" # Username
 PS1+="${style_chars}@" # @
 PS1+="${style_host}\h" # Host
 PS1+="${style_chars}: " # :
 PS1+="${style_path}\w" # Working directory
 PS1+="\$(prompt_git)" # Git details
-PS1+="\n" # Newline
+PS1+="\n"
 PS1+="${style_chars}\$ \[${RESET}\]" # $ (and reset color)

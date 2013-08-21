@@ -2,6 +2,9 @@
 
 # bash_functions
 
+# General
+# -------------------
+
 # Create a data URI from a file
 datauri() {
 
@@ -72,6 +75,11 @@ mkd() {
     fi
 }
 
+# Remove directories and echo a message
+rmd() {
+    rm -r "$@"
+}
+
 # Search History
 qh() {
     #                                 ┌─ enable colors for pipe
@@ -99,27 +107,31 @@ copyfile() {
   cat $file_to_copy | pbcopy
 }
 
+
+# Package Manager
+# -------------------
+
 # Check packages versions
-checkversion() {
-    e_header "Checking versions of modules and packages..."
-        local -a modules_versions=(
-            "brew"
-            "node"
-            "npm"
-            "rvm"
-            "gem"
-            "rails"
-            "bower"
-            "grunt"
-            "yo"
-        )
-    printf " ──────────────────────────────────────────\n"
-    for index in ${!modules_versions[*]}
-        do
-            printf $modules_versions " Version:" $modules_versions --version "\n"
-        done
-    printf " ──────────────────────────────────────────\n"
-}
+# checkversion() {
+#     e_header "Checking versions of modules and packages..."
+#         local modules_versions=(
+#             'brew'
+#             'node'
+#             'npm'
+#             'rvm'
+#             'gem'
+#             'rails'
+#             'bower'
+#             'grunt'
+#             'yo'
+#         )
+#     printf " ──────────────────────────────────────────\n"
+#     for index in ${modules_versions}
+#         do
+#             printf '$modules_versions Version: $modules_versions --version \n'
+#         done
+#     printf " ──────────────────────────────────────────\n"
+# }
 
 # Registering Bower packages
 bowereg() {
@@ -136,20 +148,84 @@ gruntci() {
   npm install grunt-contrib-"$@" --save-dev
 }
 
+
+# Rsync
+# -------------------
+
+# Synchronize a local directory with a remote one
+rsyncpulldir() {
+    rsync -r -a -v -e "ssh -l $1" --delete $2
+}
+
+# Synchronize a remote directory with a local one
+rsyncpushdir() {
+    rsync -r -a -v -e "ssh -l $1" --delete $2
+}
+
+# Synchronize a local file with a remote one
+rsyncpullfile() {
+    rsync -a -v -e "ssh -l $1" $2
+}
+
+# To synchronize a remote file with a local one, use:
+rsyncpushfile() {
+    rsync -a -v -e "ssh -l $1" $2
+}
+
+# Synchronize a local directory with a local directory (make a backup)
+rsyncbackup() {
+    rsync -r -a -v --delete $@
+}
+
+
+# Servers - Working on this...
+# -------------------
+
+# Initialize Server
+run_server() {
+
+    # Point and source dependencies
+    FORCEFILES_DIRECTORY="${HOME}/.forcefiles"
+    cd ${FORCEFILES_DIRECTORY}
+
+    source ./lib/utils
+
+    local app=$@
+
+    # Ask for remote server
+    seek_confirmation "Do you want to run a remote server?"
+
+    if is_confirmed; then
+
+        seek_confirmation "Do you want to run cross-devices testing?"
+
+        if is_confirmed; then
+            # Using localtunnel for cross-devices testing
+            localtunnel -k ~/.ssh/id_rsa.pub 8080
+            localtunnel 8000
+            e_success "Done! Use the generated url to run your cross-devices testing."
+        else
+            # Using PHP Web Server
+            e_header "Please, wait..."
+            php -S 0.0.0.0:8000
+            e_success "Remote server OK! Redirecting you..."
+            open "http://0.0.0.0:8000"
+        fi
+
+    else
+        e_header "Starting local server..."
+        cd ~/Sites && php -S localhost:8000 -t ${app}/
+        open "http://localhost/${app}:8000"
+    fi
+
+}
+
+
 # Start an HTTP server from a directory, optionally specifying the port
-pyserver() {
-    # Get port (if specified)
+py_server() {
     local port="${1:-8000}"
-
-    # Open in the browser
     open "http://localhost:${port}/"
-
-    # Redefining the default content-type to text/plain instead of the default
-    # application/octet-stream allows "unknown" files to be viewable in-browser
-    # as text instead of being downloaded.
-    #
-    # Unfortunately, "python -m SimpleHTTPServer" doesn't allow you to redefine
-    # the default content-type, but the SimpleHTTPServer module can be executed
-    # manually with just a few lines of code.
-    python -c $'import SimpleHTTPServer;\nSimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map[""] = "text/plain";\nSimpleHTTPServer.test();' "$port"
+    # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
+    # And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
+    python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
 }

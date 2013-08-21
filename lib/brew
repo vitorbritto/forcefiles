@@ -18,20 +18,19 @@ run_brew() {
         local list_formulae
         local -a missing_formulae
         local -a desired_formulae=(
-            "coreutils" # GNU core utilities (those that come with OS X are outdated)
-            "git"
-            "ack"
-            "bash-completion"
-            "jpeg"
-            "node"
-            "optipng"
-            "phantomjs"
-            "tree"
-            "wget"
-            "https://raw.github.com/Homebrew/homebrew-dupes/master/rsync.rb" # Avoid using any custom OS X version of rsync
+            'coreutils' # GNU core utilities (those that come with OS X are outdated)
+            'git'
+            'ack'
+            'bash-completion'
+            'jpeg'
+            'node'
+            'optipng'
+            'phantomjs'
+            'tree'
+            'wget'
+            'https://raw.github.com/Homebrew/homebrew-dupes/master/rsync.rb' # Avoid using any custom OS X version of rsync
         )
 
-        # Homebrew formulae
         for index in ${!desired_formulae[*]}
         do
             if ! formula_exists ${desired_formulae[$index]}; then
@@ -47,8 +46,6 @@ run_brew() {
             e_header "Installing missing Homebrew formulae..."
             # Install all missing formulae
             brew install $list_formulae
-
-            [[ $? ]] && e_success "Done"
         fi
 
         # Remove outdated versions from the Cellar
@@ -61,6 +58,3 @@ run_brew() {
     fi
 
 }
-
-
-

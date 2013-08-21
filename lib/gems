@@ -1,0 +1,55 @@
+#!/bin/bash
+
+run_gems() {
+
+    # Check for Homebrew
+    if type_exists 'gem'; then
+        e_header "Updating gem..."
+        # Use the latest version of gem
+        gem update --system
+        [[ $? ]] && e_success "Done"
+
+        e_header "Updating any installed gem..."
+        # Upgrade any already-installed gem
+        gem update
+        [[ $? ]] && e_success "Done"
+
+        e_header "Checking status of desired gems..."
+        local list_gems
+        local -a missing_gems
+        local -a desired_gems=(
+            'rails'
+            'sass'
+            'compass'
+            'haml' # My favorited template engine for rubies projects
+            'jekyll' # Used for personal projects
+            'localtunnel' # Used for remote servers
+        )
+
+        for index in ${!desired_gems[*]}
+        do
+            if ! gems_exists ${desired_gems[$index]}; then
+                # Store the name (and options) of every missing gem
+                missing_gems=("${missing_gems[@]}" "${desired_gems[$index]}")
+            fi
+        done
+
+        if [[ "$missing_gems" ]]; then
+            # Convert the array of missing gem into a list of space-separate strings
+            list_gems=$( printf "%s " "${missing_gems[@]}" )
+
+            e_header "Installing missing gems..."
+            # Install all missing gems
+            gem install $list_gems
+
+            [[ $? ]] && e_success "Done"
+        fi
+
+    else
+        printf "\n"
+        e_error "Error: gem not found."
+        printf "Aborting...\n"
+        exit
+    fi
+
+}

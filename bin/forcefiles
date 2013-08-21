@@ -23,6 +23,8 @@ source ./lib/list
 source ./lib/utils
 source ./lib/brew
 source ./lib/npm
+source ./lib/rvm
+source ./lib/gems
 
 # Help text
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
@@ -68,6 +70,12 @@ if ! type_exists 'git'; then
     brew install git
 fi
 
+# Check for rvm
+if ! type_exists 'rvm'; then
+    e_header "Installing Rvm..."
+    curl -L https://get.rvm.io | bash -s stable
+fi
+
 # Initialize the git repository if it's missing
 if ! is_git_repo; then
     e_header "Initializing git repository..."
@@ -101,6 +109,10 @@ else
     run_brew
     # Install Node packages
     run_npm
+    # Update Ruby
+    run_ruby
+    # Install Gems
+    run_gems
 fi
 
 link() {

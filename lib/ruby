@@ -1,0 +1,21 @@
+#!/bin/bash
+
+run_ruby() {
+
+    # Check for rvm
+    if type_exists 'rvm'; then
+        e_header "Installing Ruby..."
+        # Instal versions 1.9.3 and 2.0.0
+        rvm install 1.9.3
+        [[ $? ]] && rvm install 2.0.0
+        #Use by default version 2.0.0
+        [[ $? ]] && rvm use 2.0.0 --default
+        [[ $? ]] && e_success "Done"
+    else
+        printf "\n"
+        e_error "Error: rvm not found."
+        printf "Aborting...\n"
+        exit
+    fi
+
+}

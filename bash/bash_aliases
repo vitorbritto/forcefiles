@@ -4,7 +4,6 @@
 # | System                                                                     |
 # ------------------------------------------------------------------------------
 
-
 # Navigation
 # -------------------
 
@@ -121,8 +120,14 @@ alias showdesktopicons="defaults write com.apple.finder CreateDesktop -bool true
 alias hidehiddenfiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 alias showhiddenfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 
-# Restart Apache
-alias ra="sudo apachectl restart"
+# Apache
+alias apr="sudo apachectl restart"
+alias ape="sudo nano -w /etc/apache2/httpd.conf"
+
+
+# `cat` with beautiful colors. requires Pygments installed.
+# sudo easy_install Pygments
+alias c='pygmentize -O style=monokai -f console256 -g'
 
 
 # Lists
@@ -154,35 +159,53 @@ else
 fi
 
 
-# Development
-# -------------------
+# ------------------------------------------------------------------------------
+# | Development (based on my needs)                                            |
+# ------------------------------------------------------------------------------
 
-alias code="cd ~/Applications/MAMP/htdocs/"
-alias st="subl ."
-alias db="cd ~/Documents/Dropbox"
+alias subl='open -a "/Applications/Sublime Text 2.app"'
+alias chrome='open -a /Applications/Google\ Chrome.app --args --allow-file-access-from-files'
+alias mou='open -a "/Applications/Mou.app"'
+alias o="open "
+alias sites="cd ~/Sites"
+alias mylabs="cd ~/Sites/@mylabs"
+alias dbox="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
-alias ios="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
+
 alias workflow="npm install -g yo grunt-cli bower"
+alias letsrock="bash ~/.forcefiles/scripts/init-project.sh"
+
 
 # ------------------------------------------------------------------------------
 # | Package Manager                                                            |
 # ------------------------------------------------------------------------------
 
 # Gems
-alias sgem="sudo gem"
-alias rfind="find . -name "*.rb" | xargs grep -n"
+alias gemi="gem install"
+alias gems="gem search"
+alias geme="gem env"
 
 # Rvm
 alias rubies="rvm list rubies"
 alias gemsets="rvm gemset list"
+alias rvmlist="rvm list known"
+alias rvmreq="rvm requirements"
+alias rvmup="rvm upgrade"
+alias rvmi="rvm install"
+alias rvmr="rvm uninstall"
+alias rvmu18="rvm use 1.8.7"
+alias rvmu19="rvm use 1.9.3"
+alias rvmu20="rvm use 2.0.0"
+alias rvmd18="rvm --default use 1.8.7"
+alias rvmd19="rvm --default use 1.9.3"
+alias rvmd20="rvm --default use 2.0.0"
 
 # Npm
 alias npmi="npm install"
 alias npmr="npm uninstall"
 alias npms="npm search"
-alias npmu="npm update"
+alias npmup="npm update"
 alias bowerup="npm update -g bower"
-
 
 # Grunt
 command -v grunt > /dev/null && alias grunt="grunt --stack" # Make Grunt print stack traces by default
@@ -199,17 +222,19 @@ alias bowv="bower -v"
 
 # Composer
 alias compsu="composer self-update"
-alias compu="composer update"
+alias compup="composer update"
 alias compi="composer install"
 alias compcp="composer create-project"
 alias compdu="composer dump-autoload"
 
 # Homebrew
+alias brewv="brew --version"
 alias brewd="brew doctor"
-alias brewi="brew install"
+alias brewa="brew install"
 alias brewr="brew uninstall"
+alias brewl="brew link"
 alias brews="brew search"
-alias brewu="brew update &&  \
+alias brewup="brew update &&  \
              brew upgrade && \
              brew cleanup"
 
