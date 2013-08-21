@@ -1,6 +1,34 @@
 # up to you (me) if you want to run this as a file or copy paste at your leisure
 
-# Upgrade PHP5.3 -> PHP 5.4
+sudo -v
+
+# https://rvm.io
+# rvm for the rubiess
+curl -L https://get.rvm.io | bash -s stable --ruby
+
+# homebrew!
+# you need the code CLI tools YOU FOOL.
+ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go)
+
+
+# https://github.com/rupa/z
+# z, oh how i love you
+cd ~/code
+git clone https://github.com/rupa/z.git
+chmod +x ~/code/z/z.sh
+# also consider moving over your current .z file if possible. it's painful to rebuild :)
+# z binary is already referenced from .bash_profile
+
+
+# for the c alias (syntax highlighted cat)
+easy_install Pygments
+
+# NPM - node modules
+npm install -g nave
+npm install -g express
+npm install -g socket.io
+
+# HOMEBREW - Upgrade PHP version (from 5.3 to 5.4)
 brew tap homebrew/dupes
 brew tap josegonzalez/homebrew-php
 brew install php54 --with-mysql --wihout-apache
@@ -16,17 +44,3 @@ printf "#LoadModule php5_module libexec/apache2/libphp5.so\n"
 printf "LoadModule php5_module /usr/local/opt/php54/libexec/apache2/libphp5.so\n"
 printf "-------------------------------------------------------------------------"
 printf "\n"
-
-
-# https://github.com/rupa/z
-# z, oh how i love you
-cd ~/code
-git clone https://github.com/rupa/z.git
-chmod +x ~/code/z/z.sh
-# also consider moving over your current .z file if possible. it's painful to rebuild :)
-
-
-# z binary is already referenced from .bash_profile
-
-# for the c alias (syntax highlighted cat)
-sudo easy_install Pygments

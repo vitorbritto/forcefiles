@@ -28,15 +28,16 @@
 #    │   │   │   ├── layout/
 #    │   │   │   └── responsive/
 #    │   │   ├── modules/
-#    │   │   │   ├── mixins/
-#    │   │   │   └── objects/
+#    │   │   │   ├── addons/
+#    │   │   │   ├── functions/
+#    │   │   │   └── mixins/
+#    │   │   ├── objects/
+#    │   │   ├── _defaults.scss
 #    │   │   ├── _project.scss
 #    │   │   ├── _variables.scss
-#    │   │   ├── plugins.scss
 #    │   │   ├── print.scss
 #    │   │   └── style.scss
 #    ├── ie/
-#    ├── includes/
 #    ├── src/
 #    │   ├── .bowerrc
 #    │   ├── .jshintrc
