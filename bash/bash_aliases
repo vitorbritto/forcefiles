@@ -171,8 +171,10 @@ alias sites="cd ~/Sites"
 alias mylabs="cd ~/Sites/@mylabs"
 alias dbox="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
+alias heyyo="npm install -g yo grunt-cli bower"
 
-alias workflow="npm install -g yo grunt-cli bower"
+# Shell Scripts
+alias dependencies="bash ~/.forcefiles/scripts/install-deps.sh"
 alias letsrock="bash ~/.forcefiles/scripts/init-project.sh"
 
 
