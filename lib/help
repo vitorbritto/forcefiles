@@ -1,9 +1,14 @@
-#!/bin/bash
+# ------------------------------------------------------------------------------
+# | Everybody need some help                                                   |
+# ------------------------------------------------------------------------------
 
 run_help() {
 
 cat <<EOT
+
+------------------------------------------------------------------------------
 OS X dotfiles - Vitor Britto - http://www.vitorbritto.com.br
+------------------------------------------------------------------------------
 
 Usage: $(basename "$0") [options]
 
@@ -13,10 +18,13 @@ Options:
     --no-packages   Suppress package updates
     --no-sync       Suppress pulling from the remote repository
 
-Documentation can be found at https://github.com/necolas/dotfiles/
+Documentation can be found at https://github.com/vitorbritto/forcefiles/
 
 Copyright (c) Vitor Britto
 Licensed under the MIT license.
+
+------------------------------------------------------------------------------
+
 EOT
 
 }

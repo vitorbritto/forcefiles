@@ -11,32 +11,31 @@ fi
 tput sgr 0 0
 
 # Base styles and color palette
-# Solarized colors
-# https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized
 BOLD=$(tput bold)
 RESET=$(tput sgr0)
-SOLAR_YELLOW=$(tput setaf 136)
-SOLAR_ORANGE=$(tput setaf 166)
-SOLAR_RED=$(tput setaf 124)
-SOLAR_MAGENTA=$(tput setaf 125)
-SOLAR_VIOLET=$(tput setaf 61)
-SOLAR_BLUE=$(tput setaf 33)
-SOLAR_CYAN=$(tput setaf 37)
-SOLAR_GREEN=$(tput setaf 64)
-SOLAR_WHITE=$(tput setaf 254)
+YELLOW=$(tput setaf 136)
+ORANGE=$(tput setaf 3)
+RED=$(tput setaf 124)
+MAGENTA=$(tput setaf 5)
+VIOLET=$(tput setaf 61)
+BLUE=$(tput setaf 33)
+CYAN=$(tput setaf 37)
+GREEN=$(tput setaf 2)
+PURPLE=$(tput setaf 141)
+WHITE=$(tput setaf 256)
 
-style_user="\[${RESET}${SOLAR_ORANGE}\]"
-style_host="\[${RESET}${SOLAR_YELLOW}\]"
-style_path="\[${RESET}${SOLAR_GREEN}\]"
-style_chars="\[${RESET}${SOLAR_WHITE}\]"
-style_branch="${SOLAR_CYAN}"
+style_user="\[${RESET}${MAGENTA}\]"
+style_host="\[${RESET}${ORANGE}\]"
+style_path="\[${RESET}${GREEN}\]"
+style_chars="\[${RESET}${WHITE}\]"
+style_branch="${CYAN}"
 
 if [[ "$SSH_TTY" ]]; then
     # connected via ssh
-    style_host="\[${BOLD}${SOLAR_RED}\]"
+    style_host="\[${BOLD}${RED}\]"
 elif [[ "$USER" == "root" ]]; then
     # logged in as root
-    style_user="\[${BOLD}${SOLAR_RED}\]"
+    style_user="\[${BOLD}${RED}\]"
 fi
 
 is_git_repo() {
@@ -97,7 +96,7 @@ prompt_git() {
         git_info="$git_info[$git_state]"
     fi
 
-    printf "${SOLAR_WHITE} on ${style_branch}${git_info}"
+    printf "${WHITE} on ${style_branch}${git_info}"
 }
 
 
@@ -105,11 +104,11 @@ prompt_git() {
 PS1="\[\033]0;\w\007\]"
 # Build the prompt
 PS1+="\n"
-PS1+="${style_user}\u" # Username
-PS1+="${style_chars}@" # @
-PS1+="${style_host}\h" # Host
-PS1+="${style_chars}: " # :
-PS1+="${style_path}\w" # Working directory
-PS1+="\$(prompt_git)" # Git details
+PS1+="${style_user}\u"    # Username
+PS1+="${style_chars} at " # @
+PS1+="${style_host}\h"    # Host
+PS1+="${style_chars} in " # :
+PS1+="${style_path}\w"    # Working directory
+PS1+="\$(prompt_git)"     # Git details
 PS1+="\n"
 PS1+="${style_chars}\$ \[${RESET}\]" # $ (and reset color)

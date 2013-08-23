@@ -5,9 +5,18 @@
 # General
 # -------------------
 
+
+# Adds an alias to the current shell and to bash_aliases file.
+# Borrowed from Mislav (http://github.com/mislav/dotfiles/tree/master/bash_aliases)
+add-alias() {
+   local name=$1 value=$2
+   echo "alias $name='$value'" >> ~/.forcefiles/bash/bash_aliases
+   eval "alias $name='$value'"
+   alias $name
+}
+
 # Create a data URI from a file
 datauri() {
-
     local mimeType=""
 
     if [ -f "$1" ]; then
@@ -24,7 +33,6 @@ datauri() {
     else
         print_error "'$1' is not a file."
     fi
-
 }
 
 # Delete all files that match a certain pattern from the current directory
@@ -35,7 +43,6 @@ deletefiles() {
 
 # Get gzip information (gzipped file size + reduction size)
 gz() {
-
     declare -i gzippedSize=0
     declare -i originalSize=0
 
@@ -64,7 +71,6 @@ gz() {
     else
         print_error "'$1' is not a file."
     fi
-
 }
 
 # Create new directories and enter the first one
@@ -111,28 +117,6 @@ copyfile() {
 # Package Manager
 # -------------------
 
-# Check packages versions
-# checkversion() {
-#     e_header "Checking versions of modules and packages..."
-#         local modules_versions=(
-#             'brew'
-#             'node'
-#             'npm'
-#             'rvm'
-#             'gem'
-#             'rails'
-#             'bower'
-#             'grunt'
-#             'yo'
-#         )
-#     printf " ──────────────────────────────────────────\n"
-#     for index in ${modules_versions}
-#         do
-#             printf '$modules_versions Version: $modules_versions --version \n'
-#         done
-#     printf " ──────────────────────────────────────────\n"
-# }
-
 # Registering Bower packages
 bowereg() {
     bower register "$@" "$@"
@@ -178,48 +162,8 @@ rsyncbackup() {
 }
 
 
-# Servers - Working on this...
+# Web Server
 # -------------------
-
-# Initialize Server
-run_server() {
-
-    # Point and source dependencies
-    FORCEFILES_DIRECTORY="${HOME}/.forcefiles"
-    cd ${FORCEFILES_DIRECTORY}
-
-    source ./lib/utils
-
-    local app=$@
-
-    # Ask for remote server
-    seek_confirmation "Do you want to run a remote server?"
-
-    if is_confirmed; then
-
-        seek_confirmation "Do you want to run cross-devices testing?"
-
-        if is_confirmed; then
-            # Using localtunnel for cross-devices testing
-            localtunnel -k ~/.ssh/id_rsa.pub 8080
-            localtunnel 8000
-            e_success "Done! Use the generated url to run your cross-devices testing."
-        else
-            # Using PHP Web Server
-            e_header "Please, wait..."
-            php -S 0.0.0.0:8000
-            e_success "Remote server OK! Redirecting you..."
-            open "http://0.0.0.0:8000"
-        fi
-
-    else
-        e_header "Starting local server..."
-        cd ~/Sites && php -S localhost:8000 -t ${app}/
-        open "http://localhost/${app}:8000"
-    fi
-
-}
-
 
 # Start an HTTP server from a directory, optionally specifying the port
 py_server() {

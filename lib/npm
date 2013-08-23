@@ -1,4 +1,6 @@
-#!/bin/bash
+# ------------------------------------------------------------------------------
+# | NPM Settings                                                               |
+# ------------------------------------------------------------------------------
 
 run_npm() {
 
@@ -7,7 +9,7 @@ run_npm() {
         e_header "Installing Node.js packages..."
 
         # List of npm packages
-        local packages="yo grunt-cli bower"
+        local packages="yo grunt-cli bower nave express socket.io generator-generator"
 
         # Install packages globally and quietly
         npm install -g $packages

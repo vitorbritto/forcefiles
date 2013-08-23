@@ -1,0 +1,12 @@
+# ------------------------------------------------------------------------------
+# | Install favorite apps                                                      |
+# ------------------------------------------------------------------------------
+
+# ====================================================
+#  TODO - WORK IN PROGRESS
+# ====================================================
+
+# Create a function that:
+#   Make a directory named "apps" on desktop
+#   Download apps with curl
+#   echo a message that will take a while... xD

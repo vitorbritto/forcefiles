@@ -23,8 +23,6 @@ source ./lib/list
 source ./lib/utils
 source ./lib/brew
 source ./lib/npm
-source ./lib/rvm
-source ./lib/gems
 
 # Help text
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
@@ -109,10 +107,6 @@ else
     run_brew
     # Install Node packages
     run_npm
-    # Update Ruby
-    run_ruby
-    # Install Gems
-    run_gems
 fi
 
 link() {
@@ -137,8 +131,11 @@ mirrorfiles() {
     link "bash/bashrc"        ".bashrc"
     link "bash/bash_profile"  ".bash_profile"
     link "bash/inputrc"       ".inputrc"
+    link "bash/screenrc"      ".screenrc"
+    link "bash/hushlogin"     ".hushlogin"
     link "git/gitattributes"  ".gitattributes"
     link "git/gitignore"      ".gitignore"
+    link "gem/gemrc"          ".gemrc"
 
     e_success "Forcefiles update complete!"
 }
@@ -155,11 +152,11 @@ else
 fi
 
 # Ask before potentially overwriting OS X defaults
-seek_confirmation "Warning: This step may modify your OS X system defaults."
+seek_confirmation "Warning: This step may modify your OS X system defaults. After update, your computer will automatically restart."
 
 if is_confirmed; then
     bash ./bin/osxdefaults
-    e_success "OS X settings updated! You may need to restart."
+    e_success "OS X settings updated! Restarting..."
 else
     printf "Skipped OS X settings update.\n"
 fi

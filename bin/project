@@ -1,9 +1,23 @@
+# up to you (me) if you want to run this as a file or copy paste at your leisure
+
 # Shell Script for Initialize a new project (based on my needs)
 # run with alias "letsrock"
 
+
+# Ask for the administrator password upfront
+sudo -v
+
 # ====================================================
-#  WORK IN PROGRESS
+#  TODO - WORK IN PROGRESS
 # ====================================================
+
+# Download my boilerplate repository on GitHub ✔
+# Prepare the environment ✔
+# Rename project name based on user input ✔
+# Open project on Sublime text 2 ✔
+# Initialize (remote) server ✔
+# Initialize server wit node and socket.io (?)
+
 #
 # ------------------
 # Project Structure
@@ -94,6 +108,8 @@ open_project() {
 }
 
 # And finally, we initialize the server (or remote server)
+# BUT I'm still working on alternative method with node and socket.io
+
 run_project() {
 
     # Ask for remote server
@@ -108,6 +124,9 @@ run_project() {
             localtunnel -k ~/.ssh/id_rsa.pub 8080
             localtunnel 8000
             e_success "Done! Use the generated url to run your cross-devices testing."
+
+            # Test using node + socket.io + express
+            # execute with node server.js
         else
             # Using PHP Web Server
             e_header "Please, wait..."
