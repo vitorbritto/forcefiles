@@ -6,13 +6,13 @@ run_npm() {
 
     # Check for npm
     if type_exists 'npm'; then
-        e_header "Installing Node.js packages..."
+        e_header "Installing NPM modules..."
 
         # List of npm packages
-        local packages="yo grunt-cli bower nave express socket.io generator-generator"
+        local packages="yo grunt-cli grunt-init bower nave express socket.io generator-generator mocha"
 
         # Install packages globally and quietly
-        npm install -g $packages
+        npm install $packages -g
 
         [[ $? ]] && e_success "Done"
     else

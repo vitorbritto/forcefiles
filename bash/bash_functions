@@ -132,6 +132,14 @@ gruntci() {
   npm install grunt-contrib-"$@" --save-dev
 }
 
+# Quickly clone all gruntjs repos (for grunt development)
+gruntclone() {
+    mkdir "$@" && cd "$@"
+    curl -fsSLO https://raw.github.com/gruntjs/clone-repos/master/clone-repos
+    chmod +x clone-repos
+    ./clone-repos
+}
+
 
 # Rsync
 # -------------------

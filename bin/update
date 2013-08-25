@@ -122,7 +122,7 @@ if is_confirmed; then
     seek_confirmation "Do you want to install your favorite apps?"
 
     if is_confirmed; then
-        run_app
+        run_apps
         e_success "Done!"
     else
         printf "Skipped!\n"

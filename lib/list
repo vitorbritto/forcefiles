@@ -10,7 +10,8 @@ cat <<EOT
 OS X dotfiles - Vitor Britto - http://www.vitorbritto.com.br
 ------------------------------------------------------------------------------
 
-Additional softwares to install
+Softwares to install
+--------------------
 
 Browsers:
     Firefox Aurora
@@ -34,6 +35,32 @@ Other:
     Skype
     Transmission
     VLC
+
+
+Packages to install
+--------------------
+
+Rvm:
+    Ruby - 1.9.3
+    Ruby - 2.0.0
+
+Gems:
+    Rails
+    Sass
+    Compass
+    Haml
+    Jekyll
+    Localtunnel
+
+NPMs:
+    grunt-cli
+    grunt-init
+    bower
+    yo
+    generator-generator
+    nave
+    express
+    socket.io
 
 ------------------------------------------------------------------------------
 

@@ -7,6 +7,17 @@
 # ====================================================
 
 # Create a function that:
-#   Make a directory named "apps" on desktop
+#   Make a directory named "apps" on ~/
 #   Download apps with curl
 #   echo a message that will take a while... xD
+
+
+run_apps() {
+
+    # Create and move to .apps directory
+    mkdir -p ~/.apps && cd ~/.apps
+
+    # Getting Started
+
+
+}
