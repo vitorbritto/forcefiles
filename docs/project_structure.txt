@@ -2,18 +2,26 @@
 #  TODO - WORK IN PROGRESS
 # ====================================================
 
-# Client Projects
+# GENERAL
 # ----------------------------------------------------
+
+# Initialize remote/sync server with node and socket.io (?)
+
+
+# PROJECTS
+# ----------------------------------------------------
+
+# Simple Projects
+# ------------------
 # Download my boilerplate repository on GitHub ✔
 # Prepare the environment ✔
 # Rename project name based on user input ✔
 # Initialize (remote) server ✔
-# Initialize server with node and socket.io (?)
 # Open project on Sublime Text ✔
 
 
-# Personal Projects - Using Jekyll or DocPad
-# ----------------------------------------------------
+# Jekyll Projects
+# ------------------
 # Download my jekyll-boilerplate repository on GitHub ✔
 # Prepare the environment
 # Rename project name based on user input
@@ -21,7 +29,12 @@
 # Open project on Sublime Text
 
 
-# App Projects - Using Yeoman Generators
-# ----------------------------------------------------
+# WordPress Projects
+# ------------------
+# Download my jekyll-boilerplate repository on GitHub ✔
+# Prepare the environment
+# Rename project name based on user input
+# Initialize (remote) server
+# Open project on Sublime Text
 
 # ====================================================

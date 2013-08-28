@@ -1,0 +1,55 @@
+# up to you (me) if you want to run this as a file or copy paste at your leisure
+
+# Shell Script for Initialize a new project (based on my needs)
+# run with alias "newproject"
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Let's start with some settings
+BOILERPLATES_DIRECTORY="${HOME}/.forcefiles/apps/boilerplates"
+
+
+# Then, we ask before continue...
+# 1 = simple project
+# 2 = jekyll project
+# 3 = wordpress project
+# 4 = exit
+
+clear
+figlet A New project will born...
+printf "\n"
+printf "You're about to start a new project. Please, select an option to getting started. \n"
+printf "\n"
+printf "[ 1 ] - Simple Project \n"
+printf "[ 2 ] - Jekyll Project \n"
+printf "[ 3 ] - WordPress Project \n"
+printf "[ 4 ] - Exit \n"
+printf "\n"
+read -p "Enter your choice: " input
+
+if [ $input = "1" ]; then
+    bash ${BOILERPLATES_DIRECTORY}/simple
+fi
+
+if [ $input = "2" ]; then
+    bash ${BOILERPLATES_DIRECTORY}/jekyll
+fi
+
+if [ $input = "3" ]; then
+    bash ${BOILERPLATES_DIRECTORY}/wordpress
+fi
+
+if [ $input = "4" ]; then
+    printf "Bye bye!"
+    exit
+fi
+
+
+# ====================================================
+#  TODO - WORK IN PROGRESS
+# ====================================================
+
+# script for simple project ✔
+# script for jekyll project ✔
+# script for wordpress project

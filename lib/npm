@@ -9,7 +9,7 @@ run_npm() {
         e_header "Installing NPM modules..."
 
         # List of npm packages
-        local packages="yo grunt-cli grunt-init bower nave express socket.io generator-generator mocha"
+        local packages="yo grunt-cli grunt-init bower nave express socket.io generator-generator mocha ungit"
 
         # Install packages globally and quietly
         npm install $packages -g

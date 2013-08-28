@@ -166,6 +166,7 @@ alias showhiddenfiles="defaults write com.apple.finder AppleShowAllFiles -bool t
 # | Development (based on my needs)                                            |
 # ------------------------------------------------------------------------------
 
+# Daily stuff
 alias subl='open -a "/Applications/Sublime Text 2.app"'
 alias chrome='open -a /Applications/Google\ Chrome.app --args --allow-file-access-from-files'
 alias mou='open -a "/Applications/Mou.app"'
@@ -176,15 +177,17 @@ alias fun="cd ~/Sites/@mylabs/repositories"
 alias dbox="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 
-# Shell Scripts
+# Environment
 alias theforce="bash ~/.forcefiles/bin/update"
-alias letsrock="bash ~/.forcefiles/bin/project"
 alias dothejob="bash ~/.forcefiles/bin/backup"
+alias newproject="bash ~/.forcefiles/apps/init"
 
 # Apache
-alias apr="sudo apachectl restart"
-alias ape="sudo nano -w /etc/apache2/httpd.conf"
-
+alias apstop="sudo apachectl restart"
+alias apstart="sudo apachectl restart"
+alias aprestart="sudo apachectl restart"
+alias apedit="sudo nano -w /etc/apache2/httpd.conf"
+alias apvhosts="sudo nano -w /etc/apache2/httpd-vhosts.conf"
 
 # ------------------------------------------------------------------------------
 # | Package Manager                                                            |

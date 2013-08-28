@@ -6,10 +6,9 @@
 #  TODO - WORK IN PROGRESS
 # ====================================================
 
-# Create a function that:
-#   Make a directory named "apps" on ~/
-#   Download apps with curl
-#   echo a message that will take a while... xD
+# Make a directory named "apps" on ~/ ✔
+# Show a message that will take a while... ✔
+# Download apps with curl
 
 
 run_apps() {
@@ -18,6 +17,10 @@ run_apps() {
     mkdir -p ~/.apps && cd ~/.apps
 
     # Getting Started
+    printf 'Installing apps...\n'
+    printf 'Seat back while we install your apps.\n'
+    printf '\n'
 
+    # curl apps at pointed folder
 
 }

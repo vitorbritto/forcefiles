@@ -1,3 +1,7 @@
+# Let's start with some settings
+LIBS_DIRECTORY="${HOME}/.forcefiles/lib"
+source ${LIBS_DIRECTORY}/utils
+
 run_simple() {
 
     BOILERPLATE_DIRECTORY="${HOME}/Sites/boilerplate"
@@ -68,8 +72,10 @@ run_simple() {
         fi
     }
 
-    # Let's rock!
-    rename_simple_project
-    run_simple_project
-    open_simple_project
 }
+
+# Let's rock!
+printf "Please, wait... "
+rename_simple_project
+run_simple_project
+open_simple_project

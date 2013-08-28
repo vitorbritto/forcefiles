@@ -1,3 +1,7 @@
+# Let's start with some settings
+LIBS_DIRECTORY="${HOME}/.forcefiles/lib"
+source ${LIBS_DIRECTORY}/utils
+
 run_jekyll() {
 
     BOILERPLATE_DIRECTORY="${HOME}/Sites/jekyll-boilerplate"
@@ -47,9 +51,10 @@ run_jekyll() {
         fi
     }
 
-    # Let's rock!
-    rename_jekyll_project
-    open_jekyll_project
-    run_jekyll_project
-
 }
+
+# Let's rock!
+printf "Please, wait... "
+rename_jekyll_project
+open_jekyll_project
+run_jekyll_project

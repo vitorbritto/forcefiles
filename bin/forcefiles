@@ -132,9 +132,9 @@ mirrorfiles() {
     link "bash/bash_profile"  ".bash_profile"
     link "bash/inputrc"       ".inputrc"
     link "bash/screenrc"      ".screenrc"
-    link "bash/hushlogin"     ".hushlogin"
     link "git/gitattributes"  ".gitattributes"
     link "git/gitignore"      ".gitignore"
+    link "git/ungitrc"        ".ungitrc"
     link "gem/gemrc"          ".gemrc"
 
     e_success "Forcefiles update complete!"

@@ -1,75 +1,82 @@
-run_wp() {
+printf "just a test... reading wordpress project... "
 
-    BOILERPLATE_DIRECTORY="${HOME}/Sites/wp-boilerplate"
-    BOILERPLATE_TARBALL_PATH="https://github.com/vitorbritto/wp-boilerplate/tarball/master"
-    BOILERPLATE_GIT_REMOTE="https://github.com/vitorbritto/wp-boilerplate"
+# Let's start with some settings
+LIBS_DIRECTORY="${HOME}/.forcefiles/lib"
+source ${LIBS_DIRECTORY}/utils
 
-    # If missing, download and extract the boilerplate repository
-    if [[ ! -d ${BOILERPLATE_DIRECTORY} ]]; then
-        printf "$(tput setaf 7)Downloading boilerplate...\033[m\n"
-        mkdir ${BOILERPLATE_DIRECTORY}
-        # Get the tarball
-        curl -fsSLo ${HOME}/wp-boilerplate.tar.gz ${BOILERPLATE_TARBALL_PATH}
-        # Extract to the boilerplate directory
-        tar -zxf ${HOME}/wp-boilerplate.tar.gz --strip-components 1 -C ${BOILERPLATE_DIRECTORY}
-        # Remove the tarball
-        rm -rf ${HOME}/wp-boilerplate.tar.gz
-    fi
+# run_wp() {
 
-    # Declare my local variables
-    local app=$@
+#     BOILERPLATE_DIRECTORY="${HOME}/Sites/wp-boilerplate"
+#     BOILERPLATE_TARBALL_PATH="https://github.com/vitorbritto/wp-boilerplate/tarball/master"
+#     BOILERPLATE_GIT_REMOTE="https://github.com/vitorbritto/wp-boilerplate"
 
-    # This guy will rename the project name for what I want
-    rename_wp_project() {
-        echo "Please enter a name for this project (e.g: my-new-project):"
-        read -a $app
-        mv -f -v wp-boilerplate $app && cd $app
-    }
+#     # If missing, download and extract the boilerplate repository
+#     if [[ ! -d ${BOILERPLATE_DIRECTORY} ]]; then
+#         printf "$(tput setaf 7)Downloading boilerplate...\033[m\n"
+#         mkdir ${BOILERPLATE_DIRECTORY}
+#         # Get the tarball
+#         curl -fsSLo ${HOME}/wp-boilerplate.tar.gz ${BOILERPLATE_TARBALL_PATH}
+#         # Extract to the boilerplate directory
+#         tar -zxf ${HOME}/wp-boilerplate.tar.gz --strip-components 1 -C ${BOILERPLATE_DIRECTORY}
+#         # Remove the tarball
+#         rm -rf ${HOME}/wp-boilerplate.tar.gz
+#     fi
 
-    # It will open my editor
-    open_wp_project() {
-        e_header "Opening your editor..."
-        subl .
-        [[ $? ]] && e_success "Done!"
-    }
+#     # Declare my local variables
+#     local app=$@
 
-    # And finally, we initialize the server (or remote server)
-    # BUT I'm still working on alternative method with node and socket.io
+#     # This guy will rename the project name for what I want
+#     rename_wp_project() {
+#         echo "Please enter a name for this project (e.g: my-new-project):"
+#         read -a $app
+#         mv -f -v wp-boilerplate $app && cd $app
+#     }
 
-    run_wp_project() {
+#     # It will open my editor
+#     open_wp_project() {
+#         e_header "Opening your editor..."
+#         subl .
+#         [[ $? ]] && e_success "Done!"
+#     }
 
-        # Ask for remote server
-        seek_confirmation "Do you want to run a remote server?"
+#     # And finally, we initialize the server (or remote server)
+#     # BUT I'm still working on alternative method with node and socket.io
 
-        if is_confirmed; then
+#     run_wp_project() {
 
-            seek_confirmation "Do you want to run cross-devices testing?"
+#         # Ask for remote server
+#         seek_confirmation "Do you want to run a remote server?"
 
-            if is_confirmed; then
-                # Using localtunnel for cross-devices testing
-                localtunnel -k ~/.ssh/id_rsa.pub 8080
-                localtunnel 8000
-                e_success "Done! Use the generated url to run your cross-devices testing."
+#         if is_confirmed; then
 
-                # Test using node + socket.io + express
-                # execute with node server.js
-            else
-                # Using PHP Web Server
-                e_header "Please, wait..."
-                php -S 0.0.0.0:8000
-                e_success "Remote server OK! Redirecting you..."
-                open "http://0.0.0.0:8000"
-            fi
+#             seek_confirmation "Do you want to run cross-devices testing?"
 
-        else
-            e_header "Starting local server..."
-            cd ~/Sites && php -S localhost:8000 -t ${app}/
-            open "http://localhost/${app}:8000"
-        fi
-    }
+#             if is_confirmed; then
+#                 # Using localtunnel for cross-devices testing
+#                 localtunnel -k ~/.ssh/id_rsa.pub 8080
+#                 localtunnel 8000
+#                 e_success "Done! Use the generated url to run your cross-devices testing."
 
-    # Let's rock!
-    rename_wp_project
-    run_wp_project
-    open_wp_project
-}
+#                 # Test using node + socket.io + express
+#                 # execute with node server.js
+#             else
+#                 # Using PHP Web Server
+#                 e_header "Please, wait..."
+#                 php -S 0.0.0.0:8000
+#                 e_success "Remote server OK! Redirecting you..."
+#                 open "http://0.0.0.0:8000"
+#             fi
+
+#         else
+#             e_header "Starting local server..."
+#             cd ~/Sites && php -S localhost:8000 -t ${app}/
+#             open "http://localhost/${app}:8000"
+#         fi
+#     }
+
+# }
+
+# # Let's rock!
+# rename_wp_project
+# run_wp_project
+# open_wp_project
