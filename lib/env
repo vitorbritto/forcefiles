@@ -29,6 +29,8 @@ run_env() {
     printf "-------------------------------------------------------------------------"
     printf "\n"
 
+    # Install MySQL and phpmyadmin
+
     # Create VHosts
 
     # Execute Vagrant VMs

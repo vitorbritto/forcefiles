@@ -103,6 +103,7 @@ if is_confirmed; then
 
     if is_confirmed; then
         run_gems
+        localtunnel -k ~/.ssh/id_rsa.pub 8080 # Need to run this to point to a public SSH key
         e_success "Done!"
     else
         printf "Skipped!\n"

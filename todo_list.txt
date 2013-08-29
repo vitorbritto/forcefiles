@@ -5,11 +5,25 @@
 # GENERAL
 # ----------------------------------------------------
 
-# Initialize remote/sync server with node and socket.io (?)
+# Initialize sync remote server (php webserver, ruby/gem/localtunnel, pow/powder/powify, ssh, node/socket.io/proxy )
+# Sync cross-device tests
+# Finish projects skeletons
 
 
-# PROJECTS
+# BOILERPLATES
 # ----------------------------------------------------
+
+
+# Project Types
+# ------------------
+# Simple
+# cakePHP
+# WordPress
+# Backbone
+# Jekyll
+# DocPad
+# Rails
+
 
 # Simple Projects
 # ------------------
@@ -36,5 +50,3 @@
 # Rename project name based on user input
 # Initialize (remote) server
 # Open project on Sublime Text
-
-# ====================================================

@@ -23,9 +23,11 @@ run_gems() {
             'rails'
             'sass'
             'compass'
-            'haml' # My favorited template engine for rubies projects
-            'jekyll' # Used for personal projects
-            'localtunnel' # Used for remote servers
+            'haml'
+            'jekyll'
+            'localtunnel'
+            'middleman'
+            'sinatra'
         )
 
         for index in ${!desired_gems[*]}

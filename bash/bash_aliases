@@ -180,7 +180,7 @@ alias dl="cd ~/Downloads"
 # Environment
 alias theforce="bash ~/.forcefiles/bin/update"
 alias dothejob="bash ~/.forcefiles/bin/backup"
-alias newproject="bash ~/.forcefiles/apps/init"
+alias newproject="bash ~/.forcefiles/build/init"
 
 # Apache
 alias apstop="sudo apachectl restart"
