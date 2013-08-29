@@ -5,7 +5,6 @@
 # | Main                                                                       |
 # ------------------------------------------------------------------------------
 
-
 # Navigation
 # -------------------
 
@@ -26,7 +25,6 @@ alias localip="ipconfig getifaddr en1"
 
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
-
 
 # Shorctus
 # -------------------
@@ -101,7 +99,6 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
     alias "$method"="lwp-request -m '$method'"
 done
 
-
 # Lists
 # -------------------
 
@@ -173,7 +170,8 @@ alias mou='open -a "/Applications/Mou.app"'
 alias o="open "
 alias sites="cd ~/Sites"
 alias mylabs="cd ~/Sites/@mylabs"
-alias fun="cd ~/Sites/@mylabs/repositories"
+alias dev="cd ~/Sites/@dev"
+alias repos="cd ~/Sites/@mylabs/repositories"
 alias dbox="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 
@@ -188,6 +186,7 @@ alias apstart="sudo apachectl restart"
 alias aprestart="sudo apachectl restart"
 alias apedit="sudo nano -w /etc/apache2/httpd.conf"
 alias apvhosts="sudo nano -w /etc/apache2/httpd-vhosts.conf"
+
 
 # ------------------------------------------------------------------------------
 # | Package Manager                                                            |
@@ -255,7 +254,6 @@ alias brewup="brew update &&  \
 alias update="sudo softwareupdate --install --all && \
               brewu && \
               npmu"
-
 
 
 # ------------------------------------------------------------------------------

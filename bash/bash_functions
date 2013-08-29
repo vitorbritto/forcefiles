@@ -5,7 +5,6 @@
 # General
 # -------------------
 
-
 # Adds an alias to the current shell and to bash_aliases file.
 # Borrowed from Mislav (http://github.com/mislav/dotfiles/tree/master/bash_aliases)
 add-alias() {
