@@ -10,13 +10,26 @@ cat <<EOT
 OS X dotfiles - Vitor Britto - http://www.vitorbritto.com.br
 ------------------------------------------------------------------------------
 
-Softwares to install
---------------------
+Applications to install
+------------------------
 
 Browsers:
     Firefox Aurora
     Google Chrome
+    Google Chrome Canary
     Opera Next
+
+Chrome Extensions:
+    Adobe Edge Inspect
+    Axure RP
+    Google Docs
+    TabCloud
+    Web Developer
+    Web Developer Checklist
+    YSlow
+    Grunt DevTools
+    PageSpeed Insights
+    Chrome Remote Desktop
 
 Development:
     Mou
@@ -24,10 +37,9 @@ Development:
     SourceTree
     Axure RP
     MySQL Workbench
-    VirtualBox
-    Vagrant
+    VirtualBox (w/ Vagrant)
 
-Other:
+Others:
     Sparrow
     Alfred
     Dropbox
@@ -38,7 +50,7 @@ Other:
 
 
 Packages to install
---------------------
+------------------------
 
 Rvm:
     Ruby - 1.9.3
@@ -53,18 +65,16 @@ Gems:
     Localtunnel
     MiddleMan
 
-NPMs:
+NPM:
     grunt-cli
     bower
     yo
     grunt-init
     generator-generator
     nave
-    express
-    socket.io
-    mocha
     ungit
     docpad
+
 
 ------------------------------------------------------------------------------
 

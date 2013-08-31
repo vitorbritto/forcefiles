@@ -12,7 +12,7 @@ I realized I could split my dotfiles, automation files, bash aliases, editor set
 
 **But why a repository?** It's quite simple! Even if someday or somewhere I need it, it'll be there. So I can check, pick some part or download it for my recently formated system.
 
-> Notice: I am running on Mac OS X. These are config files to set up a system the way I like it.
+> Notice: I am running on Mac OS X. These are my config files to set up a system the way I like it.
 
 # How to install
 

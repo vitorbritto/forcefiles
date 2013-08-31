@@ -22,6 +22,7 @@ run_gems() {
         local -a desired_gems=(
             'rails'
             'sass'
+            'sass --pre'
             'compass'
             'haml'
             'jekyll'
