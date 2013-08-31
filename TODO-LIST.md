@@ -9,7 +9,7 @@
 
 ## REVIEWS AND TESTS
 
-### NPM MODULES
+### NPM modules
 
 * legacy
 * nanodoc
@@ -26,8 +26,7 @@
 * remote_js
 * adhoc
 
-
-### YEOMAN GENERATORS
+### Yeoman Generators
 
 * generator-general
 * generator-backbone
@@ -52,7 +51,6 @@
 * generator-travis-ci
 * generator-webapp
 * generator-yo-wordpress
-
 
 
 ## BOILERPLATES/SKELETONS
