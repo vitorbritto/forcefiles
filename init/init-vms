@@ -1,0 +1,25 @@
+# up to you (me) if you want to run this as a file or copy paste at your leisure
+
+# Install Virtual Machines - Cross-browser Testing
+# run with alias "installvms"
+
+
+# Ask for the administrator password upfront
+sudo -v
+
+# IMPORTANT: Make sure you update the `DEST` variable to match the name of the
+# destination backup drive
+
+DEST="/Volumes/WORK/.vms/"
+
+
+# Don't have cURL or want to learn more, visit http://curl.haxx.se/
+
+# IE8 - Windows 7
+curl -O "https://az412801.vo.msecnd.net/vhd/IEKitV1_Final/VirtualBox/OSX/IE8_Win7/IE8.Win7.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar,5.rar,6.rar}"
+
+# IE9 - Windows 7
+curl -O "https://az412801.vo.msecnd.net/vhd/IEKitV1_Final/VirtualBox/OSX/IE9_Win7/IE9.Win7.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar,5.rar}"
+
+# IE10 - Windows 7
+curl -O "https://az412801.vo.msecnd.net/vhd/IEKitV1_Final/VirtualBox/OSX/IE10_Win7/IE10.Win7.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar}"

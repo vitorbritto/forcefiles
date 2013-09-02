@@ -16,6 +16,8 @@ The show must go on... :)
     * WI-FI connection
 * Finish projects boilerplates
 * Setup Vagrant, VMs and SSH
+* Download VMs for IE7/8/9/10 on WIN7
+* Add Chrome DevTools Theme (Monokai)
 * Config some deploy options (sftp, ftp, rsync, lftp) - With Grunt or Bash aliases? Both? When?
 * Create script for my favorite apps installation
 * Checklist and Test AGAIN! =D

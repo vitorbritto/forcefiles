@@ -158,6 +158,9 @@ alias showdesktopicons="defaults write com.apple.finder CreateDesktop -bool true
 alias hidehiddenfiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 alias showhiddenfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 
+# Shutdown the System
+alias shutdown="shutdown -h now"
+
 
 # ------------------------------------------------------------------------------
 # | Development (based on my needs)                                            |
@@ -174,17 +177,18 @@ alias repos="cd ~/Sites/@mylabs/repositories"
 alias dbox="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 
-# Environment
-alias theforce="bash ~/.forcefiles/bin/update"
-alias dothejob="bash ~/.forcefiles/bin/backup"
-alias newproject="bash ~/.forcefiles/build/init"
-
 # Apache
 alias apstop="sudo apachectl restart"
 alias apstart="sudo apachectl restart"
 alias aprestart="sudo apachectl restart"
 alias apedit="sudo nano -w /etc/apache2/httpd.conf"
 alias apvhosts="sudo nano -w /etc/apache2/httpd-vhosts.conf"
+
+# Environment
+alias theforce="bash ~/.forcefiles/bin/update"
+alias dothejob="bash ~/.forcefiles/bin/backup"
+alias newproject="bash ~/.forcefiles/init/boilerplate"
+alias installvms="bash ~/.forcefiles/init/virtual"
 
 
 # ------------------------------------------------------------------------------
