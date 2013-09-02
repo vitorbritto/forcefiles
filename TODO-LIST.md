@@ -1,13 +1,26 @@
-# TODO - WORK IN PROGRESS
+# TODO LIST
 
+The show must go on... :)
 
 ## GENERAL
 
-* Initialize sync remote server (php webserver, ruby/gem/localtunnel, pow/powder/powify, ssh, node/socket.io/proxy )
-* Sync cross-device tests
-* Finish projects skeletons
+* Choose the best option to initialize a remote server w/ sync
+    * Php Web Server (v5.4)
+    * Localtunnel (rubyGem)
+    * Pow / Powder / Powify
+    * Node / Socket.io /
+* Tests with sync cross-device
+    * Node
+    * Socket.io
+    * Proxy
+    * WI-FI connection
+* Finish projects boilerplates
+* Setup Vagrant, VMs and SSH
+* Config some deploy options (sftp, ftp, rsync, lftp) - With Grunt or Bash aliases? Both? When?
+* Create script for my favorite apps installation
+* Checklist and Test AGAIN! =D
 
-## REVIEWS AND TESTS
+## REVIEWS / TESTS
 
 ### NPM modules
 
@@ -33,7 +46,6 @@
 * generator-docpad
 * generator-node
 * generator-jekyll
-* generator-
 * generator-bespoke
 * generator-bower
 * generator-cakephp
@@ -53,30 +65,30 @@
 * generator-yo-wordpress
 
 
-## BOILERPLATES/SKELETONS
+## BOILERPLATES
 
 ### Project Types
 
-* General Project ✔
+* General Project
 * WordPress Project
 * cakePHP Project
 * Node Project
 * Backbone Project
-* Jekyll Project ✔
+* Jekyll Project
 * DocPad Project
 * Rails Project
 * Sinatra Project
 
-### General Projects
+#### General Projects
 
 * Download boilerplate repository on GitHub ✔
 * Prepare the environment ✔
 * Rename project name based on user input ✔
-* Initialize (remote) server ✔
+* Initialize (remote) server
 * Install NPM packages
 * Open project on Sublime Text ✔
 
-### Backbone Projects
+#### Backbone Projects
 
 * Download boilerplate repository on GitHub
 * Prepare the environment
@@ -84,7 +96,7 @@
 * Install NPM packages (express, socket.io, mongoose, mocha)
 * Open project on Sublime Text
 
-# Node Projects
+#### Node Projects
 
 * Download boilerplate repository on GitHub
 * Prepare the environment
@@ -92,7 +104,7 @@
 * Install NPM packages (express, socket.io, mongoose, mocha)
 * Open project on Sublime Text
 
-# Jekyll Projects
+#### Jekyll Projects
 
 * Download boilerplate repository on GitHub ✔
 * Prepare the environment
@@ -100,7 +112,7 @@
 * Initialize Jekyll server / grunt task
 * Open project on Sublime Text
 
-# WordPress Projects
+#### WordPress Projects
 
 * Download my jekyll-boilerplate repository on GitHub ✔
 * Prepare the environment

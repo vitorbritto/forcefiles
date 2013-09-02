@@ -41,39 +41,39 @@ config_html_project() {
 # And finally, we initialize the server (or remote server)
 # BUT I'm still working on alternative method with node and socket.io
 
-server_html_project() {
+# server_html_project() {
 
-    # Ask for remote server
-    seek_confirmation "Do you want to run a remote server?"
+#     # Ask for remote server
+#     seek_confirmation "Do you want to run a remote server?"
 
-    if is_confirmed; then
+#     if is_confirmed; then
 
-        seek_confirmation "Do you want to run cross-devices testing?"
+#         seek_confirmation "Do you want to run cross-devices testing?"
 
-        if is_confirmed; then
-            # Using localtunnel for cross-devices testing
-            localtunnel -k ~/.ssh/id_rsa.pub 8080
-            localtunnel 8000
-            e_success "Done! Use the generated url to run your cross-devices testing."
+#         if is_confirmed; then
+#             # Using localtunnel for cross-devices testing
+#             localtunnel -k ~/.ssh/id_rsa.pub 8080
+#             localtunnel 8000
+#             e_success "Done! Use the generated url to run your cross-devices testing."
 
-            # Test using node + socket.io + express
-            # execute with node server.js
-        else
-            # Using PHP Web Server
-            e_header "Please, wait..."
-            php -S 0.0.0.0:8000
-            e_success "Remote server OK! Redirecting you..."
-            open "http://0.0.0.0:8000"
-        fi
+#             # Test using node + socket.io + express
+#             # execute with node server.js
+#         else
+#             # Using PHP Web Server
+#             e_header "Please, wait..."
+#             php -S 0.0.0.0:8000
+#             e_success "Remote server OK! Redirecting you..."
+#             open "http://0.0.0.0:8000"
+#         fi
 
-    else
-        e_header "Starting local server..."
-        cd ~/Sites && php -S localhost:8000 -t ${app}/
-        open "http://localhost/${app}:8000"
-    fi
-}
+#     else
+#         e_header "Starting local server..."
+#         cd ~/Sites && php -S localhost:8000 -t ${app}/
+#         open "http://localhost/${app}:8000"
+#     fi
+# }
 
 # Let's rock!
 printf "Please, wait... "
 config_html_project
-server_html_project
+# server_html_project

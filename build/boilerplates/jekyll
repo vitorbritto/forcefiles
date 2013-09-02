@@ -36,7 +36,7 @@ server_jekyll_project() {
     # Ask for remote server
     seek_confirmation "Do you want to watch for file changes?"
     if is_confirmed; then
-        e_header "Starting server..."
+        e_header "Starting server and watching for changes..."
         jekyll server --watch
     else
         e_header "Starting server..."
