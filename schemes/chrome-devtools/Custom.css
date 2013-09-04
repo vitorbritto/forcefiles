@@ -1,0 +1,616 @@
+/*
+
+Chrome Developer Tools - Monokai Color Theme
+Author: Béres Máté Csaba / bjmatt.com / @bjmatt / beres.mate@bjmatt.com
+-----------------------------------------------------------------------------------------------------------
+
+Installation:
+
+1. Find your Chrome's user stylesheets directory:
+
+   Mac: ~/Library/Application Support/Google/Chrome/Default/User StyleSheets/
+   Windows: C:\Users\**Your Username**\AppData\Local\Google\Chrome\User Data\Default\User StyleSheets\
+   Ubuntu (Chromium): ~/.config/chromium/Default/User StyleSheets/
+
+2. Replace the existing "Custom.css" file with this one
+
+3. No restart needed, changes are applied immediately
+-----------------------------------------------------------------------------------------------------------
+
+Inspired by:
+
+Monokai color scheme (slightly modified)
+
+Ben Truyman's IR_Black Skin:
+https://gist.github.com/1150520
+
+Darcy Clarke:
+http://darcyclarke.me/design/skin-your-chrome-inspector
+----------------------------------------------------------------------------------------------------------*/
+
+#-webkit-web-inspector {
+  background-color: #272822 !important;
+}
+
+
+/* GENERIC TYPO, COLORS, SIDEBAR
+----------------------------------------------------------------------------------------------------------*/
+
+#-webkit-web-inspector .styles-section,
+#-webkit-web-inspector #main-panels .script-view,
+#-webkit-web-inspector #main-panels .source-code,
+#-webkit-web-inspector #main-panels .text-editor-contents {
+  background-color: #272822 !important;
+  font-size: 15px !important;
+  line-height: 18px !important;
+  tab-size: 2 !important;
+  font-family: "Bitstream Vera Sans Mono", monospace !important;
+}
+
+#-webkit-web-inspector .monospace,
+#-webkit-web-inspector .source-code {
+  color: rgba(193, 193, 193, 1);
+  font-size: 15px !important;
+  font-family: "Bitstream Vera Sans Mono", monospace !important;
+}
+
+#-webkit-web-inspector #main-panels .resource-headers-view .source-code {
+  font-size: 13px !important;
+  line-height: 14px !important;
+}
+
+#-webkit-web-inspector .status-bar {
+  background: -webkit-linear-gradient(#505050,#383838) !important;
+  border-top: 1px solid #222 !important;
+  border-bottom: 1px solid #222 !important;
+  border-color: #222 !important;
+  box-shadow: inset 0 1px 0 #6E6E6E, 0 2px 2px rgba(0, 0, 0, 0.4), 0 -2px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+#-webkit-web-inspector #main-status-bar {
+  height: 24px !important;
+  border-bottom-width: 0 !important;
+}
+
+#-webkit-web-inspector .long-click-glyph {
+  display: none !important;
+}
+
+#-webkit-web-inspector .status-bar li,
+#-webkit-web-inspector .status-bar span,
+#-webkit-web-inspector .status-bar select {
+  color: #F8F8F8 !important;
+  font-weight: normal !important;
+  text-shadow: none !important;
+}
+
+#-webkit-web-inspector .status-bar button.status-bar-item {
+  border-left-color: #333 !important;
+  border-right-color: #333 !important;
+}
+
+#-webkit-web-inspector .status-bar .crumbs {
+  text-shadow: none !important;
+  color: #f8f8f8 !important;
+}
+
+#-webkit-web-inspector .status-bar-items {
+  border: 0 none !important;
+}
+
+#-webkit-web-inspector .status-bar-select-container,
+#-webkit-web-inspector .status-bar-select-container select {
+  border: 0 none !important;
+}
+
+#-webkit-web-inspector .status-bar .crumbs .crumb {
+  -webkit-border-image: none !important;
+  text-shadow: none !important;
+  padding: 0 14px !important;
+}
+
+#-webkit-web-inspector .status-bar .crumbs .crumb.selected {
+  background-color: rgba(0,0,0,0.4) !important;
+}
+
+#-webkit-web-inspector #toolbar {
+  background: -webkit-linear-gradient(#505050,#383838) !important;
+  border-top: 1px solid #222 !important;
+  border-bottom: 1px solid #222 !important;
+  box-shadow: inset 0 1px 0 #6E6E6E, 0 2px 2px rgba(0, 0, 0, 0.4), 0 -2px 2px rgba(0, 0, 0, 0.4) !important;
+  height: auto !important;
+}
+
+#-webkit-web-inspector .toolbar-label {
+  color: #999 !important;
+  position: relative !important;
+  top: 0px !important;
+}
+
+#-webkit-web-inspector #toolbar > button {
+  box-shadow: none !important;
+  border: 0 none !important;
+  line-height: 22px !important;
+  padding: 4px 14px 6px !important;
+  cursor: pointer !important;
+}
+
+#-webkit-web-inspector button:hover,
+#-webkit-web-inspector .toolbar-item.toggleable.toggled-on {
+  background-color: rgba(0,0,0,0.4) !important;
+}
+
+#-webkit-web-inspector #toolbar .toolbar-item {
+  height: 32px !important;
+}
+
+button.status-bar-item.toggled-on .glyph {
+  background-color: yellow !important;
+}
+
+#-webkit-web-inspector #toolbar > button:hover .toolbar-label,
+#-webkit-web-inspector .toolbar-item.toggleable.toggled-on .toolbar-label {
+  color: #f8f8f8 !important;
+}
+
+#-webkit-web-inspector #toolbar > div:first-child {
+  display: block !important;
+}
+
+#-webkit-web-inspector #close-button-left,
+#-webkit-web-inspector #close-button-right {
+  position: relative;
+  top: 9px;
+}
+
+#-webkit-web-inspector #main {
+  top: 34px !important;
+}
+
+#-webkit-web-inspector .pane > .title {
+  line-height: 12px !important;
+}
+
+#-webkit-web-inspector .split-view-sidebar-right {
+  border-left: 1px solid #444444 !important;
+  background: #272822 !important;
+}
+
+#-webkit-web-inspector .styles-section:not(.first-styles-section) {
+  border-top: 1px solid #444444 !important;
+}
+
+#-webkit-web-inspector .pane > .title,
+#-webkit-web-inspector .split-view-sidebar-right .pane .sidebar-separator {
+  background-image: -webkit-linear-gradient(#505050,#383838) !important;
+  padding: 2px 5px !important;
+  border-top: 1px solid #636363 !important;
+  border-bottom: 1px solid rgba(0,0,0,0.3) !important;
+  color: #eee !important;
+  text-shadow: #222 0 1px 0 !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  font-size: 11px !important;
+}
+
+#-webkit-web-inspector .pane > .title > .pane-title-button,
+#-webkit-web-inspector .pane > .title > select.select-settings {
+  position: relative;
+  top: -3px;
+}
+
+/* ELEMENTS
+----------------------------------------------------------------------------------------------------------*/
+#storage-views .webkit-html-comment,
+#elements-content .webkit-html-comment,
+#network-views .webkit-html-comment,
+.resources .script-view .webkit-html-comment,
+#storage-views .webkit-css-comment,
+#elements-content .webkit-css-comment,
+#network-views .webkit-css-comment,
+.resources .script-view .webkit-css-comment,
+.console-message .webkit-css-comment,
+.console-message .webkit-html-comment {
+  color: #75715e !important;
+}
+
+#storage-views .webkit-html-tag,
+#elements-content .webkit-html-tag,
+#network-views .webkit-html-tag,
+.resources .script-view .webkit-html-tag,
+.console-message .webkit-html-tag,
+ .console-message .webkit-html-tag-name {
+  color: #f92672 !important;
+}
+
+#storage-views .webkit-html-attribute-name,
+#elements-content .webkit-html-attribute-name,
+#network-views .webkit-html-attribute-name,
+.resources .script-view .webkit-html-attribute-name,
+.console-message .webkit-html-attribute-name {
+  color: #a6e22e !important;
+}
+
+#storage-views .webkit-html-attribute-value,
+#elements-content .webkit-html-attribute-value,
+#network-views .webkit-html-attribute-value,
+.resources .script-view .webkit-html-attribute-value,
+.console-message .webkit-html-attribute-value {
+  color: #e6db74 !important;
+}
+
+#storage-views .webkit-html-text-node,
+#elements-content .webkit-html-text-node,
+#network-views .webkit-html-text-node,
+.resources .script-view .webkit-html-text-node,
+#storage-views .webkit-html-css-node,
+#elements-content .webkit-html-css-node,
+#network-views .webkit-html-css-node,
+.resources .script-view .webkit-html-css-node,
+.console-message .webkit-html-text-node {
+  color: #c1c1c1 !important;
+}
+
+#storage-views .webkit-html-js-node,
+#elements-content .webkit-html-js-node,
+#network-views .webkit-html-js-node,
+.resources .script-view .webkit-html-js-node {
+  color: #c2c3c3 !important;
+}
+
+#storage-views .webkit-html-resource-link,
+#elements-content .webkit-html-resource-link,
+#network-views .webkit-html-resource-link,
+.resources .script-view .webkit-html-resource-link,
+#storage-views .webkit-html-external-link,
+#elements-content .webkit-html-external-link,
+#network-views .webkit-html-external-link,
+.resources .script-view .webkit-html-external-link,
+.console-message .webkit-html-external-link {
+  color: #a6e22e !important;
+}
+
+#storage-views .webkit-css-selector,
+#elements-content .webkit-css-selector,
+#network-views .webkit-css-selector,
+.resources .script-view .webkit-css-selector {
+  color: #a6e22e !important;
+}
+
+#storage-views .webkit-css-property,
+#elements-content .webkit-css-property,
+#network-views .webkit-css-property,
+.resources .script-view .webkit-css-property,
+#storage-views .webkit-css-at-rule,
+#elements-content .webkit-css-at-rule,
+#network-views .webkit-css-at-rule,
+.resources .script-view .webkit-css-at-rule {
+  color: #66d9ef !important;
+}
+
+#storage-views .webkit-css-number,
+#elements-content .webkit-css-number,
+#network-views .webkit-css-number,
+.resources .script-view .webkit-css-number,
+
+#storage-views .webkit-css-url,
+#elements-content .webkit-css-url,
+#network-views .webkit-css-url,
+.resources .script-view .webkit-css-url,
+
+#storage-views .webkit-css-color,
+#elements-content .webkit-css-color,
+#network-views .webkit-css-color,
+.resources .script-view .webkit-css-color,
+
+#storage-views .webkit-css-string,
+#elements-content .webkit-css-string,
+#network-views .webkit-css-string,
+.resources .script-view .webkit-css-string,
+
+#storage-views .webkit-css-keyword,
+#elements-content .webkit-css-keyword,
+#network-views .webkit-css-keyword,
+.resources .script-view .webkit-css-keyword {
+  color: #f92672 !important;
+}
+
+#elements-content .highlight {
+  color: #f1f1f1;
+}
+
+#elements-content li.hovered:not(.selected) .selection {
+  background: rgba(255, 255, 255, .2) !important;
+}
+
+#elements-content .selection.selected {
+
+}
+
+#elements-content ol:focus li.selected .selection {
+  background: #3f4360 !important;
+}
+
+#elements-content .selected .highlight {
+
+}
+
+#elements-content .selected {
+  background-color: rgba(255, 255, 255, 0.07) !important;
+  border-left: 5px solid #f8f8f8;
+  border-right: 10px solid yellow;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  padding-right: 10px !important;
+  left: -5px !important;
+  position: relative;
+}
+
+#elements-content .editing {
+  background-color: #242424 !important;
+  color: #c1c1c1 !important;
+}
+
+#elements-content .parent::before {
+  content: url(chrome-devtools://devtools/Images/treeRightTriangleWhite.png) !important;
+  position: relative;
+  z-index: 999;
+}
+
+#elements-content .parent.expanded::before {
+  content: url(chrome-devtools://devtools/Images/treeDownTriangleWhite.png) !important;
+}
+
+.styles-element-state-pane > table td {
+  color: #aaa;
+}
+
+/* SCRIPTS
+----------------------------------------------------------------------------------------------------------*/
+#-webkit-web-inspector #main-panels .webkit-line-content {
+  padding-left: 4px;
+}
+
+#-webkit-web-inspector #main-panels .text-editor-contents,
+#-webkit-web-inspector #main-panels .text-editor-contents,
+#-webkit-web-inspector #main-panels .text-editor-contents,
+#-webkit-web-inspector #main-panels .text-editor-contents,
+#-webkit-web-inspector #main-panels .webkit-css-selector {
+  color: #c1c1c1 !important;
+}
+
+#-webkit-web-inspector #main-panels .text-editor-lines {
+  background-color: #272822 !important;
+  border-right: none !important;
+}
+
+#-webkit-web-inspector #main-panels .text-editor-contents {
+  color: #c1c1c1 !important;
+}
+
+#-webkit-web-inspector #main-panels .webkit-javascript-keyword {
+  color: #66d9ef !important;
+}
+
+#-webkit-web-inspector #main-panels .webkit-javascript-string,
+#-webkit-web-inspector #main-panels .webkit-javascript-regexp {
+  color: #e6db74 !important;
+}
+
+#-webkit-web-inspector #main-panels .webkit-javascript-number {
+  color: #ae81ff !important;
+}
+
+#-webkit-web-inspector #main-panels .webkit-javascript-ident {
+  color: #c1c1c1 !important;
+}
+
+#-webkit-web-inspector #main-panels .webkit-javascript-comment {
+  color: #75715E !important;
+}
+
+#-webkit-web-inspector .webkit-execution-line.webkit-line-content {
+  background-color: #3d3d3d !important;
+  outline: 1px solid #535353 !important;
+}
+
+/* CONSOLE
+----------------------------------------------------------------------------------------------------------*/
+#console-prompt {
+  color: #c1c1c1 !important;
+  font-size: 13px !important;
+}
+
+#console-messages .monospace,
+#console-messages .source-code {
+  font-size: 13px !important;
+}
+
+#console-message {
+  font-size: 13px !important;
+}
+
+#console-prompt::before {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjRGNTc2MTZDMTA2MTFFMDgwRUZGQ0JCMjgzMzU0MTYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjRGNTc2MTdDMTA2MTFFMDgwRUZGQ0JCMjgzMzU0MTYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5MzM3N0Y2MUMxMDUxMUUwODBFRkZDQkIyODMzNTQxNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5MzM3N0Y2MkMxMDUxMUUwODBFRkZDQkIyODMzNTQxNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Plf0eOsAAAB4SURBVHjaYvz//z8DMYAFxph+BqyhA8qtQFaUacKIUAgFLkBsDMSCUMXvYRJMaApdgfgsEKcB8W6oJqwK30MVr4YqOgPEodgUgoASkkkgjfewKSyHmqIEdYIJlEZR6ILk606oonsYwQMEe6A+PQtlowBGYgMcIMAAF2wcFPVNZx8AAAAASUVORK5CYII=) !important;
+  color: #c1c1c1 !important;
+}
+
+#console-messages {
+  background: #272822;
+}
+
+#console-messages a {
+  color: #666 !important;
+}
+
+#console-messages a:hover {
+  color: #999 !important;
+}
+
+#console-messages .console-message {
+  color: #f1f1f1 !important;
+}
+
+#console-messages .console-message, .console-user-command {
+  border-bottom: 1px solid #333 !important;
+}
+
+#console-messages .console-user-command > .console-message-text {
+  color: #ffd2a7 !important;
+}
+
+#console-messages .console-formatted-number {
+  color: #ff73fd !important;
+}
+
+#console-messages .console-formatted-string {
+  color: #a8ff60 !important;
+}
+
+#console-messages .console-formatted-object {
+  color: #bbb !important;
+}
+
+#console-messages .console-formatted-undefined {
+  color: #666 !important;
+}
+
+#console-messages .console-formatted-function {
+  color: #bbb !important;
+}
+
+#console-messages .console-formatted-regexp {
+  color: #e9c062 !important;
+}
+
+#console-messages .console-formatted-array {
+  color: #a8ff60 !important;
+}
+
+.console-message-text {
+}
+
+.console-message-text.source-code {
+  color: #c1c1c1 !important;
+}
+
+#console-messages .console-formatted-object,
+#console-messages .console-formatted-function,
+#console-messages .console-formatted-null,
+#console-messages .console-formatted-node {
+  color: #a8ff60 !important;
+}
+
+#console-messages .console-group-messages .section .header .title {
+  color: #f1f1f1 !important;
+}
+
+#console-messages .section .properties .name, .event-properties .name {
+  color: #96cbfe !important;
+}
+
+#console-messages .console-group-messages .section .header::before,
+#console-messages .properties-tree li.parent::before {
+  content: url(chrome-devtools://devtools/Images/treeRightTriangleWhite.png) !important;
+}
+
+#console-messages .console-group-messages .section.expanded .header::before,
+#console-messages .properties-tree li.parent.expanded::before {
+  content: url(chrome-devtools://devtools/Images/treeDownTriangleWhite.png) !important;
+}
+
+.console-message .outline-disclosure li.parent::before {
+  content: url(chrome-devtools://devtools/Images/treeRightTriangleWhite.png) !important;
+}
+
+.console-message .outline-disclosure li.parent.expanded::before {
+  content: url(chrome-devtools://devtools/Images/treeDownTriangleWhite.png) !important;
+}
+
+@-webkit-keyframes webkit-error-level {
+  0%   { color: #f77; !important }
+  50%  { color: #f00; !important }
+  100% { color: #f77; !important }
+}
+
+#console-messages .console-error-level .console-message-text {
+  color: #f66 !important;
+  -webkit-animation-name: webkit-error-level;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-timing-function: ease-in-out;
+}
+
+#console-messages .console-user-command::before {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OTMzNzdGNUZDMTA1MTFFMDgwRUZGQ0JCMjgzMzU0MTYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OTMzNzdGNjBDMTA1MTFFMDgwRUZGQ0JCMjgzMzU0MTYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5MzM3N0Y1REMxMDUxMUUwODBFRkZDQkIyODMzNTQxNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5MzM3N0Y1RUMxMDUxMUUwODBFRkZDQkIyODMzNTQxNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pia6udAAAAB5SURBVHjaYvz//z8DMYAFxli9ejWI6oByK5AVhYaGIhRCgQsQGwOxIFTxe5gEE5pCVyA+C8RpQLwbqgmrwvdQxauhis6AbMamEASUkEwCabyHTWE51BQlqBNMoDSKQhckX3dCFd3DCB4g2AP16VkoGwUwEhvgAAEGAAzQHBRSxqPRAAAAAElFTkSuQmCC) !important;
+}
+
+/* SOURCES - CSS
+----------------------------------------------------------------------------------------------------------*/
+#scripts-split-view .webkit-css-property {
+  color: #a6e22e !important;
+}
+
+#scripts-split-view .webkit-css-number,
+#scripts-split-view .webkit-css-keyword,
+#scripts-split-view .webkit-css-color {
+  color: #dd2277 !important;
+}
+
+#scripts-split-view .webkit-css-comment {
+  color: grey !important;
+}
+
+.styles-element-state-pane {
+  margin-top: -44px !important;
+}
+
+.styles-element-state-pane.expanded {
+  margin-top: 0 !important;
+}
+
+.styles-section .header .title,
+.styles-section .header .title span,
+.styles-section ol + div,
+.styles-section .selector-matches {
+  color: rgba(230, 219, 116, 1) !important;
+}
+
+.styles-section span.value {
+  color: rgba(193, 193, 193, 1) !important;
+}
+
+.styles-section .webkit-css-property,
+.styles-section .webkit-css-at-rule {
+  color: rgba(166, 226, 46, 1) !important;
+}
+
+.styles-section .properties li.child-editing {
+  background: rgba(255, 255, 255, 0.1);
+  border-right: 10px solid yellow;
+  border-left: 5px solid #f8f8f8;
+}
+
+.styles-section .properties li.child-editing span {
+  background: transparent !important;
+}
+
+#-webkit-web-inspector #error-warning-count {
+  margin-right: 10px;
+}
+
+#-webkit-web-inspector .section .header {
+  color: rgba(102, 217, 239, 1) !important;
+}
+
+#-webkit-web-inspector .section .properties .name,
+#-webkit-web-inspector .event-properties .name,
+#-webkit-web-inspector .console-formatted-object .name {
+  color: rgba(249, 38, 114, 1) !important;
+}
+
+#-webkit-web-inspector .event-bars .event-bar .header .title {
+  color: #fff !important;
+  text-shadow: none !important;
+}
