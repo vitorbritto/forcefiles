@@ -7,8 +7,9 @@
 # ====================================================
 
 # Upgrade PHP version ✔
-# Create VHosts (?)
-# Execute Vagrant VMs (?)
+# Download/Install MySQL and phpmyadmin
+# Create VHosts
+# Download/Install Vagrant and VMs
 
 
 run_env() {
@@ -24,15 +25,30 @@ run_env() {
     printf "IMPORTANT NOTE\n"
     printf "Remember to change the path in your httpd.conf\n"
     printf "1. Execute: sudo nano -w /etc/apache2/httpd.conf\n"
-    printf "2. Uncomment this line:\n"
+    printf "2. Uncomment the line bellow:\n"
     printf "#LoadModule php5_module libexec/apache2/libphp5.so\n"
     printf "-------------------------------------------------------------------------"
     printf "\n"
 
+
     # Install MySQL and phpmyadmin
+    # -------------------------------------
+    # http://coolestguyplanettech.com/downtown/install-and-configure-apache-mysql-php-and-phpmyadmin-osx-108-mountain-lion
+
 
     # Create VHosts
+    # -------------------------------------
+    # http://coolestguyplanettech.com/downtown/how-set-virtual-hosts-apache-mac-osx-108-mountain-lion
 
-    # Execute Vagrant VMs
+
+    # Download/Install Vagrant and VMs
+    # -------------------------------------
+    # printf "Done!"
+    # printf "\n"
+    # printf "-------------------------------------------------------------------------"
+    # printf "IMPORTANT NOTE\n"
+    # printf "To install the virtual machine boxes, execute "installvms" on terminal\n"
+    # printf "-------------------------------------------------------------------------"
+    # printf "\n"
 
 }

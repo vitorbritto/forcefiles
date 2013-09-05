@@ -5,18 +5,18 @@
 # Directories to be prepended to PATH
 declare -a dirs_to_prepend=(
     "/usr/local/bin" # Ensure that this bin always takes precedence over `/usr/bin`
+    "/usr/local/mysql/bin" # init mysql
 )
 
 # Directories to be appended to PATH
 declare -a dirs_to_append=(
     "/usr/bin"
+    "/usr/.tools/z/z.sh" # init z   https://github.com/rupa/z
     "$HOME/bin"
     "$HOME/.forcefiles/bin"
     "$HOME/.rvm/bin" # Add RVM to PATH for scripting
     "$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
     "$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
-    "$HOME/.tools/z/z.sh" # init z   https://github.com/rupa/z
-
 )
 
 # Prepend directories to PATH
