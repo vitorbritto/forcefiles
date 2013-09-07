@@ -159,7 +159,7 @@ alias hidehiddenfiles="defaults write com.apple.finder AppleShowAllFiles -bool f
 alias showhiddenfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 
 # Shutdown the System
-alias shutdown="shutdown -h now"
+alias offline="sudo shutdown -h now"
 
 
 # ------------------------------------------------------------------------------
@@ -237,7 +237,7 @@ alias update="sudo softwareupdate --install --all && \
 
 # Daily stuff
 alias subl='open -a "/Applications/Sublime Text 2.app"'
-alias chrome='open -a /Applications/Google Chrome Canary.app --args --allow-file-access-from-files'
+alias chrome='open -a "/Applications/Google Chrome Canary.app" --args --allow-file-access-from-files'
 alias mou='open -a "/Applications/Mou.app"'
 alias o="open "
 alias dev="cd ~/Sites"
@@ -245,19 +245,19 @@ alias temp="cd ~/temp"
 alias repos="cd ~/Sites/@mylabs/repositories"
 alias dbox="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
-alias remote="chrome http://localhost/~vitorbritto/@remote/control/"
+alias remote="http://localhost/~vitorbritto/remoteserver/control/"
 
 # Apache
 alias apstop="sudo apachectl stop"
 alias apstart="sudo apachectl start"
 alias aprestart="sudo apachectl restart"
 alias apedit="sudo nano -w /etc/apache2/httpd.conf"
-alias apvhosts="sudo nano -w /etc/apache2/httpd-vhosts.conf"
+alias apvhosts="sudo nano -w /etc/apache2/extra/httpd-vhosts.conf"
 
 # Database
 alias sqlstart="sudo /usr/local/mysql/support-files/mysql.server start"
 alias sqlstop="sudo /usr/local/mysql/support-files/mysql.server stop"
-alias sqladmin="chrome http://localhost/~vitorbritto/phpmyadmin"
+alias sqladmin="http://localhost/~vitorbritto/phpmyadmin"
 
 # Workflow
 alias theforce="bash ~/.forcefiles/bin/update"

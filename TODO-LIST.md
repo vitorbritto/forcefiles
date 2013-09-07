@@ -116,7 +116,7 @@ The show must go on... :)
 
 #### WordPress Projects
 
-* Download my jekyll-boilerplate repository on GitHub ✔
+* Download boilerplate repository on GitHub ✔
 * Prepare the environment
 * Rename project name based on user input
 * Initialize (remote) server
