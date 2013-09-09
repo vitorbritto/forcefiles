@@ -8,7 +8,7 @@ The show must go on... :)
     * Php Web Server (v5.4)
     * Localtunnel (rubyGem)
     * Pow / Powder / Powify
-    * Node / Socket.io /
+    * Node / Socket.io
 * Tests with sync cross-device
     * Node
     * Socket.io
@@ -18,9 +18,9 @@ The show must go on... :)
 * Setup Vagrant, VMs and SSH
 * Download VMs for IE7/8/9/10 on WIN7
 * Add Chrome DevTools Theme (Monokai)
-* Config some deploy options (sftp, ftp, rsync, lftp) - With Grunt or Bash aliases? Both? When?
+* Config some deploy options (sftp, ftp, rsync, lftp) - With Grunt or Shell Script?
 * Create script for my favorite apps installation
-* Checklist and Test AGAIN! =D
+* And then... check and test AGAIN! =D
 
 ## REVIEWS / TESTS
 
@@ -71,15 +71,14 @@ The show must go on... :)
 
 ### Project Types
 
-* General Project
-* WordPress Project
+* General Project (using Ambitious Framework)
+* WordPress Project (using Ambitious Framework)
 * cakePHP Project
 * Node Project
 * Backbone Project
 * Jekyll Project
 * DocPad Project
 * Rails Project
-* Sinatra Project
 
 #### General Projects
 
