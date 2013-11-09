@@ -2,8 +2,9 @@
 
 # bash_functions
 
+#
 # General
-# -------------------
+# ---------------------------------------------------
 
 # Adds an alias to the current shell and to bash_aliases file.
 # Borrowed from Mislav (http://github.com/mislav/dotfiles/tree/master/bash_aliases)
@@ -113,7 +114,11 @@ copyfile() {
 }
 
 
-# Package Manager
+#
+# Development (based on my workflow)
+# ---------------------------------------------------
+
+# Package Managers
 # -------------------
 
 # Registering Bower packages
@@ -139,35 +144,49 @@ gruntclone() {
     ./clone-repos
 }
 
-
-# Rsync
+# Essential Shortcuts
 # -------------------
 
+# Shortcut to General Projects
+dev() {
+    cd Sites/projects/"$@"
+    # subl .
+}
+
+# Shortcut to Respositories
+repos() {
+    cd Sites/@mylabs/repositories/"$@"
+    # subl .
+}
+
+# Shortcut to WordPress Projects
+wp() {
+    cd Sites/projects/"$1"/wp-content/themes/"$2"
+    # subl .
+}
+
+# Deployment
+# -------------------
+
+# Rsync Options (in order)
 # Synchronize a local directory with a remote one
-rsyncpulldir() {
-    rsync -r -a -v -e "ssh -l $1" --delete $2
-}
-
 # Synchronize a remote directory with a local one
-rsyncpushdir() {
-    rsync -r -a -v -e "ssh -l $1" --delete $2
-}
-
 # Synchronize a local file with a remote one
-rsyncpullfile() {
-    rsync -a -v -e "ssh -l $1" $2
-}
+# To synchronize a remote file with a local one
+# Synchronize a local directories (make a backup)
 
-# To synchronize a remote file with a local one, use:
-rsyncpushfile() {
-    rsync -a -v -e "ssh -l $1" $2
-}
+rsyncpulldir() { rsync -r -a -v -e "ssh -l $1" --delete $2 }
+rsyncpushdir() { rsync -r -a -v -e "ssh -l $1" --delete $2 }
+rsyncpullfile() { rsync -a -v -e "ssh -l $1" $2 }
+rsyncpushfile() { rsync -a -v -e "ssh -l $1" $2 }
+rsyncbackup() { rsync -r -a -v --delete $@ }
 
-# Synchronize a local directory with a local directory (make a backup)
-rsyncbackup() {
-    rsync -r -a -v --delete $@
+# SCP
+scpp() {
+    scp "$1" name@name.com:~/name.com/folder;
+    echo "Copying... $1" | pbcopy;
+    echo "Copied to clipboard: $1";
 }
-
 
 # Web Server
 # -------------------

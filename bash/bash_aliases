@@ -205,7 +205,7 @@ alias bowr="bower uninstall"
 alias bowinit="bower init"
 alias bowl="bower list"
 alias bowv="bower -v"
-alias bowerup="npm update -g bower"
+alias bowerup="npm update bower -g"
 
 # Composer
 alias compsu="composer self-update"
@@ -222,8 +222,8 @@ alias brewr="brew uninstall"
 alias brewl="brew link"
 alias brews="brew search"
 alias brewup="brew update &&  \
-             brew upgrade && \
-             brew cleanup"
+              brew upgrade && \
+              brew cleanup"
 
 # General Update
 alias update="sudo softwareupdate --install --all && \
@@ -232,7 +232,7 @@ alias update="sudo softwareupdate --install --all && \
 
 
 # ------------------------------------------------------------------------------
-# | Development (based on my needs)                                            |
+# | Development (based on my workflow)                                         |
 # ------------------------------------------------------------------------------
 
 # Daily stuff
@@ -243,11 +243,9 @@ alias o="open "
 alias dbox="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias temp="cd ~/temp"
-alias dev="cd ~/Sites/@projects"
 alias talks="cd ~/Sites/@talks"
 alias mylabs="cd ~/Sites/@mylabs"
 alias sources="cd ~/Sites/@sources"
-alias repos="cd ~/Sites/@mylabs/repositories"
 alias remote="http://localhost/~vitorbritto/remoteserver/control/"
 
 # Apache
@@ -263,10 +261,11 @@ alias sqlstop="sudo /usr/local/mysql/support-files/mysql.server stop"
 alias sqladmin="http://localhost/~vitorbritto/phpmyadmin"
 
 # Workflow
-alias theforce="bash ~/.forcefiles/bin/update"
-alias dothejob="bash ~/.forcefiles/bin/backup"
-alias newproject="bash ~/.forcefiles/init/boilerplate"
-alias installvms="bash ~/.forcefiles/init/virtual"
+alias theforce="sh ~/.forcefiles/bin/update"
+alias dothejob="sh ~/.forcefiles/bin/backup"
+alias newproject="sh ~/.forcefiles/init/init-project"
+alias installvms="sh ~/.forcefiles/init/init-vms"
+alias createhost="sh ~/.forcefiles/init/init-hosts"
 
 
 # ------------------------------------------------------------------------------

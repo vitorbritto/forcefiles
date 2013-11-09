@@ -60,10 +60,7 @@ Gems:
     Rails
     Sass
     Compass
-    Haml
     Jekyll
-    Localtunnel
-    MiddleMan
 
 NPM:
     grunt-cli
@@ -74,6 +71,7 @@ NPM:
     nave
     ungit
     docpad
+    imageoptim-cli
 
 
 ------------------------------------------------------------------------------

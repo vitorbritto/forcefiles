@@ -7,7 +7,7 @@
 sudo -v
 
 # Let's start with some settings
-BOILERPLATES_DIRECTORY="${HOME}/.forcefiles/build/boilerplates"
+BOILERPLATES_DIRECTORY="${HOME}/.forcefiles/init/boilerplates"
 
 # Let me introduce myself
 clear
@@ -21,11 +21,10 @@ printf "[ 1 ] - General Project \n"
 printf "[ 2 ] - WordPress Project \n"
 printf "[ 3 ] - cakePHP Project \n"
 printf "[ 4 ] - Node Project \n"
-printf "[ 5 ] - Backbone Project \n"
-printf "[ 6 ] - Jekyll Project \n"
-printf "[ 7 ] - DocPad Project \n"
-printf "[ 8 ] - Rails Project \n"
-printf "[ 9 ] - Sinatra Project \n"
+printf "[ 5 ] - Jekyll Project \n"
+printf "[ 6 ] - DocPad Project \n"
+printf "[ 7 ] - Rails Project \n"
+printf "[ 8 ] - Launch App Project \n"
 printf "[ 0 ] - Exit \n"
 printf "\n"
 read -p "Enter your choice: " input
@@ -47,23 +46,19 @@ if [ $input = "4" ]; then
 fi
 
 if [ $input = "5" ]; then
-    bash ${BOILERPLATES_DIRECTORY}/backbone
-fi
-
-if [ $input = "6" ]; then
     bash ${BOILERPLATES_DIRECTORY}/jekyll
 fi
 
-if [ $input = "7" ]; then
+if [ $input = "6" ]; then
     bash ${BOILERPLATES_DIRECTORY}/docpad
 fi
 
-if [ $input = "8" ]; then
+if [ $input = "7" ]; then
     bash ${BOILERPLATES_DIRECTORY}/rails
 fi
 
-if [ $input = "9" ]; then
-    bash ${BOILERPLATES_DIRECTORY}/sinatra
+if [ $input = "8" ]; then
+    bash ${BOILERPLATES_DIRECTORY}/launchapp
 fi
 
 if [ $input = "0" ]; then
@@ -85,3 +80,4 @@ fi
 # DocPad Project
 # Rails Project
 # Sinatra Project
+# Launch App Project

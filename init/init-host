@@ -1,0 +1,13 @@
+# up to you (me) if you want to run this as a file or copy paste at your leisure
+
+# Create Virtual Hosts
+# run with alias "createhost"
+
+# Ask for the administrator password upfront
+sudo -v
+
+
+# Create VHosts
+# -------------------------------------
+# http://coolestguyplanettech.com/downtown/how-set-virtual-hosts-apache-mac-osx-108-mountain-lion
+

@@ -1,6 +1,6 @@
 # Let's start with some settings
 BOILERPLATE_DIRECTORY="${HOME}/Sites/@projects"
-BOILERPLATE_TARBALL_PATH="https://github.com/vitorbritto/boilerplate/tarball/master/general"
+BOILERPLATE_TARBALL_PATH="https://github.com/vitorbritto/boilerplate/tarball/master/launchapp"
 LIBS_DIRECTORY="${HOME}/.forcefiles/lib"
 source ${LIBS_DIRECTORY}/utils
 
@@ -17,11 +17,10 @@ if [[ ! -d ${BOILERPLATE_DIRECTORY} ]]; then
 fi
 
 # This guy will config my project
-config_html_project() {
+config_launch_app() {
 
     # Rename the project
     cd ${BOILERPLATE_DIRECTORY}
-    printf "\n"
     printf "Please enter a name for this project:"
     printf "\n"
     read -p "Enter your name here: " app
@@ -34,7 +33,6 @@ config_html_project() {
 
     # Install NPM modules
     [[ $? ]] && e_header "Setting up dependencies from NPM..."
-    [[ $? ]] && cd src
     [[ $? ]] && npm install
     [[ $? ]] && e_success "Done!"
 }
@@ -76,5 +74,5 @@ config_html_project() {
 
 # Let's rock!
 printf "Please, wait... "
-config_html_project
+config_launch_app
 # server_html_project

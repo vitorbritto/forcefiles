@@ -4,22 +4,15 @@ The show must go on... :)
 
 ## GENERAL
 
-* Choose the best option to initialize a remote server w/ sync
-    * Php Web Server (v5.4)
-    * Localtunnel (rubyGem)
-    * Pow / Powder / Powify
-    * Node / Socket.io
-* Tests with sync cross-device
-    * Node
-    * Socket.io
-    * Proxy
-    * WI-FI connection
+* Choose the best option to initialize a remote server w/ sync (grunt connect/php + livereload) ✔
+* Tests with sync cross-device (remoteserver) ✔
 * Finish projects boilerplates
 * Setup Vagrant, VMs and SSH
 * Download VMs for IE7/8/9/10 on WIN7
 * Add Chrome DevTools Theme (Monokai)
-* Config some deploy options (sftp, ftp, rsync, lftp) - With Grunt or Shell Script?
+* Config some deploy options (ssh, ftp, rsync) - with grunt plugins ✔
 * Create script for my favorite apps installation
+* Add SCP function ✔
 * And then... check and test AGAIN! =D
 
 ## REVIEWS / TESTS
@@ -40,6 +33,29 @@ The show must go on... :)
 * proxys
 * remote_js
 * adhoc
+
+### Grunt Plugins
+
+* grunt-autoshot
+* load-grunt-tasks
+* matchdep
+* grunt-usemin: https
+* grunt-bower-install
+* grunt-bower-requirejs
+* grunt-prompt
+* grunt-contrib-watch
+* grunt-contrib-uglify
+* grunt-contrib-jshint
+* grunt-contrib-sass
+* grunt-contrib-stylus
+* grunt-contrib-less
+* grunt-contrib-compass
+* grunt-rsync
+* grunt-sftp
+* grunt-ftp
+* grunt-shell
+* grunt-exec
+* grunt-zip
 
 ### Yeoman Generators
 
@@ -85,38 +101,52 @@ The show must go on... :)
 * Download boilerplate repository on GitHub ✔
 * Prepare the environment ✔
 * Rename project name based on user input ✔
-* Initialize (remote) server
-* Install NPM packages
+* Install NPM dependencies
+* Run Gruntfile Generator
 * Open project on Sublime Text ✔
+* Initialize server with Grunt
 
 #### Backbone Projects
 
 * Download boilerplate repository on GitHub
 * Prepare the environment
 * Rename project name based on user input
-* Install NPM packages (express, socket.io, mongoose, mocha)
+* Install NPM dependencies
 * Open project on Sublime Text
+* Initialize Grunt
 
 #### Node Projects
 
 * Download boilerplate repository on GitHub
 * Prepare the environment
 * Rename project name based on user input
-* Install NPM packages (express, socket.io, mongoose, mocha)
+* Install NPM dependencies
 * Open project on Sublime Text
+* Initialize Grunt
 
 #### Jekyll Projects
 
 * Download boilerplate repository on GitHub ✔
 * Prepare the environment
 * Rename project name based on user input
-* Initialize Jekyll server / grunt task
+* Install NPM dependencies
 * Open project on Sublime Text
+* Initialize Grunt and Jekyll with Rake
 
 #### WordPress Projects
 
 * Download boilerplate repository on GitHub ✔
 * Prepare the environment
 * Rename project name based on user input
-* Initialize (remote) server
+* Install NPM dependencies
+* Run Gruntfile Generator
 * Open project on Sublime Text
+* Initialize server with Grunt
+
+#### Rails Projects
+
+* Download boilerplate repository on GitHub ✔
+* Prepare the environment
+* Rename project name based on user input
+* Open project on Sublime Text
+* Initialize Guard

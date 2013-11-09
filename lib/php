@@ -8,11 +8,8 @@
 
 # Upgrade PHP version ✔
 # Download/Install MySQL and phpmyadmin
-# Create VHosts
-# Download/Install Vagrant and VMs
 
-
-run_env() {
+run_php() {
 
     # Upgrade PHP version (from 5.3 to 5.4)
     brew tap homebrew/dupes
@@ -34,21 +31,5 @@ run_env() {
     # Install MySQL and phpmyadmin
     # -------------------------------------
     # http://coolestguyplanettech.com/downtown/install-and-configure-apache-mysql-php-and-phpmyadmin-osx-108-mountain-lion
-
-
-    # Create VHosts
-    # -------------------------------------
-    # http://coolestguyplanettech.com/downtown/how-set-virtual-hosts-apache-mac-osx-108-mountain-lion
-
-
-    # Download/Install Vagrant and VMs
-    # -------------------------------------
-    # printf "Done!"
-    # printf "\n"
-    # printf "-------------------------------------------------------------------------"
-    # printf "IMPORTANT NOTE\n"
-    # printf "To install the virtual machine boxes, execute "installvms" on terminal\n"
-    # printf "-------------------------------------------------------------------------"
-    # printf "\n"
 
 }

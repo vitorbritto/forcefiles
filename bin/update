@@ -41,13 +41,11 @@ Gems:
     Rails
     Sass
     Compass
-    Haml
     Jekyll
-    Localtunnel
 
-Environment:
+PHP:
     Update PHP version from 5.3 to 5.4
-    Install VHosts
+    Install MySQL and phpMyAdmin
 
 Applications:
     Install additional softwares
@@ -109,11 +107,11 @@ if is_confirmed; then
         printf "Skipped!\n"
     fi
 
-    # Ask before updates environment
-    seek_confirmation "Do you want to upgrade your environment?"
+    # Ask before updates PHP environment
+    seek_confirmation "Do you want to upgrade your PHP environment?"
 
     if is_confirmed; then
-        run_env
+        run_php
         e_success "Done!"
     else
         printf "Skipped!\n"
