@@ -8,30 +8,87 @@ The show must go on... :)
 * Config SSH
 * Download boxes (virtual machines) for IE8/9/10 ✔
 * Create script for apps installation ✔
+* Add SCP function ✔
 
 ### PHP
 * Upgrade PHP version ✔
 * Download/Install MySQL and phpmyadmin
 
 ### Projects
-
-* Choose the best option to initialize a remote server w/ sync (grunt connect/php + livereload) ✔
-* Tests with sync cross-device (remoteserver) ✔
-* Finish projects boilerplates
-* Config some deploy options (ssh, ftp, rsync) - with grunt plugins ✔
-* Add SCP function ✔
+* Choose the best option to initialize a remote server w/ sync - *(using grunt connect/php + livereload)* ✔
+* Tests with sync cross-device *(remoteserver)* ✔
+* Finish boilerplates
+* Create a Gruntfile Generator
 
 > Check [boilerplates item](#boilerplates) for more information.
 
 ### Sublime Text
-
 * Create a folder with packages and settings
 * Backup and copy files
 * Sync with dropbox
 
 ===
 
-## REVIEWS / TESTS
+### BOILERPLATES
+
+#### General Projects
+
+* Download boilerplate repository on GitHub ✔
+* Prepare the environment ✔
+* Rename project name based on user input ✔
+* Install NPM dependencies
+* Run Gruntfile Generator
+* Open project on Sublime Text ✔
+* Initialize server with Grunt
+
+#### Backbone Projects
+
+* Download boilerplate repository on GitHub
+* Prepare the environment
+* Rename project name based on user input
+* Install NPM dependencies
+* Open project on Sublime Text
+* Initialize Grunt
+
+#### Node Projects
+
+* Download boilerplate repository on GitHub
+* Prepare the environment
+* Rename project name based on user input
+* Install NPM dependencies
+* Open project on Sublime Text
+* Initialize Grunt
+
+#### Jekyll Projects
+
+* Download boilerplate repository on GitHub ✔
+* Prepare the environment
+* Rename project name based on user input
+* Install NPM dependencies
+* Open project on Sublime Text
+* Initialize Grunt and Jekyll with Rake
+
+#### WordPress Projects
+
+* Download boilerplate repository on GitHub ✔
+* Prepare the environment
+* Rename project name based on user input
+* Install NPM dependencies
+* Run Gruntfile Generator
+* Open project on Sublime Text
+* Initialize server with Grunt
+
+#### Rails Projects
+
+* Download boilerplate repository on GitHub ✔
+* Prepare the environment
+* Rename project name based on user input
+* Open project on Sublime Text
+* Initialize Guard
+
+===
+
+### REVIEWS / TESTS *(just for my experiments)*
 
 #### NPM modules
 
@@ -98,61 +155,3 @@ The show must go on... :)
 * generator-webapp
 * generator-yo-wordpress
 
-===
-
-## BOILERPLATES
-
-#### General Projects
-
-* Download boilerplate repository on GitHub ✔
-* Prepare the environment ✔
-* Rename project name based on user input ✔
-* Install NPM dependencies
-* Run Gruntfile Generator
-* Open project on Sublime Text ✔
-* Initialize server with Grunt
-
-#### Backbone Projects
-
-* Download boilerplate repository on GitHub
-* Prepare the environment
-* Rename project name based on user input
-* Install NPM dependencies
-* Open project on Sublime Text
-* Initialize Grunt
-
-#### Node Projects
-
-* Download boilerplate repository on GitHub
-* Prepare the environment
-* Rename project name based on user input
-* Install NPM dependencies
-* Open project on Sublime Text
-* Initialize Grunt
-
-#### Jekyll Projects
-
-* Download boilerplate repository on GitHub ✔
-* Prepare the environment
-* Rename project name based on user input
-* Install NPM dependencies
-* Open project on Sublime Text
-* Initialize Grunt and Jekyll with Rake
-
-#### WordPress Projects
-
-* Download boilerplate repository on GitHub ✔
-* Prepare the environment
-* Rename project name based on user input
-* Install NPM dependencies
-* Run Gruntfile Generator
-* Open project on Sublime Text
-* Initialize server with Grunt
-
-#### Rails Projects
-
-* Download boilerplate repository on GitHub ✔
-* Prepare the environment
-* Rename project name based on user input
-* Open project on Sublime Text
-* Initialize Guard
