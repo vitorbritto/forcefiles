@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # up to you (me) if you want to run this as a file or copy paste at your leisure
 
 # Disc backup script - Requires rsync 3
