@@ -2,8 +2,18 @@
 
 The show must go on... :)
 
+## UPDATES
 
-## PROJECTS
+### General
+* Config SSH
+* Download boxes (virtual machines) for IE8/9/10 ✔
+* Create script for apps installation ✔
+
+### PHP
+* Upgrade PHP version ✔
+* Download/Install MySQL and phpmyadmin
+
+### Projects
 
 * Choose the best option to initialize a remote server w/ sync (grunt connect/php + livereload) ✔
 * Tests with sync cross-device (remoteserver) ✔
@@ -11,16 +21,17 @@ The show must go on... :)
 * Config some deploy options (ssh, ftp, rsync) - with grunt plugins ✔
 * Add SCP function ✔
 
+> Check [project types item](#boilerplates) for more information of each boilerplate todo list.
 
-## INSTALL/UPDATE
+### Sublime Text
 
-* Setup Vagrant, VMs and SSH
-* Download VMs for IE7/8/9/10 on WIN7 ✔
-* Create script for my favorite apps installation ✔
+* Create a folder with packages and settings
+* Backup and copy files
+* Sync with dropbox
 
 ===
 
-### REVIEWS / TESTS
+## REVIEWS / TESTS
 
 #### NPM modules
 
@@ -89,20 +100,9 @@ The show must go on... :)
 
 ===
 
-### BOILERPLATES
+## BOILERPLATES
 
-#### Project Types
-
-* General Project (using Ambitious Framework)
-* WordPress Project (using Ambitious Framework)
-* cakePHP Project
-* Node Project
-* Backbone Project
-* Jekyll Project
-* DocPad Project
-* Rails Project
-
-##### General Projects
+#### General Projects
 
 * Download boilerplate repository on GitHub ✔
 * Prepare the environment ✔
@@ -112,7 +112,7 @@ The show must go on... :)
 * Open project on Sublime Text ✔
 * Initialize server with Grunt
 
-##### Backbone Projects
+#### Backbone Projects
 
 * Download boilerplate repository on GitHub
 * Prepare the environment
@@ -121,7 +121,7 @@ The show must go on... :)
 * Open project on Sublime Text
 * Initialize Grunt
 
-##### Node Projects
+#### Node Projects
 
 * Download boilerplate repository on GitHub
 * Prepare the environment
@@ -130,7 +130,7 @@ The show must go on... :)
 * Open project on Sublime Text
 * Initialize Grunt
 
-##### Jekyll Projects
+#### Jekyll Projects
 
 * Download boilerplate repository on GitHub ✔
 * Prepare the environment
@@ -139,7 +139,7 @@ The show must go on... :)
 * Open project on Sublime Text
 * Initialize Grunt and Jekyll with Rake
 
-##### WordPress Projects
+#### WordPress Projects
 
 * Download boilerplate repository on GitHub ✔
 * Prepare the environment
@@ -149,7 +149,7 @@ The show must go on... :)
 * Open project on Sublime Text
 * Initialize server with Grunt
 
-##### Rails Projects
+#### Rails Projects
 
 * Download boilerplate repository on GitHub ✔
 * Prepare the environment
