@@ -1,7 +1,7 @@
 # up to you (me) if you want to run this as a file or copy paste at your leisure
 
 # Improve workflow script
-# run with alias "theforce"
+# run with alias "usetheforce"
 
 
 # Ask for the administrator password upfront
@@ -16,51 +16,12 @@ source ./lib/utils
 source ./lib/deps
 source ./lib/rvm
 source ./lib/gems
-source ./lib/env
+source ./lib/php
 source ./lib/apps
-source ./lib/sublime
-
-# We need some information too :)
-cat <<EOT
-
-------------------------------------------------------------------------------
-OS X dotfiles - Vitor Britto - http://www.vitorbritto.com.br
-------------------------------------------------------------------------------
-
-This will install and update some stuff to improve your workflow.
-
-Dependencies:
-    Z
-    Pygments
-
-Rubies:
-    v1.9.3
-    v2.0.0
-
-Gems:
-    Rails
-    Sass
-    Compass
-    Jekyll
-
-PHP:
-    Update PHP version from 5.3 to 5.4
-    Install MySQL and phpMyAdmin
-
-Applications:
-    Install additional softwares
-
-Sublime:
-    Configure Sublime Text (my personal configs)
-    Install packages (my personal packages)
-
-
-------------------------------------------------------------------------------
-
-EOT
+source ./lib/subl
 
 # Then, we ask before continue...
-seek_confirmation "Is up to you from here..."
+seek_confirmation "Is up to you from here... continue?"
 
 if is_confirmed; then
 
@@ -83,7 +44,7 @@ if is_confirmed; then
         run_deps
         e_success "Done!"
     else
-        printf "Skipped!\n"
+        echo "Skipped!\n"
     fi
 
     # Ask before installs rubies
@@ -93,7 +54,7 @@ if is_confirmed; then
         run_rvm
         e_success "Done!"
     else
-        printf "Skipped!\n"
+        echo "Skipped!\n"
     fi
 
     # Ask before installs gems
@@ -101,10 +62,9 @@ if is_confirmed; then
 
     if is_confirmed; then
         run_gems
-        localtunnel -k ~/.ssh/id_rsa.pub 8080 # Need to run this to point to a public SSH key
         e_success "Done!"
     else
-        printf "Skipped!\n"
+        echo "Skipped!\n"
     fi
 
     # Ask before updates PHP environment
@@ -114,17 +74,17 @@ if is_confirmed; then
         run_php
         e_success "Done!"
     else
-        printf "Skipped!\n"
+        echo "Skipped!\n"
     fi
 
     # Ask before installs apps
-    seek_confirmation "Do you want to install your favorite apps?"
+    seek_confirmation "Do you want to install your applications now?"
 
     if is_confirmed; then
         run_apps
         e_success "Done!"
     else
-        printf "Skipped!\n"
+        echo "Skipped!\n"
     fi
 
     # Ask before config Sublime text
@@ -132,11 +92,11 @@ if is_confirmed; then
 
     if is_confirmed; then
         run_sublime
-        e_success "Sublime text is ready to run!"
+        e_success "Sublime text is ready to go!"
     else
-        printf "Skipped!\n"
+        echo "Skipped!\n"
     fi
 
 else
-    printf "Bye bye!\n"
+    echo "Bye bye!\n"
 fi

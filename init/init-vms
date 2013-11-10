@@ -11,17 +11,21 @@ sudo -v
 
 DEST="/Volumes/WORK/.vms/"
 
+# Let me introduce myself
+clear
+figlet Virtual Machines running...
+
 
 # Don't have cURL or want to learn more, visit http://curl.haxx.se/
 
 # Download/Install Vagrant and VMs
 # -------------------------------------
 
-# IE8 - Windows 7
-curl -O "https://az412801.vo.msecnd.net/vhd/IEKitV1_Final/VirtualBox/OSX/IE8_Win7/IE8.Win7.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar,5.rar,6.rar}"
+# IE8 - XP
+curl -O "https://az412801.vo.msecnd.net/vhd/IEKitV1_Final/VirtualBox/OSX/IE8_XP/IE8.XP.For.MacVirtualBox.ova"
 
-# IE9 - Windows 7
+# IE9 - Win7
 curl -O "https://az412801.vo.msecnd.net/vhd/IEKitV1_Final/VirtualBox/OSX/IE9_Win7/IE9.Win7.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar,5.rar}"
 
-# IE10 - Windows 7
-curl -O "https://az412801.vo.msecnd.net/vhd/IEKitV1_Final/VirtualBox/OSX/IE10_Win7/IE10.Win7.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar}"
+# IE10 - Win8
+curl -O "https://az412801.vo.msecnd.net/vhd/IEKitV1_Final/VirtualBox/OSX/IE10_Win8/IE10.Win8.For.MacVirtualBox.part{1.sfx,2.rar,3.rar}"

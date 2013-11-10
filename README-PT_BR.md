@@ -10,9 +10,9 @@ Já estava cansado de ter que digitar comandos longos no *bash* e ter que organi
 
 Percebi que poderia dividir meus arquivos de automação, atalhos do bash, configurações do meu editor e um monte de coisas das principais áreas que eu uso no meu trabalho.
 
-**Mas por que um repositório?** É muito simples! Mesmo se algum dia ou em algum lugar eu precisar dele, ele estará lá. Para que eu possa verificar, escolher alguma parte ou baixá-lo para o meu sistema recentemente formatado.
+**Mas por que um repositório?** É muito simples! Mesmo que algum dia ou em algum lugar eu precisar dele, ele estará lá. Para que eu possa verificar, escolher alguma parte ou baixá-lo para o meu sistema recentemente formatado.
 
-> Observação: estou rodando em Mac OS X. Estes, são os arquivos de configuração para configurar um sistema do jeito que eu gosto.
+> Observação: estou rodando em Mac OS X. Estes são os arquivos de configuração para configurar um sistema do jeito que eu utilizo em meu ambiente de trabalho.
 
 ## Instalação
 
@@ -34,4 +34,4 @@ $ bash -c "$(curl -fsSL raw.github.com/vitorbritto/forcefiles/master/bin/forcefi
   [https://github.com/cowboy/dotfiles](https://github.com/cowboy/dotfiles)
 
 
-> Que o ARQUIVOS DA FORÇA esteja com você! =]
+> Que o ARQUIVOS DA FORÇA esteja com você! :)

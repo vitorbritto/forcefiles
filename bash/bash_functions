@@ -10,7 +10,7 @@
 # Borrowed from Mislav (http://github.com/mislav/dotfiles/tree/master/bash_aliases)
 add-alias() {
    local name=$1 value=$2
-   echo "alias $name='$value'" >> ~/.forcefiles/bash/bash_aliases
+   printf "alias $name='$value'" >> ~/.forcefiles/bash/bash_aliases
    eval "alias $name='$value'"
    alias $name
 }
@@ -175,17 +175,27 @@ wp() {
 # To synchronize a remote file with a local one
 # Synchronize a local directories (make a backup)
 
-rsyncpulldir() { rsync -r -a -v -e "ssh -l $1" --delete $2 }
-rsyncpushdir() { rsync -r -a -v -e "ssh -l $1" --delete $2 }
-rsyncpullfile() { rsync -a -v -e "ssh -l $1" $2 }
-rsyncpushfile() { rsync -a -v -e "ssh -l $1" $2 }
-rsyncbackup() { rsync -r -a -v --delete $@ }
+rsyncpulldir() {
+    rsync -r -a -v -e "ssh -l $1" --delete $2
+}
+rsyncpushdir() {
+    rsync -r -a -v -e "ssh -l $1" --delete $2
+}
+rsyncpullfile() {
+    rsync -a -v -e "ssh -l $1" $2
+}
+rsyncpushfile() {
+    rsync -a -v -e "ssh -l $1" $2
+}
+rsyncbackup() {
+    rsync -r -a -v --delete $@
+}
 
 # SCP
 scpp() {
-    scp "$1" name@name.com:~/name.com/folder;
-    echo "Copying... $1" | pbcopy;
-    echo "Copied to clipboard: $1";
+    scp "$1" name@name.com:~/name.com/folder
+    printf "Copying... $1" | pbcopy
+    printf "Copied to clipboard: $1"
 }
 
 # Web Server

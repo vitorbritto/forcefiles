@@ -2,22 +2,27 @@
 
 The show must go on... :)
 
-## GENERAL
+
+## PROJECTS
 
 * Choose the best option to initialize a remote server w/ sync (grunt connect/php + livereload) ✔
 * Tests with sync cross-device (remoteserver) ✔
 * Finish projects boilerplates
-* Setup Vagrant, VMs and SSH
-* Download VMs for IE7/8/9/10 on WIN7
-* Add Chrome DevTools Theme (Monokai)
 * Config some deploy options (ssh, ftp, rsync) - with grunt plugins ✔
-* Create script for my favorite apps installation
 * Add SCP function ✔
-* And then... check and test AGAIN! =D
 
-## REVIEWS / TESTS
 
-### NPM modules
+## INSTALL/UPDATE
+
+* Setup Vagrant, VMs and SSH
+* Download VMs for IE7/8/9/10 on WIN7 ✔
+* Create script for my favorite apps installation ✔
+
+===
+
+### REVIEWS / TESTS
+
+#### NPM modules
 
 * legacy
 * nanodoc
@@ -34,7 +39,7 @@ The show must go on... :)
 * remote_js
 * adhoc
 
-### Grunt Plugins
+#### Grunt Plugins
 
 * grunt-autoshot
 * load-grunt-tasks
@@ -57,7 +62,7 @@ The show must go on... :)
 * grunt-exec
 * grunt-zip
 
-### Yeoman Generators
+#### Yeoman Generators
 
 * generator-general
 * generator-backbone
@@ -82,10 +87,11 @@ The show must go on... :)
 * generator-webapp
 * generator-yo-wordpress
 
+===
 
-## BOILERPLATES
+### BOILERPLATES
 
-### Project Types
+#### Project Types
 
 * General Project (using Ambitious Framework)
 * WordPress Project (using Ambitious Framework)
@@ -96,7 +102,7 @@ The show must go on... :)
 * DocPad Project
 * Rails Project
 
-#### General Projects
+##### General Projects
 
 * Download boilerplate repository on GitHub ✔
 * Prepare the environment ✔
@@ -106,7 +112,7 @@ The show must go on... :)
 * Open project on Sublime Text ✔
 * Initialize server with Grunt
 
-#### Backbone Projects
+##### Backbone Projects
 
 * Download boilerplate repository on GitHub
 * Prepare the environment
@@ -115,7 +121,7 @@ The show must go on... :)
 * Open project on Sublime Text
 * Initialize Grunt
 
-#### Node Projects
+##### Node Projects
 
 * Download boilerplate repository on GitHub
 * Prepare the environment
@@ -124,7 +130,7 @@ The show must go on... :)
 * Open project on Sublime Text
 * Initialize Grunt
 
-#### Jekyll Projects
+##### Jekyll Projects
 
 * Download boilerplate repository on GitHub ✔
 * Prepare the environment
@@ -133,7 +139,7 @@ The show must go on... :)
 * Open project on Sublime Text
 * Initialize Grunt and Jekyll with Rake
 
-#### WordPress Projects
+##### WordPress Projects
 
 * Download boilerplate repository on GitHub ✔
 * Prepare the environment
@@ -143,7 +149,7 @@ The show must go on... :)
 * Open project on Sublime Text
 * Initialize server with Grunt
 
-#### Rails Projects
+##### Rails Projects
 
 * Download boilerplate repository on GitHub ✔
 * Prepare the environment

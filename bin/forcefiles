@@ -30,7 +30,7 @@ if [[ "$1" == "-h" || "$1" == "--help" ]]; then
     exit
 fi
 
-# List additional software to install
+# List stuff that will be installed
 if [[ "$1" == "-l" || "$1" == "--list" ]]; then
     run_list
     exit

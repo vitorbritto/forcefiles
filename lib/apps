@@ -1,26 +1,39 @@
 # ------------------------------------------------------------------------------
-# | Install favorite apps                                                      |
+# | Install aplications                                                        |
 # ------------------------------------------------------------------------------
-
-# ====================================================
-#  TODO - WORK IN PROGRESS
-# ====================================================
-
-# Make a directory named "apps" on ~/ ✔
-# Show a message that will take a while... ✔
-# Download apps with curl
-
 
 run_apps() {
 
-    # Create and move to .apps directory
-    mkdir -p ~/.apps && cd ~/.apps
-
     # Getting Started
-    printf 'Installing apps...\n'
-    printf 'Seat back while we install your apps.\n'
-    printf '\n'
+    printf "Seat back a while... this may take several minutes to install...\n"
+    printf "\n"
 
-    # curl apps at pointed folder
+    # homebrew-cask
+    brew tap phinze/homebrew-cask
+    brew install brew-cask
+
+    # browser
+    brew cask install firefox-aurora
+    brew cask install google-chrome
+    brew cask install google-chrome-canary
+    brew cask install opera-next
+
+    # development
+    brew cask install sublime-text-3
+    brew cask install filezilla
+    brew cask install source-tree
+    brew cask install virtualbox
+    brew cask install vagrant
+    brew cask install imageoptim
+
+    # other
+    brew cask install alfred
+    brew cask install dropbox
+    brew cask install mou
+    brew cask install skype
+
+    # All done!
+    printf "\n"
+    printf "All done!\n"
 
 }

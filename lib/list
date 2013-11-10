@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# | List of additional softwares to install                                    |
+# | List what it'll be installed                                               |
 # ------------------------------------------------------------------------------
 
 run_list() {
@@ -7,50 +7,29 @@ run_list() {
 cat <<EOT
 
 ------------------------------------------------------------------------------
-OS X dotfiles - Vitor Britto - http://www.vitorbritto.com.br
+OS X dotfiles - Vitor Britto - http://www.vitorbritto.com
 ------------------------------------------------------------------------------
 
-Applications to install
-------------------------
-
-Browsers:
-    Firefox Aurora
-    Google Chrome
-    Google Chrome Canary
-    Opera Next
-
-Chrome Extensions:
-    Adobe Edge Inspect
-    Axure RP
-    Google Docs
-    TabCloud
-    Web Developer
-    Web Developer Checklist
-    YSlow
-    Grunt DevTools
-    PageSpeed Insights
-    Chrome Remote Desktop
-
-Development:
-    Mou
-    Sublime Text 2
-    SourceTree
-    Axure RP
-    MySQL Workbench
-    VirtualBox (w/ Vagrant)
-
-Others:
-    Sparrow
-    Alfred
-    Dropbox
-    Feeds
-    Skype
-    Transmission
-    VLC
+This will install/update the following stuff to improve my workflow.
 
 
-Packages to install
-------------------------
+Packages
+------------
+
+NPM:
+    grunt-cli
+    grunt-init
+    bower
+    yo
+    generator-generator
+    nave
+    ungit
+    docpad
+    imageoptim-cli
+
+Dependencies:
+    Z
+    Pygments
 
 Rvm:
     Ruby - 1.9.3
@@ -62,17 +41,38 @@ Gems:
     Compass
     Jekyll
 
-NPM:
-    grunt-cli
-    bower
-    yo
-    grunt-init
-    generator-generator
-    nave
-    ungit
-    docpad
-    imageoptim-cli
+PHP:
+    Update PHP version from 5.3 to 5.4
+    MySQL and phpMyAdmin
 
+
+Applications
+------------
+
+Browsers:
+    Firefox Aurora
+    Google Chrome
+    Google Chrome Canary
+    Opera Next
+
+Development:
+
+    Sublime Text 3
+    SourceTree
+    FileZilla
+    VirtualBox (w/ Vagrant)
+    Image Optim
+
+Others:
+    Mou
+    Alfred
+    Dropbox
+    Skype
+    Transmission
+    VLC
+
+Sublime:
+    Sync data to config my ST3
 
 ------------------------------------------------------------------------------
 

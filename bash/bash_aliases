@@ -261,11 +261,11 @@ alias sqlstop="sudo /usr/local/mysql/support-files/mysql.server stop"
 alias sqladmin="http://localhost/~vitorbritto/phpmyadmin"
 
 # Workflow
-alias theforce="sh ~/.forcefiles/bin/update"
-alias dothejob="sh ~/.forcefiles/bin/backup"
-alias newproject="sh ~/.forcefiles/init/init-project"
-alias installvms="sh ~/.forcefiles/init/init-vms"
-alias createhost="sh ~/.forcefiles/init/init-hosts"
+alias usetheforce="bash ~/.forcefiles/bin/update"
+alias dothejob="bash ~/.forcefiles/bin/backup"
+alias newproject="bash ~/.forcefiles/init/init-project"
+alias installvms="bash ~/.forcefiles/init/init-vms"
+alias createhost="bash ~/.forcefiles/init/init-hosts"
 
 
 # ------------------------------------------------------------------------------

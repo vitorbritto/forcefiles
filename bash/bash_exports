@@ -17,7 +17,7 @@ export HISTIGNORE="&:[bf]g:c:clear:exit:q:ll:ls -l:pwd:* --help"
 
 # Increase the maximum number of commands to remember in the command history
 # (default value is 500)
-export HISTSIZE=5000
+export HISTSIZE=999
 
 # Prefer US English and use UTF-8
 export LANG="en_US"

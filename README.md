@@ -10,9 +10,9 @@ I was a little tired of having to type long commands in bash and having to organ
 
 I realized I could split my dotfiles, automation files, bash aliases, editor settings and a lot of things up into the main areas I use in my Workflow.
 
-**But why a repository?** It's quite simple! Even if someday or somewhere I need it, it'll be there. So I can check, pick some part or download it for my recently formated system.
+**But why a repository?** It's quite simple! Even if someday or somewhere I need it... will be there. So I can check, pick something or download this guy for my recently formated system.
 
-> Notice: I am running on Mac OS X. These are my config files to set up a system the way I like it.
+> Notice: I am running on Mac OS X. These are my config files to set up a system the way I use it in my workflow.
 
 # How to install
 
@@ -34,4 +34,4 @@ $ bash -c "$(curl -fsSL raw.github.com/vitorbritto/forcefiles/master/bin/forcefi
   [https://github.com/cowboy/dotfiles](https://github.com/cowboy/dotfiles)
 
 
-> May the FORCE FILES be with you! =]
+> May the FORCE FILES be with you! :)
