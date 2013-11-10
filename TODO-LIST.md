@@ -21,7 +21,7 @@ The show must go on... :)
 * Config some deploy options (ssh, ftp, rsync) - with grunt plugins ✔
 * Add SCP function ✔
 
-> Check [project types item](#boilerplates) for more information of each boilerplate todo list.
+> Check [boilerplates item](#boilerplates) for more information.
 
 ### Sublime Text
 
