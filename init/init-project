@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # up to you (me) if you want to run this as a file or copy paste at your leisure
 
 # Shell Script for Initialize a new project (based on my needs)
@@ -17,14 +19,14 @@ figlet A New project will born...
 printf "\n"
 printf "You're about to start a new project. Please, select an option to getting started. \n"
 printf "\n"
-printf "[ 1 ] - General Project \n"
-printf "[ 2 ] - WordPress Project \n"
-printf "[ 3 ] - cakePHP Project \n"
-printf "[ 4 ] - Node Project \n"
-printf "[ 5 ] - Jekyll Project \n"
-printf "[ 6 ] - DocPad Project \n"
-printf "[ 7 ] - Rails Project \n"
-printf "[ 8 ] - Launch App Project \n"
+printf "[ 1 ] - General \n"
+printf "[ 2 ] - WordPress \n"
+printf "[ 3 ] - Rails \n"
+printf "[ 4 ] - Node \n"
+printf "[ 5 ] - Ghost \n"
+printf "[ 6 ] - Jekyll \n"
+printf "[ 7 ] - DocPad \n"
+printf "\n"
 printf "[ 0 ] - Exit \n"
 printf "\n"
 read -p "Enter your choice: " input
@@ -38,7 +40,7 @@ if [ $input = "2" ]; then
 fi
 
 if [ $input = "3" ]; then
-    bash ${BOILERPLATES_DIRECTORY}/cakephp
+    bash ${BOILERPLATES_DIRECTORY}/rails
 fi
 
 if [ $input = "4" ]; then
@@ -46,19 +48,15 @@ if [ $input = "4" ]; then
 fi
 
 if [ $input = "5" ]; then
-    bash ${BOILERPLATES_DIRECTORY}/jekyll
+    bash ${BOILERPLATES_DIRECTORY}/ghost
 fi
 
 if [ $input = "6" ]; then
-    bash ${BOILERPLATES_DIRECTORY}/docpad
+    bash ${BOILERPLATES_DIRECTORY}/jekyll
 fi
 
 if [ $input = "7" ]; then
-    bash ${BOILERPLATES_DIRECTORY}/rails
-fi
-
-if [ $input = "8" ]; then
-    bash ${BOILERPLATES_DIRECTORY}/launchapp
+    bash ${BOILERPLATES_DIRECTORY}/docpad
 fi
 
 if [ $input = "0" ]; then
@@ -71,13 +69,10 @@ fi
 #  TODO - TEST PROJECTS
 # ====================================================
 
-# General Project ✔
-# WordPress Project
-# cakePHP Project
-# Node Project
-# Backbone Project
-# Jekyll Project ✔
-# DocPad Project
-# Rails Project
-# Sinatra Project
-# Launch App Project
+# General ✔
+# WordPress
+# Rails
+# Node
+# Ghost
+# Jekyll
+# DocPad

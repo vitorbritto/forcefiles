@@ -30,17 +30,11 @@ alias whois="whois -h whois-servers.net"
 # -------------------
 
 # General
-alias please="sudo "
+alias please="sudo"
 alias bye="exit"
 
 # Gzip-enabled `curl`
 alias gurl='curl --compressed'
-
-# Get week number
-alias week='date +%V'
-
-# Stopwatch
-alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
@@ -67,20 +61,12 @@ alias copythis="tr -d '\n' | pbcopy"
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
-# ROT13-encode text. Works for decoding, too! ;)
-alias rot13='tr a-zA-Z n-za-mN-ZA-M'
-
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
 # Merge PDF files
 # Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
 alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
-
-# Disable Spotlight
-alias spotoff="sudo mdutil -a -i off"
-# Enable Spotlight
-alias spoton="sudo mdutil -a -i on"
 
 # PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
 alias plistbuddy="/usr/libexec/PlistBuddy"
@@ -158,6 +144,10 @@ alias showdesktopicons="defaults write com.apple.finder CreateDesktop -bool true
 alias hidehiddenfiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 alias showhiddenfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 
+# Disable/Enable Spotlight
+alias spotoff="sudo mdutil -a -i off"
+alias spoton="sudo mdutil -a -i on"
+
 # Shutdown the System
 alias offline="sudo shutdown -h now"
 
@@ -191,7 +181,6 @@ alias npmi="npm install"
 alias npmr="npm uninstall"
 alias npms="npm search"
 alias npmup="npm update"
-
 
 # Grunt
 command -v grunt > /dev/null && alias grunt="grunt --stack" # Make Grunt print stack traces by default
@@ -261,11 +250,12 @@ alias sqlstop="sudo /usr/local/mysql/support-files/mysql.server stop"
 alias sqladmin="http://localhost/~vitorbritto/phpmyadmin"
 
 # Workflow
-alias usetheforce="bash ~/.forcefiles/bin/update"
-alias dothejob="bash ~/.forcefiles/bin/backup"
-alias newproject="bash ~/.forcefiles/init/init-project"
-alias installvms="bash ~/.forcefiles/init/init-vms"
-alias createhost="bash ~/.forcefiles/init/init-hosts"
+alias usetheforce="sh ~/.forcefiles/bin/update"
+alias dothejob="sh ~/.forcefiles/bin/backup"
+alias newproject="sh ~/.forcefiles/init/init-project"
+alias createhost="sh ~/.forcefiles/init/init-host"
+alias installvms="sh ~/.forcefiles/init/init-vms"
+
 
 
 # ------------------------------------------------------------------------------

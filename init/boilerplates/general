@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Let's start with some settings
 BOILERPLATE_DIRECTORY="${HOME}/Sites/projects"
 BOILERPLATE_TARBALL_PATH="https://github.com/vitorbritto/boilerplate/tarball/master/general"
@@ -16,8 +18,8 @@ if [[ ! -d ${BOILERPLATE_DIRECTORY} ]]; then
     rm -rf ${HOME}/boilerplate.tar.gz
 fi
 
-# This guy will config my project
-config_html_project() {
+# This guy will set up the project
+init_config() {
 
     # Rename the project
     cd ${BOILERPLATE_DIRECTORY}
@@ -27,7 +29,7 @@ config_html_project() {
     read -p "Enter your name here: " app
     [[ $? ]] mkdir $app && cd $app
 
-    # Open on Sublime
+    # Open Sublime
     [[ $? ]] && e_header "Opening your editor..."
     [[ $? ]] && subl .
     [[ $? ]] && e_success "Done!"
@@ -39,42 +41,19 @@ config_html_project() {
     [[ $? ]] && e_success "Done!"
 }
 
-# And finally, we initialize the server (or remote server)
-# BUT I'm still working on a better alternative with node and socket.io
+# And finally, start Grunt
+init_grunt() {
 
-# server_html_project() {
+    seek_confirmation "Do you want to run Grunt now?"
 
-#     # Ask for remote server
-#     seek_confirmation "Do you want to run a remote server?"
+    if is_confirmed; then
+        grunt
+    fi
 
-#     if is_confirmed; then
-
-#         seek_confirmation "Do you want to run cross-devices testing?"
-
-#         if is_confirmed; then
-#             # Using localtunnel for cross-devices testing
-#             localtunnel -k ~/.ssh/id_rsa.pub 8080
-#             localtunnel 8000
-#             e_success "Done! Use the generated url to run your cross-devices testing."
-
-#             # Test using node + socket.io + express
-#             # execute with node server.js
-#         else
-#             # Using PHP Web Server
-#             e_header "Please, wait..."
-#             php -S 0.0.0.0:8000
-#             e_success "Remote server OK! Redirecting you..."
-#             open "http://0.0.0.0:8000"
-#         fi
-
-#     else
-#         e_header "Starting local server..."
-#         cd ~/Sites && php -S localhost:8000 -t ${app}/
-#         open "http://localhost/${app}:8000"
-#     fi
-# }
+    e_success "Done!"
+}
 
 # Let's rock!
 printf "Please, wait... "
-config_html_project
-# server_html_project
+init_config
+init_grunt

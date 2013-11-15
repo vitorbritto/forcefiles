@@ -144,7 +144,7 @@ gruntclone() {
     ./clone-repos
 }
 
-# Essential Shortcuts
+# Development
 # -------------------
 
 # Shortcut to General Projects
@@ -164,6 +164,21 @@ wp() {
     cd Sites/projects/"$1"/wp-content/themes/"$2"
     # subl .
 }
+
+# Shortcut to clone Skeleton Repository
+skeleton() {
+    git clone git://github.com/vitorbritto/skeleton.git "$@"
+    cd "$@" && bash init.sh && npm install && subl .
+    printf "Done! ✔ \n"
+}
+
+# Shortcut to start a project with Compass Blueprint
+blueprint() {
+    compass create "$1" --using blueprint/"$2" && cd "$1"
+    printf "\n"
+    printf "Done! ✔ \n"
+}
+
 
 # Deployment
 # -------------------
