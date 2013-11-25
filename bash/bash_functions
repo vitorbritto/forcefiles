@@ -136,6 +136,10 @@ gruntci() {
   npm install grunt-contrib-"$@" --save-dev
 }
 
+yogen() {
+    sudo npm i "$@" -gq
+}
+
 # Quickly clone all gruntjs repos (for grunt development)
 gruntclone() {
     mkdir "$@" && cd "$@"

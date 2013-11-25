@@ -115,7 +115,7 @@ fi
 
 # `cat` with beautiful colors. requires Pygments installed.
 # sudo easy_install Pygments
-alias c='pygmentize -O style=monokai -f console256 -g'
+alias cat='pygmentize -O style=monokai -f console256 -g'
 
 
 # ------------------------------------------------------------------------------
@@ -156,19 +156,9 @@ alias offline="sudo shutdown -h now"
 # | Package Manager                                                            |
 # ------------------------------------------------------------------------------
 
-# Gems
-alias gemi="gem install"
-alias gems="gem search"
-alias geme="gem env"
-
-# Rvm
+# RVM
 alias rubies="rvm list rubies"
 alias gemsets="rvm gemset list"
-alias rvmlist="rvm list known"
-alias rvmreq="rvm requirements"
-alias rvmup="rvm upgrade"
-alias rvmi="rvm install"
-alias rvmr="rvm uninstall"
 alias rvmu18="rvm use 1.8.7"
 alias rvmu19="rvm use 1.9.3"
 alias rvmu20="rvm use 2.0.0"
@@ -176,24 +166,24 @@ alias rvmd18="rvm --default use 1.8.7"
 alias rvmd19="rvm --default use 1.9.3"
 alias rvmd20="rvm --default use 2.0.0"
 
+# Bundler
+alias b="bundle"
+alias be="bundle exec"
+alias bake="bundle exec rake"
+
+# Rubygems
+alias gemi="gem install"
+
+# Rails
+alias migrate="bundle exec rake db:migrate"
+
 # Npm
-alias npmi="npm install"
-alias npmr="npm uninstall"
-alias npms="npm search"
 alias npmup="npm update"
 
 # Grunt
 command -v grunt > /dev/null && alias grunt="grunt --stack" # Make Grunt print stack traces by default
 
 # Bower
-alias bowc="bower cache-clean"
-alias bowh="bower --help"
-alias bows="bower search"
-alias bowi="bower install"
-alias bowr="bower uninstall"
-alias bowinit="bower init"
-alias bowl="bower list"
-alias bowv="bower -v"
 alias bowerup="npm update bower -g"
 
 # Composer
@@ -204,12 +194,6 @@ alias compcp="composer create-project"
 alias compdu="composer dump-autoload"
 
 # Homebrew
-alias brewv="brew --version"
-alias brewd="brew doctor"
-alias brewa="brew install"
-alias brewr="brew uninstall"
-alias brewl="brew link"
-alias brews="brew search"
 alias brewup="brew update &&  \
               brew upgrade && \
               brew cleanup"
@@ -235,6 +219,7 @@ alias temp="cd ~/temp"
 alias talks="cd ~/Sites/@talks"
 alias mylabs="cd ~/Sites/@mylabs"
 alias sources="cd ~/Sites/@sources"
+alias packages="cd /Users/vitorbritto/Library/Application\ Support/Sublime\ Text\ 2/Packages"
 alias remote="http://localhost/~vitorbritto/remoteserver/control/"
 
 # Apache

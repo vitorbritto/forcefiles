@@ -26,6 +26,7 @@ NPM:
     ungit
     docpad
     imageoptim-cli
+    express@3.4.3
 
 Dependencies:
     Z

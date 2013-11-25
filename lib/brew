@@ -5,7 +5,7 @@
 run_brew() {
 
     # Check for Homebrew
-    if type_exists 'brew'; then
+    if type_exists "brew"; then
         e_header "Updating Homebrew..."
         # Use the latest version of Homebrew
         brew update
@@ -20,17 +20,17 @@ run_brew() {
         local list_formulae
         local -a missing_formulae
         local -a desired_formulae=(
-            'coreutils' # GNU core utilities (those that come with OS X are outdated)
-            'git'
-            'ack'
-            'bash-completion'
-            'jpeg'
-            'node'
-            'optipng'
-            'phantomjs'
-            'tree'
-            'wget'
-            'https://raw.github.com/Homebrew/homebrew-dupes/master/rsync.rb' # Avoid using any custom OS X version of rsync
+            "coreutils" # GNU core utilities (those that come with OS X are outdated)
+            "git"
+            "ack"
+            "bash-completion"
+            "jpeg"
+            "node"
+            "optipng"
+            "phantomjs"
+            "tree"
+            "wget"
+            "https://raw.github.com/Homebrew/homebrew-dupes/master/rsync.rb" # Avoid using any custom OS X version of rsync
         )
 
         for index in ${!desired_formulae[*]}

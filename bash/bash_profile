@@ -3,14 +3,14 @@
 # bash_profile
 
 declare -a files=(
-    $HOME/.rvm/scripts/rvm # Load RVM into a shell session *as a function*
-    $HOME/.forcefiles/bash/bash_options # Options
-    $HOME/.forcefiles/bash/bash_exports # Exports
-    $HOME/.forcefiles/bash/bash_aliases # Aliases
+    $HOME/.rvm/scripts/rvm                # Load RVM into a shell session *as a function*
+    $HOME/.forcefiles/bash/bash_options   # Options
+    $HOME/.forcefiles/bash/bash_exports   # Exports
+    $HOME/.forcefiles/bash/bash_aliases   # Aliases
     $HOME/.forcefiles/bash/bash_functions # Functions
-    $HOME/.forcefiles/bash/bash_prompt # Custom bash prompt
-    $HOME/.bash_profile.local # Local and private settings not under version control (e.g. git credentials)
-    $HOME/.forcefiles/bash/bash_paths # Path modifications (must source after `.bash_profile.local` in case of custom `brew` location)
+    $HOME/.forcefiles/bash/bash_prompt    # Custom bash prompt
+    $HOME/.bash_profile.local             # Local and private settings
+    $HOME/.forcefiles/bash/bash_paths     # Path modifications
 )
 
 # If these files are readable, source them

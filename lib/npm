@@ -5,14 +5,18 @@
 run_npm() {
 
     # Check for npm
-    if type_exists 'npm'; then
+    if type_exists "npm"; then
         e_header "Installing NPM modules..."
 
         # List of npm packages
-        local packages="yo grunt-cli bower grunt-init generator-generator nave ungit docpad imageoptim-cli karma"
+        local packages="
+        yo grunt-cli bower
+        grunt-init generator-generator
+        nave ungit docpad imageoptim-cli
+        karma express@3.4.3 mongoose mongodb"
 
         # Install packages globally and quietly
-        npm install $packages -g
+        npm install $packages -gq
 
         [[ $? ]] && e_success "Done"
     else

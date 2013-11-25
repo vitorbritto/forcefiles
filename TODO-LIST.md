@@ -5,9 +5,11 @@ The show must go on... :)
 ## UPDATES
 
 ### General
+* Reorganize Bash aliases and functions
 * Config SSH
 * Download boxes (virtual machines) for IE8/9/10 ✔
 * Create script for apps installation ✔
+* Create script for Virtual Hosts ✔
 * Add SCP function ✔
 
 ### PHP

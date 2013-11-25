@@ -5,7 +5,7 @@
 run_gems() {
 
     # Check for Homebrew
-    if type_exists 'gem'; then
+    if type_exists "gem"; then
         e_header "Updating gem..."
         # Use the latest version of gem
         gem update --system
@@ -20,10 +20,13 @@ run_gems() {
         local list_gems
         local -a missing_gems
         local -a desired_gems=(
-            'rails'
-            'sass'
-            'compass'
-            'jekyll'
+            "rails"
+            "sass"
+            "compass"
+            "jekyll",
+            "showterm",
+            "bundler",
+            "capistrano"
         )
 
         for index in ${!desired_gems[*]}

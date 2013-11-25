@@ -5,7 +5,7 @@
 run_rvm() {
 
     # Check for rvm
-    if type_exists 'rvm'; then
+    if type_exists "rvm"; then
         e_header "Installing Ruby..."
         # Instal versions 1.9.3 and 2.0.0
         rvm install 1.9.3
