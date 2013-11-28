@@ -115,7 +115,7 @@ fi
 
 # `cat` with beautiful colors. requires Pygments installed.
 # sudo easy_install Pygments
-alias cat='pygmentize -O style=monokai -f console256 -g'
+alias c='pygmentize -O style=monokai -f console256 -g'
 
 
 # ------------------------------------------------------------------------------
@@ -200,8 +200,9 @@ alias brewup="brew update &&  \
 
 # General Update
 alias update="sudo softwareupdate --install --all && \
-              brewu && \
-              npmu"
+              brewup && \
+              bowerup && \
+              npmup"
 
 
 # ------------------------------------------------------------------------------
@@ -238,9 +239,8 @@ alias sqladmin="http://localhost/~vitorbritto/phpmyadmin"
 alias usetheforce="sh ~/.forcefiles/bin/update"
 alias dothejob="sh ~/.forcefiles/bin/backup"
 alias newproject="sh ~/.forcefiles/init/init-project"
-alias createhost="sh ~/.forcefiles/init/init-host"
+alias newhost="sh ~/.forcefiles/init/init-host"
 alias installvms="sh ~/.forcefiles/init/init-vms"
-
 
 
 # ------------------------------------------------------------------------------
