@@ -113,6 +113,10 @@ copyfile() {
   cat $file_to_copy | pbcopy
 }
 
+dash() {
+    open dash://"$@"
+}
+
 
 #
 # Development (based on my workflow)
