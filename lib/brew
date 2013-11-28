@@ -26,6 +26,7 @@ run_brew() {
             "bash-completion"
             "jpeg"
             "node"
+            "git-ftp"
             "optipng"
             "phantomjs"
             "tree"
