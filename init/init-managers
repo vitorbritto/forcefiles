@@ -1,0 +1,166 @@
+# Shell Script for Initialize copy of manager files
+
+clear
+MANAGERS_TARBALL_PATH="https://github.com/vitorbritto/managers/tarball/master"
+MANAGERS_SRC_DIRECTORY="${MANAGERS_DIRECTORY}/src"
+
+BOWER="${MANAGERS_DIRECTORY}/bower"
+GRUNT="${MANAGERS_DIRECTORY}/grunt"
+COMPASS="${MANAGERS_DIRECTORY}/compass"
+COMPOSER="${MANAGERS_DIRECTORY}/composer"
+RAKE="${MANAGERS_DIRECTORY}/rake"
+MAKE="${MANAGERS_DIRECTORY}/make"
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Download and extract the managers repository
+printf "\n"
+printf "You need to create a folder to continue... \n"
+printf "\n"
+read -p "Please, set a name to your folder: " MANAGERS_DIRECTORY
+mkdir $MANAGERS_DIRECTORY
+
+# Get the tarball
+printf "$(tput setaf 7)Downloading managers...\033[m\n"
+curl -fsSLo ${MANAGERS_DIRECTORY}/managers.tar.gz ${MANAGERS_TARBALL_PATH}
+
+# Extract to the managers directory
+tar -zxf ${MANAGERS_DIRECTORY}/managers.tar.gz --strip-components 1 -C ${MANAGERS_DIRECTORY}
+
+# Remove the tarball
+rm -rf ${MANAGERS_DIRECTORY}/managers.tar.gz
+
+# Go to created directory
+cd ${MANAGERS_DIRECTORY}
+
+# if do not have ./src folder create one
+if [[ ! -d ${MANAGERS_SRC_DIRECTORY} ]]; then
+    printf "$(tput setaf 7)Creating folder...\033[m\n"
+    mkdir -p src
+fi
+
+# Let's start with some settings
+printf "\n"
+printf "Select an integration option to getting started: \n"
+printf "\n"
+printf "[ 1 ] - Bower \n"
+printf "[ 2 ] - Grunt \n"
+printf "[ 3 ] - Compass \n"
+printf "[ 4 ] - Composer \n"
+printf "[ 5 ] - NPM \n"
+printf "[ 6 ] - Rake \n"
+printf "[ 7 ] - Make \n"
+printf "[ 0 ] - Exit \n"
+printf "\n"
+read -p "Enter your choice: " input
+
+if [ $input = "1" ]; then
+
+    # copy files to ./src folder
+    printf "Copying files..."
+    cp ${MANAGERS_DIRECTORY}/bower/* ${MANAGERS_SRC_DIRECTORY}
+
+    # remove unecessary folders
+    printf "Removing stuff you don't want..."
+    rm -dr .* README.md install GRUNT COMPASS COMPOSER NPM RAKE MAKE
+
+    # Everything is ok!
+    printf "Ready to rock with Bower!"
+
+fi
+
+if [ $input = "2" ]; then
+
+    # copy files to ./src folder
+    printf "Copying files..."
+    cp ${MANAGERS_DIRECTORY}/grunt/* ${MANAGERS_SRC_DIRECTORY}
+
+    # remove unecessary folders
+    printf "Removing stuff you don't want..."
+    rm -dr .* README.md install BOWER COMPASS COMPOSER NPM RAKE MAKE
+
+    # Everything is ok!
+    printf "Ready to rock with Grunt!"
+
+fi
+
+if [ $input = "3" ]; then
+
+    # copy files to ./src folder
+    printf "Copying files..."
+    cp ${MANAGERS_DIRECTORY}/compass/* ${MANAGERS_SRC_DIRECTORY}
+
+    # remove unecessary folders
+    printf "Removing stuff you don't want..."
+    rm -dr .* README.md install BOWER GRUNT COMPOSER NPM RAKE MAKE
+
+    # Everything is ok!
+    printf "Ready to rock with Compass!"
+
+fi
+
+if [ $input = "4" ]; then
+
+    # copy files to ./src folder
+    printf "Copying files..."
+    cp ${MANAGERS_DIRECTORY}/composer/* ${MANAGERS_SRC_DIRECTORY}
+
+    # remove unecessary folders
+    printf "Removing stuff you don't want..."
+    rm -dr .* README.md install BOWER GRUNT COMPASS NPM RAKE MAKE
+
+    # Everything is ok!
+    printf "Ready to rock with Composer!"
+
+fi
+
+if [ $input = "5" ]; then
+
+    # copy files to ./src folder
+    printf "Copying files..."
+    cp ${MANAGERS_DIRECTORY}/npm/* ${MANAGERS_SRC_DIRECTORY}
+
+    # remove unecessary folders
+    printf "Removing stuff you don't want..."
+    rm -dr .* README.md install BOWER GRUNT COMPASS RAKE MAKE
+
+    # Everything is ok!
+    printf "Ready to rock with NPM!"
+
+fi
+
+if [ $input = "6" ]; then
+
+    # copy files to ./src folder
+    printf "Copying files..."
+    cp ${MANAGERS_DIRECTORY}/rake/* ${MANAGERS_SRC_DIRECTORY}
+
+    # remove unecessary folders
+    printf "Removing stuff you don't want..."
+    rm -dr .* README.md install BOWER GRUNT COMPASS NPM MAKE
+
+    # Everything is ok!
+    printf "Ready to rock with Rake!"
+
+fi
+
+if [ $input = "7" ]; then
+
+    # copy files to ./src folder
+    printf "Copying files..."
+    cp ${MANAGERS_DIRECTORY}/make/* ${MANAGERS_SRC_DIRECTORY}
+
+    # remove unecessary folders
+    printf "Removing stuff you don't want..."
+    rm -dr .* README.md install BOWER GRUNT COMPASS NPM RAKE
+
+    # Everything is ok!
+    printf "Ready to rock with Make!"
+
+fi
+
+if [ $input = "0" ]; then
+    printf "Bye bye!"
+    exit
+fi

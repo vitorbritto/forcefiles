@@ -2,11 +2,11 @@
 
 # Let's start with some settings
 BOILERPLATE_DIRECTORY="${HOME}/Sites/projects"
-BOILERPLATE_TARBALL_PATH="https://github.com/vitorbritto/boilerplate/tarball/master/general"
+BOILERPLATE_TARBALL_PATH="https://github.com/vitorbritto/boilerplates/tarball/master/general"
 LIBS_DIRECTORY="${HOME}/.forcefiles/lib"
 source ${LIBS_DIRECTORY}/utils
 
-# If missing, download and extract the boilerplate repository
+# Download and extract the boilerplate repository
 if [[ ! -d ${BOILERPLATE_DIRECTORY} ]]; then
     printf "$(tput setaf 7)Downloading repository...\033[m\n"
     mkdir ${BOILERPLATE_DIRECTORY}
@@ -18,26 +18,38 @@ if [[ ! -d ${BOILERPLATE_DIRECTORY} ]]; then
     rm -rf ${HOME}/boilerplate.tar.gz
 fi
 
-# This guy will set up the project
+# Setup the project
 init_config() {
 
-    # Rename the project
     cd ${BOILERPLATE_DIRECTORY}
     printf "\n"
     printf "Please enter a name for this project:"
     printf "\n"
     read -p "Enter your name here: " app
-    [[ $? ]] mkdir $app && cd $app
+    [[ $? ]] && mkdir $app && cd $app
 
-    # Open Sublime
-    [[ $? ]] && e_header "Opening your editor..."
-    [[ $? ]] && subl .
-    [[ $? ]] && e_success "Done!"
+}
 
-    # Install NPM modules
+# NPM Dependencies
+init_npm() {
+
     [[ $? ]] && e_header "Setting up dependencies from NPM..."
     [[ $? ]] && cd src
     [[ $? ]] && npm install
+    [[ $? ]] && e_success "Done!"
+
+}
+
+# Open Sublime
+init_editor() {
+
+    seek_confirmation "Do you want to open files in your editor?"
+
+    if is_confirmed; then
+        [[ $? ]] && e_header "Opening your editor..."
+        [[ $? ]] && cd .. && subl .
+    fi
+
     [[ $? ]] && e_success "Done!"
 }
 
@@ -50,7 +62,7 @@ init_grunt() {
         grunt
     fi
 
-    e_success "Done!"
+    [[ $? ]] && e_success "Done!"
 }
 
 # Let's rock!

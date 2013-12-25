@@ -167,15 +167,11 @@ alias rvmd19="rvm --default use 1.9.3"
 alias rvmd20="rvm --default use 2.0.0"
 
 # Bundler
-alias b="bundle"
-alias be="bundle exec"
 alias bake="bundle exec rake"
+alias migrate="bundle exec rake db:migrate"
 
 # Rubygems
-alias gemi="gem install"
-
-# Rails
-alias migrate="bundle exec rake db:migrate"
+alias gemi="gem install --no-rdoc --no-ri"
 
 # Npm
 alias npmup="npm update"

@@ -135,7 +135,6 @@ mirrorfiles() {
     link "git/gitattributes"  ".gitattributes"
     link "git/gitignore"      ".gitignore"
     link "git/ungitrc"        ".ungitrc"
-    link "gem/gemrc"          ".gemrc"
 
     e_success "Forcefiles update complete!"
 }

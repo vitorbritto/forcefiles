@@ -5,16 +5,22 @@ The show must go on... :)
 ## UPDATES
 
 ### General
-* Reorganize Bash aliases and functions
+* Reorganize Bash aliases and functions ✔
 * Config SSH
 * Download boxes (virtual machines) for IE8/9/10 ✔
 * Create script for apps installation ✔
 * Create script for Virtual Hosts ✔
 * Add SCP function ✔
+* Include DalekJS ✔
+* Insert options for Boilerplates:
+    * Cross-devices (DalekJS and Browser-Sync)
+    * Virtual Host
+    * Unit Tests (Karma)
+
 
 ### PHP
 * Upgrade PHP version ✔
-* Download/Install MySQL and phpmyadmin
+* Download/Install MySQL and phpmyadmin ✔
 
 ### Projects
 * Choose the best option to initialize a remote server w/ sync - *(using grunt connect/php + livereload)* ✔
@@ -38,15 +44,29 @@ The show must go on... :)
 * Prepare the environment ✔
 * Rename project name based on user input ✔
 * Install NPM dependencies
-* Run Gruntfile Generator
 * Open project on Sublime Text ✔
-* Initialize server with Grunt
+* Initialize Grunt
 
 #### Node Projects
 * Download boilerplate repository on GitHub
 * Prepare the environment
 * Rename project name based on user input
-* Install NPM dependencies
+* Install NPM dependencies:
+    **Main:**
+    * [Stylus](http://learnboost.github.io/stylus/) - CSS pre-processor
+    * [Jade](http://jade-lang.com/) - A template engine for HTML pre-processor
+    * [Backbone](http://backbonejs.org/) - MV* framework
+    * [Underscore](http://underscorejs.org/) - A utility-belt library for JavaScript.
+    * [Karma]()
+
+    **Optional:**
+    * [SocketIO](http://socket.io/) - The cross-browser WebSocket for realtime apps.
+    * [Browserify](http://browserify.org/) - require('modules') in the browser.
+    * [MongoDB](http://www.mongodb.org/) - NoSQL database
+    * [Mongoose](http://mongoosejs.com/) - Elegant mongodb object modeling for NodeJS
+    * [Node MySQL](https://npmjs.org/package/mysql) - MySQL driver for NodeJS
+    * [Passport]()
+
 * Open project on Sublime Text
 * Initialize Grunt
 
@@ -79,9 +99,8 @@ The show must go on... :)
 * Prepare the environment
 * Rename project name based on user input
 * Install NPM dependencies
-* Run Gruntfile Generator
 * Open project on Sublime Text
-* Initialize server with Grunt
+* Initialize Grunt
 
 #### Rails Projects
 * Download boilerplate repository on GitHub ✔

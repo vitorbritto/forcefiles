@@ -2,10 +2,25 @@
 
 # Let's start with some settings
 BOILERPLATE_DIRECTORY="${HOME}/Sites/projects"
-BOILERPLATE_TARBALL_PATH="https://github.com/vitorbritto/boilerplate/tarball/master/node"
+BOILERPLATE_TARBALL_PATH="https://github.com/vitorbritto/boilerplates/tarball/master/node"
 LIBS_DIRECTORY="${HOME}/.forcefiles/lib"
 source ${LIBS_DIRECTORY}/utils
 
 # ====================================================
 #  WORK IN PROGRESS!!!
 # ====================================================
+
+# Optional dependencies
+# npm install karma --save-dev
+# npm install socket.io
+# passport
+# nodemon
+# nodemailer
+
+# Choose a database
+# MongoDB : npm install mongoose
+# MySQL   : npm install mysql
+
+# Cross-browser and Cross-devices test
+# npm install dalekjs --save-dev
+# npm install browser-sync --save-dev

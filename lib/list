@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # ------------------------------------------------------------------------------
 # | List what it'll be installed                                               |
 # ------------------------------------------------------------------------------
@@ -16,17 +18,38 @@ This will install/update the following stuff to improve my workflow.
 Packages
 ------------
 
+Brew:
+    git
+    ack
+    bash-completion
+    jpeg
+    node
+    git-ftp
+    optipng
+    phantomjs
+    mongodb
+    tree
+    imagemagick
+    wget
+
 NPM:
-    grunt-cli
-    grunt-init
-    bower
     yo
+    grunt-cli
+    bower
+    grunt-init
     generator-generator
     nave
     ungit
     docpad
     imageoptim-cli
+    jade
+    stylus
+    jshint
+    karma
     express@3.4.3
+    mongoose
+    mongodb
+    browserify
 
 Dependencies:
     Z

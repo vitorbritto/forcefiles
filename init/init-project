@@ -13,21 +13,21 @@ BOILERPLATES_DIRECTORY="${HOME}/.forcefiles/init/boilerplates"
 
 # Let me introduce myself
 clear
-figlet A New project will born...
+figlet A New project will be born...
 
 # Then, ask before continue...
 printf "\n"
-printf "You're about to start a new project. Please, select an option to getting started. \n"
+printf "You're about to start a new project. Please, select an option to getting started. [1-7] \n"
 printf "\n"
-printf "[ 1 ] - General \n"
-printf "[ 2 ] - WordPress \n"
-printf "[ 3 ] - Rails \n"
-printf "[ 4 ] - Node \n"
-printf "[ 5 ] - Ghost \n"
-printf "[ 6 ] - Jekyll \n"
-printf "[ 7 ] - DocPad \n"
+printf " [ 1 ] - General \n"
+printf " [ 2 ] - WordPress \n"
+printf " [ 3 ] - Rails \n"
+printf " [ 4 ] - Node \n"
+printf " [ 5 ] - Ghost \n"
+printf " [ 6 ] - Jekyll \n"
+printf " [ 7 ] - DocPad \n"
 printf "\n"
-printf "[ 0 ] - Exit \n"
+printf " [ 0 ] - Exit \n"
 printf "\n"
 read -p "Enter your choice: " input
 

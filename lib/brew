@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # ------------------------------------------------------------------------------
 # | Homebrew Settings                                                          |
 # ------------------------------------------------------------------------------
@@ -29,7 +31,9 @@ run_brew() {
             "git-ftp"
             "optipng"
             "phantomjs"
+            "mongodb"
             "tree"
+            "imagemagick"
             "wget"
             "https://raw.github.com/Homebrew/homebrew-dupes/master/rsync.rb" # Avoid using any custom OS X version of rsync
         )

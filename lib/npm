@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # ------------------------------------------------------------------------------
 # | NPM Settings                                                               |
 # ------------------------------------------------------------------------------
@@ -10,13 +12,22 @@ run_npm() {
 
         # List of npm packages
         local packages="
-        yo grunt-cli bower
-        grunt-init generator-generator
-        nave ungit docpad imageoptim-cli
-        karma express@3.4.3 mongoose mongodb"
+        yo
+        grunt-cli
+        bower
+        grunt-init
+        generator-generator
+        ungit
+        nave
+        browserify
+        docpad
+        imageoptim-cli
+        dalek-cli
+        sails
+        express@3.3.4"
 
         # Install packages globally and quietly
-        npm install $packages -gq
+        npm install $packages -g
 
         [[ $? ]] && e_success "Done"
     else
