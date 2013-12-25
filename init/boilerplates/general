@@ -1,52 +1,71 @@
 #!/bin/sh
 
 # Let's start with some settings
+ASSEMBLE="assemble"
+DOCPAD="docpad"
+GENERAL="general"
+GHOST="ghost"
+JEKYLL="jekyll"
+MOBILE="mobile"
+NODE="node"
+RAILS="rails"
+SAILS="sails"
+WORDPRESS="wordpress"
+
+DOWNLOADS="${HOME}/Downloads"
 BOILERPLATE_DIRECTORY="${HOME}/Sites/projects"
-BOILERPLATE_TARBALL_PATH="https://github.com/vitorbritto/boilerplates/tarball/master/general"
+BOILERPLATE_TARBALL_PATH="https://github.com/vitorbritto/boilerplates/tarball/master"
 LIBS_DIRECTORY="${HOME}/.forcefiles/lib"
+
 source ${LIBS_DIRECTORY}/utils
 
-# If directory is missing...
-if [[ ! -d ${BOILERPLATE_DIRECTORY} ]]; then
-    mkdir ${BOILERPLATE_DIRECTORY}
-fi
-
-# Download and extract the boilerplate repository
-init_download() {
-
-    printf "$(tput setaf 7)Downloading repository...\033[m\n"
-    # Get the tarball
-    curl -fsSLo ${HOME}/boilerplate.tar.gz ${BOILERPLATE_TARBALL_PATH}
-    # Extract to the boilerplate directory
-    tar -zxf ${HOME}/boilerplate.tar.gz --strip-components 1 -C ${BOILERPLATE_DIRECTORY}
-    # Remove the tarball
-    rm -rf ${HOME}/boilerplate.tar.gz
-
-}
-
-# Setup the project
+# Initialize Configurantion
 init_config() {
 
+    # If missing, create directory
+    if [[ ! -d ${BOILERPLATE_DIRECTORY} ]]; then
+
+        mkdir ${BOILERPLATE_DIRECTORY}
+
+    fi
+
+    printf "$(tput setaf 7)Downloading repository...\033[m\n"
+
+    # Get the tarball
+    curl -fsSLo ${DOWNLOADS}/boilerplates.tar.gz ${BOILERPLATE_TARBALL_PATH}
+
+    # Extract to the boilerplate directory
+    tar -zxf ${DOWNLOADS}/boilerplates.tar.gz --strip-components 1 -C ${BOILERPLATE_DIRECTORY}
+
+    # Remove the tarball
+    rm -rf ${DOWNLOADS}/boilerplates.tar.gz
+
+    # Access main directory
     cd ${BOILERPLATE_DIRECTORY}
+
+    # Remove unecessary files
+    rm -rf .gitignore README.md LICENSE
+    rm -rf ${ASSEMBLE} ${DOCPAD} ${GHOST} ${JEKYLL} ${MOBILE} ${NODE} ${RAILS} ${SAILS} ${WORDPRESS}
+
+    # Rename the project
     printf "\n"
-    printf "Please enter a name for this project:"
+    printf "Please enter a name for this project (e.g: my-new-project):"
     printf "\n"
     read -p "Enter your name here: " app
-    mkdir $app && cd $app
+    mv -f -v general $app && cd $_
 
 }
 
-# NPM Dependencies
+# Install Dependencies
 init_npm() {
 
     e_header "Setting up dependencies from NPM..."
-    cd src
-    npm install
+    cd src && npm i
     e_success "Done!"
 
 }
 
-# And finally, start Grunt
+# Run Grunt
 init_grunt() {
 
     seek_confirmation "Do you want to run Grunt now?"
@@ -58,10 +77,11 @@ init_grunt() {
     e_success "Done!"
 }
 
+
 # Open Sublime
 init_editor() {
 
-    seek_confirmation "Do you want to open files in your editor?"
+    seek_confirmation "Do you want to open files on Sublime Text?"
 
     if is_confirmed; then
         e_header "Opening your editor..."
@@ -69,11 +89,11 @@ init_editor() {
     fi
 
     e_success "Done!"
+
 }
 
 # Let's rock!
 printf "Please, wait... "
-init_download
 init_config
 init_npm
 init_grunt

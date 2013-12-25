@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Let's start with some settings
+BOILERPLATE_DIRECTORY="${HOME}/Sites/projects"
+BOILERPLATE_TARBALL_PATH="https://github.com/vitorbritto/boilerplates/tarball/master/rails"
+LIBS_DIRECTORY="${HOME}/.forcefiles/lib"
+source ${LIBS_DIRECTORY}/utils
+
+# ====================================================
+#  WORK IN PROGRESS!!!
+# ====================================================
