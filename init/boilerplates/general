@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Let's start with some settings
 ASSEMBLE="assemble"

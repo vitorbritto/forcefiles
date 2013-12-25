@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Shell Script for Initialize copy of manager files
 
 clear

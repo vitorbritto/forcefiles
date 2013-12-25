@@ -43,9 +43,9 @@ The show must go on... :)
 * Download boilerplate repository on GitHub ✔
 * Prepare the environment ✔
 * Rename project name based on user input ✔
-* Install NPM dependencies
+* Install NPM dependencies ✔
 * Open project on Sublime Text ✔
-* Initialize Grunt
+* Initialize Grunt ✔
 
 #### Node Projects
 * Download boilerplate repository on GitHub

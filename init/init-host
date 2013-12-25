@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+
 #===============================================================================
 #
 # A fancy little script to setup a new virtualhost in Mac OS X.

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Borrow some OSX settings from [mathiasbynens dotfiles](https://github.com/mathiasbynens/dotfiles)
 
