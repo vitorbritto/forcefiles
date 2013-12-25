@@ -10,6 +10,7 @@ sudo -v
 
 # Let's start with some settings
 BOILERPLATES_DIRECTORY="${HOME}/.forcefiles/init/boilerplates"
+QUESTION="$(tput setaf 37)$(tput bold)[ ? ]$(tput sgr0)"
 
 # Let me introduce myself
 clear
@@ -17,53 +18,39 @@ figlet A New project will be born...
 
 # Then, ask before continue...
 printf "\n"
-printf "You're about to start a new project. Please, select an option to getting started. [1-7] \n"
+printf "You're about to start a new project. Please, select an option to getting started (0-9). \n"
 printf "\n"
-printf " [ 1 ] - General \n"
-printf " [ 2 ] - WordPress \n"
-printf " [ 3 ] - Rails \n"
-printf " [ 4 ] - Node \n"
-printf " [ 5 ] - Ghost \n"
-printf " [ 6 ] - Jekyll \n"
-printf " [ 7 ] - DocPad \n"
+printf "${QUESTION} 0 - General \n"
+printf "${QUESTION} 1 - WordPress \n"
+printf "${QUESTION} 2 - Mobile \n"
+printf "${QUESTION} 3 - Node \n"
+printf "${QUESTION} 4 - Sails \n"
+printf "${QUESTION} 5 - Ghost \n"
+printf "${QUESTION} 6 - Jekyll \n"
+printf "${QUESTION} 7 - DocPad \n"
+printf "${QUESTION} 8 - Assemble \n"
+printf "${QUESTION} 9 - Rails \n"
 printf "\n"
-printf " [ 0 ] - Exit \n"
+printf "${QUESTION} q  - Quit \n"
 printf "\n"
 read -p "Enter your choice: " input
 
-if [ $input = "1" ]; then
-    bash ${BOILERPLATES_DIRECTORY}/general
-fi
+case "$input" in
 
-if [ $input = "2" ]; then
-    bash ${BOILERPLATES_DIRECTORY}/wordpress
-fi
+    0) bash ${BOILERPLATES_DIRECTORY}/general exit 0 ;;
+    1) bash ${BOILERPLATES_DIRECTORY}/wordpress exit 0 ;;
+    2) bash ${BOILERPLATES_DIRECTORY}/mobile exit 0 ;;
+    3) bash ${BOILERPLATES_DIRECTORY}/node exit 0 ;;
+    4) bash ${BOILERPLATES_DIRECTORY}/sails exit 0 ;;
+    5) bash ${BOILERPLATES_DIRECTORY}/ghost exit 0 ;;
+    6) bash ${BOILERPLATES_DIRECTORY}/jekyll exit 0 ;;
+    7) bash ${BOILERPLATES_DIRECTORY}/docpad exit 0 ;;
+    8) bash ${BOILERPLATES_DIRECTORY}/assemble exit 0 ;;
+    9) bash ${BOILERPLATES_DIRECTORY}/rails exit 0 ;;
+    q | quit) printf "Bye bye!" exit 0 ;;
+    *) printf "Invalid option! Try again" exit 0 ;;
 
-if [ $input = "3" ]; then
-    bash ${BOILERPLATES_DIRECTORY}/rails
-fi
-
-if [ $input = "4" ]; then
-    bash ${BOILERPLATES_DIRECTORY}/node
-fi
-
-if [ $input = "5" ]; then
-    bash ${BOILERPLATES_DIRECTORY}/ghost
-fi
-
-if [ $input = "6" ]; then
-    bash ${BOILERPLATES_DIRECTORY}/jekyll
-fi
-
-if [ $input = "7" ]; then
-    bash ${BOILERPLATES_DIRECTORY}/docpad
-fi
-
-if [ $input = "0" ]; then
-    printf "Bye bye!"
-    exit
-fi
-
+esac
 
 # ====================================================
 #  TODO - TEST PROJECTS
@@ -71,8 +58,11 @@ fi
 
 # General ✔
 # WordPress
-# Rails
+# Mobile
 # Node
+# Sails
 # Ghost
 # Jekyll
 # DocPad
+# Assemble
+# Rails

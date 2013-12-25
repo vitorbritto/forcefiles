@@ -15,86 +15,63 @@ WORDPRESS="wordpress"
 DOWNLOADS="${HOME}/Downloads"
 BOILERPLATE_DIRECTORY="${HOME}/Sites/projects"
 BOILERPLATE_TARBALL_PATH="https://github.com/vitorbritto/boilerplates/tarball/master"
-LIBS_DIRECTORY="${HOME}/.forcefiles/lib"
+UTILS_DIRECTORY="${HOME}/.forcefiles/lib/utils"
 
-source ${LIBS_DIRECTORY}/utils
+source ${UTILS_DIRECTORY}
 
-# Initialize Configurantion
-init_config() {
+# If missing, create directory
+if [[ ! -d ${BOILERPLATE_DIRECTORY} ]]; then
+    mkdir ${BOILERPLATE_DIRECTORY}
+fi
 
-    # If missing, create directory
-    if [[ ! -d ${BOILERPLATE_DIRECTORY} ]]; then
+# Get the tarball
+e_header "Downloading repositories..."
+curl -fsSLo ${DOWNLOADS}/boilerplates.tar.gz ${BOILERPLATE_TARBALL_PATH}
 
-        mkdir ${BOILERPLATE_DIRECTORY}
+# Extract to the boilerplate directory
+e_header "Extracting files..."
+tar -zxf ${DOWNLOADS}/boilerplates.tar.gz --strip-components 1 -C ${BOILERPLATE_DIRECTORY}
 
-    fi
+# Remove the tarball
+rm -rf ${DOWNLOADS}/boilerplates.tar.gz
 
-    printf "$(tput setaf 7)Downloading repository...\033[m\n"
+# Access main directory
+cd ${BOILERPLATE_DIRECTORY}
 
-    # Get the tarball
-    curl -fsSLo ${DOWNLOADS}/boilerplates.tar.gz ${BOILERPLATE_TARBALL_PATH}
+# Remove unecessary files
+e_header "Removing unecessary files..."
+rm -rf .gitignore README.md LICENSE
+rm -rf ${ASSEMBLE} ${DOCPAD} ${GHOST} ${JEKYLL} ${MOBILE} ${NODE} ${RAILS} ${SAILS} ${WORDPRESS}
 
-    # Extract to the boilerplate directory
-    tar -zxf ${DOWNLOADS}/boilerplates.tar.gz --strip-components 1 -C ${BOILERPLATE_DIRECTORY}
-
-    # Remove the tarball
-    rm -rf ${DOWNLOADS}/boilerplates.tar.gz
-
-    # Access main directory
-    cd ${BOILERPLATE_DIRECTORY}
-
-    # Remove unecessary files
-    rm -rf .gitignore README.md LICENSE
-    rm -rf ${ASSEMBLE} ${DOCPAD} ${GHOST} ${JEKYLL} ${MOBILE} ${NODE} ${RAILS} ${SAILS} ${WORDPRESS}
-
-    # Rename the project
-    printf "\n"
-    printf "Please enter a name for this project (e.g: my-new-project):"
-    printf "\n"
-    read -p "Enter your name here: " app
-    mv -f -v general $app && cd $_
-
-}
+# Rename the project
+printf "\n"
+e_header "Please enter a name for this project (e.g: my-new-project)."
+printf "\n"
+read -p "Project name: " name
+mv -f -v general $name && cd $_
 
 # Install Dependencies
-init_npm() {
+seek_confirmation "Would you like to install NPM dependencies?"
 
+if is_confirmed; then
     e_header "Setting up dependencies from NPM..."
-    cd src && npm i
-    e_success "Done!"
-
-}
+    cd src && npm install
+fi
 
 # Run Grunt
-init_grunt() {
+seek_confirmation "Would you like to run Grunt now?"
 
-    seek_confirmation "Do you want to run Grunt now?"
-
-    if is_confirmed; then
-        grunt
-    fi
-
-    e_success "Done!"
-}
-
+if is_confirmed; then
+    e_header "Starting Grunt..."
+    grunt
+fi
 
 # Open Sublime
-init_editor() {
+seek_confirmation "Would you like to open Sublime Text?"
 
-    seek_confirmation "Do you want to open files on Sublime Text?"
+if is_confirmed; then
+    e_header "Opening your editor..."
+    cd .. && subl .
+fi
 
-    if is_confirmed; then
-        e_header "Opening your editor..."
-        cd .. && subl .
-    fi
-
-    e_success "Done!"
-
-}
-
-# Let's rock!
-printf "Please, wait... "
-init_config
-init_npm
-init_grunt
-init_editor
+e_success "All Done!"
