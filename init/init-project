@@ -10,28 +10,27 @@ sudo -v
 
 # Let's start with some settings
 BOILERPLATES_DIRECTORY="${HOME}/.forcefiles/init/boilerplates"
-QUESTION="$(tput setaf 37)$(tput bold)[ ? ]$(tput sgr0)"
+STYLE="$(tput setaf 37)$(tput bold)[ ? ]$(tput sgr0)"
 
 # Let me introduce myself
 clear
-figlet A New project will be born...
+figlet -f smslant a new project will be born
 
 # Then, ask before continue...
 printf "\n"
 printf "You're about to start a new project. Please, select an option to getting started (0-9). \n"
 printf "\n"
-printf "${QUESTION} 0 - General \n"
-printf "${QUESTION} 1 - WordPress \n"
-printf "${QUESTION} 2 - Mobile \n"
-printf "${QUESTION} 3 - Node \n"
-printf "${QUESTION} 4 - Sails \n"
-printf "${QUESTION} 5 - Ghost \n"
-printf "${QUESTION} 6 - Jekyll \n"
-printf "${QUESTION} 7 - DocPad \n"
-printf "${QUESTION} 8 - Assemble \n"
-printf "${QUESTION} 9 - Rails \n"
+printf "${STYLE} 0 - General \n"
+printf "${STYLE} 1 - WordPress \n"
+printf "${STYLE} 2 - Mobile \n"
+printf "${STYLE} 3 - Node \n"
+printf "${STYLE} 4 - Ghost \n"
+printf "${STYLE} 5 - Jekyll \n"
+printf "${STYLE} 6 - DocPad \n"
+printf "${STYLE} 7 - Assemble \n"
+printf "${STYLE} 8 - Rails \n"
 printf "\n"
-printf "${QUESTION} q  - Quit \n"
+printf "${STYLE} q  - Quit \n"
 printf "\n"
 read -p "Enter your choice: " input
 
@@ -41,12 +40,11 @@ case "$input" in
     1) bash ${BOILERPLATES_DIRECTORY}/wordpress exit 0 ;;
     2) bash ${BOILERPLATES_DIRECTORY}/mobile exit 0 ;;
     3) bash ${BOILERPLATES_DIRECTORY}/node exit 0 ;;
-    4) bash ${BOILERPLATES_DIRECTORY}/sails exit 0 ;;
-    5) bash ${BOILERPLATES_DIRECTORY}/ghost exit 0 ;;
-    6) bash ${BOILERPLATES_DIRECTORY}/jekyll exit 0 ;;
-    7) bash ${BOILERPLATES_DIRECTORY}/docpad exit 0 ;;
-    8) bash ${BOILERPLATES_DIRECTORY}/assemble exit 0 ;;
-    9) bash ${BOILERPLATES_DIRECTORY}/rails exit 0 ;;
+    4) bash ${BOILERPLATES_DIRECTORY}/ghost exit 0 ;;
+    5) bash ${BOILERPLATES_DIRECTORY}/jekyll exit 0 ;;
+    6) bash ${BOILERPLATES_DIRECTORY}/docpad exit 0 ;;
+    7) bash ${BOILERPLATES_DIRECTORY}/assemble exit 0 ;;
+    8) bash ${BOILERPLATES_DIRECTORY}/rails exit 0 ;;
     q | quit) printf "Bye bye!" exit 0 ;;
     *) printf "Invalid option! Try again" exit 0 ;;
 
@@ -60,7 +58,6 @@ esac
 # WordPress
 # Mobile
 # Node
-# Sails
 # Ghost
 # Jekyll
 # DocPad

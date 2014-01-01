@@ -21,7 +21,6 @@
 
 # Don't change this!
 version="1.31"
-#
 
 # No point going any farther if we're not running correctly...
 if [ `whoami` != 'root' ]; then

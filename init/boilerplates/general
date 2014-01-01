@@ -25,7 +25,7 @@ if [[ ! -d ${BOILERPLATE_DIRECTORY} ]]; then
 fi
 
 # Get the tarball
-e_header "Downloading repositories..."
+e_header "Downloading repository..."
 curl -fsSLo ${DOWNLOADS}/boilerplates.tar.gz ${BOILERPLATE_TARBALL_PATH}
 
 # Extract to the boilerplate directory
@@ -46,7 +46,6 @@ rm -rf ${ASSEMBLE} ${DOCPAD} ${GHOST} ${JEKYLL} ${MOBILE} ${NODE} ${RAILS} ${SAI
 # Rename the project
 printf "\n"
 e_header "Please enter a name for this project (e.g: my-new-project)."
-printf "\n"
 read -p "Project name: " name
 mv -f -v general $name && cd $_
 
