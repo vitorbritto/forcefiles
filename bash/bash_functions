@@ -173,10 +173,17 @@ wp() {
     # subl .
 }
 
-# Shortcut to clone Skeleton Repository
+# Shortcut to clone Skeleton Repository - NodeJS Version
 skeleton() {
-    git clone git://github.com/vitorbritto/skeleton.git "$@"
-    cd "$@" && bash init.sh && npm install && subl .
+    git clone git://github.com/vitorbritto/node-skeleton.git "$@"
+    cd "$@" && npm i && node skeleton
+    printf "Done! ✔ \n"
+}
+
+# Shortcut to clone Boilerplates Repository - NodeJS Version
+boilerplate() {
+    git clone git://github.com/vitorbritto/node-boilerplates.git "$@"
+    cd "$@" && npm i && node newproject
     printf "Done! ✔ \n"
 }
 

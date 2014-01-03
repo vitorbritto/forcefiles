@@ -16,4 +16,7 @@ run_deps() {
     # for the c alias (syntax highlighted cat)
     easy_install Pygments
 
+    # Install Meteor
+    curl https://install.meteor.com | /bin/sh
+
 }

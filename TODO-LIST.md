@@ -13,7 +13,6 @@ The show must go on... :)
 * Add SCP function ✔
 * Include DalekJS ✔
 * Insert options for Boilerplates:
-    * Cross-devices (DalekJS and Browser-Sync)
     * Virtual Host
     * Unit Tests (Karma)
 
@@ -23,10 +22,10 @@ The show must go on... :)
 * Download/Install MySQL and phpmyadmin ✔
 
 ### Projects
-* Choose the best option to initialize a remote server w/ sync - *(using grunt connect/php + livereload)* ✔
-* Tests with sync cross-device *(remoteserver)* ✔
+* Initialize a server w/ sync - *browser-sync* ✔
+* Cross-browser and cross-device testing - *browser-sync and dalekJS* ✔
 * Finish boilerplates
-* Create a Gruntfile Generator
+* Gruntnizr
 
 > Check [boilerplates item](#boilerplates) for more information.
 
@@ -44,8 +43,9 @@ The show must go on... :)
 * Prepare the environment ✔
 * Rename project name based on user input ✔
 * Install NPM dependencies ✔
-* Open project on Sublime Text ✔
 * Initialize Grunt ✔
+* Create a Virtual Host
+* Open project on Sublime Text ✔
 
 #### Node Projects
 * Download boilerplate repository on GitHub
