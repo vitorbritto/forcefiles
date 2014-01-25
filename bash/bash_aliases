@@ -234,8 +234,6 @@ alias sqladmin="http://localhost/~vitorbritto/phpmyadmin"
 # Workflow
 alias usetheforce="bash ~/.forcefiles/bin/update"
 alias newbackup="bash ~/.forcefiles/bin/backup"
-alias newproject="bash ~/.forcefiles/init/init-project"
-alias newmanager="bash ~/.forcefiles/init/init-managers"
 alias newhost="bash ~/.forcefiles/init/init-host"
 alias installvms="bash ~/.forcefiles/init/init-vms"
 

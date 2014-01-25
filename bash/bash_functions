@@ -173,16 +173,16 @@ wp() {
     # subl .
 }
 
-# Shortcut to clone Skeleton Repository - NodeJS Version
+# Shortcut to clone Skeleton Repository
 skeleton() {
     git clone git://github.com/vitorbritto/node-skeleton.git "$@"
     cd "$@" && npm i && node skeleton
     printf "Done! ✔ \n"
 }
 
-# Shortcut to clone Boilerplates Repository - NodeJS Version
+# Shortcut to clone Boilerplates Repository
 boilerplate() {
-    git clone git://github.com/vitorbritto/node-boilerplates.git "$@"
+    git clone git://github.com/vitorbritto/boilerplates.git "$@"
     cd "$@" && npm i && node newproject
     printf "Done! ✔ \n"
 }
@@ -192,6 +192,14 @@ blueprint() {
     compass create "$1" --using blueprint/"$2" && cd "$1"
     printf "\n"
     printf "Done! ✔ \n"
+}
+
+just() {
+    git clone git://github.com/vitorbritto/just.git "$1"
+    cd "$1" && npm install && chmod u+x just.js
+    ./just.js npm
+    ./just.js build
+    ./just.js "$2"
 }
 
 # Tools

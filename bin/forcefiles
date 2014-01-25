@@ -135,6 +135,7 @@ mirrorfiles() {
     link "git/gitattributes"  ".gitattributes"
     link "git/gitignore"      ".gitignore"
     link "git/ungitrc"        ".ungitrc"
+    link "npm/npmrc"          ".npmrc"
 
     e_success "Forcefiles update complete!"
 }
