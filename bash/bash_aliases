@@ -2,7 +2,7 @@
 
 
 # ------------------------------------------------------------------------------
-# | Main                                                                       |
+# | System                                                                     |
 # ------------------------------------------------------------------------------
 
 # Navigation
@@ -28,10 +28,6 @@ alias whois="whois -h whois-servers.net"
 
 # Shorctus
 # -------------------
-
-# General
-alias please="sudo"
-alias bye="exit"
 
 # Gzip-enabled `curl`
 alias gurl='curl --compressed'
@@ -207,22 +203,17 @@ alias update="sudo softwareupdate --install --all && \
 
 # Daily stuff
 alias subl='open -a "/Applications/Sublime Text 2.app"'
-alias chrome='open -a "/Applications/Google Chrome Canary.app" --args --allow-file-access-from-files'
-alias mou='open -a "/Applications/Mou.app"'
-alias o="open "
-alias dbox="cd ~/Documents/Dropbox"
+alias db="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
-alias temp="cd ~/temp"
-alias talks="cd ~/Sites/@talks"
-alias mylabs="cd ~/Sites/@mylabs"
-alias sources="cd ~/Sites/@sources"
-alias packages="cd /Users/vitorbritto/Library/Application\ Support/Sublime\ Text\ 2/Packages"
-alias remote="http://localhost/~vitorbritto/remoteserver/control/"
+alias t="cd ~/temp"
+alias s="cd ~/Sites"
+alias g="git"
+alias h="history"
+alias j="jobs"
+alias o="open "
 
 # Apache
-alias apstop="sudo apachectl stop"
-alias apstart="sudo apachectl start"
-alias aprestart="sudo apachectl restart"
+# Moved some alias to apache() function
 alias apedit="sudo nano -w /etc/apache2/httpd.conf"
 alias apvhosts="sudo nano -w /etc/apache2/extra/httpd-vhosts.conf"
 
@@ -236,7 +227,3 @@ alias usetheforce="bash ~/.forcefiles/bin/update"
 alias newbackup="bash ~/.forcefiles/bin/backup"
 alias newhost="bash ~/.forcefiles/init/init-host"
 alias installvms="bash ~/.forcefiles/init/init-vms"
-
-# ------------------------------------------------------------------------------
-# | Custom Aliases                                                             |
-# ------------------------------------------------------------------------------

@@ -22,20 +22,23 @@ run_brew() {
         local list_formulae
         local -a missing_formulae
         local -a desired_formulae=(
-            "coreutils" # GNU core utilities (those that come with OS X are outdated)
-            "git"
-            "ack"
+            "coreutils"
+            "findutils"
+            "bash"
             "bash-completion"
+            "wget"
+            "ack"
+            "tree"
+            "git"
             "jpeg"
-            "node"
-            "git-ftp"
             "optipng"
+            "imagemagick"
+            "node"
             "phantomjs"
             "mongodb"
-            "tree"
-            "imagemagick"
-            "wget"
-            "https://raw.github.com/Homebrew/homebrew-dupes/master/rsync.rb" # Avoid using any custom OS X version of rsync
+            "erlang"
+            "elixir"
+            "https://raw.github.com/Homebrew/homebrew-dupes/master/rsync.rb"
         )
 
         for index in ${!desired_formulae[*]}
@@ -53,15 +56,26 @@ run_brew() {
             e_header "Installing missing Homebrew formulae..."
             # Install all missing formulae
             brew install $list_formulae
+
+            # Install more recent versions of some OS X tools
+            brew install vim --override-system-vi
+            brew tap homebrew/dupes
+            brew tap josegonzalez/homebrew-php
+            brew install php54 --with-mysql --wihout-apache
+            brew install php54-memcached php54-apc php54-xdebug
+
         fi
 
         # Remove outdated versions from the Cellar
         brew cleanup
+
     else
+
         printf "\n"
         e_error "Error: Homebrew not found."
         printf "Aborting...\n"
         exit
+
     fi
 
 }

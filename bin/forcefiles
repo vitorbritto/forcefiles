@@ -120,11 +120,6 @@ mirrorfiles() {
     # `.gitconfig`. This prevents them being committed to the repository.
     rsync -avz --quiet ${FORCEFILES_DIRECTORY}/git/gitconfig  ${HOME}/.gitconfig
 
-    # Force remove the vim directory if it's already there.
-    if [ -e "${HOME}/.vim" ]; then
-        rm -rf "${HOME}/.vim"
-    fi
-
     # Create the necessary symbolic links between the `.forcefiles` and `HOME`
     # directory. The `bash_profile` sources other files directly from the
     # `.forcefiles` repository.
@@ -132,10 +127,20 @@ mirrorfiles() {
     link "bash/bash_profile"  ".bash_profile"
     link "bash/inputrc"       ".inputrc"
     link "bash/screenrc"      ".screenrc"
+    link "gem/gemrc"          ".gemrc"
     link "git/gitattributes"  ".gitattributes"
     link "git/gitignore"      ".gitignore"
+    link "git/gitmodules"     ".gitmodules"
     link "git/ungitrc"        ".ungitrc"
     link "npm/npmrc"          ".npmrc"
+    link "zsh/zshrc"          ".zshrc"
+    link "zsh/zprofile"       ".zprofile"
+
+
+     # Force remove the vim directory if it's already there.
+    if [ -e "${HOME}/.vim" ]; then
+        rm -rf "${HOME}/.vim"
+    fi
 
     e_success "Forcefiles update complete!"
 }

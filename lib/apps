@@ -10,31 +10,30 @@ run_apps() {
     printf "Seat back a while... this may take several minutes to install...\n"
     printf "\n"
 
-    # homebrew-cask
+    # Install native apps
     brew tap phinze/homebrew-cask
     brew install brew-cask
 
     # browser
     brew cask install firefox-aurora
-    brew cask install google-chrome
     brew cask install google-chrome-canary
-    brew cask install opera-next
 
     # development
-    brew cask install sublime-text-3
+    brew cask install sublime-text
     brew cask install filezilla
     brew cask install source-tree
     brew cask install virtualbox
     brew cask install vagrant
     brew cask install imageoptim
 
-    # other
+    # others
     brew cask install alfred
     brew cask install dropbox
     brew cask install mou
     brew cask install skype
+    brew cask install transmission
 
-    # All done!
+    # done
     printf "\n"
     printf "All done!\n"
 

@@ -1,19 +1,8 @@
 #!/bin/bash
 
-# bash_functions
-
 #
 # General
 # ---------------------------------------------------
-
-# Adds an alias to the current shell and to bash_aliases file.
-# Borrowed from Mislav (http://github.com/mislav/dotfiles/tree/master/bash_aliases)
-add-alias() {
-   local name=$1 value=$2
-   printf "alias $name='$value'" >> ~/.forcefiles/bash/bash_aliases
-   eval "alias $name='$value'"
-   alias $name
-}
 
 # Create a data URI from a file
 datauri() {
@@ -41,36 +30,32 @@ deletefiles() {
     find . -type f -name "$q" -ls -delete
 }
 
-# Get gzip information (gzipped file size + reduction size)
-gz() {
-    declare -i gzippedSize=0
-    declare -i originalSize=0
+# Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
+targz() {
+    local tmpFile="${@%/}.tar"
+    tar -cvf "${tmpFile}" --exclude=".DS_Store" "${@}" || return 1
 
-    if [ -f "$1" ]; then
-        if [ -s "$1" ]; then
+    size=$(
+        stat -f"%z" "${tmpFile}" 2> /dev/null; # OS X `stat`
+        stat -c"%s" "${tmpFile}" 2> /dev/null # GNU `stat`
+    )
 
-            originalSize=$( wc -c < "$1")
-            #                  └─ very slow for large files, but `stat -c%s`
-            #                     or `du -b` don't work on Mac OS X :(
-            printf "\n original size:   %12s\n" "$(hrfs $originalSize)"
-
-            gzippedSize=$( gzip -c "$1" | wc -c )
-            printf " gzipped size:    %12s\n" "$(hrfs $gzippedSize)"
-
-            printf " ─────────────────────────────\n"
-            printf " reduction:       %12s [%s%%]\n\n" \
-                        "$( hrfs $(($originalSize-$gzippedSize)) )" \
-                        "$( printf "%s %s" "$originalSize $gzippedSize" | \
-                            awk '{ printf "%.1f", 100 - $2 * 100 / $1 }' | \
-                            sed -e 's/0*$//;s/\.$//' )"
-                            #              └─ remove tailing zeros
-
-        else
-            print_error "'$1' is empty."
-        fi
+    local cmd=""
+    if (( size < 52428800 )) && hash zopfli 2> /dev/null; then
+        # the .tar file is smaller than 50 MB and Zopfli is available; use it
+        cmd="zopfli"
     else
-        print_error "'$1' is not a file."
+        if hash pigz 2> /dev/null; then
+            cmd="pigz"
+        else
+            cmd="gzip"
+        fi
     fi
+
+    echo "Compressing .tar using \`${cmd}\`…"
+    "${cmd}" -v "${tmpFile}" || return 1
+    [ -f "${tmpFile}" ] && rm "${tmpFile}"
+    echo "${tmpFile}.gz created successfully."
 }
 
 # Create new directories and enter the first one
@@ -122,37 +107,7 @@ dash() {
 # Development (based on my workflow)
 # ---------------------------------------------------
 
-# Package Managers
-# -------------------
-
-# Registering Bower packages
-bowereg() {
-    bower register "$@" "$@"
-}
-
-# Install a grunt plugin and save to devDependencies
-grunti() {
-  npm install grunt-"$@" --save-dev
-}
-
-# Install a grunt-contrib plugin and save to devDependencies
-gruntci() {
-  npm install grunt-contrib-"$@" --save-dev
-}
-
-yogen() {
-    sudo npm i "$@" -gq
-}
-
-# Quickly clone all gruntjs repos (for grunt development)
-gruntclone() {
-    mkdir "$@" && cd "$@"
-    curl -fsSLO https://raw.github.com/gruntjs/clone-repos/master/clone-repos
-    chmod +x clone-repos
-    ./clone-repos
-}
-
-# Development
+# Projects
 # -------------------
 
 # Shortcut to General Projects
@@ -163,7 +118,7 @@ dev() {
 
 # Shortcut to Respositories
 repos() {
-    cd Sites/@mylabs/repositories/"$@"
+    cd Sites/@mylabs/"$1"/"$2"
     # subl .
 }
 
@@ -187,13 +142,7 @@ boilerplate() {
     printf "Done! ✔ \n"
 }
 
-# Shortcut to start a project with Compass Blueprint
-blueprint() {
-    compass create "$1" --using blueprint/"$2" && cd "$1"
-    printf "\n"
-    printf "Done! ✔ \n"
-}
-
+# Shortcut to clone Just task Runner Repository
 just() {
     git clone git://github.com/vitorbritto/just.git "$1"
     cd "$1" && npm install && chmod u+x just.js
@@ -202,51 +151,40 @@ just() {
     ./just.js "$2"
 }
 
-# Tools
-# -------------------
-
-
 # Deployment
 # -------------------
 
-# Rsync Options (in order)
-# Synchronize a local directory with a remote one
-# Synchronize a remote directory with a local one
-# Synchronize a local file with a remote one
-# To synchronize a remote file with a local one
-# Synchronize a local directories (make a backup)
-
-rsyncpulldir() {
-    rsync -r -a -v -e "ssh -l $1" --delete $2
-}
-rsyncpushdir() {
-    rsync -r -a -v -e "ssh -l $1" --delete $2
-}
-rsyncpullfile() {
-    rsync -a -v -e "ssh -l $1" $2
-}
-rsyncpushfile() {
-    rsync -a -v -e "ssh -l $1" $2
-}
-rsyncbackup() {
-    rsync -r -a -v --delete $@
+gone() {
+    git clone git://github.com/vitorbritto/gone.git "$1"
+    cd "$1" && npm install && chmod u+x gone.js
+    ./gone.js npm
+    ./gone.js build
+    ./gone.js "$2"
 }
 
-# SCP
-scpp() {
-    scp "$1" name@name.com:~/name.com/folder
-    printf "Copying... $1" | pbcopy
-    printf "Copied to clipboard: $1"
-}
-
-# Web Server
+# Server
 # -------------------
 
+# Apache
+apache() {
+    sudo -v # Ask for the administrator password upfront
+    apachectl $@ # options: start, stop or restart
+}
+
 # Start an HTTP server from a directory, optionally specifying the port
-py_server() {
+server() {
     local port="${1:-8000}"
-    open "http://localhost:${port}/"
+    sleep 1 && open "http://localhost:${port}/" &
     # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
     # And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
     python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
+}
+
+# Start a PHP server from a directory, optionally specifying the port
+# (Requires PHP 5.4.0+.)
+phpserver() {
+    local port="${1:-4000}"
+    local ip=$(ipconfig getifaddr en1)
+    sleep 1 && open "http://${ip}:${port}/" &
+    php -S "${ip}:${port}"
 }

@@ -9,7 +9,7 @@ run_list() {
 cat <<EOT
 
 ------------------------------------------------------------------------------
-OS X dotfiles - Vitor Britto - http://www.vitorbritto.com
+OS X dotfiles - Vitor Britto - http://www.vitorbritto.com.br
 ------------------------------------------------------------------------------
 
 This will install/update the following stuff to improve my workflow.
@@ -19,37 +19,48 @@ Packages
 ------------
 
 Brew:
-    git
-    ack
+    coreutils
+    findutils
+    bash
     bash-completion
+    wget
+    ack
+    tree
+    git
     jpeg
-    node
-    git-ftp
     optipng
+    imagemagick
+    node
     phantomjs
     mongodb
-    tree
-    imagemagick
-    wget
+    erlang
+    elixir
 
 NPM:
     yo
-    grunt-cli
+    gulp
     bower
+    grunt-cli
     grunt-init
     generator-generator
-    nave
+    express
+    imageoptim-cli
+    dalek-cli
+    lodash-cli
     ungit
     docpad
-    imageoptim-cli
-    jade
-    stylus
-    jshint
-    karma
-    express@3.4.3
-    mongoose
-    mongodb
+    nave
     browserify
+    beefy
+    shelljs
+    uglify-js
+    jshint
+    stylus
+    coffee-script
+    browser-sync
+    karma
+    markdown
+    jade
 
 Dependencies:
     Z
@@ -77,11 +88,10 @@ Browsers:
     Firefox Aurora
     Google Chrome
     Google Chrome Canary
-    Opera Next
 
 Development:
 
-    Sublime Text 3
+    Sublime Text
     SourceTree
     FileZilla
     VirtualBox (w/ Vagrant)

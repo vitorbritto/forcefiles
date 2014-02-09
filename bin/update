@@ -18,7 +18,6 @@ source ./lib/utils
 source ./lib/deps
 source ./lib/rvm
 source ./lib/gems
-source ./lib/php
 source ./lib/apps
 source ./lib/subl
 
@@ -64,16 +63,6 @@ if is_confirmed; then
 
     if is_confirmed; then
         run_gems
-        e_success "Done!"
-    else
-        echo "Skipped!\n"
-    fi
-
-    # Ask before updates PHP environment
-    seek_confirmation "Do you want to upgrade your PHP environment?"
-
-    if is_confirmed; then
-        run_php
         e_success "Done!"
     else
         echo "Skipped!\n"

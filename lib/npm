@@ -11,7 +11,7 @@ run_npm() {
         e_header "Installing NPM modules..."
 
         # List of npm packages
-        local packages="yo gulp bower grunt-cli grunt-init generator-generator express docpad imageoptim-cli dalek-cli lodash-cli ungit nave browserify beefy shelljs uglify-js jshint stylus coffee-script browser-sync karma"
+        local packages="yo gulp bower grunt-cli grunt-init generator-generator express imageoptim-cli dalek-cli lodash-cli ungit docpad nave browserify beefy shelljs uglify-js jshint stylus coffee-script browser-sync karma markdown jade"
 
         # Install packages globally and quietly
         npm install $packages -g
