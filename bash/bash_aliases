@@ -203,6 +203,7 @@ alias update="sudo softwareupdate --install --all && \
 
 # Daily stuff
 alias subl='open -a "/Applications/Sublime Text 2.app"'
+alias vim='open -a "/Applications/MacVim.app"'
 alias db="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias t="cd ~/temp"
@@ -214,16 +215,17 @@ alias o="open "
 
 # Apache
 # Moved some alias to apache() function
-alias apedit="sudo nano -w /etc/apache2/httpd.conf"
-alias apvhosts="sudo nano -w /etc/apache2/extra/httpd-vhosts.conf"
+alias httpd="sudo nano -w /etc/apache2/httpd.conf"
+alias vhost="sudo nano -w /etc/apache2/extra/httpd-vhosts.conf"
 
 # Database
 alias sqlstart="sudo /usr/local/mysql/support-files/mysql.server start"
 alias sqlstop="sudo /usr/local/mysql/support-files/mysql.server stop"
-alias sqladmin="http://localhost/~vitorbritto/phpmyadmin"
+alias pma="open http://localhost/~vitorbritto/phpmyadmin"
 
-# Workflow
+# Scripts
+alias addhost="sudo ~/.forcefiles/scripts/virtualhost.sh"
+alias delhost="sudo ~/.forcefiles/scripts/virtualhost.sh --delete"
+alias installvms="sudo ~/.forcefiles/scripts/installvms.sh"
 alias usetheforce="bash ~/.forcefiles/bin/update"
 alias newbackup="bash ~/.forcefiles/bin/backup"
-alias newhost="bash ~/.forcefiles/init/init-host"
-alias installvms="bash ~/.forcefiles/init/init-vms"

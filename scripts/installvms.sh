@@ -1,9 +1,17 @@
-#!/bin/bash
+#!/bin/sh
 
+#===============================================================================
+#
+# Install Virtual Machines
+#
 # up to you (me) if you want to run this as a file or copy paste at your leisure
+#
+# by Vitor Britto <code@vitorbritto.com.br>
+#================================================================================
 
-# Install Virtual Machine
-# run with alias "installvms"
+
+# Make this script executable
+# chmod a+x installvms
 
 # Ask for the administrator password upfront
 sudo -v

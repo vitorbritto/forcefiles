@@ -1,30 +1,27 @@
-#!/bin/bash
+#!/bin/sh
 
-#===============================================================================
+#================================================================================
+# virtualhost.sh
 #
 # A fancy little script to setup a new virtualhost in Mac OS X.
 #
-# up to you (me) if you want to run this as a file or copy paste at your leisure
-#
-# If you want to create a virtualhost, you need to:
-# $ please createhost <site>
-#
 # If you want to delete a virtualhost that you've created, you need to:
-# $ createhost --delete <site>
+#
+# sudo ./virtualhost.sh --delete <site>
 #
 # where <site> is the site name you used when you first created the host.
 #
 # by Patrick Gibson <patrick@patrickg.com>
 #================================================================================
 
-# chmod a+x init-host
 
 # Don't change this!
 version="1.31"
 
+
 # No point going any farther if we're not running correctly...
 if [ `whoami` != 'root' ]; then
-  echo "createhost requires super-user privileges to work."
+  echo "virtualhost.sh requires super-user privileges to work."
   echo "Enter your password to continue..."
   sudo "$0" $* || exit 1
   exit 0
@@ -61,7 +58,7 @@ OPEN_COMMAND="/usr/bin/open"
 # If you want to use a different browser than Safari, define it here:
 #BROWSER="Firefox"
 #BROWSER="WebKit"
-BROWSER="Google Chrome Canary"
+BROWSER="Google Chrome"
 
 # If defined, a ServerAlias os $1.$WILDCARD_ZONE will be added to the virtual
 # host file. This is useful if you, for example, have setup a wildcard domain
@@ -106,12 +103,12 @@ SKIP_DOCUMENT_ROOT_CHECK="no"
 APACHE_PORT="80"
 
 # Batch mode (all prompting will assume Yes). Any value will activate this. Can
-# be set here, in ~/.createhost.conf, or on the command line, like:
-# BATCH_MODE=yes createhost mysite
+# be set here, in ~/.virtualhost.sh.conf, or on the command line, like:
+# BATCH_MODE=yes virtualhost.sh mysite
 #BATCH_MODE="yes"
 
 # If you're satisfied with the version you have and do not wish to be reminded
-# of a new version, add the following line to your ~/.createhost.conf file.
+# of a new version, add the following line to your ~/.virtualhost.sh.conf file.
 #SKIP_VERSION_CHECK="yes"
 
 # We now will search your $DOC_ROOT_PREFIX for a matching subfolder using find.
@@ -123,11 +120,11 @@ MAX_SEARCH_DEPTH=2
 # to be launched in your browser after the virtualhost is setup.
 #SKIP_BROWSER="yes"
 
-# You can now store your configuration directions in a ~/.createhost.conf
+# You can now store your configuration directions in a ~/.virtualhost.sh.conf
 # file so that you can download new versions of the script without having to
 # redo your own settings.
-if [ -e ~/.createhost.conf ]; then
-  . ~/.createhost.conf
+if [ -e ~/.virtualhost.sh.conf ]; then
+  . ~/.virtualhost.sh.conf
 fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -242,23 +239,23 @@ version_check()
     if [ $testes -eq 1 ]; then
       /bin/echo "done"
       if [ -z $BATCH_MODE ]; then
-        /bin/echo "A newer version ($current_version) of createhost is available."
+        /bin/echo "A newer version ($current_version) of virtualhost.sh is available."
         /bin/echo -n "Do you want to get it now? [Y/n] "
         read resp
       else
-        /bin/echo "A newer version ($current_version) of createhost is available."
-        /bin/echo "Visit https://github.com/pgib/createhost to go get it."
+        /bin/echo "A newer version ($current_version) of virtualhost.sh is available."
+        /bin/echo "Visit https://github.com/pgib/virtualhost.sh to go get it."
         resp="n"
       fi
 
       case $resp in
       y*|Y*)
-        open_command "https://github.com/pgib/createhost"
+        open_command "https://github.com/pgib/virtualhost.sh"
         exit
       ;;
 
       *)
-        /bin/echo "Okay. At your convenience, visit: https://github.com/pgib/createhost"
+        /bin/echo "Okay. At your convenience, visit: https://github.com/pgib/virtualhost.sh"
         /bin/echo
       ;;
       esac
@@ -275,7 +272,7 @@ version_check()
 # Make sure this is an Apache 2.x / Leopard machine
 if [ ! -d $APACHE_CONFIG ]; then
   /bin/echo "Could not find ${APACHE_CONFIG}"
-  /bin/echo "Sorry, this version of createhost only works with Leopard. You can download an older version which works with previous versions of Mac OS X here:"
+  /bin/echo "Sorry, this version of virtualhost.sh only works with Leopard. You can download an older version which works with previous versions of Mac OS X here:"
   /bin/echo
   /bin/echo "http://patrickgibson.com/news/andsuch/virtualhost.tgz"
   /bin/echo
@@ -326,13 +323,13 @@ fi
 usage()
 {
   cat << __EOT
-Usage: sudo createhost <name>
-       sudo createhost --list
-       sudo createhost --delete <name>
+Usage: sudo virtualhost.sh <name>
+       sudo virtualhost.sh --list
+       sudo virtualhost.sh --delete <name>
    where <name> is the one-word name you'd like to use. (e.g. mysite)
 
-   Note that if "createhost" is not in your PATH, you will have to write
-   out the full path to it: eg. /Users/$USER/Desktop/createhost <name>
+   Note that if "virtualhost.sh" is not in your PATH, you will have to write
+   out the full path to it: eg. /Users/$USER/Desktop/virtualhost.sh <name>
 
 __EOT
   exit 1

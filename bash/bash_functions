@@ -24,12 +24,6 @@ datauri() {
     fi
 }
 
-# Delete all files that match a certain pattern from the current directory
-deletefiles() {
-    local q="${1:-*.DS_Store}"
-    find . -type f -name "$q" -ls -delete
-}
-
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 targz() {
     local tmpFile="${@%/}.tar"
@@ -56,6 +50,12 @@ targz() {
     "${cmd}" -v "${tmpFile}" || return 1
     [ -f "${tmpFile}" ] && rm "${tmpFile}"
     echo "${tmpFile}.gz created successfully."
+}
+
+# Delete all files that match a certain pattern from the current directory
+deletefiles() {
+    local q="${1:-*.DS_Store}"
+    find . -type f -name "$q" -ls -delete
 }
 
 # Create new directories and enter the first one
