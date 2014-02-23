@@ -97,7 +97,6 @@ alias l="ls -l ${colorflag}"
 # List all files colorized in long format, including dot files
 alias la="ls -la ${colorflag}"
 
-
 # List only directories
 alias lsd='ls -l | grep "^d"'
 
@@ -202,8 +201,8 @@ alias update="sudo softwareupdate --install --all && \
 # ------------------------------------------------------------------------------
 
 # Daily stuff
-alias subl='open -a "/Applications/Sublime Text 2.app"'
-alias vim='open -a "/Applications/MacVim.app"'
+alias s='open -a "/Applications/Sublime Text 2.app"'
+alias v='open -a "/Applications/MacVim.app"'
 alias db="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias t="cd ~/temp"
@@ -211,7 +210,8 @@ alias s="cd ~/Sites"
 alias g="git"
 alias h="history"
 alias j="jobs"
-alias o="open "
+alias o="open ."
+alias gsync="git fetch upstream && git checkout master && git merge upstream/master"
 
 # Apache
 # Moved some alias to apache() function
@@ -224,8 +224,8 @@ alias sqlstop="sudo /usr/local/mysql/support-files/mysql.server stop"
 alias pma="open http://localhost/~vitorbritto/phpmyadmin"
 
 # Scripts
-alias addhost="sudo ~/.forcefiles/scripts/virtualhost.sh"
-alias delhost="sudo ~/.forcefiles/scripts/virtualhost.sh --delete"
-alias installvms="sudo ~/.forcefiles/scripts/installvms.sh"
-alias usetheforce="bash ~/.forcefiles/bin/update"
-alias newbackup="bash ~/.forcefiles/bin/backup"
+alias ahost="sudo ~/.forcefiles/scripts/virtualhost.sh"
+alias dhost="sudo ~/.forcefiles/scripts/virtualhost.sh --delete"
+alias vms="sudo ~/.forcefiles/scripts/installvms.sh"
+alias up="bash ~/.forcefiles/bin/update"
+alias bkp="bash ~/.forcefiles/bin/backup"
