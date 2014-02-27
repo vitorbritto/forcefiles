@@ -88,27 +88,31 @@ qt() {
     #     └─ ignore case
 }
 
-copydir() {
+# Copy
+cpd() {
   pwd | tr -d "\r\n" | pbcopy
 }
 
-copyfile() {
+cpf() {
   [[ "$#" != 1 ]] && return 1
   local file_to_copy=$1
   cat $file_to_copy | pbcopy
 }
 
+# Open Dash App
 dash() {
     open dash://"$@"
+}
+
+# Making a script executable
+scr() {
+    chmod u+x "$@" && ./"$@"
 }
 
 
 #
 # Development (based on my workflow)
 # ---------------------------------------------------
-
-# Projects
-# -------------------
 
 # Shortcut to General Projects
 dev() {
@@ -128,39 +132,33 @@ wp() {
     # subl .
 }
 
-# Shortcut to clone Skeleton Repository
-skeleton() {
-    git clone git://github.com/vitorbritto/node-skeleton.git "$@"
-    cd "$@" && npm i && node skeleton
-    printf "Done! ✔ \n"
+
+# Clones a personal repository, cds into it, asks for install node modules and create executable script.
+# - arg 1 - name of repository
+clone() {
+    local repo=$1;
+    local npm=$2;
+    local scr=$3;
+
+    # Install Node Modules
+    if [[ -f package.json ]]; then
+        npm=npm install
+    fi
+
+    # Make a script executable
+    if [[ -f $repo.sh ]]; then
+        src=chmod u+x $repo.sh
+    elif [[ -f $repo.js ]]; then
+        src=chmod u+x $repo.js
+    fi
+
+    # Initialize Clone
+    git clone git://github.com/vitorbritto/$repo.git && cd $repo && $npm && $src;
+
+    # All done!
+    echo -n "✔ done!"
 }
 
-# Shortcut to clone Boilerplates Repository
-boilerplate() {
-    git clone git://github.com/vitorbritto/boilerplates.git "$@"
-    cd "$@" && npm i && node newproject
-    printf "Done! ✔ \n"
-}
-
-# Shortcut to clone Just task Runner Repository
-just() {
-    git clone git://github.com/vitorbritto/just.git "$1"
-    cd "$1" && npm install && chmod u+x just.js
-    ./just.js npm
-    ./just.js build
-    ./just.js "$2"
-}
-
-# Deployment
-# -------------------
-
-gone() {
-    git clone git://github.com/vitorbritto/gone.git "$1"
-    cd "$1" && npm install && chmod u+x gone.js
-    ./gone.js npm
-    ./gone.js build
-    ./gone.js "$2"
-}
 
 # Server
 # -------------------

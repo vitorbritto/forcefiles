@@ -28,7 +28,8 @@ run_gems() {
             "jekyll",
             "showterm",
             "bundler",
-            "capistrano"
+            "capistrano",
+            "sinatra"
         )
 
         for index in ${!desired_gems[*]}

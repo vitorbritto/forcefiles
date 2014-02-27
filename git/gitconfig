@@ -5,6 +5,32 @@
 [alias]
     # https://git.wiki.kernel.org/articles/a/l/i/Aliases.html
 
+    # General
+    a = add .
+    c = commit -m
+    ca = commit -am
+    co = checkout
+    st = status
+    br = branch
+    ul = rm --cached
+    re = rm -r
+    rt = remote add
+    rtv = remote -v
+    rtr = remote rm
+    ps = push
+    pl = pull
+    mg = merge
+
+
+    # Others
+    psm = push origin master
+    psum = push -u origin master
+    pl = pull origin master
+    ghpage = checkout --orphan gh-pages
+    type = cat-file -t
+    dump = cat-file -p
+    undo = reset --soft HEAD~1
+
     # `git remote prune origin`: remove remote-tracking branches that were deleted from the remote repo
     # `git gc`: cleanup unnecessary files and optimize the local repository
     # `git clean -df`: remove untracked files and directories from the working tree
@@ -18,27 +44,22 @@
     # Fetch a repository ($1) and checkout its ref ($2) HEAD
     browse = !bash -c 'git fetch "$1" "$2" && git checkout FETCH_HEAD' -
 
-    # Diff what is staged for the next commit
-    diffc = diff --cached
-    # Diff overview
-    diffst = diff --stat
-
-    # Custom graph log (append any tree-ish)
-    graph = log --pretty=nice --date-order --graph
-    # Custom graph log for all branches
-    grapha = log --pretty=nice --date-order --graph --all
-
-    # Custom pretty log
-    logp = log --pretty=nice --date-order
-
-    # Diffstat log
-    logst = log --stat
-    # Short format diffstat log
-    logsf = log --stat --format=oneline --abbrev-commit
-
     # Find out who is currently active on the repository
     # Displays committers in descending order of number of commits
     who = shortlog --numbered --summary --email --no-merges --since="3 months"
+
+    # Sync Forked repository with original
+    gsync = git fetch upstream && git checkout master && git merge upstream/master
+
+
+    # Diff & Logs
+    diffc = diff --cached                                  # Diff what is staged for the next commit
+    diffst = diff --stat                                   # Diff overview
+    graph = log --pretty=nice --date-order --graph         # Custom graph log (append any tree-ish)
+    grapha = log --pretty=nice --date-order --graph --all  # Custom graph log for all branches
+    logp = log --pretty=nice --date-order                  # Custom pretty log
+    logst = log --stat                                     # Diffstat log
+    logsf = log --stat --format=oneline --abbrev-commit    # Short format diffstat log
 
 [color]
     # color opts: normal, black, red, green, yellow, blue, magenta, cyan, or white

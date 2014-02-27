@@ -148,7 +148,7 @@ alias offline="sudo shutdown -h now"
 
 
 # ------------------------------------------------------------------------------
-# | Package Manager                                                            |
+# | Managment and Tasks                                                        |
 # ------------------------------------------------------------------------------
 
 # RVM
@@ -168,8 +168,8 @@ alias migrate="bundle exec rake db:migrate"
 # Rubygems
 alias gemi="gem install --no-rdoc --no-ri"
 
-# Npm
-alias npmup="npm update"
+# NPM
+alias nu="npm update"
 
 # Grunt
 command -v grunt > /dev/null && alias grunt="grunt --stack" # Make Grunt print stack traces by default
@@ -207,11 +207,13 @@ alias db="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias t="cd ~/temp"
 alias s="cd ~/Sites"
-alias g="git"
 alias h="history"
 alias j="jobs"
 alias o="open ."
-alias gsync="git fetch upstream && git checkout master && git merge upstream/master"
+alias nh="node --harmony"
+
+# Search
+alias howto="open http://stackoverflow.com/search?q= "
 
 # Apache
 # Moved some alias to apache() function
