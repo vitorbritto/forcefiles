@@ -109,6 +109,11 @@ scr() {
     chmod u+x "$@" && ./"$@"
 }
 
+# StackOverflow
+howto(){
+    open http://stackoverflow.com/search?q="$@"
+}
+
 
 #
 # Development (based on my workflow)

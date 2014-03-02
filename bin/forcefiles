@@ -132,8 +132,10 @@ mirrorfiles() {
     link "git/gitmodules"     ".gitmodules"
     link "git/ungitrc"        ".ungitrc"
     link "npm/npmrc"          ".npmrc"
-    link "zsh/zshrc"          ".zshrc"
-    link "zsh/zprofile"       ".zprofile"
+
+    # Z Shell
+    # link "zsh/zshrc"          ".zshrc"
+    # link "zsh/zprofile"       ".zprofile"
 
      # Force remove the vim directory if it's already there.
     if [ -e "${HOME}/.vim" ]; then

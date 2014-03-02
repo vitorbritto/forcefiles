@@ -211,9 +211,7 @@ alias h="history"
 alias j="jobs"
 alias o="open ."
 alias nh="node --harmony"
-
-# Search
-alias howto="open http://stackoverflow.com/search?q= "
+alias ct="crontab"
 
 # Apache
 # Moved some alias to apache() function
