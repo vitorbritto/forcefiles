@@ -110,7 +110,7 @@ scr() {
 }
 
 # StackOverflow
-howto(){
+showme(){
     open http://stackoverflow.com/search?q="$@"
 }
 
