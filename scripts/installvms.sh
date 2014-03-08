@@ -10,8 +10,8 @@
 #================================================================================
 
 
-# Make this script executable
-# chmod a+x installvms
+# Stand-alone: Make this script executable
+# chmod a+x installvms.sh
 
 # Ask for the administrator password upfront
 sudo -v

@@ -4,6 +4,9 @@ FORCEFILES_DIRECTORY="${HOME}/.forcefiles"
 FORCEFILES_TARBALL_PATH="https://github.com/vitorbritto/forcefiles/tarball/master"
 FORCEFILES_GIT_REMOTE="https://github.com/vitorbritto/forcefiles"
 
+# Welcome message
+printf "This may take several minutes...\n"
+
 # If missing, download and extract the forcefiles repository
 if [[ ! -d ${FORCEFILES_DIRECTORY} ]]; then
     printf "$(tput setaf 7)Downloading forcefiles...\033[m\n"
@@ -142,7 +145,7 @@ mirrorfiles() {
         rm -rf "${HOME}/.vim"
     fi
 
-    e_success "Forcefiles update complete!"
+    e_success "All done!"
 }
 
 # Ask before potentially overwriting files
@@ -163,5 +166,15 @@ if is_confirmed; then
     bash ./bin/osxdefaults
     e_success "OS X settings updated! Restarting..."
 else
-    printf "Skipped OS X settings update.\n"
+    printf "Skipped OS X settings.\n"
+fi
+
+# Ask before potentially overwriting OS X defaults
+seek_confirmation "Warning: This step will update my workflow. Is up to you from here..."
+
+if is_confirmed; then
+    bash ./bin/update
+    e_success "Update complete!"
+else
+    printf "Skipped update.\n"
 fi

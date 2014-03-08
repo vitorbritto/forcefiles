@@ -3,8 +3,7 @@
 # up to you (me) if you want to run this as a file or copy paste at your leisure
 
 # Improve workflow script
-# run with alias "usetheforce"
-
+# Stand-alone: run with alias "up"
 
 # Ask for the administrator password upfront
 sudo -v
@@ -21,73 +20,65 @@ source ./lib/gems
 source ./lib/apps
 source ./lib/subl
 
-# Then, we ask before continue...
-seek_confirmation "Is up to you from here... continue?"
+# Check for Homebrew
+if ! type_exists 'brew'; then
+    e_header "Installing Homebrew..."
+    ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+fi
+
+# Check for rvm
+if ! type_exists 'rvm'; then
+    e_header "Installing Rvm..."
+    curl -L https://get.rvm.io | bash -s stable
+fi
+
+# Z Tools and Pygmentyze
+seek_confirmation "Do you want to install Z Tools and Pygmentyze as dependencies?"
 
 if is_confirmed; then
-
-    # Check for Homebrew
-    if ! type_exists 'brew'; then
-        e_header "Installing Homebrew..."
-        ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
-    fi
-
-    # Check for rvm
-    if ! type_exists 'rvm'; then
-        e_header "Installing Rvm..."
-        curl -L https://get.rvm.io | bash -s stable
-    fi
-
-    # Ask before installs dependencies
-    seek_confirmation "Do you want to install dependencies?"
-
-    if is_confirmed; then
-        run_deps
-        e_success "Done!"
-    else
-        echo "Skipped!\n"
-    fi
-
-    # Ask before installs rubies
-    seek_confirmation "Do you want to install rubies?"
-
-    if is_confirmed; then
-        run_rvm
-        e_success "Done!"
-    else
-        echo "Skipped!\n"
-    fi
-
-    # Ask before installs gems
-    seek_confirmation "Do you want to install gems?"
-
-    if is_confirmed; then
-        run_gems
-        e_success "Done!"
-    else
-        echo "Skipped!\n"
-    fi
-
-    # Ask before installs apps
-    seek_confirmation "Do you want to install your applications now?"
-
-    if is_confirmed; then
-        run_apps
-        e_success "Done!"
-    else
-        echo "Skipped!\n"
-    fi
-
-    # Ask before config Sublime text
-    seek_confirmation "Do you want to config your Sublime Text?"
-
-    if is_confirmed; then
-        run_sublime
-        e_success "Sublime text is ready to go!"
-    else
-        echo "Skipped!\n"
-    fi
-
+    run_deps
+    e_success "Done!"
 else
-    echo "Bye bye!\n"
+    echo "Skipped!\n"
+fi
+
+# Install RVM
+seek_confirmation "Do you want to install RVM?"
+
+if is_confirmed; then
+    run_rvm
+    e_success "Done!"
+else
+    echo "Skipped!\n"
+fi
+
+# Install RubyGems
+seek_confirmation "Do you want to install some RubyGems?"
+
+if is_confirmed; then
+    run_gems
+    e_success "Done!"
+else
+    echo "Skipped!\n"
+fi
+
+# Install my Applications
+seek_confirmation "Do you want to install applications now?"
+
+if is_confirmed; then
+    e_header "Seat back a while... this may take several minutes to install..."
+    run_apps
+    e_success "Done!"
+else
+    echo "Skipped!\n"
+fi
+
+# Ask before config Sublime text
+seek_confirmation "Do you want to config your Sublime Text?"
+
+if is_confirmed; then
+    run_sublime
+    e_success "Sublime text is ready to go!"
+else
+    echo "Skipped!\n"
 fi

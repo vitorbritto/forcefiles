@@ -20,6 +20,17 @@ Percebi que poderia dividir meus arquivos de automação, atalhos do bash, confi
 $ bash -c "$(curl -fsSL raw.github.com/vitorbritto/forcefiles/master/bin/forcefiles)"
 ```
 
+**Opções**
+
+- `./forcefiles --help`: Ajuda e instruções
+- `./forcefiles --list`: lista com todos os aplicativos e dependências a serem instaladas
+
+**Scripts**
+There are some optional scritps i've stored in `scripts` folder. It's up to me (you) use it. Here are some quick descriptions:
+
+- `installvms`: download and install virtual machines for use with Virtual Box and Vagrant
+- `virtualhost`: add or remove virtual hosts
+
 ## Sugestões
 
 [Deixe suas sugestões](https://github.com/vitorbritto/forcefiles/issues)

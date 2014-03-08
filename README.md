@@ -2,7 +2,6 @@
 
 More than dotfiles! It's my Force Files! xD
 
-> Work in progress...
 
 ## About
 
@@ -14,15 +13,29 @@ I realized I could split my dotfiles, automation files, bash aliases, editor set
 
 > Notice: I am running on Mac OS X. These are my config files to set up a system the way I use it in my workflow.
 
-# How to install
+
+## How to install
 
 ```bash
 $ bash -c "$(curl -fsSL raw.github.com/vitorbritto/forcefiles/master/bin/forcefiles)"
 ```
 
+**Options**
+
+- `./forcefiles --help`: Show Help and Instructions
+- `./forcefiles --list`: List all applications and dependencies that will be installed
+
+**Scripts**
+There are some optional scritps i've stored in `scripts` folder. It's up to me (you) use it. Here are some quick descriptions:
+
+- `installvms`: download and install virtual machines for use with Virtual Box and Vagrant
+- `virtualhost`: add or remove virtual hosts
+
+
 ## Suggestions
 
 [Leave your suggestion](https://github.com/vitorbritto/forcefiles/issues)
+
 
 ## Acknowledgements
 

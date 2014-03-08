@@ -1,6 +1,6 @@
 [user]
-  name  = Vitor Britto
-  email = code@vitorbritto.com.br
+    name = Vitor Britto
+    email = code@vitorbritto.com.br
 
 [alias]
     # https://git.wiki.kernel.org/articles/a/l/i/Aliases.html
@@ -68,11 +68,8 @@
 
 [core]
     # Use custom `.gitignore` and `.gitattributes`
-    excludesfile = ~/.gitignore
+    excludesfile = /Users/vitorbritto/.gitignore
     attributesfile = ~/.gitattributes
-
-[credential]
-    helper = osxkeychain
 
 [diff]
     tool = mvimdiff
@@ -85,3 +82,9 @@
     # ref: http://linux.die.net/man/1/git-log
     # Result: <short-sha> <commit-message> (<pointer-names>) -- <commit-author-name>; <relative-time>
     nice = "%C(yellow)%h%C(reset) %C(white)%s%C(cyan)%d%C(reset) -- %an; %ar"
+[difftool "sourcetree"]
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path =
+[mergetool "sourcetree"]
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true

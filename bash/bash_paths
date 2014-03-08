@@ -14,6 +14,7 @@ declare -a dirs_to_append=(
     "/usr/bin"
     "$HOME/bin"
     "$HOME/.forcefiles/bin"
+    "$HOME/tools/z/z.sh" # Add Z Tool for a better navigation on Shell
     "$HOME/.rvm/bin" # Add RVM to PATH for scripting
     "$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
     "$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
