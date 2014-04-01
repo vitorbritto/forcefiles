@@ -121,20 +121,20 @@ showme(){
 
 # Shortcut to General Projects
 dev() {
+    cd ~
     cd Sites/projects/"$@"
-    # subl .
 }
 
 # Shortcut to Respositories
 repos() {
+    cd ~
     cd Sites/@mylabs/"$1"/"$2"
-    # subl .
 }
 
 # Shortcut to WordPress Projects
 wp() {
+    cd ~
     cd Sites/projects/"$1"/wp-content/themes/"$2"
-    # subl .
 }
 
 

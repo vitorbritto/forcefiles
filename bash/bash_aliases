@@ -157,11 +157,11 @@ alias offline="sudo shutdown -h now"
 alias rubies="rvm list rubies"
 alias gemsets="rvm gemset list"
 alias rvmu18="rvm use 1.8.7"
-alias rvmu19="rvm use 1.9.3"
-alias rvmu20="rvm use 2.0.0"
+alias rvmu19="rvm use 1.9.3-p448"
+alias rvmu20="rvm use 2.0.0-p451"
 alias rvmd18="rvm --default use 1.8.7"
-alias rvmd19="rvm --default use 1.9.3"
-alias rvmd20="rvm --default use 2.0.0"
+alias rvmd19="rvm --default use 1.9.3-p448"
+alias rvmd20="rvm --default use 2.0.0-p451"
 
 # Bundler
 alias bake="bundle exec rake"
@@ -203,8 +203,8 @@ alias update="sudo softwareupdate --install --all && \
 # ------------------------------------------------------------------------------
 
 # Daily stuff
-alias s='open -a "/Applications/Sublime Text 2.app"'
-alias v='open -a "/Applications/MacVim.app"'
+alias subl='open -a "/Applications/Sublime Text 2.app"'
+alias vim='open -a "/Applications/MacVim.app"'
 alias db="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias t="cd ~/temp"
