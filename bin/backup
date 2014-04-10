@@ -12,7 +12,7 @@ sudo -v
 # IMPORTANT: Make sure you update the `DST` variable to match the name of the
 # destination backup drive
 
-DST="/Volumes/WORK/.forcefiles/"
+DST="/Volumes/Colossus/_BACKUP/"
 SRC="/"
 EXCLUDE="$HOME/.forcefiles/bkp_excludes.txt"
 

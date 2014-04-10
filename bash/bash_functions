@@ -1,8 +1,12 @@
 #!/bin/bash
 
 #
-# General
+# Functions
 # ---------------------------------------------------
+
+
+# General
+# -------------------
 
 # Create a data URI from a file
 datauri() {
@@ -68,7 +72,7 @@ mkd() {
 
 # Remove directories and echo a message
 rmd() {
-    rm -r "$@"
+    rm -rf "$@"
 }
 
 # Search History
@@ -99,11 +103,6 @@ cpf() {
   cat $file_to_copy | pbcopy
 }
 
-# Open Dash App
-dash() {
-    open dash://"$@"
-}
-
 # Making a script executable
 scr() {
     chmod u+x "$@" && ./"$@"
@@ -115,26 +114,22 @@ showme(){
 }
 
 
-#
-# Development (based on my workflow)
-# ---------------------------------------------------
+# Development
+# -------------------
 
 # Shortcut to General Projects
 dev() {
-    cd ~
-    cd Sites/projects/"$@"
+    cd ~ && Sites/@projects/"$@"
 }
 
 # Shortcut to Respositories
 repos() {
-    cd ~
-    cd Sites/@mylabs/"$1"/"$2"
+    cd ~ && Sites/@mylabs/"$1"/"$2"
 }
 
 # Shortcut to WordPress Projects
 wp() {
-    cd ~
-    cd Sites/projects/"$1"/wp-content/themes/"$2"
+    cd ~ && Sites/@projects/"$1"/wp-content/themes/"$2"
 }
 
 
@@ -175,7 +170,7 @@ apache() {
 }
 
 # Start an HTTP server from a directory, optionally specifying the port
-server() {
+pyserver() {
     local port="${1:-8000}"
     sleep 1 && open "http://localhost:${port}/" &
     # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
@@ -184,7 +179,6 @@ server() {
 }
 
 # Start a PHP server from a directory, optionally specifying the port
-# (Requires PHP 5.4.0+.)
 phpserver() {
     local port="${1:-4000}"
     local ip=$(ipconfig getifaddr en1)

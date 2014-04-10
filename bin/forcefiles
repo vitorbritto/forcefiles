@@ -21,8 +21,6 @@ fi
 
 cd ${FORCEFILES_DIRECTORY}
 
-source ./lib/help
-source ./lib/list
 source ./lib/utils
 source ./lib/brew
 source ./lib/npm
@@ -105,7 +103,11 @@ fi
 if [[ $no_packages ]]; then
     printf "Skipped package installations.\n"
 else
-    printf "Updating packages...\n"
+    printf "Installing Dependencies...\n"
+
+    # Install Pygments
+    easy_install Pygments
+
     # Install Homebrew formulae
     run_brew
     # Install Node packages

@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# ------------------------------------------------------------------------------
+# | Log Messages                                                               |
+# ------------------------------------------------------------------------------
+
+
 # Header logging
 e_header() {
     printf "$(tput setaf 37)$(tput bold)%s$(tput sgr0)\n" "$@"
@@ -70,3 +75,152 @@ formula_exists() {
     e_warning "Missing formula: $1"
     return 1
 }
+
+
+#!/bin/bash
+
+# ------------------------------------------------------------------------------
+# | List what it'll be installed                                               |
+# ------------------------------------------------------------------------------
+
+run_list() {
+
+cat <<EOT
+
+------------------------------------------------------------------------------
+OS X dotfiles - Vitor Britto - http://www.vitorbritto.com.br
+------------------------------------------------------------------------------
+
+This will install/update the following stuff to improve my workflow.
+
+
+Packages
+------------
+
+Brew:
+    coreutils
+    findutils
+    bash
+    bash-completion
+    wget
+    ack
+    tree
+    git
+    jpeg
+    optipng
+    imagemagick
+    node
+    mongodb
+    erlang
+    elixir
+
+NPM:
+    yo
+    gulp
+    bower
+    grunt-cli
+    grunt-init
+    generator-generator
+    express
+    imageoptim-cli
+    dalek-cli
+    lodash-cli
+    ungit
+    docpad
+    nave
+    browserify
+    beefy
+    shelljs
+    uglify-js
+    jshint
+    stylus
+    coffee-script
+    browser-sync
+    karma
+    markdown
+    jade
+
+Dependencies:
+    Z
+    Pygments
+
+Rvm:
+    Ruby - 1.9.3
+    Ruby - 2.0.0
+
+Gems:
+    Rails
+    Sass
+    Compass
+    Jekyll
+
+PHP:
+    Update PHP version from 5.3 to 5.4
+    MySQL and phpMyAdmin
+
+
+Applications
+------------
+
+Browsers:
+    Firefox Aurora
+    Google Chrome
+    Google Chrome Canary
+
+Development:
+
+    Sublime Text
+    SourceTree
+    FileZilla
+    VirtualBox (w/ Vagrant)
+    Image Optim
+
+Others:
+    Mou
+    Alfred
+    Dropbox
+    Skype
+    Transmission
+    VLC
+
+Sublime:
+    Sync data to config my ST3
+
+------------------------------------------------------------------------------
+
+EOT
+
+}
+
+
+# ------------------------------------------------------------------------------
+# | Everybody need some help                                                   |
+# ------------------------------------------------------------------------------
+
+run_help() {
+
+cat <<EOT
+
+------------------------------------------------------------------------------
+OS X dotfiles - Vitor Britto - http://www.vitorbritto.com.br
+------------------------------------------------------------------------------
+
+Usage: $(basename "$0") [options]
+
+Options:
+    -h, --help      Print this help text
+    -l, --list      Print a list of additional software to install
+    --no-packages   Suppress package updates
+    --no-sync       Suppress pulling from the remote repository
+
+Documentation can be found at https://github.com/vitorbritto/forcefiles/
+
+Copyright (c) Vitor Britto
+Licensed under the MIT license.
+
+------------------------------------------------------------------------------
+
+EOT
+
+}
+

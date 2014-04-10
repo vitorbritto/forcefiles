@@ -14,7 +14,6 @@ FORCEFILES_DIRECTORY="${HOME}/.forcefiles"
 cd ${FORCEFILES_DIRECTORY}
 
 source ./lib/utils
-source ./lib/deps
 source ./lib/rvm
 source ./lib/gems
 source ./lib/apps
@@ -32,16 +31,6 @@ if ! type_exists 'rvm'; then
     curl -L https://get.rvm.io | bash -s stable
 fi
 
-# Z Tools and Pygmentyze
-seek_confirmation "Do you want to install Z Tools and Pygmentyze as dependencies?"
-
-if is_confirmed; then
-    run_deps
-    e_success "Done!"
-else
-    echo "Skipped!\n"
-fi
-
 # Install RVM
 seek_confirmation "Do you want to install RVM?"
 
@@ -49,7 +38,7 @@ if is_confirmed; then
     run_rvm
     e_success "Done!"
 else
-    echo "Skipped!\n"
+    printf "Skipped!\n"
 fi
 
 # Install RubyGems
@@ -59,7 +48,7 @@ if is_confirmed; then
     run_gems
     e_success "Done!"
 else
-    echo "Skipped!\n"
+    printf "Skipped!\n"
 fi
 
 # Install my Applications
@@ -70,7 +59,7 @@ if is_confirmed; then
     run_apps
     e_success "Done!"
 else
-    echo "Skipped!\n"
+    printf "Skipped!\n"
 fi
 
 # Ask before config Sublime text
@@ -80,5 +69,5 @@ if is_confirmed; then
     run_sublime
     e_success "Sublime text is ready to go!"
 else
-    echo "Skipped!\n"
+    printf "Skipped!\n"
 fi

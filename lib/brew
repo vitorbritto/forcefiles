@@ -22,6 +22,14 @@ run_brew() {
         local list_formulae
         local -a missing_formulae
         local -a desired_formulae=(
+            "autoconf"
+            "automake"
+            "libtool"
+            "apple-gcc42"
+            "libyaml"
+            "libxslt"
+            "libksba"
+            "openssl"
             "coreutils"
             "findutils"
             "bash"

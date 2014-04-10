@@ -48,3 +48,9 @@ There are some optional scritps i've stored in `scripts` folder. It's up to me (
 
 
 > May the FORCE FILES be with you! :)
+
+
+## License
+
+[MIT License](http://vitorbritto.mit-license.org/) © Vitor Britto
+

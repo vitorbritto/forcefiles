@@ -1,6 +1,9 @@
 #!/bin/bash
 
-# bash_prompt
+#
+# Prompt
+# ---------------------------------------------------
+
 
 # Check that terminfo exists before changing TERM var to xterm-256color
 # Prevents prompt flashing in Mac OS X 10.6 Terminal.app

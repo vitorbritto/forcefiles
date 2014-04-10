@@ -46,7 +46,7 @@ run_gems() {
 
             e_header "Installing missing gems..."
             # Install all missing gems
-            gem install $list_gems
+            sudo gem install $list_gems
 
             [[ $? ]] && e_success "Done"
         fi

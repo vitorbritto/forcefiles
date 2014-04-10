@@ -9,11 +9,8 @@
 # -------------------
 
 alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
-alias -- -="cd -"
+
 
 # Network
 # -------------------
@@ -179,13 +176,6 @@ command -v grunt > /dev/null && alias grunt="grunt --stack" # Make Grunt print s
 # Bower
 alias bowerup="npm update bower -g"
 
-# Composer
-alias compsu="composer self-update"
-alias compup="composer update"
-alias compi="composer install"
-alias compcp="composer create-project"
-alias compdu="composer dump-autoload"
-
 # Homebrew
 alias brewup="brew update &&  \
               brew upgrade && \
@@ -216,18 +206,17 @@ alias nh="node --harmony"
 alias ct="crontab"
 
 # Apache
-# Moved some alias to apache() function
 alias httpd="sudo nano -w /etc/apache2/httpd.conf"
 alias vhost="sudo nano -w /etc/apache2/extra/httpd-vhosts.conf"
 
 # Database
 alias sqlstart="sudo /usr/local/mysql/support-files/mysql.server start"
 alias sqlstop="sudo /usr/local/mysql/support-files/mysql.server stop"
-alias pma="open http://localhost/~vitorbritto/phpmyadmin"
+alias pma="open http://localhost/phpmyadmin"
 
 # Scripts
-alias ahost="sudo ~/.forcefiles/scripts/virtualhost.sh"
-alias dhost="sudo ~/.forcefiles/scripts/virtualhost.sh --delete"
-alias vms="sudo ~/.forcefiles/scripts/installvms.sh"
+alias ahost="bash ~/.forcefiles/scripts/virtualhost.sh"
+alias dhost="bash ~/.forcefiles/scripts/virtualhost.sh --delete"
+alias vms="bash ~/.forcefiles/scripts/installvms.sh"
 alias up="bash ~/.forcefiles/bin/update"
 alias bkp="bash ~/.forcefiles/bin/backup"
