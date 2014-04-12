@@ -19,7 +19,7 @@ sudo -v
 # IMPORTANT: Make sure you update the `DEST` variable
 # to match the name of the destination box
 
-DEST="/Volumes/WORK/.vms/"
+DEST="/Volumes/Colossus/.vms/"
 
 # Let me introduce myself
 clear

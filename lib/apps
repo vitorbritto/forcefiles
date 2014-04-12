@@ -6,10 +6,6 @@
 
 run_apps() {
 
-    # Getting Started
-    printf "Seat back a while... this may take several minutes to install...\n"
-    printf "\n"
-
     # Install native apps
     brew tap phinze/homebrew-cask
     brew install brew-cask
@@ -35,6 +31,6 @@ run_apps() {
 
     # done
     printf "\n"
-    printf "All done!\n"
+    printf "Installation complete!\n"
 
 }

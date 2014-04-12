@@ -25,10 +25,10 @@ run_gems() {
             "rails"
             "sass"
             "compass"
-            "jekyll",
-            "showterm",
-            "bundler",
-            "capistrano",
+            "jekyll"
+            "showterm"
+            "bundler"
+            "capistrano"
             "sinatra"
         )
 

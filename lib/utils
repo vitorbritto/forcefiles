@@ -77,8 +77,6 @@ formula_exists() {
 }
 
 
-#!/bin/bash
-
 # ------------------------------------------------------------------------------
 # | List what it'll be installed                                               |
 # ------------------------------------------------------------------------------
@@ -98,6 +96,14 @@ Packages
 ------------
 
 Brew:
+    autoconf
+    automake
+    libtool
+    apple-gcc42
+    libyaml
+    libxslt
+    libksba
+    openssl
     coreutils
     findutils
     bash
@@ -110,17 +116,15 @@ Brew:
     optipng
     imagemagick
     node
+    phantomjs
     mongodb
     erlang
     elixir
 
 NPM:
-    yo
+    grunt-cli
     gulp
     bower
-    grunt-cli
-    grunt-init
-    generator-generator
     express
     imageoptim-cli
     dalek-cli
@@ -133,18 +137,23 @@ NPM:
     shelljs
     uglify-js
     jshint
+    csslint
+    csscomb
     stylus
     coffee-script
     browser-sync
     karma
     markdown
+    pageres
     jade
+    harp
+    coveralls
+    nightwatch
 
 Dependencies:
-    Z
     Pygments
 
-Rvm:
+Rubies:
     Ruby - 1.9.3
     Ruby - 2.0.0
 
@@ -153,6 +162,10 @@ Gems:
     Sass
     Compass
     Jekyll
+    Showterm
+    Bundler
+    Capistrano
+    Sinatra
 
 PHP:
     Update PHP version from 5.3 to 5.4
@@ -164,7 +177,6 @@ Applications
 
 Browsers:
     Firefox Aurora
-    Google Chrome
     Google Chrome Canary
 
 Development:
@@ -182,9 +194,11 @@ Others:
     Skype
     Transmission
     VLC
+    Limechat
+    Dash
 
 Sublime:
-    Sync data to config my ST3
+    Sync data with Dropbox
 
 ------------------------------------------------------------------------------
 

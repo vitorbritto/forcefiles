@@ -4,7 +4,7 @@
 # | Installing my Rubies                                                       |
 # ------------------------------------------------------------------------------
 
-run_rvm() {
+run_rubies() {
 
     # Check for rvm
     if type_exists "rvm"; then
