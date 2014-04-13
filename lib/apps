@@ -15,6 +15,7 @@ run_apps() {
     brew cask install google-chrome-canary
 
     # development
+    brew cask install macvim
     brew cask install sublime-text
     brew cask install filezilla
     brew cask install source-tree

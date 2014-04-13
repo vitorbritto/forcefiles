@@ -21,7 +21,6 @@ source ./lib/utils
 source ./lib/rubies
 source ./lib/gems
 source ./lib/apps
-source ./lib/subl
 
 # Check for Homebrew
 if ! type_exists 'brew'; then
@@ -67,11 +66,21 @@ else
 fi
 
 # Ask before config Sublime text
-seek_confirmation "Do you want to config your Sublime Text?"
+seek_confirmation "Do you want to config Sublime Text?"
 
 if is_confirmed; then
     run_sublime
-    e_success "Sublime text is ready to go!"
+    e_success "Sublime Text is ready to go!"
+else
+    printf "Skipped!\n"
+fi
+
+# Ask before config Vim
+seek_confirmation "Do you want to config VIM?"
+
+if is_confirmed; then
+    run_sublime
+    e_success "VIM is ready to go!"
 else
     printf "Skipped!\n"
 fi

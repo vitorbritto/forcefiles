@@ -193,15 +193,13 @@ alias update="sudo softwareupdate --install --all && \
 # ------------------------------------------------------------------------------
 
 # Daily stuff
-alias subl='open -a "/Applications/Sublime Text 2.app"'
-alias vim='open -a "/Applications/MacVim.app"'
+# alias subl='open -a "/Applications/Sublime Text 2.app"'
+# alias vim='open -a "/Applications/MacVim.app"'
 alias db="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias t="cd ~/temp"
-alias s="cd ~/Sites"
 alias h="history"
 alias j="jobs"
-alias o="open ."
 alias nh="node --harmony"
 alias ct="crontab"
 

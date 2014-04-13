@@ -25,6 +25,7 @@ run_gems() {
             "rails"
             "sass"
             "compass"
+            "haml"
             "jekyll"
             "showterm"
             "bundler"

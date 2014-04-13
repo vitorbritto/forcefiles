@@ -32,6 +32,7 @@ run_brew() {
             "openssl"
             "coreutils"
             "findutils"
+            "figlet"
             "bash"
             "bash-completion"
             "wget"

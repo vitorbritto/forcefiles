@@ -68,8 +68,9 @@
 
 [core]
     # Use custom `.gitignore` and `.gitattributes`
-    excludesfile = /Users/vitorbritto/.gitignore
+    excludesfile = ~/.gitignore
     attributesfile = ~/.gitattributes
+    editor = subl -W -n
 
 [diff]
     tool = mvimdiff
