@@ -48,6 +48,7 @@ run_gems() {
             e_header "Installing missing gems..."
             # Install all missing gems
             sudo gem install $list_gems
+            gem install sass -v 3.2.19
 
             [[ $? ]] && e_success "Done"
         fi

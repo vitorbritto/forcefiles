@@ -26,8 +26,10 @@ alias whois="whois -h whois-servers.net"
 # Shorctus
 # -------------------
 
+alias cl="clear"
+
 # Gzip-enabled `curl`
-alias gurl='curl --compressed'
+alias gurl="curl --compressed"
 
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
@@ -161,6 +163,7 @@ alias rvmd19="rvm --default use 1.9.3-p448"
 alias rvmd20="rvm --default use 2.0.0-p451"
 
 # Bundler
+alias buni="bundle install"
 alias bake="bundle exec rake"
 alias migrate="bundle exec rake db:migrate"
 
@@ -193,8 +196,8 @@ alias update="sudo softwareupdate --install --all && \
 # ------------------------------------------------------------------------------
 
 # Daily stuff
-# alias subl='open -a "/Applications/Sublime Text 2.app"'
-# alias vim='open -a "/Applications/MacVim.app"'
+alias subl='open -a "/Applications/Sublime Text 2.app"'
+alias vim='open -a "/Applications/MacVim.app"'
 alias db="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias t="cd ~/temp"
@@ -202,6 +205,7 @@ alias h="history"
 alias j="jobs"
 alias nh="node --harmony"
 alias ct="crontab"
+alias o="open ."
 
 # Apache
 alias httpd="sudo nano -w /etc/apache2/httpd.conf"
@@ -213,8 +217,8 @@ alias sqlstop="sudo /usr/local/mysql/support-files/mysql.server stop"
 alias pma="open http://localhost/phpmyadmin"
 
 # Scripts
-alias ahost="bash ~/.forcefiles/scripts/virtualhost.sh"
-alias dhost="bash ~/.forcefiles/scripts/virtualhost.sh --delete"
+alias ahost="sudo bash ~/.forcefiles/scripts/virtualhost.sh"
+alias dhost="sudo bash ~/.forcefiles/scripts/virtualhost.sh --delete"
 alias vms="bash ~/.forcefiles/scripts/installvms.sh"
 alias up="bash ~/.forcefiles/bin/update"
 alias bkp="bash ~/.forcefiles/bin/backup"

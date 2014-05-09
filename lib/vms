@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# ------------------------------------------------------------------------------
+# | Install Vagrant and VirtualBox                                             |
+# ------------------------------------------------------------------------------
+
+run_vms() {
+
+    # Install native apps
+    brew tap phinze/homebrew-cask
+    brew install brew-cask
+
+    brew cask install virtualbox
+    brew cask install vagrant
+
+    # done
+    printf "\n"
+    printf "Installation complete!\n"
+
+}

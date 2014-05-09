@@ -58,7 +58,7 @@ OPEN_COMMAND="/usr/bin/open"
 # If you want to use a different browser than Safari, define it here:
 #BROWSER="Firefox"
 #BROWSER="WebKit"
-BROWSER="Google Chrome"
+BROWSER="Google Chrome Canary"
 
 # If defined, a ServerAlias os $1.$WILDCARD_ZONE will be added to the virtual
 # host file. This is useful if you, for example, have setup a wildcard domain

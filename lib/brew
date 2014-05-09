@@ -47,6 +47,8 @@ run_brew() {
             "mongodb"
             "erlang"
             "elixir"
+            "discount"
+            "ctags"
             "https://raw.github.com/Homebrew/homebrew-dupes/master/rsync.rb"
         )
 
@@ -65,13 +67,7 @@ run_brew() {
             e_header "Installing missing Homebrew formulae..."
             # Install all missing formulae
             brew install $list_formulae
-
-            # Install more recent versions of some OS X tools
             brew install vim --override-system-vi
-            brew tap homebrew/dupes
-            brew tap josegonzalez/homebrew-php
-            brew install php54 --with-mysql --wihout-apache
-            brew install php54-memcached php54-apc php54-xdebug
 
         fi
 

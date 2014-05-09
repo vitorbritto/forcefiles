@@ -19,6 +19,7 @@ cd ${FORCEFILES_DIRECTORY}
 
 source ./lib/utils
 source ./lib/rubies
+source ./lib/php
 source ./lib/gems
 source ./lib/apps
 
@@ -41,46 +42,92 @@ if is_confirmed; then
     run_rubies
     e_success "Done!"
 else
-    printf "Skipped!\n"
+    e_warning "Skipped!"
 fi
 
 # Install RubyGems
-seek_confirmation "Do you want to install your RubyGems?"
+seek_confirmation "Would you like to install RubyGems now?"
 
 if is_confirmed; then
     run_gems
     e_success "Done!"
 else
-    printf "Skipped!\n"
+    e_warning "Skipped!"
+fi
+
+# Install PHP 5.4, MySQL and phpMyAdmin
+seek_confirmation "Would you like to install PHP 5.4, MySQL and phpMyAdmin now?"
+
+if is_confirmed; then
+    run_php
+    e_success "Done!"
+else
+    e_warning "Skipped!"
 fi
 
 # Install my Applications
-seek_confirmation "Do you want to install applications now?"
+seek_confirmation "Would you like to install applications now?"
 
 if is_confirmed; then
-    e_header "Seat back a while... this may take several minutes to install..."
+    e_header "Seat back a while... this may take several minutes to install."
     run_apps
     e_success "Done!"
 else
-    printf "Skipped!\n"
+    e_warning "Skipped!"
 fi
+
+# Install Vagrant, VirtualBox and VMS
+seek_confirmation "Would you like to install your Vagrant Development environments now?"
+
+if is_confirmed; then
+
+    # Check for Vagrant
+    if ! type_exists 'vagrant'; then
+        e_error "You need to install Vagrant and VirtualBox."
+
+        # Install my Applications
+        seek_confirmation "Would you like to install now?"
+
+        if is_confirmed; then
+            e_header "Seat back a while... this may take several minutes to install."
+            run_vms
+            e_success "Done!"
+        else
+            e_warning "You'll not be able to execute Vagrant or any Virtual Machine until install these guys."
+        fi
+    fi
+    run_vms
+    e_success "Done!"
+else
+    e_warning "Skipped!"
+fi
+
 
 # Ask before config Sublime text
 seek_confirmation "Do you want to config Sublime Text?"
 
 if is_confirmed; then
-    run_sublime
+
+    # Create symlink to execute in terminal
+    ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+
+    # Sync with Dropbox
+    cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/
+    mkdir ~/Dropbox/Sublime
+    mv User ~/Dropbox/Sublime/
+    ln -s ~/Dropbox/Sublime/User
+
     e_success "Sublime Text is ready to go!"
 else
-    printf "Skipped!\n"
+    e_warning "Skipped!"
 fi
 
 # Ask before config Vim
 seek_confirmation "Do you want to config VIM?"
 
 if is_confirmed; then
-    run_sublime
+    bash -c "$(curl -fsSL raw.github.com/vitorbritto/setup-vim/master/init.sh)"
     e_success "VIM is ready to go!"
 else
-    printf "Skipped!\n"
+    e_warning "Skipped!"
 fi
