@@ -216,9 +216,18 @@ alias sqlstart="sudo /usr/local/mysql/support-files/mysql.server start"
 alias sqlstop="sudo /usr/local/mysql/support-files/mysql.server stop"
 alias pma="open http://localhost/phpmyadmin"
 
-# Scripts
+
+# ALIAS FOR SCRIPTS
+# -------------------
+
+# General
 alias ahost="sudo bash ~/.forcefiles/scripts/virtualhost.sh"
 alias dhost="sudo bash ~/.forcefiles/scripts/virtualhost.sh --delete"
 alias vms="bash ~/.forcefiles/scripts/installvms.sh"
 alias up="bash ~/.forcefiles/bin/update"
-alias bkp="bash ~/.forcefiles/bin/backup"
+
+# Personal
+alias yoda="bash ~/.forcefiles/scripts/yoda.sh"
+alias mify="bash ~/.forcefiles/scripts/markupify.sh"
+alias bkp="bash ~/.forcefiles/scripts/guardian.sh"
+alias nexus="bash ~/.forcefiles/scripts/nexus.sh"

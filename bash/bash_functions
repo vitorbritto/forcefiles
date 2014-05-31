@@ -120,9 +120,14 @@ function dev() {
     cd ~ && cd Sites/"$@".dev
 }
 
+# Shortcut to Projects
+function code() {
+    cd ~ && cd Sites/projects/"$@"
+}
+
 # Shortcut to Respositories
-function repos() {
-    cd ~ && cd Sites/@mylabs/"$1"/"$2"
+function repo() {
+    cd ~ && cd Sites/@mylabs/repositories/"$1"
 }
 
 # Shortcut to WordPress Projects
@@ -176,7 +181,7 @@ function new() {
     npm install
     clear
 
-    printf "\n→ Starting\n"
+    printf "\n→ Initializing...\n"
     chmod u+x newproject.js
     ./newproject.js
 }
@@ -192,7 +197,6 @@ function gi() {
 function gp() {
     npm install --save-dev ${*/#/gulp-}
 }
-
 
 
 # Server
