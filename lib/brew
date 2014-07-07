@@ -25,7 +25,6 @@ run_brew() {
             "autoconf"
             "automake"
             "libtool"
-            "apple-gcc42"
             "libyaml"
             "libxslt"
             "libksba"
