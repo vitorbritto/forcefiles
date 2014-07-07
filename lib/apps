@@ -11,24 +11,19 @@ run_apps() {
     brew install brew-cask
 
     # browser
-    brew cask install firefox-aurora
-    brew cask install google-chrome-canary
-
+    brew cask install firefox
+    
     # development
     brew cask install macvim
     brew cask install sublime-text
     brew cask install filezilla
     brew cask install source-tree
-    brew cask install virtualbox
-    brew cask install vagrant
     brew cask install imageoptim
 
     # others
-    brew cask install alfred
     brew cask install dropbox
     brew cask install mou
     brew cask install skype
-    brew cask install transmission
 
     # done
     printf "\n"
