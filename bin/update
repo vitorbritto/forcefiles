@@ -8,9 +8,8 @@
 # Ask for the administrator password upfront
 sudo -v
 
-# Let me introduce myself
+# Clear console
 clear
-figlet Update running...
 
 # Let's start with some settings
 FORCEFILES_DIRECTORY="${HOME}/.forcefiles"
