@@ -4,8 +4,8 @@ FORCEFILES_DIRECTORY="${HOME}/.forcefiles"
 FORCEFILES_TARBALL_PATH="https://github.com/vitorbritto/forcefiles/tarball/master"
 FORCEFILES_GIT_REMOTE="https://github.com/vitorbritto/forcefiles"
 
+# Clear console
 clear
-printf "\nThis may take several minutes...\n"
 
 # If missing, download and extract the forcefiles repository
 if [[ ! -d ${FORCEFILES_DIRECTORY} ]]; then
