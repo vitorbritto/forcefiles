@@ -10,22 +10,19 @@ run_apps() {
     brew tap phinze/homebrew-cask
     brew install brew-cask
 
-    # browser
     brew cask install firefox
-    
-    # development
     brew cask install macvim
     brew cask install sublime-text
     brew cask install filezilla
-    brew cask install source-tree
+    brew cask install sourcetree
     brew cask install imageoptim
-
-    # others
     brew cask install dropbox
     brew cask install mou
-    brew cask install skype
+    brew cask install vagrant
+    brew cask install sparrow
+    brew cask install feeds
+    brew cask install screenflow
 
-    # done
     printf "\n"
     printf "Installation complete!\n"
 
