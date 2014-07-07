@@ -18,9 +18,7 @@ run_brew() {
         brew upgrade
         [[ $? ]] && e_success "Done"
 
-        e_header "Checking status of desired Homebrew formulae..."
-        local list_formulae
-        local -a missing_formulae
+        e_header "Installing Homebrew formulae..."
         local -a desired_formulae=(
             "autoconf"
             "automake"
@@ -51,24 +49,8 @@ run_brew() {
             "https://raw.github.com/Homebrew/homebrew-dupes/master/rsync.rb"
         )
 
-        for index in ${!desired_formulae[*]}
-        do
-            if ! formula_exists ${desired_formulae[$index]}; then
-                # Store the name (and options) of every missing formula
-                missing_formulae=("${missing_formulae[@]}" "${desired_formulae[$index]}")
-            fi
-        done
-
-        if [[ "$missing_formulae" ]]; then
-            # Convert the array of missing formula into a list of space-separate strings
-            list_formulae=$( printf "%s " "${missing_formulae[@]}" )
-
-            e_header "Installing missing Homebrew formulae..."
-            # Install all missing formulae
-            brew install $list_formulae
-            brew install vim --override-system-vi
-
-        fi
+        brew install $list_formulae
+        brew install vim --override-system-vi
 
         # Remove outdated versions from the Cellar
         brew cleanup
