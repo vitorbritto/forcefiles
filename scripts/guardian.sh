@@ -6,8 +6,8 @@
 # Author:  Vitor Britto
 #
 # Description:
-#   Guardian is a simple method to execute your
-#   backups with Rsync for external volumes.
+#       Guardian is a simple method to execute your
+#       backups with Rsync for external volumes.
 #
 #
 # Usage: ./guardian.sh
@@ -17,6 +17,20 @@
 #       First of all, define where you want to save your backup
 #       then make this script executable to easily run it.
 #       $ chmod u+x guardian.sh
+#
+#
+# CRONTAB:
+#
+#       Example:
+#       - First of all, create a text file named backup.txt
+#       - Insert "00 6 * * 1 /path/to/script/guardian.sh && bash guardian.sh" in "backup.txt" file
+#       - Now, simply execute "crontab backup.txt"
+#       - All done! Your cron job will work fine every week at 6:00 AM!
+#
+#       Options:
+#       - crontab -e: edit the current job or create a new one
+#       - crontab -l: list cron jobs
+#       - crontab -r: remove a cron job
 #
 # ------------------------------------------------------------------------------
 
@@ -30,41 +44,48 @@ sudo -v
 # ------------------------------------------------------------------------------
 
 # Settings
-SRC="$HOME/Sites/"                  # Source directory
-MAIN="/Volumes/Colossus"            # External Volume
-DIST="$MAIN/_bkp"                   # Destination directory
-LOGS="_logs"                        # Logs directory
+MAIN="/Volumes/Colossus"    # Source
+SRC="$HOME/Sites/"          # Source
+DIST="${MAIN}/BACKUP"       # Destination directory
+LOGS="${MAIN}/LOGS"         # Logs directory
 
 # Core (do not change)
 NOW="$(date +'%d/%m/%Y %H:%M:%S')"
 BKP="$DIST/$(date +'%d_%m_%Y')"
-TAR="$MAIN/bkp_$(date +'%d_%m_%Y').tar.gz"
-LOG="$MAIN/$LOGS/backup_log_$(date +'%d_%m_%Y').txt"
+TAR="$DIST/bkp_$(date +'%d_%m_%Y').tar.gz"
+LOG="$LOGS/backup_log_$(date +'%d_%m_%Y').txt"
 
 
 # ------------------------------------------------------------------------------
 # | MAIN                                                                       |
 # ------------------------------------------------------------------------------
 
+
+
 # Handle Errors
+if [ ! -d "$LOGS" ]; then
+    echo "→ Creating log directory"
+    mkdir -p $LOGS
+fi
+
+if [ ! -d "$DIST" ]; then
+    echo "→ Creating backup directory"
+    mkdir -p $DIST
+fi
+
 if [ ! -r "$SRC" ]; then
-    echo "Source $SRC not readable - Cannot start the sync process"
-    exit
+    chmod u+r $SRC
+    echo "→ Source $SRC is now readable"
 fi
 
 if [ ! -w "$DIST" ]; then
-    echo "Destination $DIST not writeable - Cannot start the sync process"
-    exit
-fi
-
-if [ ! -d "$LOGS" ]; then
-    mkdir _logs
-    exit
+    chmod u+w $DIST
+    echo "→ Destination $DIST is now writeable"
 fi
 
 # Backup Function
 guardian() {
-    echo "→ Initializing backup process"
+    echo "→ Starting backup process..."
     echo "→ This could take a while... please wait."
 
     echo "----------------------------------------------------------" >> "$LOG"
@@ -81,7 +102,7 @@ guardian() {
 
     echo "→ Backup completed successfully!"
 
-    exit 0
+    exit
 }
 
 # Initialize
