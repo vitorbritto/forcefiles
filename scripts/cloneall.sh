@@ -7,6 +7,11 @@
 # Description: This script is a shortcut to clone all repositories from a specific user or organization
 #
 # Usage: ./cloneall.sh <username> <page number>
+#
+# Options:
+#   -h, --help        Show instructions
+#   -c, --clone       Clone repositories
+#
 # Alias: cloneall="bash ~/path/to/script/cloneall.sh"
 #
 # Example:
@@ -26,8 +31,8 @@
 # | VARIABLES                                                                  |
 # ------------------------------------------------------------------------------
 
-user="$1"
-page="$2"
+user="$2"
+page="$3"
 dist="$HOME/temp"
 file="_${user}_repos_[page_${page}].txt"
 line=1
@@ -93,22 +98,6 @@ dir_exists() {
 # | MAIN FUNCTIONS                                                             |
 # ------------------------------------------------------------------------------
 
-# Clone repositories
-call_repos() {
-
-    cd ${dist}
-    e_header "→ Initializing..."
-
-    while read line
-    do
-        name=$line
-        git clone git://github.com/$user/$name.git $name
-    done < ../$file
-
-    e_success "✔ Repositories cloned successfully!"
-
-}
-
 # Everybody need some help
 call_help() {
 
@@ -118,11 +107,17 @@ cat <<EOT
 CLONE ALL - Clone user or organization repositories
 ------------------------------------------------------------------------------
 
-Usage: ./cloneall.sh <username> <page number>
-Alias: cloneall="bash ~/path/to/script/cloneall.sh"
+Usage: ./cloneall.sh [option] <username> <page number>
+Example: ./cloneall.sh -c vitorbritto 1
 
-Example:
-  ./cloneall.sh vitorbritto 1
+Options:
+      -h, --help        Show instructions
+      -c, --clone       Clone repositories
+
+Important:
+    If you prefer, create an alias: cloneall="bash ~/path/to/script/cloneall.sh"
+    And execute with: cloneall -c vitorbritto 1
+
 
 Copyright (c) Vitor Britto
 Licensed under the MIT license.
@@ -133,25 +128,56 @@ EOT
 
 }
 
+# Clone repositories
+call_clone() {
+
+    # Get repositories
+    curl "https://api.github.com/users/${user}/repos?per_page=100&page=${page}" | grep '"name": ' | cut -d \" -f4 > ${file}
+
+    # Show warning message before continue
+    e_warning "Before continue, you could edit the generated file to clone specific repositories and then continue."
+
+    # Ask before clone repositories
+    seek_confirmation "Would you like to clone repositories now?"
+
+    if is_confirmed; then
+        cd ${dist}
+        e_header "→ Initializing..."
+
+        while read line
+        do
+            name=$line
+            git clone git://github.com/$user/$name.git $name
+        done < ../$file
+
+        e_success "✔ Repositories cloned successfully!"
+    else
+        e_success "Aborting..."
+        exit 1
+    fi
+
+}
+
 
 # ------------------------------------------------------------------------------
-# | INITIALIZE CLONE                                                           |
+# | INITIALIZE PROGRAM                                                         |
 # ------------------------------------------------------------------------------
 
-# Get repositories
-curl "https://api.github.com/users/${user}/repos?per_page=100&page=${page}" | grep '"name": ' | cut -d \" -f4 > ${file}
+main() {
 
-# Show warning message before continue
-e_warning "Before continue, you could edit the generated file to clone specific repositories."
+    # Show help
+    if [[ "${1}" == "-h" || "${1}" == "--help" ]]; then
+        call_help ${1}
+        exit
+    fi
 
-# Ask before clone repositories
-seek_confirmation "Would you like to clone repositories now?"
+    # Clone repositories
+    if [[ "${1}" == "-c" || "${1}" == "--clone" ]]; then
+        call_clone ${1}
+        exit
+    fi
 
-if is_confirmed; then
-    clone_repos
-else
-    e_success "Aborting..."
-    exit 1
-fi
+}
 
-
+# Initialize Clone All Script
+main $*
