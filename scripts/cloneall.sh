@@ -26,7 +26,7 @@
 # ------------------------------------------------------------------------------
 
 user="vitorbritto"
-dist="$HOME/temp"
+dist="$HOME/Dropbox/Github"
 repos=(
     "angularjs-studies-todo"
     "beep"
