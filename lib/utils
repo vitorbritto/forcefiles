@@ -99,18 +99,20 @@ Brew:
     autoconf
     automake
     libtool
-    apple-gcc42
     libyaml
     libxslt
     libksba
     openssl
     coreutils
     findutils
+    figlet
     bash
     bash-completion
     wget
     ack
     tree
+    gcc46
+    apple-gcc42
     git
     jpeg
     optipng
@@ -120,17 +122,16 @@ Brew:
     mongodb
     erlang
     elixir
+    macvim
+    discount
+    ctags
+    rsync
 
 NPM:
     grunt-cli
     gulp
     bower
-    express
     imageoptim-cli
-    dalek-cli
-    lodash-cli
-    ungit
-    docpad
     nave
     browserify
     beefy
@@ -148,7 +149,6 @@ NPM:
     jade
     harp
     coveralls
-    nightwatch
 
 Dependencies:
     Pygments
@@ -176,26 +176,23 @@ Applications
 ------------
 
 Browsers:
-    Firefox Aurora
-    Google Chrome Canary
+    Firefox
 
 Development:
     MacVim
     Sublime Text
-    SourceTree
     FileZilla
     VirtualBox (w/ Vagrant)
     Image Optim
 
 Others:
     Mou
-    Alfred
     Dropbox
-    Skype
-    Transmission
-    VLC
     Limechat
-    Dash
+    App Cleaner
+    Sparrow
+    Feeds
+    ScreenFlow
 
 ------------------------------------------------------------------------------
 

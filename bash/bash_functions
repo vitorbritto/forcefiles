@@ -117,22 +117,22 @@ function tre() {
 
 # Shortcut to Virtual Hosts
 function dev() {
-    cd ~ && cd Sites/"$@".dev
+    cd $HOME/Sites/"$1".dev
 }
 
 # Shortcut to Projects
 function code() {
-    cd ~ && cd Sites/projects/"$@"
+    cd $HOME/Sites/"$1"
 }
 
 # Shortcut to Respositories
 function repo() {
-    cd ~ && cd Sites/@mylabs/repositories/"$1"
+    cd $HOME/Dropbox/Github/"$1"
 }
 
 # Shortcut to WordPress Projects
 function wp() {
-    cd ~ && cd Sites/@projects/"$1"/wp-content/themes/"$2"
+    cd $HOME/Sites/"$1"/wp-content/themes/"$2"
 }
 
 # Clones a personal repository, cds into it, asks for install node modules and create executable script.

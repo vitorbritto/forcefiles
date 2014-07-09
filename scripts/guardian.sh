@@ -31,10 +31,9 @@ sudo -v
 
 # Settings
 SRC="$HOME/Sites/"                  # Source directory
-MAIN="/Volumes/BACKUP"              # External Volume
-DIST="$MAIN/PROJECTS"               # Destination directory
+MAIN="/Volumes/Colossus"            # External Volume
+DIST="$MAIN/_bkp"                   # Destination directory
 LOGS="_logs"                        # Logs directory
-EXCLUDE="$DIST/bkp_excludes.txt"    # Exclude list files on sync
 
 # Core (do not change)
 NOW="$(date +'%d/%m/%Y %H:%M:%S')"

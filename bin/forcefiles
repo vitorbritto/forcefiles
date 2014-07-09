@@ -136,7 +136,6 @@ mirrorfiles() {
     link "git/gitattributes"  ".gitattributes"
     link "git/gitignore"      ".gitignore"
     link "git/gitmodules"     ".gitmodules"
-    link "git/ungitrc"        ".ungitrc"
     link "npm/npmrc"          ".npmrc"
 
     # Z Shell

@@ -100,33 +100,3 @@ if is_confirmed; then
 else
     e_warning "Skipped!"
 fi
-
-
-# Ask before config Sublime text
-seek_confirmation "Do you want to config Sublime Text?"
-
-if is_confirmed; then
-
-    # Create symlink to execute in terminal
-    ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
-
-    # Sync with Dropbox
-    cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/
-    mkdir ~/Dropbox/Sublime
-    mv User ~/Dropbox/Sublime/
-    ln -s ~/Dropbox/Sublime/User
-
-    e_success "Sublime Text is ready to go!"
-else
-    e_warning "Skipped!"
-fi
-
-# Ask before config Vim
-seek_confirmation "Do you want to config VIM?"
-
-if is_confirmed; then
-    bash -c "$(curl -fsSL raw.github.com/vitorbritto/setup-vim/master/init.sh)"
-    e_success "VIM is ready to go!"
-else
-    e_warning "Skipped!"
-fi

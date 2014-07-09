@@ -8,20 +8,18 @@ run_gems() {
 
     # Check for Homebrew
     if type_exists "gem"; then
-        e_header "Updating gem..."
+
         # Use the latest version of gem
+        e_header "Updating gem..."
         gem update --system
         [[ $? ]] && e_success "Done"
 
-        e_header "Updating any installed gem..."
         # Upgrade any already-installed gem
+        e_header "Updating any installed gem..."
         gem update
         [[ $? ]] && e_success "Done"
 
-        e_header "Checking status of desired gems..."
-        local list_gems
-        local -a missing_gems
-        local -a desired_gems=(
+        local -a list_gems=(
             "rails"
             "sass"
             "compass"
@@ -33,31 +31,20 @@ run_gems() {
             "sinatra"
         )
 
-        for index in ${!desired_gems[*]}
-        do
-            if ! gems_exists ${desired_gems[$index]}; then
-                # Store the name (and options) of every missing gem
-                missing_gems=("${missing_gems[@]}" "${desired_gems[$index]}")
-            fi
-        done
+        # Install gems
+        e_header "Installing missing gems..."
+        sudo gem install $list_gems
+        gem install sass -v 3.2.19
 
-        if [[ "$missing_gems" ]]; then
-            # Convert the array of missing gem into a list of space-separate strings
-            list_gems=$( printf "%s " "${missing_gems[@]}" )
-
-            e_header "Installing missing gems..."
-            # Install all missing gems
-            sudo gem install $list_gems
-            gem install sass -v 3.2.19
-
-            [[ $? ]] && e_success "Done"
-        fi
+        [[ $? ]] && e_success "Gems installed successfully!"
 
     else
+
         printf "\n"
         e_error "Error: gem not found."
         printf "Aborting...\n"
         exit
+
     fi
 
 }

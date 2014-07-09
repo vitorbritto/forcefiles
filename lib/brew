@@ -8,18 +8,20 @@ run_brew() {
 
     # Check for Homebrew
     if type_exists "brew"; then
-        e_header "Updating Homebrew..."
+
         # Use the latest version of Homebrew
+        e_header "Updating Homebrew..."
         brew update
         [[ $? ]] && e_success "Done"
 
-        e_header "Updating any existing Homebrew formulae..."
         # Upgrade any already-installed formulae
+        e_header "Updating any existing Homebrew formulae..."
         brew upgrade
         [[ $? ]] && e_success "Done"
 
+        # Install formulaes
         e_header "Installing Homebrew formulae..."
-        local -a desired_formulae=(
+        local -a list_formulaes=(
             "autoconf"
             "automake"
             "libtool"
@@ -35,6 +37,8 @@ run_brew() {
             "wget"
             "ack"
             "tree"
+            "gcc46"
+            "apple-gcc42"
             "git"
             "jpeg"
             "optipng"
@@ -44,13 +48,15 @@ run_brew() {
             "mongodb"
             "erlang"
             "elixir"
+            "macvim"
             "discount"
             "ctags"
             "https://raw.github.com/Homebrew/homebrew-dupes/master/rsync.rb"
         )
 
-        brew install $list_formulae
+        brew install $list_formulaes
         brew install vim --override-system-vi
+        [[ $? ]] && e_success "Formulaes installed successfully!"
 
         # Remove outdated versions from the Cellar
         brew cleanup

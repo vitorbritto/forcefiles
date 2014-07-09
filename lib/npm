@@ -8,15 +8,36 @@ run_npm() {
 
     # Check for npm
     if type_exists "npm"; then
-        e_header "Installing NPM modules..."
-
-        # List of npm packages
-        local packages="grunt-cli gulp bower imageoptim-cli nave browserify shelljs uglify-js jshint stylus browser-sync karma markdown jade harp mocha coveralls istanbul yslow ionic"
 
         # Install packages globally and quietly
-        npm install $packages -g
+        e_header "Installing NPM modules..."
 
-        [[ $? ]] && e_success "Done"
+        local -a list_packages=(
+            "grunt-cli"
+            "gulp"
+            "bower"
+            "imageoptim-cli"
+            "nave"
+            "browserify"
+            "shelljs"
+            "uglify-js"
+            "jshint"
+            "stylus"
+            "browser-sync"
+            "karma"
+            "markdown"
+            "jade"
+            "harp"
+            "mocha"
+            "coveralls"
+            "istanbul"
+            "yslow"
+            "ionic"
+        )
+
+        npm install $list_packages -gq
+        [[ $? ]] && e_success "Node modules installed successfully!"
+
     else
         printf "\n"
         e_error "Error: npm not found."

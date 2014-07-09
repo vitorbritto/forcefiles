@@ -198,9 +198,9 @@ alias update="sudo softwareupdate --install --all && \
 # Daily stuff
 alias subl='open -a "/Applications/Sublime Text 2.app"'
 alias vim='open -a "/Applications/MacVim.app"'
-alias db="cd ~/Documents/Dropbox"
-alias dl="cd ~/Downloads"
-alias t="cd ~/temp"
+alias db="cd $HOME/Dropbox"
+alias dl="cd $HOME/Downloads"
+alias t="cd $HOME/temp"
 alias h="history"
 alias j="jobs"
 alias nh="node --harmony"
@@ -216,18 +216,13 @@ alias sqlstart="sudo /usr/local/mysql/support-files/mysql.server start"
 alias sqlstop="sudo /usr/local/mysql/support-files/mysql.server stop"
 alias pma="open http://localhost/phpmyadmin"
 
-
-# ALIAS FOR SCRIPTS
-# -------------------
-
-# General
+# Scripts
 alias ahost="sudo bash ~/.forcefiles/scripts/virtualhost.sh"
 alias dhost="sudo bash ~/.forcefiles/scripts/virtualhost.sh --delete"
 alias vms="bash ~/.forcefiles/scripts/installvms.sh"
 alias up="bash ~/.forcefiles/bin/update"
-
-# Personal
 alias yoda="bash ~/.forcefiles/scripts/yoda.sh"
 alias mify="bash ~/.forcefiles/scripts/markupify.sh"
 alias bkp="bash ~/.forcefiles/scripts/guardian.sh"
 alias nexus="bash ~/.forcefiles/scripts/nexus.sh"
+alias call="bash ~/.forcefiles/scripts/cloneall.sh"
