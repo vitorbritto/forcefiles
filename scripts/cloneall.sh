@@ -33,7 +33,7 @@
 
 user="$2"
 page="$3"
-dist="$HOME/temp"
+dist="$HOME/Dropbox/Github"
 file="_${user}_repos_[page_${page}].txt"
 line=1
 
