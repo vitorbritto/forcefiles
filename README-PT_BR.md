@@ -2,7 +2,6 @@
 
 Mais do que dotfiles! São meus Arquivos da Força! xD
 
-> Trabalho em andamento...
 
 ## Sobre
 
@@ -14,26 +13,34 @@ Percebi que poderia dividir meus arquivos de automação, atalhos do bash, confi
 
 > Observação: estou rodando em Mac OS X. Estes são os arquivos de configuração para configurar um sistema do jeito que eu utilizo em meu ambiente de trabalho.
 
+
 ## Instalação
 
 ```bash
 $ bash -c "$(curl -fsSL raw.github.com/vitorbritto/forcefiles/master/bin/forcefiles)"
 ```
 
+
+## Uso
+
 **Opções**
 
-- `./forcefiles --help`: Ajuda e instruções
+- `./forcefiles --help`: instruções de uso
 - `./forcefiles --list`: lista com todos os aplicativos e dependências a serem instaladas
 
 **Scripts**
-There are some optional scritps i've stored in `scripts` folder. It's up to me (you) use it. Here are some quick descriptions:
 
-- `installvms`: download and install virtual machines for use with Virtual Box and Vagrant
-- `virtualhost`: add or remove virtual hosts
+Existem alguns scripts opcionais que armazenei na pasta `scripts` para utilizar no durante meu fluxo de trabalho. Estes podem ser executados com o `alias` listado abaixo.
 
-## Sugestões
+- `vms`: faz o download de vms, incluindo vagrant e virtualbox.
+- `ahost`, `dhost`: adiciona e remove virtual hosts.
+- `up`: atualiza o workflow.
+- `yoda`: script para favoritar links.
+- `mify`: uma ferramenta de desenvolvimento front-end para extrair classes, ids e hrefs de um documento HTML.
+- `bkp`: script para backup de arquivos importantes.
+- `nexus`: inicia um web server em _python_ ou _php_ com uma **porta** opcional.
+- `call`: clona todos os repositórios de um usuário ou organização.
 
-[Deixe suas sugestões](https://github.com/vitorbritto/forcefiles/issues)
 
 ## Agradecimentos
 
