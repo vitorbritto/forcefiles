@@ -88,8 +88,13 @@ dir_exists() {
 
 }
 
+
+# ------------------------------------------------------------------------------
+# | MAIN FUNCTIONS                                                             |
+# ------------------------------------------------------------------------------
+
 # Clone repositories
-clone_repos() {
+call_repos() {
 
     cd ${dist}
     e_header "→ Initializing..."
@@ -103,6 +108,31 @@ clone_repos() {
     e_success "✔ Repositories cloned successfully!"
 
 }
+
+# Everybody need some help
+call_help() {
+
+cat <<EOT
+
+------------------------------------------------------------------------------
+CLONE ALL - Clone user or organization repositories
+------------------------------------------------------------------------------
+
+Usage: ./cloneall.sh <username> <page number>
+Alias: cloneall="bash ~/path/to/script/cloneall.sh"
+
+Example:
+  ./cloneall.sh vitorbritto 1
+
+Copyright (c) Vitor Britto
+Licensed under the MIT license.
+
+------------------------------------------------------------------------------
+
+EOT
+
+}
+
 
 # ------------------------------------------------------------------------------
 # | INITIALIZE CLONE                                                           |
