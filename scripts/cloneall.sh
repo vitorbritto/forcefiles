@@ -1,101 +1,127 @@
 #!/usr/bin/env bash
 
-# ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------
 #
 # Program: cloneall.sh
 # Author:  Vitor Britto
+# Description: This script is a shortcut to clone all repositories from a specific user or organization
 #
-# Description:
-#   This script is a shortcut to clone all repositories
-#   from a specific user or organization
-#
-#
-# Usage: ./cloneall.sh
+# Usage: ./cloneall.sh <username> <page number>
 # Alias: cloneall="bash ~/path/to/script/cloneall.sh"
 #
-# Important:
-#       First of all, define where you want to save your backup
-#       then make this script executable to easily run it.
-#       $ chmod u+x cloneall.sh
+# Example:
+#   ./cloneall.sh vitorbritto 1
 #
-# ------------------------------------------------------------------------------
+# Test:
+#   curl "https://api.github.com/users/vitorbritto/repos?per_page=100&page=1" | grep '"name": ' | cut -d \" -f4
+#
+# Important Notes:
+#   - Define where you want to clone your repositories
+#   - Make this script executable to easily run it. Execute: $ chmod u+x cloneall.sh
+#   - You can edit the "_username_repos.txt" file in user path to clone specific repositories.
+# ------------------------------------------------------------------------------------------------------------
 
 
 # ------------------------------------------------------------------------------
 # | VARIABLES                                                                  |
 # ------------------------------------------------------------------------------
 
-user="vitorbritto"
-dist="$HOME/Dropbox/Github"
-repos=(
-    "angularjs-studies-todo"
-    "beep"
-    "biosys"
-    "blog"
-    "boilerplates"
-    "bunker"
-    "date-stylish"
-    "dev-list"
-    "forcefiles"
-    "gocaniuse"
-    "golang-book"
-    "gomdn"
-    "gone"
-    "gow3c"
-    "gruntify"
-    "gruntnator"
-    "guardian"
-    "gulpify"
-    "gulpnator"
-    "howtostart"
-    "i-am-your-father"
-    "just"
-    "labs"
-    "magnetojs"›
-    "makefy"
-    "managers"
-    "markupify"
-    "nexus"
-    "node-managers"
-    "node-skeleton"
-    "octolist"
-    "optimus"
-    "orphanage"
-    "papoy"
-    "PDFify"
-    "pixmap"
-    "redux"
-    "robotscripts"
-    "ruby-skeleton"
-    "setup-emacs"
-    "setup-subl"
-    "setup-vagrant"
-    "setup-vim"
-    "simhelp"
-    "simlog"
-    "skeleton"
-    "sparkle"
-    "sublime-devdocs"
-    "tictac"
-    "tictac-app"
-    "unics"
-    "unixify"
-    "whotofollow"
-    "workflow-guide"
-    "yoda"
-)
+user="$1"
+page="$2"
+dist="$HOME/temp"
+file="_${user}_repos_[page_${page}].txt"
+line=1
 
+
+# ------------------------------------------------------------------------------
+# | UTILS                                                                      |
+# ------------------------------------------------------------------------------
+
+# Header logging
+e_header() {
+    printf "$(tput setaf 37)$(tput bold)%s$(tput sgr0)\n" "$@"
+}
+
+# Success logging
+e_success() {
+    printf "$(tput setaf 64)✔ %s$(tput sgr0)\n" "$@"
+}
+
+# Error logging
+e_error() {
+    printf "$(tput setaf 1)✖ %s$(tput sgr0)\n" "$@"
+}
+
+# Warning logging
+e_warning() {
+    printf "$(tput setaf 136)! %s$(tput sgr0)\n" "$@"
+}
+
+# Ask for confirmation before proceeding
+seek_confirmation() {
+
+    printf "\n"
+    e_warning "$@"
+    read -p "Continue? (y/n) " -n 1
+    printf "\n"
+
+}
+
+# Test whether the result of an 'ask' is a confirmation
+is_confirmed() {
+
+    if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+      return 0
+    fi
+    return 1
+
+}
+
+# Test whether a directory exists
+# $1 - cmd to test
+dir_exists() {
+
+    if [ $(-d $1) ]; then
+      return 0
+    fi
+    return 1
+
+}
+
+# Clone repositories
+clone_repos() {
+
+    cd ${dist}
+    e_header "→ Initializing..."
+
+    while read line
+    do
+        name=$line
+        git clone git://github.com/$user/$name.git $name
+    done < ../$file
+
+    e_success "✔ Repositories cloned successfully!"
+
+}
 
 # ------------------------------------------------------------------------------
 # | INITIALIZE CLONE                                                           |
 # ------------------------------------------------------------------------------
 
-cd ${dist}
-echo "→ Clonning..."
+# Get repositories
+curl "https://api.github.com/users/${user}/repos?per_page=100&page=${page}" | grep '"name": ' | cut -d \" -f4 > ${file}
 
-for repo in "${repos[@]}"
-do
-    git clone git://github.com/$user/$repo.git $repo
-done
+# Show warning message before continue
+e_warning "Before continue, you could edit the generated file to clone specific repositories."
 
-echo -n "✔ done!"
+# Ask before clone repositories
+seek_confirmation "Would you like to clone repositories now?"
+
+if is_confirmed; then
+    clone_repos
+else
+    e_success "Aborting..."
+    exit 1
+fi
+
+
