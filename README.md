@@ -39,7 +39,7 @@ There are some optional scritps i've stored in `scripts` folder to use in my wor
 - `mify`: a front-end development tool for extract classes, ids and hrefs from HTML document.
 - `bkp`: script to backup importante files.
 - `nexus`: start a web server in _python_ or _php_ with optional **port**.
-- `call`: clone all repositories from a user or organization.
+- `call`: clone my repositories (using with [octolist](https://www.npmjs.org/package/octolist) by now).
 
 
 ## Acknowledgements

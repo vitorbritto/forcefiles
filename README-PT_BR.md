@@ -39,7 +39,7 @@ Existem alguns scripts opcionais que armazenei na pasta `scripts` para utilizar 
 - `mify`: uma ferramenta de desenvolvimento front-end para extrair classes, ids e hrefs de um documento HTML.
 - `bkp`: script para backup de arquivos importantes.
 - `nexus`: inicia um web server em _python_ ou _php_ com uma **porta** opcional.
-- `call`: clona todos os repositórios de um usuário ou organização.
+- `call`: clona meus repositórios (para ser utilizado com o [octolist](https://www.npmjs.org/package/octolist) por enquanto).
 
 
 ## Agradecimentos
