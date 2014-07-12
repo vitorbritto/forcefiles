@@ -10,7 +10,7 @@ run_apps() {
     brew tap phinze/homebrew-cask
     brew install brew-cask
 
-    local -a list_apps =(
+    local -a list_apps=(
         "appcleaner"
         "firefox"
         "sublime-text"

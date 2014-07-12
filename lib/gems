@@ -12,15 +12,14 @@ run_gems() {
         # Use the latest version of gem
         e_header "Updating gem..."
         gem update --system
-        [[ $? ]] && e_success "Done"
+        e_success "Done"
 
         # Upgrade any already-installed gem
         e_header "Updating any installed gem..."
         gem update
-        [[ $? ]] && e_success "Done"
+        e_success "Done"
 
         local -a list_gems=(
-            "rails"
             "sass"
             "compass"
             "haml"
@@ -29,14 +28,15 @@ run_gems() {
             "bundler"
             "capistrano"
             "sinatra"
+            "rails"
         )
 
         # Install gems
         e_header "Installing missing gems..."
-        sudo gem install $list_gems
-        gem install sass -v 3.2.19
-
-        [[ $? ]] && e_success "Gems installed successfully!"
+        gem install sass -v 3.2.19 # Install previous version of Sass for secutiry
+        gem install $list_gems     # Install listed gems
+        gem install compass --pre  # Install pre-release of compass to work with Sass v3.3.x
+        e_success "Gems installed successfully!"
 
     else
 

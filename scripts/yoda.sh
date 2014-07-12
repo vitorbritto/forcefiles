@@ -38,7 +38,7 @@
 
 # Set your configurations here
 FILE="FAVORITES.md"                         # Recommended: *.md, *.txt
-DIR="Desktop"                               # Recommended: /Desktop
+DIR="Dropbox"                               # Recommended: /Desktop
 BROWSER="Canary"                            # Available: Canary, Chrome
 
 # Core (DO NOT CHANGE)

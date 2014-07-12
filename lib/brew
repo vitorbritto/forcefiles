@@ -12,12 +12,12 @@ run_brew() {
         # Use the latest version of Homebrew
         e_header "Updating Homebrew..."
         brew update
-        [[ $? ]] && e_success "Done"
+        e_success "Done"
 
         # Upgrade any already-installed formulae
         e_header "Updating any existing Homebrew formulae..."
         brew upgrade
-        [[ $? ]] && e_success "Done"
+        e_success "Done"
 
         # Install formulaes
         e_header "Installing Homebrew formulae..."
@@ -56,7 +56,7 @@ run_brew() {
 
         brew install $list_formulaes
         brew install vim --override-system-vi
-        [[ $? ]] && e_success "Formulaes installed successfully!"
+        e_success "Formulaes installed successfully!"
 
         # Remove outdated versions from the Cellar
         brew cleanup

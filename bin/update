@@ -5,11 +5,8 @@
 # Improve workflow script
 # Stand-alone: run with alias "up"
 
-# Ask for the administrator password upfront
+# Ask for the administrator password upfront (using without alias)
 sudo -v
-
-# Clear console
-clear
 
 # Let's start with some settings
 FORCEFILES_DIRECTORY="${HOME}/.forcefiles"

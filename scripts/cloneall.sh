@@ -6,16 +6,16 @@
 # Author:  Vitor Britto
 # Description: This script is a shortcut to clone all repositories from a specific user or organization
 #
-# Usage: ./cloneall.sh <username> <page number>
+# Usage: ./cloneall.sh [options] <username> <page number>
 #
 # Options:
-#   -h, --help        Show instructions
-#   -c, --clone       Clone repositories
+#   -h, --help        output instructions
+#   -c, --clone       clone repositories
 #
-# Alias: cloneall="bash ~/path/to/script/cloneall.sh"
+# Alias: alias cloneall="bash ~/path/to/script/cloneall.sh"
 #
 # Example:
-#   ./cloneall.sh vitorbritto 1
+#   ./cloneall.sh -c vitorbritto 1
 #
 # Test:
 #   curl "https://api.github.com/users/vitorbritto/repos?per_page=100&page=1" | grep '"name": ' | cut -d \" -f4
@@ -111,8 +111,8 @@ Usage: ./cloneall.sh [option] <username> <page number>
 Example: ./cloneall.sh -c vitorbritto 1
 
 Options:
-      -h, --help        Show instructions
-      -c, --clone       Clone repositories
+      -h, --help        output help
+      -c, --clone       clone repositories
 
 Important:
     If you prefer, create an alias: cloneall="bash ~/path/to/script/cloneall.sh"
@@ -150,9 +150,9 @@ call_clone() {
             git clone git://github.com/$user/$name.git $name
         done < ../$file
 
-        e_success "✔ Repositories cloned successfully!"
+        e_success "Repositories cloned successfully!"
     else
-        e_success "Aborting..."
+        e_error "Aborting..."
         exit 1
     fi
 

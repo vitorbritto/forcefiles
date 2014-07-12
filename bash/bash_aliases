@@ -208,8 +208,8 @@ alias ct="crontab"
 alias o="open ."
 
 # Apache
-alias httpd="sudo nano -w /etc/apache2/httpd.conf"
-alias vhost="sudo nano -w /etc/apache2/extra/httpd-vhosts.conf"
+alias apconf="sudo nano -w /etc/apache2/httpd.conf"
+alias vhconf="sudo nano -w /etc/apache2/extra/httpd-vhosts.conf"
 
 # Database
 alias sqlstart="sudo /usr/local/mysql/support-files/mysql.server start"
@@ -220,9 +220,11 @@ alias pma="open http://localhost/phpmyadmin"
 alias ahost="sudo bash ~/.forcefiles/scripts/virtualhost.sh"
 alias dhost="sudo bash ~/.forcefiles/scripts/virtualhost.sh --delete"
 alias vms="bash ~/.forcefiles/scripts/installvms.sh"
-alias up="bash ~/.forcefiles/bin/update"
+alias up="sudo bash ~/.forcefiles/bin/update"
 alias yoda="bash ~/.forcefiles/scripts/yoda.sh"
 alias mify="bash ~/.forcefiles/scripts/markupify.sh"
 alias bkp="bash ~/.forcefiles/scripts/guardian.sh"
 alias nexus="bash ~/.forcefiles/scripts/nexus.sh"
 alias call="bash ~/.forcefiles/scripts/cloneall.sh"
+alias post="bash ~/.forcefiles/scripts/newpost.sh"
+

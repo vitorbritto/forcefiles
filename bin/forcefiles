@@ -7,6 +7,9 @@ FORCEFILES_GIT_REMOTE="https://github.com/vitorbritto/forcefiles"
 # Clear console
 clear
 
+# Ask for the administrator password upfront (using without alias)
+sudo -v
+
 # If missing, download and extract the forcefiles repository
 if [[ ! -d ${FORCEFILES_DIRECTORY} ]]; then
     printf "$(tput setaf 7)Downloading forcefiles...\033[m\n"
@@ -110,7 +113,7 @@ else
 
     # Install Homebrew formulae
     run_brew
-    
+
     # Install Node packages
     run_npm
 fi
@@ -151,7 +154,7 @@ mirrorfiles() {
 }
 
 # Ask before potentially overwriting files
-seek_confirmation "Warning: This step may overwrite your existing forcefiles."
+seek_confirmation "Would you like to overwrite your existing dotfiles?"
 
 if is_confirmed; then
     mirrorfiles
@@ -162,7 +165,7 @@ else
 fi
 
 # Ask before install my personal workflow
-seek_confirmation "Warning: This step will update my workflow. Is up to you from here..."
+seek_confirmation "Would you like to update your workflow?"
 
 if is_confirmed; then
     bash ./bin/update
@@ -172,7 +175,7 @@ else
 fi
 
 # Ask before potentially overwriting OS X defaults
-seek_confirmation "Warning: This step may modify your OS X system defaults."
+seek_confirmation "Would you like to modify your OS X system defaults?"
 
 if is_confirmed; then
     bash ./bin/osxdefaults
