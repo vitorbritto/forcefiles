@@ -44,12 +44,12 @@ line=1
 
 # Header logging
 e_header() {
-    printf "$(tput setaf 37)$(tput bold)%s$(tput sgr0)\n" "$@"
+    printf "$(tput setaf 38)→ %s$(tput sgr0)\n" "$@"
 }
 
 # Success logging
 e_success() {
-    printf "$(tput setaf 64)✔ %s$(tput sgr0)\n" "$@"
+    printf "$(tput setaf 76)✔ %s$(tput sgr0)\n" "$@"
 }
 
 # Error logging
@@ -59,7 +59,7 @@ e_error() {
 
 # Warning logging
 e_warning() {
-    printf "$(tput setaf 136)! %s$(tput sgr0)\n" "$@"
+    printf "$(tput setaf 3)! %s$(tput sgr0)\n" "$@"
 }
 
 # Ask for confirmation before proceeding
@@ -142,7 +142,7 @@ call_clone() {
 
     if is_confirmed; then
         cd ${dist}
-        e_header "→ Initializing..."
+        e_header "Initializing..."
 
         while read line
         do

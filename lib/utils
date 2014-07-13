@@ -4,15 +4,14 @@
 # | Log Messages                                                               |
 # ------------------------------------------------------------------------------
 
-
 # Header logging
 e_header() {
-    printf "$(tput setaf 37)$(tput bold)%s$(tput sgr0)\n" "$@"
+    printf "$(tput setaf 38)→ %s$(tput sgr0)\n" "$@"
 }
 
 # Success logging
 e_success() {
-    printf "$(tput setaf 64)✔ %s$(tput sgr0)\n" "$@"
+    printf "$(tput setaf 76)✔ %s$(tput sgr0)\n" "$@"
 }
 
 # Error logging
@@ -22,7 +21,7 @@ e_error() {
 
 # Warning logging
 e_warning() {
-    printf "$(tput setaf 136)! %s$(tput sgr0)\n" "$@"
+    printf "$(tput setaf 3)! %s$(tput sgr0)\n" "$@"
 }
 
 # Ask for confirmation before proceeding
@@ -216,10 +215,10 @@ OS X dotfiles - Vitor Britto - http://www.vitorbritto.com.br
 Usage: $(basename "$0") [options]
 
 Options:
-    -h, --help      Print this help text
-    -l, --list      Print a list of additional software to install
-    --no-packages   Suppress package updates
-    --no-sync       Suppress pulling from the remote repository
+    -h, --help      output help
+    -l, --list      output list of dependencies and applications
+    --no-packages   suppress package updates
+    --no-sync       suppress pulling from the remote repository
 
 Documentation can be found at https://github.com/vitorbritto/forcefiles/
 

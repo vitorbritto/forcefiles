@@ -226,5 +226,5 @@ alias mify="bash ~/.forcefiles/scripts/markupify.sh"
 alias bkp="bash ~/.forcefiles/scripts/guardian.sh"
 alias nexus="bash ~/.forcefiles/scripts/nexus.sh"
 alias call="bash ~/.forcefiles/scripts/cloneall.sh"
-alias post="bash ~/.forcefiles/scripts/newpost.sh"
+alias ipost="bash ~/.forcefiles/scripts/initpost.sh"
 
