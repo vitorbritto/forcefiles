@@ -50,19 +50,37 @@ FULL_PATH="$HOME/${DIR}/${FILE}"
 EXT="${FILE##*.}"
 OS="lowercase \`uname\`"
 OPEN_COMMAND="/usr/bin/open"
-CAT_COMMAND="cat -n"
-
-
+CAT_COMMAND="cat"
 
 
 # ------------------------------------------------------------------------------
 # | UTILS                                                                      |
 # ------------------------------------------------------------------------------
 
+# Lowercase function
 lowercase() {
     echo "${1}" | sed "y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/"
 }
 
+# Header logging
+e_header() {
+    printf "$(tput setaf 38)→ %s$(tput sgr0)\n" "$@"
+}
+
+# Success logging
+e_success() {
+    printf "$(tput setaf 76)✔ %s$(tput sgr0)\n" "$@"
+}
+
+# Error logging
+e_error() {
+    printf "$(tput setaf 1)✖ %s$(tput sgr0)\n" "$@"
+}
+
+# Warning logging
+e_warning() {
+    printf "$(tput setaf 3)! %s$(tput sgr0)\n" "$@"
+}
 
 
 # ------------------------------------------------------------------------------
@@ -109,7 +127,7 @@ os_type() {
     elif [[ "${OS}" == "darwin"* ]]; then
         browser_mac
     else
-        echo "Only available for OSX and GNU/Linux."
+        e_warning "Only available for OSX and GNU/Linux."
     fi
 }
 
@@ -151,7 +169,7 @@ main() {
         yoda_add $*
         exit
     else
-        echo "Sorry, any valid parameter."
+        e_error "Sorry, any valid parameter."
     fi
 }
 
@@ -163,7 +181,7 @@ main() {
 
 # Add URL
 yoda_add() {
-    echo "Saving..."
+    e_header "Saving..."
     if [[ "${EXT}" == 'md' ]]; then
         if [[ $# -gt 1 ]]; then
             echo "- [${@:1:$(($#-1))}](${*: -1})" >> ${FULL_PATH}
@@ -173,29 +191,31 @@ yoda_add() {
     else
         echo $@ >> ${FULL_PATH}
     fi
-    echo "✔ Done!"
+    e_success "Done!"
 }
 
 # Export Bookmarks
 yoda_export() {
-    echo "Exporting..."
+    e_header "Exporting..."
     os_type
-    echo "✔ Done!"
+    e_success "Done!"
 }
 
 # View file content
 yoda_list() {
+    echo ""
     echo "---------------------------------------------------"
     echo "                     FAVORITES                     "
     echo "---------------------------------------------------"
+    echo ""
     ${CAT_COMMAND} ${FULL_PATH}
 }
 
 # Open file
 yoda_open() {
-    echo "Opening..."
+    e_header "Opening..."
     ${OPEN_COMMAND} ${FULL_PATH}
-    echo "✔ Done!"
+    e_success "Done!"
 }
 
 # Everybody need some help
