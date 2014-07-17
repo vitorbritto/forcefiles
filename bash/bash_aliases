@@ -227,4 +227,5 @@ alias bkp="bash ~/.forcefiles/scripts/guardian.sh"
 alias nexus="bash ~/.forcefiles/scripts/nexus.sh"
 alias call="bash ~/.forcefiles/scripts/cloneall.sh"
 alias ipost="bash ~/.forcefiles/scripts/initpost.sh"
+alias uify="bash ~/.forcefiles/scripts/unixify.sh"
 
