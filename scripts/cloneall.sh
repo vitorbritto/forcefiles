@@ -147,7 +147,7 @@ call_clone() {
         while read line
         do
             name=$line
-            git clone git://github.com/$user/$name.git $name
+            git clone https://github.com/$user/$name.git $name
         done < ../$file
 
         e_success "Repositories cloned successfully!"
