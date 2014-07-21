@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-# -- ABOUT: --------------------------------------------------------------------------------------------------
+# -- ABOUT THIS PROGRAM: -------------------------------------------------------------------------------------
 #
-# Program: unixify.sh
+# Name: unixify.sh
 # Author:  Vitor Britto
-# Description: This script is a set of general utilities for Unix (Bash Shell for now)
+# Description: This script is a set of general utilities for Unix (based on Bash shell)
 #
 # -- FIRST OF ALL: -------------------------------------------------------------------------------------------
 #
@@ -19,7 +19,7 @@
 # Options:
 #           -h, --help        output help
 #           -l, --list        list man pages with specific letter
-#           -v, --view        view specific man page
+#           -v, --view        view specific man pag
 #           -g, --generate    generate specific man page to PDF
 #           -e, --explain     explain a specific command for Unix Shell
 #           -s, --system      dynamic real-time view of a running system
@@ -28,6 +28,7 @@
 #           -A, --append      append a new path to global variable PATH
 #           -P, --prepend     prepend a new path to global variable PATH
 #           -o, --offline     shutdown the system
+#           -i, --info        show system info
 #
 # ------------------------------------------------------------------------------------------------------------
 
@@ -191,6 +192,7 @@ Options:
          -A, --append      append a new path to global variable PATH
          -P, --prepend     prepend a new path to global variable PATH
          -o, --offline     shutdown the system
+         -i, --info        show system info
 
 Copyright (c) Vitor Britto
 Licensed under the MIT license.
@@ -208,78 +210,21 @@ EOT
 
 main() {
 
-    # output help | -h, --help
-    if [[ "${1}" == "-h" || "${1}" == "--help" ]]; then
-        uify_help $*
-        exit
-    fi
-
-    # list man pages with specific letter | -l, --list
-    if [[ "${1}" == "-l" || "${1}" == "--help" ]]; then
-        uify_list $*
-        exit
-    fi
-
-    # view specific man page | -v, --view
-    if [[ "${1}" == "-v" || "${1}" == "--view" ]]; then
-        uify_view $*
-        exit
-    fi
-
-    # generate specific man page to PDF | -g, --generate
-    if [[ "${1}" == "-g" || "${1}" == "--generate" ]]; then
-        uify_generate $*
-        exit
-    fi
-
-    # explain a specific command for Unix Shell | -e, --explain
-    if [[ "${1}" == "-e" || "${1}" == "--explain" ]]; then
-        uify_explain ${1}
-        exit
-    fi
-
-    # dynamic real-time view of a running system | -s, --system
-    if [[ "${1}" == "-s" || "${1}" == "--system" ]]; then
-        uify_system $*
-        exit
-    fi
-
-    # view current process | -p, --process
-    if [[ "${1}" == "-p" || "${1}" == "--process" ]]; then
-        uify_process $*
-        exit
-    fi
-
-    # run a specif command and send an email to admin | -m, --mail
-    if [[ "${1}" == "-m" || "${1}" == "--mail" ]]; then
-        uify_mail $*
-        exit
-    fi
-
-    # append a new path to global variable PATH | -A, --append
-    if [[ "${1}" == "-A" || "${1}" == "--append" ]]; then
-        uify_append $*
-        exit
-    fi
-
-    # prepend a new path to global variable PATH | -P, --prepend
-    if [[ "${1}" == "-P" || "${1}" == "--prepend" ]]; then
-        uify_prepend $*
-        exit
-    fi
-
-    # shutdown the system | -o, --offline
-    if [[ "${1}" == "-o" || "${1}" == "--offline" ]]; then
-        uify_offline $*
-        exit
-    fi
-
-    # system info | -i, --info
-    if [[ "${1}" == "-i" || "${1}" == "--info" ]]; then
-        uify_sys_info $*
-        exit
-    fi
-
+    case $1 in
+        -h | --help ) uify_help $*; exit 0; ;;          # output help
+        -l | --list ) uify_list $*; exit 0; ;;          # list man pages with specific letter
+        -v | --view ) uify_view $*; exit 0; ;;          # view specific man page
+        -g | --generate ) uify_generate $*; exit 0; ;;  # generate specific man page to PDF
+        -e | --explain ) uify_explain $*; exit 0; ;;    # explain a specific command for Unix Shell
+        -s | --system ) uify_system $*; exit 0; ;;      # dynamic real-time view of a running system
+        -p | --process ) uify_process $*; exit 0; ;;    # view current processes
+        -m | --mail ) uify_mail $*; exit 0; ;;          # run a specif command and send an email to admin
+        -A | --append ) uify_append $*; exit 0; ;;      # append a new path to global variable PATH
+        -P | --prepend ) uify_prepend $*; exit 0; ;;    # prepend a new path to global variable PATH
+        -o | --offline ) uify_offline $*; exit 0; ;;    # shutdown the system
+        -i | --info ) uify_sys_info $*; exit 0; ;;      # show system info
+        * ) e_error "Invalid option!"; exit 1; ;;
+    esac
 
 }
 
