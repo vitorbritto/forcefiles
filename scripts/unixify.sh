@@ -18,6 +18,7 @@
 #
 # Options:
 #           -h, --help        output help
+#           -V, --version     output program version
 #           -l, --list        list man pages with specific letter
 #           -v, --view        view specific man pag
 #           -g, --generate    generate specific man page to PDF
@@ -36,6 +37,9 @@
 # ------------------------------------------------------------------------------
 # | VARIABLES                                                                  |
 # ------------------------------------------------------------------------------
+
+VERSION="0.1.0"
+PROGRAM="uify"
 
 
 # ------------------------------------------------------------------------------
@@ -175,15 +179,16 @@ UNIXIFY - General utilities for Unix
 Create an alias, like the following one:
 alias uify="bash path/to/script/unixify.sh"
 
--- INSTRUCTIONS: ------------------------------------------------------------
+-- THEN: --------------------------------------------------------------------
 
-Usage:   uify [options] <manpage, letter, command>
-Example: uify -e "ls -la" -> Explain "ls -la" command
+Usage:   $PROGRAM [options] <manpage, letter, command>
+Example: $PROGRAM -g telnet -> Will generate a TELNET man page in PDF format.
 
 Options:
          -h, --help        output help
+         -V, --version     output program version
          -l, --list        list man pages with specific letter
-         -v, --view        view specific man pag
+         -v, --view        view specific man page
          -g, --generate    generate specific man page to PDF
          -e, --explain     explain a specific command for Unix Shell
          -s, --system      dynamic real-time view of a running system
@@ -203,6 +208,10 @@ EOT
 
 }
 
+uify_version() {
+    e_header "$PROGRAM: v$VERSION"
+}
+
 
 # ------------------------------------------------------------------------------
 # | INITIALIZE PROGRAM                                                         |
@@ -212,6 +221,7 @@ main() {
 
     case $1 in
         -h | --help ) uify_help $*; exit 0; ;;          # output help
+        -V | --version) uify_version $*; exit 0; ;;     # output program version
         -l | --list ) uify_list $*; exit 0; ;;          # list man pages with specific letter
         -v | --view ) uify_view $*; exit 0; ;;          # view specific man page
         -g | --generate ) uify_generate $*; exit 0; ;;  # generate specific man page to PDF
