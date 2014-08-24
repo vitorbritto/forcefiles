@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # ------------------------------------------------------------------------------
-# | Install aplications                                                        |
+# | Install applications                                                       |
 # ------------------------------------------------------------------------------
 
 run_apps() {
 
-    # Install native apps
+    # Install apps
     brew tap phinze/homebrew-cask
     brew install brew-cask
 
@@ -19,10 +19,11 @@ run_apps() {
         "dropbox"
         "mou"
         "sparrow"
+        "skype"
         "feeds"
         "screenflow"
+        "sourcetree"
         "limechat"
-        "arduino"
         "google-drive"
     )
 
