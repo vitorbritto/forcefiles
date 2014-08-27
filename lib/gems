@@ -36,7 +36,7 @@ run_gems() {
         gem install sass -v 3.2.19 # Install previous version of Sass for secutiry
         gem install $list_gems     # Install listed gems
         gem install compass --pre  # Install pre-release of compass to work with Sass v3.3.x
-        e_success "Gems installed successfully!"
+        e_success "Gems successfully installed!"
 
     else
 

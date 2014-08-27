@@ -28,6 +28,6 @@ run_apps() {
     )
 
     brew cask install $list_apps
-    [[ $? ]] && e_success "All apps installed successfully!"
+    [[ $? ]] && e_success "All apps successfully installed!"
 
 }
