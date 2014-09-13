@@ -36,7 +36,7 @@ run_npm() {
         )
 
         npm install $list_packages -gq
-        e_success "Node modules installed successfully!"
+        e_success "Node modules successfully installed!"
 
     else
         printf "\n"

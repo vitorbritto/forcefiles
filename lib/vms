@@ -14,7 +14,6 @@ run_vms() {
     brew cask install vagrant
 
     # done
-    printf "\n"
-    printf "Installation complete!\n"
+    e_success "Virtual Machines successfully installed!"
 
 }
