@@ -8,9 +8,11 @@
 # Navigation
 # -------------------
 
-alias ..="cd .."
 alias ~="cd ~" # `cd` is probably faster to type though
-
+alias cdd='cd -' # back to last directory
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 # Network
 # -------------------
@@ -25,8 +27,6 @@ alias whois="whois -h whois-servers.net"
 
 # Shorctus
 # -------------------
-
-alias cl="clear"
 
 # Gzip-enabled `curl`
 alias gurl="curl --compressed"
@@ -50,15 +50,9 @@ command -v sha1sum > /dev/null || alias sha1sum="shasum"
 # Trim new lines and copy to clipboard
 alias copythis="tr -d '\n' | pbcopy"
 
-# URL-encode strings
-alias urlencode="python -c \"import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);\""
-
 # Merge PDF files
 # Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
 alias mergepdf="/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py"
-
-# PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
-alias plistbuddy="/usr/libexec/PlistBuddy"
 
 # Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
 # (useful when executing time-consuming commands)

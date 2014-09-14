@@ -9,7 +9,7 @@
 # -------------------
 
 # Create a data URI from a file
-function datauri() {
+datauri() {
     local mimeType=""
 
     if [ -f "$1" ]; then
@@ -29,7 +29,7 @@ function datauri() {
 }
 
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
-function targz() {
+targz() {
     local tmpFile="${@%/}.tar"
     tar -cvf "${tmpFile}" --exclude=".DS_Store" "${@}" || return 1
 
@@ -57,13 +57,13 @@ function targz() {
 }
 
 # Delete all files that match a certain pattern from the current directory
-function deletefiles() {
+deletefiles() {
     local q="${1:-*.DS_Store}"
     find . -type f -name "$q" -ls -delete
 }
 
 # Create new directories and enter the first one
-function mkd() {
+mkd() {
     if [ -n "$*" ]; then
         mkdir -p "$@" && cd "$@"
         #      └─ make parent directories if needed
@@ -76,7 +76,7 @@ rmd() {
 }
 
 # Search History
-function qh() {
+qh() {
     #                                 ┌─ enable colors for pipe
     #                                 │  ("--color=auto" enables colors only if
     #                                 │  the output is in the terminal)
@@ -86,18 +86,18 @@ function qh() {
 }
 
 # Search for text within the current directory
-function qt() {
+qt() {
     grep -ir --color=always "$*" . | less -RX
     #     │└─ search all files under each directory, recursively
     #     └─ ignore case
 }
 
 # Copy to clipboard
-function cpd() {
+cpd() {
   pwd | tr -d "\r\n" | pbcopy
 }
 
-function cpf() {
+cpf() {
   [[ "$#" != 1 ]] && return 1
   local file_to_copy=$1
   cat $file_to_copy | pbcopy
@@ -107,7 +107,7 @@ function cpf() {
 # the .git, node_modules and bower_components directory, listing directories
 # first. The output gets piped into `less` with options to preserve color and
 # line numbers, unless the output is small enough for one screen.
-function tre() {
+tre() {
     tree -aC -I '.git|node_modules|bower_components|components|.sass_cache|.DS_Store' --dirsfirst "$@" | less -FRNX
 }
 
@@ -115,29 +115,19 @@ function tre() {
 # Development
 # -------------------
 
-# Shortcut to Virtual Hosts
-function dev() {
-    cd $HOME/Sites/"$1".dev
-}
-
 # Shortcut to Projects
-function code() {
+code() {
     cd $HOME/Sites/"$1"
 }
 
 # Shortcut to Respositories
-function repo() {
+repo() {
     cd $HOME/Dropbox/Github/"$1"
-}
-
-# Shortcut to WordPress Projects
-function wp() {
-    cd $HOME/Sites/"$1"/wp-content/themes/"$2"
 }
 
 # Clones a personal repository, cds into it, asks for install node modules and create executable script.
 # - arg 1 - name of repository
-function clone() {
+clone() {
     local repo=$1;
     local npm=$2;
     local scr=$3;
@@ -162,17 +152,12 @@ function clone() {
 }
 
 # Making a script executable
-function scr() {
+scr() {
     chmod u+x "$@" && ./"$@"
 }
 
-# StackOverflow
-function showme() {
-    open http://stackoverflow.com/search?q="$@"
-}
-
 # Start a new project
-function new() {
+new() {
     printf "→ Setting up your new project\n"
     git clone git://github.com/vitorbritto/boilerplates.git $1
     cd $1
@@ -188,13 +173,13 @@ function new() {
 
 # Install Grunt plugins and add them as `devDependencies` to `package.json`
 # Usage: `gi contrib-watch contrib-uglify zopfli`
-function gi() {
+gi() {
     npm install --save-dev ${*/#/grunt-}
 }
 
 # Install Gulp plugins and add them as `devDependencies` to `package.json`
 # Usage: `gp uglify clean cache csso`
-function gp() {
+gp() {
     npm install --save-dev ${*/#/gulp-}
 }
 
@@ -203,6 +188,6 @@ function gp() {
 # -------------------
 
 # Apache
-function apache() {
+apache() {
     sudo apachectl $@ # options: start, stop or restart
 }
