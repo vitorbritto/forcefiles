@@ -44,9 +44,9 @@ sudo -v
 # ------------------------------------------------------------------------------
 
 # Settings
-MAIN="/Volumes/Colossus"    # Source
+MAIN="/Volumes/Colossus"    # Dist
 SRC="$HOME/Sites/"          # Source
-DIST="${MAIN}/BACKUP"       # Destination directory
+DIST="${MAIN}/BACKUP"       # Backup directory
 LOGS="${MAIN}/LOGS"         # Logs directory
 
 # Core (do not change)

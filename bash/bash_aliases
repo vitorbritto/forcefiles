@@ -104,15 +104,12 @@ alias status="ps -efl $time"
 
 # Overkill processes
 # 1. Clean up LaunchServices to remove duplicates in the “Open With” menu
-# 2. Recursively delete `.DS_Store` files
-# 3. Empty the trash, the main HDD and on all mounted volumes
+# 2. Empty the trash, the main HDD and on all mounted volumes
 #    and clear Apple’s system logs to improve shell startup speed
 alias adios="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder && \
-                find . -type f -name '*.DS_Store' -ls -delete && \
                 sudo rm -frv /Volumes/*/.Trashes && \
                 sudo rm -frv ~/.Trash &&
                 sudo rm -frv /private/var/log/asl/*.asl"
-
 
 # ------------------------------------------------------------------------------
 # | OS X                                                                       |
@@ -139,7 +136,7 @@ alias spotoff="sudo mdutil -a -i off"
 alias spoton="sudo mdutil -a -i on"
 
 # Shutdown the System
-alias offline="sudo shutdown -h now"
+alias off="sudo shutdown -h now"
 
 
 # ------------------------------------------------------------------------------
