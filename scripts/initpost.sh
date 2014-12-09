@@ -6,7 +6,7 @@
 # Author:  Vitor Britto
 # Description: script to create an initial structure for my posts.
 #
-# Usage: ./initpost.sh [options] <category> <post name>
+# Usage: ./initpost.sh [options] <post name>
 #
 # Options:
 #   -h, --help        output instructions
@@ -15,10 +15,10 @@
 # Alias: alias ipost="bash ~/path/to/script/initpost.sh"
 #
 # Example:
-#   ./initpost.sh -c TIP How to replace strings with sed
+#   ./initpost.sh -c How to replace strings with sed
 #
 # Important Notes:
-#   - This script was created to generate new text files to my blog.
+#   - This script was created to generate new markdown files for my blog.
 #
 # ------------------------------------------------------------------------------
 
@@ -27,12 +27,28 @@
 # | VARIABLES                                                                  |
 # ------------------------------------------------------------------------------
 
-POST_TITLE="${@:3:$(($#-2))}"
-POST_NAME="$(echo ${@:3:$(($#-2))} | sed -e 's/ /-/g' | sed "y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/")"
-DIST_FOLDER="$HOME/Dropbox/ARQUIVOS/DOCS/Drafts"
+# CORE: Do not change these lines
+# ----------------------------------------------------------------
+POST_TITLE="${@:2:$(($#-1))}"
+POST_NAME="$(echo ${@:2:$(($#-1))} | sed -e 's/ /-/g' | sed "y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/")"
 CURRENT_DATE="$(date +'%Y-%m-%d')"
-FILE_NAME="${CURRENT_DATE}-[${2}]-${POST_NAME}.md"
-FULL_PATH="${DIST_FOLDER}/${FILE_NAME}"
+FILE_NAME="${CURRENT_DATE}-${POST_NAME}.md"
+# ----------------------------------------------------------------
+
+
+# SETTINGS: your configuration goes here
+# ----------------------------------------------------------------
+
+# Set your destination folder
+DIST_FOLDER="$HOME/Dropbox/DOCUMENTOS/Articles/"
+
+# Set your blog URL
+BLOG_URL="http://vitorbritto.com/blog"
+
+# Set your assets URL
+ASSETS_URL="assets/images/posts"
+# ----------------------------------------------------------------
+
 
 
 # ------------------------------------------------------------------------------
@@ -60,6 +76,7 @@ e_warning() {
 }
 
 
+
 # ------------------------------------------------------------------------------
 # | MAIN FUNCTIONS                                                             |
 # ------------------------------------------------------------------------------
@@ -73,14 +90,14 @@ cat <<EOT
 INIT POST - A shortcut to create an initial structure for my posts.
 ------------------------------------------------------------------------------
 
-Usage: ./initpost.sh [options] <category> <post name>
+Usage: ./initpost.sh [options] <post name>
 
 Options:
   -h, --help        output instructions
   -c, --create      create post
 
 Example:
-  ./initpost.sh -c TIP How to replace strings with sed
+  ./initpost.sh -c How to replace strings with sed
 
 Important Notes:
   - This script was created to generate new text files to my blog.
@@ -101,13 +118,12 @@ initpost_content() {
 echo "---"
 echo "layout: post"
 echo "title: \"${POST_TITLE}\""
-echo "link: \"http://vitorbritto.com/blog/${POST_NAME}\""
+echo "link: \"${BLOG_URL}/${POST_NAME}/\""
 echo "date: ${CURRENT_DATE}"
-echo "cover: \"assets/images/posts/post-${POST_NAME}.jpg\""
+echo "cover: \"${ASSETS_URL}/post-${POST_NAME}.jpg\""
+echo "path: \"${FILE_NAME}\""
 echo "description:"
 echo "comments: true"
-echo "avatar: \"assets/images/avatar.jpg\""
-echo "author: Vitor Britto"
 echo "bio: Desenvolvedor Web e Designer, extremamente apaixonado pelo seu trabalho. Descobriu o mundo dos códigos há quase duas decádas e mantém a mesma paixão desde o primeiro dia dessa descoberta. Trabalha como freelancer full time há quase 4 anos desenvolvendo projetos voltados para a web. Também direciona boa parte do seu tempo para pesquisas, projetos colaborativos, desenvolvimento de projetos pessoais e escrever os artigos aqui publicados."
 echo "---"
 
@@ -115,17 +131,17 @@ echo "---"
 
 # Create file
 initpost_file() {
-
     if [ ! -f "$FILE_NAME" ]; then
-        e_header "Creating initial model..."
-        initpost_content > "$FULL_PATH"
-        e_success "Initial post created successfully!"
+        e_header "Creating template..."
+        initpost_content > "${DIST_FOLDER}/${FILE_NAME}"
+        e_success "Initial post successfully created!"
     else
         e_warning "File already exist."
         exit 1
     fi
 
 }
+
 
 
 # ------------------------------------------------------------------------------
