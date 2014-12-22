@@ -22,9 +22,9 @@ datauri() {
 
         printf "data:%s;base64,%s" \
                     "$mimeType" \
-                    "$(openssl base64 -in "$1" | tr -d "\n")"
+                    "$(openssl base64 -in "$1" | tr -d "\n")" > "$1".txt
     else
-        print_error "'$1' is not a file."
+        echo "'$1' is not a file."
     fi
 }
 
@@ -57,9 +57,14 @@ targz() {
 }
 
 # Delete all files that match a certain pattern from the current directory
-delfi() {
+rmf() {
     local q="${1:-*.DS_Store}"
     find . -type f -name "$q" -ls -delete
+}
+
+# Remove directories and echo a message
+rmd() {
+    rm -rf "$@"
 }
 
 # Create new directories and enter the first one
@@ -68,11 +73,6 @@ mkd() {
         mkdir -p "$@" && cd "$@"
         #      └─ make parent directories if needed
     fi
-}
-
-# Remove directories and echo a message
-rmd() {
-    rm -rf "$@"
 }
 
 # Search History
@@ -152,7 +152,7 @@ clone() {
 }
 
 # Making a script executable
-scr() {
+src() {
     chmod u+x "$@" && ./"$@"
 }
 
@@ -173,7 +173,7 @@ new() {
 
 # Install Grunt plugins and add them as `devDependencies` to `package.json`
 # Usage: `gi contrib-watch contrib-uglify zopfli`
-gi() {
+gt() {
     npm install --save-dev ${*/#/grunt-}
 }
 

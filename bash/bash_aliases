@@ -206,6 +206,7 @@ alias vhconf="sudo nano -w /etc/apache2/extra/httpd-vhosts.conf"
 alias sqlstart="sudo /usr/local/mysql/support-files/mysql.server start"
 alias sqlstop="sudo /usr/local/mysql/support-files/mysql.server stop"
 alias pma="open http://localhost/phpmyadmin"
+alias sqlbin="cd /usr/local/mysql/bin"
 
 # Scripts
 alias ahost="sudo bash ~/.forcefiles/scripts/virtualhost.sh"
