@@ -52,6 +52,7 @@ run_brew() {
             "discount"
             "ctags"
             "https://raw.github.com/Homebrew/homebrew-dupes/master/rsync.rb"
+            "htop-osx"
         )
 
         brew install $list_formulaes
