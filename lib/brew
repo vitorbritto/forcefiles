@@ -21,42 +21,11 @@ run_brew() {
 
         # Install formulaes
         e_header "Installing Homebrew formulae..."
-        local -a list_formulaes=(
-            "autoconf"
-            "automake"
-            "libtool"
-            "libyaml"
-            "libxslt"
-            "libksba"
-            "openssl"
-            "coreutils"
-            "findutils"
-            "figlet"
-            "bash"
-            "bash-completion"
-            "wget"
-            "ack"
-            "tree"
-            "gcc46"
-            "apple-gcc42"
-            "git"
-            "jpeg"
-            "optipng"
-            "imagemagick"
-            "node"
-            "phantomjs"
-            "mongodb"
-            "erlang"
-            "elixir"
-            "macvim"
-            "discount"
-            "ctags"
-            "https://raw.github.com/Homebrew/homebrew-dupes/master/rsync.rb"
-            "htop-osx"
-        )
 
-        brew install $list_formulaes
+        brew install autoconf automake libtool libyaml libxslt libksba openssl coreutils findutils figlet bash bash-completion wget ack tree gcc46 apple-gcc42 git jpeg optipng imagemagick node phantomjs mongodb erlang elixir macvim discount ctags htop-osx
+        brew install https://raw.github.com/Homebrew/homebrew-dupes/master/rsync.rb
         brew install vim --override-system-vi
+
         e_success "Formulaes successfully installed!"
 
         # Remove outdated versions from the Cellar
