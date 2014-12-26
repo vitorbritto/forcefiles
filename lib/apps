@@ -9,25 +9,7 @@ run_apps() {
     # Install apps
     brew tap phinze/homebrew-cask
     brew install brew-cask
-
-    local -a list_apps=(
-        "appcleaner"
-        "firefox"
-        "sublime-text"
-        "filezilla"
-        "imageoptim"
-        "dropbox"
-        "mou"
-        "sparrow"
-        "skype"
-        "feeds"
-        "screenflow"
-        "sourcetree"
-        "limechat"
-        "google-drive"
-    )
-
-    brew cask install $list_apps
+    brew cask install appcleaner firefox sublime-text filezilla imageoptim dropbox mou sparrow skype feeds sourcetree google-drive
     [[ $? ]] && e_success "All apps successfully installed!"
 
 }
