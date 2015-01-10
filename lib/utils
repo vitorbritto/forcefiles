@@ -124,6 +124,8 @@ Brew:
     macvim
     discount
     ctags
+    htop-osx
+    tmux
     rsync
 
 NPM:
@@ -137,22 +139,25 @@ NPM:
     shelljs
     uglify-js
     jshint
-    csslint
-    csscomb
     stylus
-    coffee-script
     browser-sync
     karma
     markdown
-    pageres
     jade
     harp
+    mocha
     coveralls
+    istanbul
+    yslow
+    ionic
+    pageres
+    csscomb
+    csslint
 
 Dependencies:
     Pygments
 
-Rubies:
+Rubies (only for OSX Lion):
     Ruby - 1.9.3
     Ruby - 2.0.0
 
@@ -187,11 +192,9 @@ Development:
 Others:
     Mou
     Dropbox
-    Limechat
     App Cleaner
     Sparrow
     Feeds
-    ScreenFlow
 
 ------------------------------------------------------------------------------
 
