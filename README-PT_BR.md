@@ -11,7 +11,7 @@ Percebi que poderia dividir meus arquivos de automação, atalhos do bash, confi
 
 **Mas por que um repositório?** É muito simples! Mesmo que algum dia ou em algum lugar eu precisar dele, ele estará lá. Para que eu possa verificar, escolher alguma parte ou baixá-lo para o meu sistema recentemente formatado.
 
-> Observação: estou rodando em Mac OS X. Estes são os arquivos de configuração para configurar um sistema do jeito que eu utilizo em meu ambiente de trabalho.
+> Observação: estou rodando em Mac OSX Yosemite. Estes são os arquivos de configuração para configurar um sistema do jeito que eu utilizo em meu ambiente de trabalho.
 
 
 ## Instalação
