@@ -197,6 +197,7 @@ alias j="jobs"
 alias nh="node --harmony"
 alias ct="crontab"
 alias o="open ."
+alias mux="tmuxinator"
 
 # Apache
 alias apconf="sudo nano -w /etc/apache2/httpd.conf"
@@ -220,4 +221,4 @@ alias nexus="bash ~/.forcefiles/scripts/nexus.sh"
 alias call="bash ~/.forcefiles/scripts/cloneall.sh"
 alias ipost="bash ~/.forcefiles/scripts/initpost.sh"
 alias uify="bash ~/.forcefiles/scripts/unixify.sh"
-
+alias perf="bash ~/.forcefiles/scripts/perf.sh"
