@@ -40,7 +40,7 @@ FILE_NAME="${CURRENT_DATE}-${POST_NAME}.md"
 # ----------------------------------------------------------------
 
 # Set your destination folder
-DIST_FOLDER="$HOME/Dropbox/DOCUMENTOS/Articles/"
+DIST_FOLDER="$HOME/Dropbox/Github/vitorbritto/_drafts/"
 
 # Set your blog URL
 BLOG_URL="http://vitorbritto.com/blog"
@@ -124,7 +124,7 @@ echo "cover: \"${ASSETS_URL}/post-${POST_NAME}.jpg\""
 echo "path: \"${FILE_NAME}\""
 echo "description:"
 echo "comments: true"
-echo "bio: Desenvolvedor Web e Designer, extremamente apaixonado pelo seu trabalho. Descobriu o mundo dos códigos há quase duas decádas e mantém a mesma paixão desde o primeiro dia dessa descoberta. Trabalha como freelancer full time há quase 4 anos desenvolvendo projetos voltados para a web. Também direciona boa parte do seu tempo para pesquisas, projetos colaborativos, desenvolvimento de projetos pessoais e escrever os artigos aqui publicados."
+echo "bio: Desenvolvedor Web e Designer, extremamente apaixonado pelo seu trabalho. Descobriu o mundo dos códigos há quase duas décadas e mantém a mesma paixão desde o primeiro dia dessa descoberta. Trabalha como freelancer full time há quase 4 anos desenvolvendo projetos voltados para a web. Também direciona boa parte do seu tempo para pesquisas, projetos colaborativos, desenvolvimento de projetos pessoais e escrever os artigos aqui publicados."
 echo "---"
 
 }
@@ -134,6 +134,7 @@ initpost_file() {
     if [ ! -f "$FILE_NAME" ]; then
         e_header "Creating template..."
         initpost_content > "${DIST_FOLDER}/${FILE_NAME}"
+        open "${DIST_FOLDER}/${FILE_NAME}"
         e_success "Initial post successfully created!"
     else
         e_warning "File already exist."
