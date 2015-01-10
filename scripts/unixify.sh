@@ -38,7 +38,7 @@
 # | VARIABLES                                                                  |
 # ------------------------------------------------------------------------------
 
-VERSION="0.1.0"
+VERSION="0.1.1"
 PROGRAM="uify"
 
 
@@ -80,18 +80,24 @@ uify_list() {
 
 # Explain command for Unix
 uify_explain() {
-    e_header "Redirecting"
+    e_header "→ Redirecting"
     open http://explainshell.com/
 }
 
 # Generate PDF for specific man page
 uify_generate() {
-    mkdir -p .manpdf
+    local pdfdir="$HOME/.manpdf/"
+
+    if [ ! -d "$pdfdir" ]; then
+        e_header "Creating PDF directory"
+        mkdir -p "$pdfdir"
+    fi
+
     e_header "Generating PDF for man page: $2"
-    local dest=$HOME/.manpdf/
-    cd "$dest"
+
+    cd "$pdfdir"
     man -t "$2" | pstopdf -i -o "$2".pdf
-    open $HOME/.manpdf/"$2".pdf
+    open $pdfdir/"$2".pdf
     e_success "Done!"
 }
 
@@ -118,7 +124,7 @@ uify_kill() {
 # View of running system
 uify_system() {
     e_header "View of running system"
-    top
+    htop
 }
 
 # Send email to system admin
