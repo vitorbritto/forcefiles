@@ -45,21 +45,27 @@ sudo -v
 
 # Settings
 MAIN="/Volumes/Colossus"    # Dist
-SRC="$HOME/Sites/"          # Source
+SRC="$HOME/Sites/"          # Source Files
 DIST="${MAIN}/BACKUP"       # Backup directory
 LOGS="${MAIN}/LOGS"         # Logs directory
 
+# Database
+DBUSER=root
+DBPASS=root
+
 # Core (do not change)
-NOW="$(date +'%d/%m/%Y %H:%M:%S')"
-BKP="$DIST/$(date +'%d_%m_%Y')"
-TAR="$DIST/bkp_$(date +'%d_%m_%Y').tar.gz"
-LOG="$LOGS/backup_log_$(date +'%d_%m_%Y').txt"
+DATABASE=`mysql --user=${DBUSER} -p${DBPASS} -e "SHOW DATABASES;" | grep -Ev "Database"`
+TIMESTAMP="$(date +'%d_%m_%Y')"
+FILES="${DIST}/${TIMESTAMP}/files/"
+SQL="${DIST}/${TIMESTAMP}/mysql"
+TAR="${FILES}/bkp_$(date +'%d_%m_%Y').tar.gz"
+LOG="${LOGS}/backup_log_$(date +'%d_%m_%Y').txt"
+
 
 
 # ------------------------------------------------------------------------------
 # | MAIN                                                                       |
 # ------------------------------------------------------------------------------
-
 
 
 # Handle Errors
@@ -68,9 +74,14 @@ if [ ! -d "$LOGS" ]; then
     mkdir -p $LOGS
 fi
 
-if [ ! -d "$DIST" ]; then
-    echo "→ Creating backup directory"
-    mkdir -p $DIST
+if [ ! -d "$FILES" ]; then
+    echo "→ Creating files directory"
+    mkdir -p $FILES
+fi
+
+if [ ! -d "$SQL" ]; then
+    echo "→ Creating database directory"
+    mkdir -p $SQL
 fi
 
 if [ ! -r "$SRC" ]; then
@@ -83,27 +94,59 @@ if [ ! -w "$DIST" ]; then
     echo "→ Destination $DIST is now writeable"
 fi
 
-# Backup Function
-guardian() {
-    echo "→ Starting backup process..."
+
+
+# ------------------------------------------------------------------------------
+# | BACKUP FUNCTIONS                                                           |
+# ------------------------------------------------------------------------------
+
+
+# Backup - Databases
+guardian_database() {
+
+    echo "→ Starting backup..."
     echo "→ This could take a while... please wait."
 
     echo "----------------------------------------------------------" >> "$LOG"
-    echo "→ Start backup process in: $(date +'%d-%m-%Y %H:%M:%S')" >> "$LOG"
+    echo "→ DATABASE: Start backup process in: $(date +'%d-%m-%Y %H:%M:%S')" >> "$LOG"
 
-    echo "→ Copying files..."
-    rsync -arq "$SRC" "$BKP"
-    echo "→ Compressing files..."
-    tar -zcf "$TAR" "$BKP"
-    # tar -zcvf "$BKP" | gzip > "$TAR"
+    for db in $DATABASE; do
+        if [[ "$db" != "information_schema" ]] && [[ "$db" != "performance_schema" ]] && [[ "$db" != "mysql" ]] && [[ "$db" != "test" ]] && [[ "$db" != _* ]] ; then
+
+            echo "→ Dumping database: $db"
+            mysqldump --force --opt --user=$DBUSER -p$DBPASS --databases $db > "$SQL/$db.sql"
+
+            echo "→ $SQL was successfully dumped!" >> "$LOG"
+
+        fi
+    done
 
     echo "→ End backup process in: $(date +'%d-%m-%Y %H:%M:%S')" >> "$LOG"
     echo "----------------------------------------------------------" >> "$LOG"
 
-    echo "→ Backup completed successfully!"
+    echo "→ Backup successfully completed!"
+}
 
-    exit
+# Backup - Project Files
+guardian_file() {
+    echo "→ Starting backup..."
+    echo "→ This could take a while... please wait."
+
+    echo "----------------------------------------------------------" >> "$LOG"
+    echo "→ FILES: Start backup process in: $(date +'%d-%m-%Y %H:%M:%S')" >> "$LOG"
+
+    echo "→ Copying files..."
+    rsync -arq "$SRC" "$FILES"
+
+    echo "→ Compressing files..."
+    tar -zcf "$TAR" "$DIST/"
+
+    echo "→ End backup process in: $(date +'%d-%m-%Y %H:%M:%S')" >> "$LOG"
+    echo "----------------------------------------------------------" >> "$LOG"
+
+    echo "→ Backup successfully completed!"
 }
 
 # Initialize
-guardian
+guardian_database
+guardian_file
