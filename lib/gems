@@ -19,23 +19,19 @@ run_gems() {
         gem update
         e_success "Done"
 
-        local -a list_gems=(
-            "sass"
-            "compass"
-            "haml"
-            "jekyll"
-            "showterm"
-            "bundler"
-            "capistrano"
-            "sinatra"
-            "rails"
-        )
 
         # Install gems
         e_header "Installing missing gems..."
-        gem install sass -v 3.2.19 # Install previous version of Sass for secutiry
-        gem install $list_gems     # Install listed gems
-        gem install compass --pre  # Install pre-release of compass to work with Sass v3.3.x
+
+        # Install previous version of Sass for secutiry
+        gem install sass -v 3.2.19
+
+        # Install listed gems
+        gem install sass compass haml jekyll bundler capistrano sinatra rails homesick tmuxinator
+
+        # Install pre-release of compass to work with Sass v3.3.x
+        gem install compass --pre
+
         e_success "Gems successfully installed!"
 
     else
