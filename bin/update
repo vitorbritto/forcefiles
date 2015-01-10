@@ -14,7 +14,6 @@ FORCEFILES_DIRECTORY="${HOME}/.forcefiles"
 cd ${FORCEFILES_DIRECTORY}
 
 source ./lib/utils
-source ./lib/rubies
 source ./lib/php
 source ./lib/gems
 source ./lib/apps
@@ -22,23 +21,13 @@ source ./lib/apps
 # Check for Homebrew
 if ! type_exists 'brew'; then
     e_header "Installing Homebrew..."
-    ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # Check for rvm
 if ! type_exists 'rvm'; then
     e_header "Installing Rvm..."
     curl -L https://get.rvm.io | bash -s stable
-fi
-
-# Install Rubies
-seek_confirmation "Do you want to install Rubies (~1.9.3 and ~2.0.0)?"
-
-if is_confirmed; then
-    run_rubies
-    e_success "Done!"
-else
-    e_warning "Skipped!"
 fi
 
 # Install RubyGems
@@ -51,8 +40,8 @@ else
     e_warning "Skipped!"
 fi
 
-# Install PHP 5.4, MySQL and phpMyAdmin
-seek_confirmation "Would you like to install PHP 5.4, MySQL and phpMyAdmin now?"
+# Install PHP 5.5
+seek_confirmation "Would you like to install PHP 5.5 now?"
 
 if is_confirmed; then
     run_php
