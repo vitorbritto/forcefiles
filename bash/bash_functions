@@ -92,6 +92,11 @@ qt() {
     #     └─ ignore case
 }
 
+# Find directory
+fdir() {
+    find / -type d -name "$1" -print
+}
+
 # Copy to clipboard
 cpd() {
   pwd | tr -d "\r\n" | pbcopy
@@ -125,12 +130,24 @@ repo() {
     cd $HOME/Dropbox/Github/"$1"
 }
 
+# Install Grunt plugins and add them as `devDependencies` to `package.json`
+# Usage: `gt browser-sync browserify contrib-watch contrib-uglify contrib-jshint`
+gt() {
+    npm install -D ${*/#/grunt-}
+}
+
+# Install Gulp plugins and add them as `devDependencies` to `package.json`
+# Usage: `gp browser-sync uglify jshint`
+gp() {
+    npm install -D ${*/#/gulp-}
+}
+
 # Clones a personal repository, cds into it, asks for install node modules and create executable script.
 # - arg 1 - name of repository
 clone() {
-    local repo=$1;
-    local npm=$2;
-    local scr=$3;
+    local repo=$1
+    local npm=$2
+    local scr=$3
 
     # Install Node Modules
     if [[ -f package.json ]]; then
@@ -156,6 +173,20 @@ src() {
     chmod u+x "$@" && ./"$@"
 }
 
+# Grant Permission
+grant() {
+    chmod -R a+w ~/Sites/"$1"
+}
+
+chm() {
+    if [ -f "$1" ]; then
+        chmod -R 644 "$1"
+    else
+        chmod -R 755 "$1"
+    fi
+}
+
+
 # Start a new project
 new() {
     printf "→ Setting up your new project\n"
@@ -171,18 +202,6 @@ new() {
     ./newproject.js
 }
 
-# Install Grunt plugins and add them as `devDependencies` to `package.json`
-# Usage: `gi contrib-watch contrib-uglify zopfli`
-gt() {
-    npm install --save-dev ${*/#/grunt-}
-}
-
-# Install Gulp plugins and add them as `devDependencies` to `package.json`
-# Usage: `gp uglify clean cache csso`
-gp() {
-    npm install --save-dev ${*/#/gulp-}
-}
-
 
 # Server
 # -------------------
@@ -190,4 +209,24 @@ gp() {
 # Apache
 apache() {
     sudo apachectl $@ # options: start, stop or restart
+}
+
+# MySQL
+sqlio() {
+    local DB_PATH="/Downloads"
+    local DB_HOST="localhost"
+    local DB_USER="root"
+    local DB_NAME="$2"
+
+    # Import
+    if [[ "${1}" == "-i" || "${1}" == "--import" ]]; then
+        tar zxf "$DB_NAME.tar.gz"
+        mysql -h "$DB_HOST" -u "$DB_USER" -p "$DB_NAME" < "$DB_PATH/$DB_NAME.sql"
+    fi
+
+    # Export
+    if [[ "${1}" == "-e" || "${1}" == "--export" ]]; then
+        mysqldump -u "$DB_USER" -p "$DB_NAME" > "$DB_PATH/$DB_NAME.sql"
+        tar zcf "$DB_NAME.tar.gz" "$DB_NAME.sql"
+    fi
 }
