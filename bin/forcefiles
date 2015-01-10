@@ -109,7 +109,7 @@ else
     printf "Installing Dependencies...\n"
 
     # Install Pygments
-    easy_install Pygments
+    sudo easy_install Pygments
 
     # Install Homebrew formulae
     run_brew
