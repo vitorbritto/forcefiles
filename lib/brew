@@ -35,11 +35,11 @@ run_brew() {
         brew install nginx
 
         # Dependencies
-        brew install coreutils findutils libksba libtool libyaml libxslt libmemcached libmpc08 libpng libevent libgpg-error libtiff freetype isl011 gettext memcached pcre pkg-config unixodbc cloog018 gmp4 readline mpfr2 wxmac autoconf automake openssl icu4c figlet bash bash-completion tree gcc46 apple-gcc42 jpeg zlib discount ctags
+        brew install coreutils findutils libksba libtool libyaml libxslt libmemcached libmpc08 libpng libevent libgpg-error libtiff freetype isl011 gettext memcached pcre pkg-config unixodbc cloog018 gmp4 readline mpfr2 wxmac autoconf automake openssl icu4c figlet bash bash-completion tree gcc46 apple-gcc42 jpeg zlib discount ctags gdb wget ack optipng imagemagick
 
         # Utils
-        brew install git htop-osx tmux wget ack optipng imagemagick
-        brew install autoconf automake libtool libyaml libxslt libksba openssl coreutils findutils figlet bash bash-completion wget ack tree gcc46 apple-gcc42 git jpeg optipng imagemagick node phantomjs mongodb erlang elixir macvim discount ctags htop-osx
+        brew install git htop-osx tmux
+        brew install macvim
         brew install https://raw.github.com/Homebrew/homebrew-dupes/master/rsync.rb
         brew install vim --override-system-vi
 
