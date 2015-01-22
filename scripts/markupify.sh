@@ -12,7 +12,7 @@
 #       First of all, make this script executable to easily run it.
 #       $ chmod u+x markupify.sh
 #
-# Usage: ./markupify.sh [ options ] <LOCAL_FILE, FILE_URL>
+# Usage: ./markupify.sh [ options ] <LOCAL_FILE_URL, REMOTE_FILE_URL>
 #
 # Options:
 #       -c, --class        output classes
