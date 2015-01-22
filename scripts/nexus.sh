@@ -13,15 +13,16 @@
 #       $ chmod u+x nexus.sh
 #
 # Usage:
-#       ./nexus.sh [options] <port>
+#       ./nexus.sh [options]
 #
 # Options:
-#       --php           Start a webserver with PHP
-#       --py            Start a webserver with Python
+#       --php           start a webserver with PHP
+#       --py            start a webserver with Python
+#       --help, -h      output instructions
 #
 # Example:
 #       Start a PHP webserver
-#       $ ./nexus.sh --php 8080
+#       $ ./nexus.sh --php
 #
 # Alias:
 #       alias nexus="bash ~/path/to/script/nexus.sh"
@@ -33,29 +34,6 @@
 # | FUNCTIONS                                                                  |
 # ------------------------------------------------------------------------------
 
-# Start webserver Function
-nexus_start() {
-    # Start an HTTP server from a directory, optionally specifying the port
-    if [[ "${1}" == "-py" ]]; then
-        local port="${3:-8000}"
-        echo "HINT: Press CTRL+C to stop webserver"
-        sleep 1 && open "http://localhost:${port}/" &
-        # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
-        # And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
-        python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
-    fi
-
-    # Start a PHP server from a directory, optionally specifying the port
-    if [[ "${1}" == "-php" ]]; then
-        local port="${3:-4000}"
-        local ip=$(ipconfig getifaddr en1)
-        echo "HINT: Press CTRL+C to stop webserver"
-        sleep 1 && open "http://${ip}:${port}/" &
-        php -S "${ip}:${port}"
-    fi
-
-}
-
 # Help Function
 nexus_help() {
 
@@ -66,15 +44,16 @@ NEXUS - Simple and fast method to start a web server
 ------------------------------------------------------------------------------
 
 Usage:
-    ./nexus.sh [options] <port>
+    ./nexus.sh [options]
 
 Example:
     Start a PHP webserver
-    $ ./nexus.sh --php 8080
+    $ ./nexus.sh --php
 
 Options:
-    --php           Start a webserver with PHP
-    --py            Start a webserver with Python
+    --php           start a webserver with PHP
+    --py            start a webserver with Python
+    --help, -h      output instructions
 
 Documentation can be found at https://github.com/vitorbritto/nexus/
 
@@ -87,6 +66,45 @@ EOT
 
 }
 
+# Start an HTTP server with Python
+nexus_python() {
+
+    echo "HINT: Press CTRL+C to stop webserver"
+    sleep 1 && open "http://localhost:8000/"
+    python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();'
+
+}
+
+# Start an HTTP server with PHP
+nexus_php() {
+
+    local IP=$(ipconfig getifaddr en1)
+    echo "HINT: Press CTRL+C to stop webserver"
+    sleep 1 && open "http://${IP}:4000/"
+    php -S "${IP}:4000"
+
+}
+
+# Set Main Function
+nexus_main() {
+
+    if [[ "${1}" == "--php" ]]; then
+        nexus_php
+        exit
+    fi
+
+    if [[ "${1}" == "--py" ]]; then
+        nexus_python
+        exit
+    fi
+
+    # List Classes
+    if [[ "${1}" == "-h" || "${1}" == "--help" ]]; then
+        nexus_help
+        exit
+    fi
+
+}
 
 # Initialize Nexus
-nexus_start $*
+nexus_main $*
