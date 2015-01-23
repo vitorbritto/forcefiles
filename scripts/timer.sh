@@ -1,24 +1,36 @@
 #!/usr/bin/env bash
 
+
 # -- ABOUT THIS PROGRAM: -------------------------------------------------------------------------------------
 #
-# Name: unixify.sh
+# Name: timer.sh
 # Author:  Vitor Britto
-# Description: This script is a set of general utilities for Unix (based on Bash shell)
+# Description: This script is a Simple Timer for Tasks (based on Bash shell)
 #
-# -- FIRST OF ALL: -------------------------------------------------------------------------------------------
-#
-# Create an alias, like the following one:
-# alias uify="bash path/to/script/unixify.sh"
 #
 # -- INSTRUCTIONS: -------------------------------------------------------------------------------------------
 #
-# Usage:    uify [options] <manpage, letter, command>
-# Example:  uify -e "ls -la" -> Explain "ls -la" command
+# Execute:
+#   $ chmod u+x timer.sh && ./timer.sh
 #
 # Options:
-#           -h, --help        output help
-#           -V, --version     output program version
+#   -h, --help        output help
+#   -v, --version     output program version
+#
+# Alias:
+#   alias timer="bash path/to/script/timer.sh"
+#
+# Example:
+#   timer
+#
+#
+# -- CHANGELOG: ----------------------------------------------------------------------------------------------
+#
+#
+#   DESCRIPTION:    First release
+#   VERSION:        1.0.0
+#   DATE:           23/01/2015
+#   AUTHOR:         Vitor Britto
 #
 # ------------------------------------------------------------------------------------------------------------
 
@@ -27,7 +39,7 @@
 # | VARIABLES                                                                  |
 # ------------------------------------------------------------------------------
 
-VERSION="0.1.1"
+VERSION="1.0.0"
 PROGRAM="timer"
 
 
@@ -73,7 +85,8 @@ Usage: ./timer.sh [options]
 Example: ./timer.sh
 
 Options:
-      -h, --help        output help
+    -h, --help        output this help
+    -v, --version     output timer version
 
 Important:
     If you prefer, create an alias: timer="bash ~/path/to/script/timer.sh"
