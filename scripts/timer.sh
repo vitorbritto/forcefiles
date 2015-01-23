@@ -5,7 +5,7 @@
 #
 # Name: timer.sh
 # Author:  Vitor Britto
-# Description: This script is a Simple Timer for Tasks (based on Bash shell)
+# Description: This script is a Simple Time Tracking for Tasks (based on Bash shell)
 #
 #
 # -- INSTRUCTIONS: -------------------------------------------------------------------------------------------
@@ -78,7 +78,7 @@ timer_help() {
 cat <<EOT
 
 ------------------------------------------------------------------------------
-TIMER - A Simple Timer for Tasks
+TIMER - A Simple Time Tracking for Tasks
 ------------------------------------------------------------------------------
 
 Usage: ./timer.sh [options]
