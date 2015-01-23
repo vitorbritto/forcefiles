@@ -131,9 +131,9 @@ repo() {
 }
 
 # Install Grunt plugins and add them as `devDependencies` to `package.json`
-# Usage: `gt browser-sync browserify contrib-watch contrib-uglify contrib-jshint`
+# Usage: `gt browser-sync browserify contrib-watch contrib-uglify contrib-jshint  load-grunt-tasks time-grunt`
 gt() {
-    npm install -D ${*/#/grunt-}
+    npm install -D load-grunt-tasks time-grunt ${*/#/grunt-}
 }
 
 # Install Gulp plugins and add them as `devDependencies` to `package.json`
