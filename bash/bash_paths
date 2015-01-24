@@ -6,7 +6,8 @@
 
 # Directories to be prepended to PATH
 declare -a dirs_to_prepend=(
-    "$(brew --prefix)/bin"                      # Ensure that this bin always takes precedence over `/usr/bin`
+    "$(brew --prefix)/bin"                      # Ensure that this bin always takes precedence over
+    "/usr/local/sbin"
     "$(brew --prefix)/mysql/bin"                # Add MySQL to PATH
     "$(brew --prefix)/mongodb/bin"              # Add MongoDB to PATH
     "$HOME/Library/Haskell/bin"                 # Add GHC-platform/Haskell to PATH
