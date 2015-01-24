@@ -1,48 +1,83 @@
 #!/bin/bash
 
+# "----------------------------------------------------------------------------------------------------"
+# "Follow these instructions bellow to install"
+# "Apache, PHP, MySQL and/or phpMyAdmin on Mavericks/Yosemite."
+# "https://echo.co/blog/os-x-1010-yosemite-local-development-environment-apache-php-and-mysql-homebrew"
+# "http://coolestguidesontheplanet.com/get-apache-mysql-php-phpmyadmin-working-osx-10-9-mavericks/"
+# "----------------------------------------------------------------------------------------------------"
+
+
 # ------------------------------------------------------------------------------
 # | PHP Settings                                                               |
 # ------------------------------------------------------------------------------
 
 run_php() {
 
-    echo "-----------------------------------------------------------------------------------------------"
-    echo "Follow these instructions bellow to install"
-    echo "Apache, PHP, MySQL and/or phpMyAdmin on Mavericks/Yosemite."
-    echo ""
-    echo "http://coolestguidesontheplanet.com/get-apache-mysql-php-phpmyadmin-working-osx-10-9-mavericks/"
-    echo "-----------------------------------------------------------------------------------------------"
+    e_header "Installing PHP 5.6"
+
+    # Install PHP with PHP-FPM and excluding snmp
+    brew install -v homebrew/php/php56 --with-fpm --without-snmp
+
+    e_header "Setting up PHP 5.6"
+
+    # Set timezone and change other PHP settings
+    (export USERHOME=$(dscl . -read /Users/`whoami` NFSHomeDirectory | awk -F"\: " '{print $2}') ; sed -i '-default' -e 's|^;\(date\.timezone[[:space:]]*=\).*|\1 \"'$(sudo systemsetup -gettimezone|awk -F"\: " '{print $2}')'\"|; s|^\(memory_limit[[:space:]]*=\).*|\1 512M|; s|^\(post_max_size[[:space:]]*=\).*|\1 200M|; s|^\(upload_max_filesize[[:space:]]*=\).*|\1 100M|; s|^\(default_socket_timeout[[:space:]]*=\).*|\1 600|; s|^\(max_execution_time[[:space:]]*=\).*|\1 300|; s|^\(max_input_time[[:space:]]*=\).*|\1 600|; $a\'$'\n''\'$'\n''; PHP Error log\'$'\n''error_log = '$USERHOME'/Sites/logs/php-error_log'$'\n' $(brew --prefix)/etc/php/5.6/php.ini)
+
+    # Fix a pear and pecl permissions problem:
+    chmod -R ug+w $(brew --prefix php56)/lib/php
+
+    # Set the location of php_ini in pear to $(brew --prefix)/etc/php/5.6/pear.conf:
+    pear config-set php_ini $(brew --prefix)/etc/php/5.6/php.ini system
+
+    # The included Opcache extension will speed up your PHP environment dramatically,
+    # and it's already installed, but needs to be enabled. We'll also bump up the opcache memory limit:
+    sed -i '' "s|^\(\[opcache\]\)$|\1"\\$'\n'"; Load the opcache extension"\\$'\n'"zend_extension=opcache.so"\\$'\n'"|; s|^;\(opcache\.enable[[:space:]]*=[[:space:]]*\)0|\11|; s|^;\(opcache\.memory_consumption[[:space:]]*=[[:space:]]*\)[0-9]*|\1256|;" $(brew --prefix)/etc/php/5.6/php.ini
+
+    # Put the PHP-FPM launchd plist file in place and start PHP-FPM now:
+    ln -sfv $(brew --prefix php56)/*.plist ~/Library/LaunchAgents
+    launchctl load -Fw ~/Library/LaunchAgents/homebrew.mxcl.php56.plist
+
+    # Optional:
+    # At this point, if you want to switch between PHP versions,
+    # you'd want to stop PHP-FPM by unloading the plist above, run brew unlink php56,
+    # repeat all of the above PHP steps for php55/php54/php53, and loading the new plist.
+    # No need to touch the Apache configuration at all!
 
 
-    # Check for PHP
-    if type_exists "php"; then
+    # Setup DNSMasq
+    e_header "Installing DNSMasq"
 
-        sudo -v
+    brew install -v dnsmasq
 
-        # Install WordPress CLI
-        e_header "Installing WordPress CLI..."
+    # The end result here is that any DNS request ending
+    # in .dev reply with the IP address 127.0.0.1:
+    echo 'address=/.dev/127.0.0.1' > $(brew --prefix)/etc/dnsmasq.conf
+    echo 'listen-address=127.0.0.1' >> $(brew --prefix)/etc/dnsmasq.conf
+    echo 'port=35353' >> $(brew --prefix)/etc/dnsmasq.conf
 
-        curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-        php wp-cli.phar --info
-        chmod +x wp-cli.phar
-        mv wp-cli.phar /usr/local/bin/wp
+    # Start DNSMasq
+    ln -sfv $(brew --prefix dnsmasq)/homebrew.mxcl.dnsmasq.plist ~/Library/LaunchAgents
+    launchctl load -Fw ~/Library/LaunchAgents/homebrew.mxcl.dnsmasq.plist
 
-        e_success "WordPress CLI succeswp -v
-        sfully installed!"
+    # With DNSMasq running, configure OS X to use your
+    # local host for DNS queries ending in .dev:
+    sudo mkdir -v /etc/resolver
+    sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/dev'
+    sudo bash -c 'echo "port 35353" >> /etc/resolver/dev'
 
-        # Install WordPress Bash Completions
-        e_header "Installing WordPress Bash Completions"
-        curl -O https://raw.githubusercontent.com/wp-cli/wp-cli/master/utils/wp-completion.bash
-        chmod +x wp-completion.bash
-        mv wp-completion.bash /usr/local/etc/bash_completion.d
+    # To test, the command ping -c 3 foodomain.dev should return results from 127.0.0.1.
+    # If it doesn't work right away, try turning WiFi off and on (or unplug/plug your ethernet cable), or reboot your system.
 
-    else
+    e_header "Installing PHP Utilities"
 
-        printf "\n"
-        e_error "Error: php not found."
-        printf "Aborting...\n"
-        exit
+    brew install php55-xdebug php55-memcached php55-apcu php55-varnish
 
-    fi
+    e_header "Installing Composer"
+
+    brew install homebrew/php/composer
+
+    e_success "Apache successfully installed!"
+    e_warning "You shouldn't need to edit the Apache configuration or edit /etc/hosts for new local development sites. Simply create a directory in ~/Sites and then reference \"http://youprojectname.dev\" in your browser to access it."
 
 }
