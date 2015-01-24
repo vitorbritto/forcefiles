@@ -22,11 +22,11 @@ run_brew() {
         # Install formulaes
         e_header "Installing Homebrew formulae..."
 
-        # Langs
-        brew install scala ocaml erlang elixir php55 clojure14
+        # Languages
+        brew install scala ocaml erlang elixir clojure14
 
-        # Langs completions
-        brew install opam node phantomjs php55-xdebug php55-memcached php55-apcu php55-varnish leiningen
+        # Languages Utilities
+        brew install opam node phantomjs leiningen
 
         # Databases
         brew install mongodb redis sqlite
@@ -37,7 +37,7 @@ run_brew() {
         # Dependencies
         brew install coreutils findutils libksba libtool libyaml libxslt libmemcached libmpc08 libpng libevent libgpg-error libtiff freetype isl011 gettext memcached pcre pkg-config unixodbc cloog018 gmp4 readline mpfr2 wxmac autoconf automake openssl icu4c figlet bash bash-completion tree gcc46 apple-gcc42 jpeg zlib discount ctags gdb wget ack optipng imagemagick
 
-        # Utils
+        # Tools
         brew install git htop-osx tmux macvim
         brew install https://raw.github.com/Homebrew/homebrew-dupes/master/rsync.rb
         brew install vim --override-system-vi
