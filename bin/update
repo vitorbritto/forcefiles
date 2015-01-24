@@ -13,42 +13,7 @@ FORCEFILES_DIRECTORY="${HOME}/.forcefiles"
 
 cd ${FORCEFILES_DIRECTORY}
 
-source ./lib/utils
-source ./lib/php
-source ./lib/gems
 source ./lib/apps
-
-# Check for Homebrew
-if ! type_exists 'brew'; then
-    e_header "Installing Homebrew..."
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
-
-# Check for rvm
-if ! type_exists 'rvm'; then
-    e_header "Installing Rvm..."
-    curl -L https://get.rvm.io | bash -s stable
-fi
-
-# Install RubyGems
-seek_confirmation "Would you like to install RubyGems now?"
-
-if is_confirmed; then
-    run_gems
-    e_success "Done!"
-else
-    e_warning "Skipped!"
-fi
-
-# Install PHP 5.5
-seek_confirmation "Would you like to install PHP 5.5 now?"
-
-if is_confirmed; then
-    run_php
-    e_success "Done!"
-else
-    e_warning "Skipped!"
-fi
 
 # Install my Applications
 seek_confirmation "Would you like to install applications now?"
@@ -62,26 +27,19 @@ else
 fi
 
 # Install Vagrant, VirtualBox and VMS
-seek_confirmation "Would you like to install your Vagrant Development environments now?"
+seek_confirmation "Would you like to install your Virtual Machines now?"
 
 if is_confirmed; then
 
     # Check for Vagrant
     if ! type_exists 'vagrant'; then
         e_error "You need to install Vagrant and VirtualBox."
-
+    else
         # Install my Applications
-        seek_confirmation "Would you like to install now?"
-
-        if is_confirmed; then
-            e_header "Seat back a while... this may take several minutes to install."
-            run_vms
-            e_success "Done!"
-        else
-            e_warning "You'll not be able to execute Vagrant or any Virtual Machine until install these guys."
-        fi
+        e_header "Seat back a while... this may take several minutes to install."
+        bash ./scripts/installvms.sh
+        e_success "Done!"
     fi
-    run_vms
     e_success "Done!"
 else
     e_warning "Skipped!"

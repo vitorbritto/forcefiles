@@ -27,6 +27,10 @@ cd ${FORCEFILES_DIRECTORY}
 source ./lib/utils
 source ./lib/brew
 source ./lib/npm
+source ./lib/gems
+source ./lib/mysql
+source ./lib/httpd
+source ./lib/php
 
 # Help text
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
@@ -116,6 +120,17 @@ else
 
     # Install Node packages
     run_npm
+
+    # Install RubyGems
+    run_gems
+
+    # Install MySQL, Apache and PHP
+    run_mysql
+    run_httpd
+    run_php
+
+    brew cleanup
+
 fi
 
 link() {
@@ -164,8 +179,8 @@ else
     exit 1
 fi
 
-# Ask before install my personal workflow
-seek_confirmation "Would you like to update your workflow?"
+# Ask before install my personal applications and VMS on my workflow
+seek_confirmation "Would you like to use the force?"
 
 if is_confirmed; then
     bash ./bin/update
