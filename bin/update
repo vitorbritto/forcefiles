@@ -13,6 +13,7 @@ FORCEFILES_DIRECTORY="${HOME}/.forcefiles"
 
 cd ${FORCEFILES_DIRECTORY}
 
+source ./lib/utils
 source ./lib/apps
 
 # Install my Applications
