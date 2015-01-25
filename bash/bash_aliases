@@ -159,6 +159,7 @@ alias bake="bundle exec rake"
 alias migrate="bundle exec rake db:migrate"
 
 # Rubygems
+alias gemu="gem update system"
 alias gemi="gem install --no-rdoc --no-ri"
 
 # NPM
@@ -176,9 +177,10 @@ alias bowerup="npm update bower -g"
 alias compin="php composer.phar install"
 
 # Homebrew
-alias brewup="brew update &&  \
-              brew upgrade && \
-              brew cleanup"
+alias brewi="brew install -v"
+alias brewu="brew update &&  \
+             brew upgrade && \
+             brew cleanup"
 
 # General Update
 alias update="sudo softwareupdate --install --all && \
@@ -205,10 +207,10 @@ alias o="open ."
 alias mux="tmuxinator"
 
 # Logs and Infos
-# alias ihttpd="subl $(brew --prefix)/var/log/apache2/error_log"
-# alias ifpm="subl $(brew --prefix)/var/log/php-fpm.log"
-# alias isql="subl $(brew --prefix)/var/mysql/$(hostname).err"
-# alias idns="dnsmasq --keep-in-foreground"
+alias ihttpd="subl $(brew --prefix)/var/log/apache2/error_log"
+alias ifpm="subl $(brew --prefix)/var/log/php-fpm.log"
+alias isql="subl $(brew --prefix)/var/mysql/$(hostname).err"
+alias idns="dnsmasq --keep-in-foreground"
 alias iphp="subl $(brew --prefix)/etc/php/5.6/php.ini"
 
 # Apache
@@ -216,10 +218,10 @@ alias apconf="subl /etc/apache2/httpd.conf"
 alias vhconf="subl /etc/apache2/extra/httpd-vhosts.conf"
 
 # Database
-alias sqlstart="sudo /usr/local/mysql/support-files/mysql.server start"
-alias sqlstop="sudo /usr/local/mysql/support-files/mysql.server stop"
-alias pma="open http://localhost/phpmyadmin"
+alias sqlon="mysql.server start"
+alias sqloff="mysql.server stop"
 alias sqlbin="cd /usr/local/mysql/bin"
+alias pma="open http://localhost/phpmyadmin"
 
 # Scripts
 alias ahost="sudo bash ~/.forcefiles/scripts/virtualhost.sh"
@@ -235,3 +237,4 @@ alias ipost="bash ~/.forcefiles/scripts/initpost.sh"
 alias uify="bash ~/.forcefiles/scripts/unixify.sh"
 alias perf="bash ~/.forcefiles/scripts/perf.sh"
 alias timer="bash ~/.forcefiles/scripts/timer.sh"
+alias reminder="bash ~/.forcefiles/scripts/reminder.sh"
