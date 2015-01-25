@@ -47,4 +47,8 @@ EOF
 
     e_success "MySQL successfully installed!"
 
+    mysql --version
+
+
+
 }

@@ -69,9 +69,18 @@ run_php() {
     # To test, the command ping -c 3 foodomain.dev should return results from 127.0.0.1.
     # If it doesn't work right away, try turning WiFi off and on (or unplug/plug your ethernet cable), or reboot your system.
 
-    e_header "Installing PHP Utilities"
+    e_header "Installing PHP CS Fixer"
 
-    brew install php55-xdebug php55-memcached php55-apcu php55-varnish
+    e_warning "The PHP setting 'phar.readonly' is required to be 'Off' for this formula. Otherwise will probably fail!"
+
+    seek_confirmation "Would you like to install it now?"
+
+    if is_confirmed; then
+
+        brew install homebrew/php/php-cs-fixer
+
+    else
+        exit 0
 
     e_header "Installing Composer"
 
