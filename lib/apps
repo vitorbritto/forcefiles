@@ -7,10 +7,10 @@
 run_apps() {
 
     # Install apps
-    brew tap phinze/homebrew-cask
-    brew install brew-cask
-    brew cask install appcleaner firefox sublime-text macvim filezilla imageoptim dropbox mou skype feeds sourcetree google-drive google-chrome evernote komanda axure-rp-pro sequel-pro haskell-platform transmission spotify inky virtualbox vagrant
+    e_header "Installing Applications"
 
-    [[ $? ]] && e_success "All apps successfully installed!"
+    brew cask install appcleaner firefox sublime-text macvim filezilla imageoptim dropbox mou skype feeds sourcetree google-drive google-chrome evernote komanda axure-rp-pro sequel-pro transmission spotify inky virtualbox vagrant
+
+    e_success "Apps successfully installed!"
 
 }
