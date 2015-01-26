@@ -100,7 +100,7 @@ fi
 alias c="pygmentize -O style=monokai -f console256 -g"
 
 # show process with nice visual
-alias status="ps -efl $time"
+alias status="htop"
 
 # Overkill processes
 # 1. Clean up LaunchServices to remove duplicates in the “Open With” menu
@@ -152,6 +152,19 @@ alias rvmu20="rvm use 2.0.0-p451"
 alias rvmd18="rvm --default use 1.8.7"
 alias rvmd19="rvm --default use 1.9.3-p448"
 alias rvmd20="rvm --default use 2.0.0-p451"
+
+# PHP
+alias phpini="subl $(brew --prefix)/etc/php/5.6/php.ini"
+
+# Apache
+alias apacheon='brew services start httpd22'
+alias apacheoff='brew services stop httpd22'
+alias apacheboot='brew services restart httpd22'
+
+# MySQL
+alias sqlon="brew services start mysql"
+alias sqloff="brew services stop mysql"
+alias sqlboot="brew services restart mysql"
 
 # Bundler
 alias buni="bundle install"
@@ -213,16 +226,6 @@ alias ihttpd="subl $(brew --prefix)/var/log/apache2/error_log"
 alias ifpm="subl $(brew --prefix)/var/log/php-fpm.log"
 alias isql="subl $(brew --prefix)/var/mysql/$(hostname).err"
 alias idns="dnsmasq --keep-in-foreground"
-alias iphp="subl $(brew --prefix)/etc/php/5.6/php.ini"
-
-# Apache
-alias apconf="subl /etc/apache2/httpd.conf"
-alias vhconf="subl /etc/apache2/extra/httpd-vhosts.conf"
-
-# Database
-alias sqlon="mysql.server start"
-alias sqloff="mysql.server stop"
-alias pma="open http://localhost/phpmyadmin"
 
 # Scripts
 alias mkhost="bash ~/.forcefiles/scripts/virtualhost.sh"
