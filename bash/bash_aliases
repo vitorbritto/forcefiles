@@ -225,6 +225,8 @@ alias sqloff="mysql.server stop"
 alias pma="open http://localhost/phpmyadmin"
 
 # Scripts
+alias mkhost="bash ~/.forcefiles/scripts/virtualhost.sh"
+alias rmhost="bash ~/.forcefiles/scripts/virtualhost.sh --delete"
 alias vms="bash ~/.forcefiles/scripts/installvms.sh"
 alias yoda="bash ~/.forcefiles/scripts/yoda.sh"
 alias mify="bash ~/.forcefiles/scripts/markupify.sh"
