@@ -16,6 +16,17 @@ cd ${FORCEFILES_DIRECTORY}
 source ./lib/utils
 source ./lib/apps
 
+# Create locate Database
+# Install my Applications
+seek_confirmation "Would you like to create the locate database now?"
+
+if is_confirmed; then
+    sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+    e_success "Please be aware that the database can take some time to generate; once the database has been created, this message will no longer appear.!"
+else
+    e_warning "Skipped!"
+fi
+
 # Install my Applications
 seek_confirmation "Would you like to install applications now?"
 

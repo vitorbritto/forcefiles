@@ -12,7 +12,7 @@ sudo -v
 
 # If missing, download and extract the forcefiles repository
 if [[ ! -d ${FORCEFILES_DIRECTORY} ]]; then
-    printf "$(tput setaf 7)Downloading forcefiles...\033[m\n"
+    e_header "Downloading forcefiles"
     mkdir ${FORCEFILES_DIRECTORY}
     # Get the tarball
     curl -fsSLo ${HOME}/forcefiles.tar.gz ${FORCEFILES_TARBALL_PATH}
@@ -24,6 +24,7 @@ fi
 
 cd ${FORCEFILES_DIRECTORY}
 
+# Source Lib Files
 source ./lib/utils
 source ./lib/brew
 source ./lib/npm
@@ -31,6 +32,8 @@ source ./lib/gems
 source ./lib/mysql
 source ./lib/httpd
 source ./lib/php
+source ./lib/wp
+source ./lib/hs
 
 # Help text
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
@@ -48,7 +51,6 @@ fi
 for opt in $@
 do
     case $opt in
-        --no-packages) no_packages=true ;;
         --no-sync) no_sync=true ;;
         -*|--*) e_warning "Warning: invalid option $opt" ;;
     esac
@@ -64,27 +66,27 @@ fi
 
 # Check for Homebrew
 if ! type_exists 'brew'; then
-    e_header "Installing Homebrew..."
+    e_header "Installing Homebrew"
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # Check for git
 if ! type_exists 'git'; then
-    e_header "Updating Homebrew..."
+    e_header "Updating Homebrew"
     brew update
-    e_header "Installing Git..."
+    e_header "Installing Git"
     brew install git
 fi
 
 # Check for rvm
 if ! type_exists 'rvm'; then
-    e_header "Installing Rvm..."
+    e_header "Installing Rvm"
     curl -L https://get.rvm.io | bash -s stable
 fi
 
 # Initialize the git repository if it's missing
 if ! is_git_repo; then
-    e_header "Initializing git repository..."
+    e_header "Initializing git repository"
     git init
     git remote add origin ${FORCEFILES_GIT_REMOTE}
     git fetch origin master
@@ -97,25 +99,23 @@ fi
 
 # Conditionally sync with the remote repository
 if [[ $no_sync ]]; then
-    printf "Skipped forcefiles sync.\n"
+    e_header "Skipped forcefiles sync.\n"
 else
-    e_header "Syncing forcefiles..."
+    e_header "Syncing forcefiles"
     # Pull down the latest changes
     git pull --rebase origin master
     # Update submodules
     git submodule update --recursive --init --quiet
 fi
 
-# Install and update packages
-if [[ $no_packages ]]; then
-    printf "Skipped package installations.\n"
-else
-    printf "Installing Dependencies...\n"
+boostrap() {
 
     # Install Pygments
+    e_header "Installing Pygments"
     sudo easy_install Pygments
+    e_success "Pygments successfully installed!"
 
-    # Install Homebrew formulae
+    # Install Homebrew formulaes
     run_brew
 
     # Install Node packages
@@ -129,9 +129,20 @@ else
     run_httpd
     run_php
 
+    # Install WordPress CLI and Bash Completions
+    run_wordpress
+
+    # Tap HomeBrew Cask
+    brew tap phinze/homebrew-cask
+    brew install brew-cask
+
+    # Install Haskell
+    run_haskell
+
+    # Remove outdated versions from the Cellar
     brew cleanup
 
-fi
+}
 
 link() {
     # Force create/replace the symlink.
@@ -146,27 +157,35 @@ mirrorfiles() {
 
     # Create the necessary symbolic links between the `.forcefiles` and `HOME` directory.
     # The `bash_profile` sources other files directly from the `.forcefiles` repository.
-    link "bash/bashrc"        ".bashrc"
-    link "bash/bash_profile"  ".bash_profile"
-    link "bash/inputrc"       ".inputrc"
-    link "bash/screenrc"      ".screenrc"
-    link "gem/gemrc"          ".gemrc"
-    link "git/gitattributes"  ".gitattributes"
-    link "git/gitignore"      ".gitignore"
-    link "git/gitmodules"     ".gitmodules"
-    link "npm/npmrc"          ".npmrc"
+    link "bash/bashrc"              ".bashrc"
+    link "bash/bash_profile"        ".bash_profile"
+    link "bash/inputrc"             ".inputrc"
+    link "bash/screenrc"            ".screenrc"
+    link "gem/gemrc"                ".gemrc"
+    link "git/gitattributes"        ".gitattributes"
+    link "git/gitignore"            ".gitignore"
+    link "git/gitmodules"           ".gitmodules"
+    link "npm/npmrc"                ".npmrc"
+    link "tmux/tmux.conf"           "tmux.conf"
+    link "haskell/hirc"             ".hirc"
+    link "haskell/ghci.conf.hs"     ".ghc/ghci.conf"
 
     # Z Shell
     # link "zsh/zshrc"          ".zshrc"
     # link "zsh/zprofile"       ".zprofile"
 
-     # Force remove the vim directory if it's already there.
-    if [ -e "${HOME}/.vim" ]; then
-        rm -rf "${HOME}/.vim"
-    fi
-
-    e_success "All done!"
+    e_success "Done!"
 }
+
+# Ask before potentially overwriting files
+seek_confirmation "Are you ready?"
+
+if is_confirmed; then
+    boostrap
+else
+    e_error "Sorry to see you go. :(\n"
+    exit 1
+fi
 
 # Ask before potentially overwriting files
 seek_confirmation "Would you like to overwrite your existing dotfiles?"
@@ -175,7 +194,19 @@ if is_confirmed; then
     mirrorfiles
     source ${HOME}/.bash_profile
 else
-    printf "Aborting...\n"
+    e_error "Skipped!\n"
+    exit 1
+fi
+
+# Ask before setting up my personal Sublime and VIM configurations
+seek_confirmation "Would you like to setup Sublime Text and VIM now?"
+e_warning "This step will overwrite your existing settings on Sublime and VIM"
+
+if is_confirmed; then
+    bash ./bin/editors
+    e_success "Update complete!"
+else
+    e_error "Skipped!\n"
     exit 1
 fi
 
@@ -186,7 +217,7 @@ if is_confirmed; then
     bash ./bin/update
     e_success "Update complete!"
 else
-    printf "Skipped update.\n"
+    e_error "Skipped!\n"
 fi
 
 # Ask before potentially overwriting OS X defaults
@@ -196,5 +227,5 @@ if is_confirmed; then
     bash ./bin/osxdefaults
     e_success "OS X settings updated!"
 else
-    printf "Skipped OS X settings.\n"
+    e_error "Skipped OS X settings.\n"
 fi
