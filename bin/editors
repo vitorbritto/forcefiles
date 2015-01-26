@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# ------------------------------------------------------------------------------
+# | My Text Editor Settings                                                    |
+# ------------------------------------------------------------------------------
+
+run_editors() {
+
+    # Sublime Text Settings
+
+
+    # VIM Settings
+    if [ -e "${HOME}/.vim" ]; then
+        rm -rf "${HOME}/.vim"
+    fi
+
+    cd ~ && bash -c "$(curl -fsSL raw.github.com/vitorbritto/setup-vim/master/init.sh)"
+
+}
