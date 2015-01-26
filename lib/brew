@@ -10,17 +10,17 @@ run_brew() {
     if type_exists "brew"; then
 
         # Use the latest version of Homebrew
-        e_header "Updating Homebrew..."
+        e_header "Updating Homebrew"
         brew update
-        e_success "Done"
+        e_success "Done!"
 
         # Upgrade any already-installed formulae
-        e_header "Updating any existing Homebrew formulae..."
+        e_header "Updating any existing Homebrew formulae"
         brew upgrade
         e_success "Done"
 
         # Install formulaes
-        e_header "Installing Homebrew formulae..."
+        e_header "Installing Homebrew formulae"
 
         # Languages
         brew install scala ocaml erlang elixir clojure14
@@ -41,10 +41,7 @@ run_brew() {
         brew install git htop-osx tmux macvim rsync terminal-notifier
         brew install vim --override-system-vi
 
-        e_success "Formulaes successfully installed!"
-
-        # Remove outdated versions from the Cellar
-        brew cleanup
+        e_success "Homebrew formulaes successfully installed!"
 
     else
 
