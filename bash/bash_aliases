@@ -177,7 +177,9 @@ alias bowerup="npm update bower -g"
 alias compin="php composer.phar install"
 
 # Homebrew
-alias brewi="brew install -v"
+alias brewin="brew install -v"
+alias brewout="brew uninstall"
+alias formulaes="brew search"
 alias brewu="brew update &&  \
              brew upgrade && \
              brew cleanup"
@@ -220,14 +222,10 @@ alias vhconf="subl /etc/apache2/extra/httpd-vhosts.conf"
 # Database
 alias sqlon="mysql.server start"
 alias sqloff="mysql.server stop"
-alias sqlbin="cd /usr/local/mysql/bin"
 alias pma="open http://localhost/phpmyadmin"
 
 # Scripts
-alias ahost="sudo bash ~/.forcefiles/scripts/virtualhost.sh"
-alias dhost="sudo bash ~/.forcefiles/scripts/virtualhost.sh --delete"
 alias vms="bash ~/.forcefiles/scripts/installvms.sh"
-alias up="sudo bash ~/.forcefiles/bin/update"
 alias yoda="bash ~/.forcefiles/scripts/yoda.sh"
 alias mify="bash ~/.forcefiles/scripts/markupify.sh"
 alias bkp="bash ~/.forcefiles/scripts/guardian.sh"
@@ -238,3 +236,4 @@ alias uify="bash ~/.forcefiles/scripts/unixify.sh"
 alias perf="bash ~/.forcefiles/scripts/perf.sh"
 alias timer="bash ~/.forcefiles/scripts/timer.sh"
 alias reminder="bash ~/.forcefiles/scripts/reminder.sh"
+alias updatedb="bash ~/.forcefiles/scripts/updatedb.sh"
