@@ -28,9 +28,9 @@ run_mysql() {
     # only appropriate for a local or development server.
     cat >> $(brew --prefix)/etc/my.cnf <<'EOF'
 
-    # Vitor Britto - Changes
-    max_allowed_packet = 1073741824
-    innodb_file_per_table = 1
+# Vitor Britto - Changes
+max_allowed_packet = 1073741824
+innodb_file_per_table = 1
 EOF
 
     # Uncomment the sample option for innodb_buffer_pool_size to improve performance:
@@ -48,7 +48,5 @@ EOF
     e_success "MySQL successfully installed!"
 
     mysql --version
-
-
 
 }
