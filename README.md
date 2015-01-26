@@ -33,13 +33,18 @@ $ bash -c "$(curl -fsSL raw.github.com/vitorbritto/forcefiles/master/bin/forcefi
 There are some optional scritps i've stored in `scripts` folder to use in my workflow. They can be executed with the `alias` listed below.
 
 - `vms`: download and install virtual machines for use with Virtual Box and Vagrant.
-- `ahost`, `dhost`: add or remove virtual hosts.
+- `mkhost`, `rmhost`: add or remove virtual hosts.
 - `up`: update workflow.
 - `yoda`: script to favorite links.
 - `mify`: a front-end development tool for extract classes, ids and hrefs from HTML document.
 - `bkp`: script to backup importante files.
-- `nexus`: start a web server in _python_ or _php_ with optional **port**.
+- `nexus`: start a web server in _python_ or _php_
 - `call`: clone user or organization repositories.
+- `ipost`: create a basic templates for posts on Jekyll
+- `uify`: general utilities that I use in my work routine
+- `timer`: a simple time tracking
+- `reminder`: a simple reminder for daily tasks
+- `updatedb`: refresh and update the `locate` database
 
 
 ## Acknowledgements

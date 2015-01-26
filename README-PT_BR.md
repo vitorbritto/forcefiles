@@ -33,13 +33,18 @@ $ bash -c "$(curl -fsSL raw.github.com/vitorbritto/forcefiles/master/bin/forcefi
 Existem alguns scripts opcionais que armazenei na pasta `scripts` para utilizar no durante meu fluxo de trabalho. Estes podem ser executados com o `alias` listado abaixo.
 
 - `vms`: faz o download de vms, incluindo vagrant e virtualbox.
-- `ahost`, `dhost`: adiciona e remove virtual hosts.
+- `mkhost`, `rmhost`: adiciona e remove virtual hosts.
 - `up`: atualiza o workflow.
 - `yoda`: script para favoritar links.
 - `mify`: uma ferramenta de desenvolvimento front-end para extrair classes, ids e hrefs de um documento HTML.
 - `bkp`: script para backup de arquivos importantes.
-- `nexus`: inicia um web server em _python_ ou _php_ com uma **porta** opcional.
+- `nexus`: inicia um web server em _python_ ou _php_.
 - `call`: clona repositórios de um usuário ou organização.
+- `ipost`: gera um template básico para posts no Jekyll
+- `uify`: funções gerais que utilizo na minha rotina de trabalho
+- `timer`: um simple timer
+- `reminder`: um simples programa de lembretes para minhas atividades diárias
+- `updatedb`: atualiza o banco de dados do `locate`
 
 
 ## Agradecimentos
