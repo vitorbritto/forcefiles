@@ -10,18 +10,18 @@ run_gems() {
     if type_exists "gem"; then
 
         # Use the latest version of gem
-        e_header "Updating gem..."
+        e_header "Updating gem"
         gem update --system
         e_success "Done"
 
         # Upgrade any already-installed gem
-        e_header "Updating any installed gem..."
+        e_header "Updating any installed gem"
         gem update
         e_success "Done"
 
 
         # Install gems
-        e_header "Installing missing gems..."
+        e_header "Installing Gems"
 
         # Install previous version of Sass for secutiry
         gem install sass -v 3.2.19
