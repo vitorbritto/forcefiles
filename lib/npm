@@ -10,11 +10,11 @@ run_npm() {
     if type_exists "npm"; then
 
         # Install packages globally and quietly
-        e_header "Installing NPM modules..."
+        e_header "Installing Node packages"
 
         npm install -g grunt-cli gulp bower imageoptim-cli nave browserify shelljs uglify-js jshint stylus browser-sync karma markdown jade harp mocha coveralls istanbul yslow ionic tictac phantomas psi webpagetest 6to5
 
-        e_success "Node modules successfully installed!"
+        e_success "Node packages successfully installed!"
 
     else
         printf "\n"
