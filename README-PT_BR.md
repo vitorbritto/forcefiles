@@ -34,7 +34,6 @@ Existem alguns scripts opcionais que armazenei na pasta `scripts` para utilizar 
 
 - `vms`: faz o download de vms, incluindo vagrant e virtualbox.
 - `mkhost`, `rmhost`: adiciona e remove virtual hosts.
-- `up`: atualiza o workflow.
 - `yoda`: script para favoritar links.
 - `mify`: uma ferramenta de desenvolvimento front-end para extrair classes, ids e hrefs de um documento HTML.
 - `bkp`: script para backup de arquivos importantes.

@@ -34,7 +34,6 @@ There are some optional scritps i've stored in `scripts` folder to use in my wor
 
 - `vms`: download and install virtual machines for use with Virtual Box and Vagrant.
 - `mkhost`, `rmhost`: add or remove virtual hosts.
-- `up`: update workflow.
 - `yoda`: script to favorite links.
 - `mify`: a front-end development tool for extract classes, ids and hrefs from HTML document.
 - `bkp`: script to backup importante files.
