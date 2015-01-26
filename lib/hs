@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# ------------------------------------------------------------------------------
+# | Haskell Settings                                                           |
+# ------------------------------------------------------------------------------
+
+run_haskell() {
+
+    e_header "Installing Haskell"
+
+    brew cask haskell-platform
+
+    e_header "Setting up Haskell"
+
+    rm ~/.hirc
+    mkdir -p ~/.ghc
+    rm ~/.ghc/ghci.conf
+
+    e_success "Haskell successfully installed!"
+
+}
