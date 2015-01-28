@@ -7,6 +7,9 @@
 run_editors() {
 
     # Sublime Text Settings
+    cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/
+    rm -r User
+    ln -s ~/Dropbox/Github/setup-subl/User
 
 
     # VIM Settings
