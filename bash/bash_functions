@@ -186,29 +186,52 @@ chm() {
     fi
 }
 
-
 # Start a new project
-new() {
+boilerplate() {
     printf "→ Setting up your new project\n"
     git clone git://github.com/vitorbritto/boilerplates.git $1
     cd $1
 
     printf "→ Installing dependencies\n"
-    npm install
-    clear
+    npm install && clear
 
     printf "\n→ Initializing...\n"
     chmod u+x newproject.js
     ./newproject.js
 }
 
+# Kick Off Boilerplate
+skeleton() {
+    printf "→ Setting up the Boilerplate\n"
+    git clone git://github.com/vitorbritto/skeleton.git $1
+    cd $1 && clear
+
+    printf "\n→ Initializing...\n"
+    chmod u+x init.sh
+    ./init.sh
+}
+
+# Template for Labs and Playground
+play() {
+    printf "→ Setting up your new playground\n"
+    mkdir $1 && cd $_
+    touch style.css app.js index.html
+    printf "\n→ Initializing...\n"
+    initws
+
+}
+
 
 # Server
 # -------------------
 
-# Apache
-apache() {
-    sudo apachectl $@ # options: start, stop or restart
+initws() {
+    local IP=$(ipconfig getifaddr en1)
+    printf "→ HINT: Press CTRL+C to stop webserver\n"
+    sleep 1 && open "http://${IP}:4000/"
+    php -S "${IP}:4000"
+    printf "→ Starting Sublime Text\n"
+    subl .
 }
 
 # MySQL
