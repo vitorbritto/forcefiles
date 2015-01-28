@@ -7,6 +7,9 @@
 # Make Sublime Text the default editor
 export EDITOR="subl"
 
+# Node Version Manager
+export NVM_DIR=~/.nvm
+
 # Ignore commands that start with spaces and duplicates
 export HISTCONTROL=ignoreboth
 
