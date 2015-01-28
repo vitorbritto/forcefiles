@@ -20,7 +20,6 @@ declare -a dirs_to_append=(
     "$HOME/.forcefiles/bin"                     # Add .forcefiles directory to PATH
     "$HOME/.rvm/bin"                            # Add RVM to PATH for scripting
     "$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
-    "$(brew --prefix)/share/npm/bin"            # Add npm to PATH
     "$(brew --prefix)/share/scala/bin"          # Add Scala to PATH
 )
 # Prepend directories to PATH
