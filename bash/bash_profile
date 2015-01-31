@@ -36,7 +36,5 @@ if [[ -r $bash_completion_path ]]; then
 fi
 
 # Source nvm (installed via Homebrew)
-if [[ -r $nvm_path ]]; then
-    source $nvm_path
-fi
+[[ -s $nvm_path ]] && source $nvm_path
 
