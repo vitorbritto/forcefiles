@@ -9,7 +9,7 @@ run_apps() {
     # Install apps
     e_header "Installing Applications"
 
-    brew cask install appcleaner firefox sublime-text macvim filezilla imageoptim dropbox mou skype feeds sourcetree google-drive google-chrome evernote komanda axure-rp-pro sequel-pro transmission spotify inky virtualbox vagrant
+    brew cask install appcleaner firefox sublime-text macvim filezilla imageoptim dropbox mou skype feeds sourcetree google-drive google-chrome evernote komanda axure-rp-pro sequel-pro transmission spotify inky virtualbox vagrant sketch smaller hipchat slack
 
     e_success "Apps successfully installed!"
 
