@@ -21,6 +21,7 @@ declare -a dirs_to_append=(
     "$HOME/.rvm/bin"                            # Add RVM to PATH for scripting
     "$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
     "$(brew --prefix)/share/scala/bin"          # Add Scala to PATH
+    "$(brew --prefix)/share/npm/bin"            # Add npm-installed package bin
 )
 # Prepend directories to PATH
 for index in ${!dirs_to_prepend[*]}
