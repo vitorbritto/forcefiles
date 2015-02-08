@@ -27,7 +27,7 @@ run_gems() {
         gem install sass -v 3.2.19
 
         # Install listed gems
-        gem install sass compass haml jekyll bundler capistrano sinatra rack puma homesick tmuxinator
+        gem install sass compass haml jekyll bundler capistrano sinatra rack puma homesick capybara rspec
 
         # Install pre-release of compass to work with Sass v3.3.x
         gem install compass --pre
