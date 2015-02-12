@@ -32,9 +32,8 @@
 # ------------------------------------------------------------------------------
 
 user="$2"
-page="$3"
-dist="$HOME/Dropbox/Github"
-file="_${user}_repos_[page_${page}].txt"
+dist="$HOME/temp"
+file="_${user}_repos.txt"
 line=1
 
 
@@ -107,8 +106,8 @@ cat <<EOT
 CLONE ALL - Clone user or organization repositories
 ------------------------------------------------------------------------------
 
-Usage: ./cloneall.sh [option] <username> <page number>
-Example: ./cloneall.sh -c vitorbritto 1
+Usage: ./cloneall.sh [option] <username>
+Example: ./cloneall.sh -c vitorbritto
 
 Options:
       -h, --help        output help
@@ -116,7 +115,7 @@ Options:
 
 Important:
     If you prefer, create an alias: cloneall="bash ~/path/to/script/cloneall.sh"
-    And execute with: cloneall -c vitorbritto 1
+    And execute with: cloneall -c vitorbritto
 
 
 Copyright (c) Vitor Britto
@@ -132,8 +131,7 @@ EOT
 call_clone() {
 
     # Get repositories
-    curl "https://api.github.com/users/${user}/repos?per_page=100&page=${page}" | grep '"name": ' | cut -d \" -f4 > ${file}
-
+    curl "https://api.github.com/users/${user}/repos?page=1&per_page=1000&" | grep '"name": ' | cut -d \" -f4 > ${file}
     # Show warning message before continue
     e_warning "Before continue, you could edit the generated file to clone specific repositories and then continue."
 
@@ -148,7 +146,7 @@ call_clone() {
         do
             name=$line
             git clone https://github.com/$user/$name.git $name
-        done < ../$file
+        done < $file
 
         e_success "Repositories cloned successfully!"
     else
