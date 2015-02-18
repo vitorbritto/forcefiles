@@ -166,10 +166,15 @@ alias sqlon="brew services start mysql"
 alias sqloff="brew services stop mysql"
 alias sqlboot="brew services restart mysql"
 
+# PostgreSQL
+alias psqlon="brew services start postgres"
+alias psqloff="brew services stop postgres"
+alias psqlboot="brew services restart postgres"
+
 # Bundler
-alias buni="bundle install"
-alias bake="bundle exec rake"
-alias migrate="bundle exec rake db:migrate"
+alias bunin="bundle install"
+alias bunra="bundle exec rake"
+alias bunmi="bundle exec rake migrate"
 
 # Rubygems
 alias gemu="gem update system"
@@ -190,6 +195,7 @@ alias bowerup="npm update bower -g"
 alias compin="php composer.phar install"
 
 # Homebrew
+alias brewsl="brew services list"
 alias brewin="brew install -v"
 alias brewout="brew uninstall"
 alias formulaes="brew search"
