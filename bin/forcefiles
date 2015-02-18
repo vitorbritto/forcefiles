@@ -33,6 +33,7 @@ source ./lib/mysql
 source ./lib/httpd
 source ./lib/php
 source ./lib/wp
+source ./lib/psql
 source ./lib/hs
 
 # Help text
@@ -138,6 +139,9 @@ boostrap() {
 
     # Install Haskell
     run_haskell
+
+    # Install PostgreSQL
+    run_postgresql
 
     # Remove outdated versions from the Cellar
     brew cleanup
