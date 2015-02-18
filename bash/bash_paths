@@ -10,6 +10,7 @@ declare -a dirs_to_prepend=(
     "/usr/local/sbin"
     "$(brew --prefix)/mysql/bin"                # Add MySQL to PATH
     "$(brew --prefix)/mongodb/bin"              # Add MongoDB to PATH
+    "$(brew --prefix)/psql/bin/"                # Add PostgreSQL to PATH
     "$HOME/Library/Haskell/bin"                 # Add GHC-platform/Haskell to PATH
 )
 
