@@ -42,3 +42,6 @@ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+#
+export ARCHFLAGS='-arch x86_64'
