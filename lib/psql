@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# ------------------------------------------------------------------------------
+# | PostgreSQL Settings                                                        |
+# ------------------------------------------------------------------------------
+
+run_postgresql() {
+
+    e_header "Installing PostgreSQL"
+
+    brew install -v postgresql
+
+    e_header "Setting up PostgreSQL"
+
+    # Now we need to start PostgreSQL using OS X's launchd, and we'll set it to start when you login.
+    [[ ! -d ~/Library/LaunchAgents ]] && mkdir -v ~/Library/LaunchAgents
+    ln -sfv $(brew --prefix postgresql)/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+
+    e_success "PostgreSQL successfully installed!"
+
+    postgres --version
+
+}
