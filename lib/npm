@@ -12,7 +12,7 @@ run_npm() {
         # Install packages globally and quietly
         e_header "Installing Node packages"
 
-        npm install -g grunt-cli gulp bower imageoptim-cli nave browserify shelljs uglify-js jshint stylus browser-sync karma markdown jade harp mocha coveralls istanbul yslow tictac phantomas psi webpagetest 6to5 react-tools webpack obfuscator
+        npm install -g grunt-cli gulp bower imageoptim-cli nave browserify shelljs uglify-js jshint eslint stylus browser-sync karma markdown jade harp mocha coveralls istanbul yslow tictac phantomas psi webpagetest 6to5 react-tools webpack obfuscator
 
         e_success "Node packages successfully installed!"
 

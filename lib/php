@@ -17,7 +17,7 @@ run_php() {
     e_header "Installing PHP 5.6"
 
     # Install PHP with PHP-FPM and excluding snmp
-    brew install -v homebrew/php/php56 --with-fpm --without-snmp
+    brew install -v homebrew/php/php56 --with-fpm
 
     e_header "Setting up PHP 5.6"
 
@@ -30,9 +30,12 @@ run_php() {
     # Set the location of php_ini in pear to $(brew --prefix)/etc/php/5.6/pear.conf:
     pear config-set php_ini $(brew --prefix)/etc/php/5.6/php.ini system
 
-    # The included Opcache extension will speed up your PHP environment dramatically,
-    # and it's already installed, but needs to be enabled. We'll also bump up the opcache memory limit:
-    sed -i '' "s|^\(\[opcache\]\)$|\1"\\$'\n'"; Load the opcache extension"\\$'\n'"zend_extension=opcache.so"\\$'\n'"|; s|^;\(opcache\.enable[[:space:]]*=[[:space:]]*\)0|\11|; s|^;\(opcache\.memory_consumption[[:space:]]*=[[:space:]]*\)[0-9]*|\1256|;" $(brew --prefix)/etc/php/5.6/php.ini
+    # Install Zend OPcache
+    brew install php56-opcache
+
+    # # The included Opcache extension will speed up your PHP environment dramatically,
+    # # and it's already installed, but needs to be enabled. We'll also bump up the opcache memory limit:
+    # sed -i '' "s|^\(\[opcache\]\)$|\1"\\$'\n'"; Load the opcache extension"\\$'\n'"zend_extension=opcache.so"\\$'\n'"|; s|^;\(opcache\.enable[[:space:]]*=[[:space:]]*\)0|\11|; s|^;\(opcache\.memory_consumption[[:space:]]*=[[:space:]]*\)[0-9]*|\1256|;" $(brew --prefix)/etc/php/5.6/php.ini
 
     # Put the PHP-FPM launchd plist file in place and start PHP-FPM now:
     ln -sfv $(brew --prefix php56)/*.plist ~/Library/LaunchAgents
@@ -86,7 +89,6 @@ run_php() {
 
     brew install homebrew/php/composer
 
-    e_success "Apache successfully installed!"
-    e_warning "You shouldn't need to edit the Apache configuration or edit /etc/hosts for new local development sites. Simply create a directory in ~/Sites and then reference \"http://youprojectname.dev\" in your browser to access it."
+    e_success "PHP successfully installed!"
 
 }
