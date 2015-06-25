@@ -12,15 +12,17 @@ run_npm() {
         # Install packages globally and quietly
         e_header "Installing Node packages"
 
-        npm install -g grunt-cli gulp bower imageoptim-cli nave browserify shelljs uglify-js jshint eslint stylus browser-sync karma markdown jade harp mocha coveralls istanbul yslow tictac phantomas psi webpagetest 6to5 react-tools webpack obfuscator
+        npm install -g grunt-cli gulp bower imageoptim-cli nave browserify shelljs uglifyjs jshint eslint stylus browser-sync markdown jade harp mocha coveralls istanbul yslow tictac phantomas psi webpagetest babel react-tools webpack obfuscator clean-css node-sass express karma pm2 beefy yo hoodie-cli
 
         e_success "Node packages successfully installed!"
 
     else
+
         printf "\n"
         e_error "Error: npm not found."
         printf "Aborting...\n"
         exit
+
     fi
 
 }
