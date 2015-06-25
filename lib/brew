@@ -26,7 +26,7 @@ run_brew() {
         brew install scala ocaml erlang elixir clojure14
 
         # Languages Utilities
-        brew install opam nvm phantomjs leiningen
+        brew install opam nvm leiningen
 
         # Databases
         brew install mongodb sqlite
@@ -37,6 +37,9 @@ run_brew() {
         # Tools
         brew install git htop-osx tmux macvim rsync terminal-notifier phpmyadmin
         brew install vim --override-system-vi
+
+        # Tests
+        brew install phantomjs casperjs
 
         # Services
         brew tap gapple/services
