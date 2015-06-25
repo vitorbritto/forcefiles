@@ -330,72 +330,42 @@ cat >> $1 << \EOL
 ;
 $(function () {
 
-    var timeFrontend    = [],
-        timeBackend     = [],
-        htmlSize        = [],
-        cssSize         = [],
-        jsSize          = [],
-        imageSize       = [],
-        webfontSize     = [],
-        htmlCount       = [],
-        cssCount        = [],
-        jsCount         = [],
-        imageCount      = [],
-        webfontCount    = [],
-        general         = [],
-        size            = [],
-        count           = [],
+    # Declare variables
+    # -----------------------------
+
+    # Init
+    var htmlSize,
+        cssSize,
+        jsSize,
+        imageSize,
+        webfontSize,
+        htmlCount,
+        cssCount,
+        jsCount,
+        imageCount,
+        webfontCount,
         categories      = [],
-        i               = 0;
+        i               = 0,
+        showData        = perf.runs.metrics;
 
-    for (i=0; i<perf.runs.length; i++) {
+    # Sizes
+    htmlSize         = showData.htmlSize;
+    cssSize          = showData.cssSize;
+    jsSize           = showData.jsSize;
+    imageSize        = showData.imageSize;
+    webfontSize      = showData.webfontSize;
 
-        timeFrontend[i]     = perf.runs[i].metrics['timeFrontend'];
-        timeBackend[i]      = perf.runs[i].metrics['timeBackend'];
+    # Counts
+    htmlCount        = showData.htmlCount;
+    cssCount         = showData.cssCount;
+    jsCount          = showData.jsCount;
+    imageCount       = showData.imageCount;
+    webfontCount     = showData.webfontCount;
 
-        htmlSize[i]         = perf.runs[i].metrics['htmlSize'];
-        cssSize[i]          = perf.runs[i].metrics['cssSize'];
-        jsSize[i]           = perf.runs[i].metrics['jsSize'];
-        imageSize[i]        = perf.runs[i].metrics['imageSize'];
-        webfontSize[i]      = perf.runs[i].metrics['webfontSize'];
 
-        htmlCount[i]        = perf.runs[i].metrics['htmlCount'];
-        cssCount[i]         = perf.runs[i].metrics['cssCount'];
-        jsCount[i]          = perf.runs[i].metrics['jsCount'];
-        imageCount[i]       = perf.runs[i].metrics['imageCount'];
-        webfontCount[i]     = perf.runs[i].metrics['webfontCount'];
-
-        categories[i]       = 'Run' + (i+1);
-
-    }
-
-    general[0]  = { name: 'Time - Front-End (in ms)', data: timeFrontend }
-    general[1]  = { name: 'Time - Back-End (in ms)', data: timeBackend }
-
-    size[0]     = { name: 'HTML - Size (in kb)', data: htmlSize }
-    size[1]     = { name: 'Styles - Size (in kb)', data: cssSize }
-    size[2]     = { name: 'Scripts - Size (in kb)', data: jsSize }
-    size[3]     = { name: 'Images - Size (in kb)', data: imageSize }
-    size[4]     = { name: 'Fonts - Size (in kb)', data: webfontSize }
-
-    count[0]    = { name: 'HTML - Count (number of files)', data: htmlCount }
-    count[1]    = { name: 'Styles - Count (number of files)', data: cssCount }
-    count[2]    = { name: 'Scripts - Count (number of files)', data: jsCount }
-    count[3]    = { name: 'Images - Count (number of files)', data: imageCount }
-    count[4]    = { name: 'Fonts - Count (number of files)', data: webfontCount }
-
+    # Render Data
     $('#header').highcharts({
         title: { text: 'Performed URL: ' + perf.runs[0].url }
-    });
-
-    $('#generals').highcharts({
-        chart: {
-            type: 'bar',
-            allowPointSelect: true
-        },
-        title: { text: 'General Information' },
-        xAxis: { categories: categories },
-        series: general
     });
 
     $('#sizes').highcharts({
@@ -405,7 +375,13 @@ $(function () {
         },
         title: { text: 'File Sizes' },
         xAxis: { categories: categories },
-        series: size
+        series: [
+            { name: 'HTML - Size (in kb)', data: htmlSize },
+            { name: 'Styles - Size (in kb)', data: cssSize },
+            { name: 'Scripts - Size (in kb)', data: jsSize },
+            { name: 'Images - Size (in kb)', data: imageSize },
+            { name: 'Fonts - Size (in kb)', data: webfontSize }
+        ]
     });
 
     $('#counts').highcharts({
@@ -415,7 +391,13 @@ $(function () {
         },
         title: { text: 'File Counts' },
         xAxis: { categories: categories },
-        series: count
+        series: [
+            { name: 'HTML - Count (number of files)', data: htmlCount },
+            { name: 'Styles - Count (number of files)', data: cssCount },
+            { name: 'Scripts - Count (number of files)', data: jsCount },
+            { name: 'Images - Count (number of files)', data: imageCount },
+            { name: 'Fonts - Count (number of files)', data: webfontCount }
+        ]
     });
 
 });
@@ -451,7 +433,7 @@ $(function () {
 </html>
 EOL
 
-    rm report.json
+    # rm report.json
     echo ""
     echo ""
     e_success "Report successfully generated!"

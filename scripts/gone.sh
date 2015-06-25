@@ -21,3 +21,23 @@
 # Copyright (c) Vitor Britto
 # Licensed under the MIT license.
 # ------------------------------------------------------------------------------------------------------------
+
+
+# TODO
+# -----------------------------------------------
+# DEPLOY TO BITBUCKET OR GIT
+# DEPLOY TO HOST (USING FTP OR SSH/RSYNC)
+
+
+# PROCESS
+# -----------------------------------------------
+# 1. MAKE CHANGES
+# 2. COMMIT
+# 3. PUSH TO REMOTE REPOSITORY
+# 4. DEPLOY TO HOST (USING FTP OR RSYNC)
+
+# CHECKS
+# -----------------------------------------------
+# WHICH GIT
+# WHICH FTP
+# WHICH RSYNC
