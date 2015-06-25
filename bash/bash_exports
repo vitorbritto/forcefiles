@@ -43,5 +43,8 @@ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-#
-export ARCHFLAGS='-arch x86_64'
+# ARCH FLAGS
+export ARCHFLAGS="-arch x86_64"
+
+# JAVA Environment Variable
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home"
