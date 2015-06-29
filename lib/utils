@@ -95,106 +95,182 @@ Packages
 ------------
 
 Brew:
-    autoconf
-    automake
-    libtool
-    libyaml
-    libxslt
-    libksba
-    openssl
-    coreutils
-    findutils
-    figlet
-    bash
-    bash-completion
-    wget
-    ack
-    tree
-    gcc46
-    apple-gcc42
-    git
-    jpeg
-    optipng
-    imagemagick
-    node
-    phantomjs
-    mongodb
-    erlang
-    elixir
-    macvim
-    discount
-    ctags
-    htop-osx
-    tmux
-    rsync
+    - scala
+    - ocaml
+    - erlang
+    - elixir
+    - clojure14
+    - opam
+    - nvm
+    - nodejs
+    - iojs
+    - leiningen
+    - mongodb
+    - postgresql
+    - sqlite
+    - coreutils
+    - findutils
+    - libksba
+    - libtool
+    - libyaml
+    - libxslt
+    - libmemcached
+    - libmpc08
+    - libpng
+    - libevent
+    - libgpg-error
+    - libtiff
+    - freetype
+    - isl011
+    - gettext
+    - memcached
+    - pcre
+    - pkg-config
+    - unixodbc
+    - cloog018
+    - gmp4
+    - readline
+    - mpfr2
+    - wxmac
+    - autoconf
+    - automake
+    - openssl
+    - icu4c
+    - figlet
+    - bash
+    - bash-completion
+    - tree
+    - gcc46
+    - apple-gcc42
+    - jpeg
+    - zlib
+    - discount
+    - ctags
+    - gdb
+    - wget
+    - ack
+    - optipng
+    - imagemagick
+    - git
+    - htop-osx
+    - tmux
+    - macvim
+    - rsync
+    - terminal-notifier
+    - nginx
+    - httpd22
+    - phpmyadmin
+    - php56
+    - php56-opcache
+    - php-cs-fixer
 
 NPM:
-    grunt-cli
-    gulp
-    bower
-    imageoptim-cli
-    nave
-    browserify
-    beefy
-    shelljs
-    uglify-js
-    jshint
-    stylus
-    browser-sync
-    karma
-    markdown
-    jade
-    harp
-    mocha
-    coveralls
-    istanbul
-    yslow
-    ionic
-    pageres
-    csscomb
-    csslint
+    - grunt-cli
+    - gulp
+    - bower
+    - imageoptim-cli
+    - nave
+    - browserify
+    - shelljs
+    - uglifyjs
+    - jshint
+    - eslint
+    - stylus
+    - browser-sync
+    - markdown
+    - jade
+    - harp
+    - mocha
+    - coveralls
+    - istanbul
+    - yslow
+    - tictac
+    - phantomas
+    - psi
+    - webpagetest
+    - babel
+    - react-tools
+    - webpack
+    - obfuscator
+    - clean-css
+    - node-sass
+    - express
+    - karma
+    - pm2
+    - beefy
+    - yo
+    - hoodie-cli
+    - plato
+    - ionic
+    - cordova
 
 Dependencies:
-    Pygments
+    - Pygments
 
 Rubies (only for OSX Lion):
-    Ruby - 1.9.3
-    Ruby - 2.0.0
+    - Ruby - 1.9.3
+    - Ruby - 2.0.0
 
 Gems:
-    Rails
-    Sass
-    Compass
-    Jekyll
-    Showterm
-    Bundler
-    Capistrano
-    Sinatra
+    - sass
+    - compass
+    - haml
+    - slim
+    - jekyll
+    - bundler
+    - capistrano
+    - sinatra
+    - rack
+    - puma
+    - homesick
+    - capybara
+    - rspec
+    - rails
+    - showterm
 
 PHP:
-    Update PHP version from 5.3 to 5.4
-    MySQL and phpMyAdmin
+    - composer
+    - wp-cli
 
 
 Applications
 ------------
 
-Browsers:
-    Firefox
-
-Development:
-    MacVim
-    Sublime Text
-    FileZilla
-    VirtualBox (w/ Vagrant)
-    Image Optim
-
-Others:
-    Mou
-    Dropbox
-    App Cleaner
-    Sparrow
-    Feeds
+    - appcleaner
+    - firefox
+    - sublime-text
+    - macvim
+    - filezilla
+    - imageoptim
+    - dropbox
+    - mou
+    - skype
+    - feeds
+    - sourcetree
+    - google-drive
+    - google-chrome
+    - evernote
+    - komanda
+    - axure-rp-pro
+    - sequel-pro
+    - transmission
+    - spotify
+    - virtualbox
+    - vagrant
+    - sketch
+    - hipchat
+    - slack
+    - robomongo
+    - thunderbird
+    - unrarx
+    - psequel
+    - apache-couchdb
+    - gitter
+    - fluid
+    - trello-x
+    - wercker
+    - atom
+    - haskell-platform
 
 ------------------------------------------------------------------------------
 
@@ -233,4 +309,3 @@ Licensed under the MIT license.
 EOT
 
 }
-
