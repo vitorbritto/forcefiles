@@ -56,4 +56,4 @@ Existem alguns scripts opcionais que armazenei na pasta `scripts` para utilizar 
   [https://github.com/cowboy/dotfiles](https://github.com/cowboy/dotfiles)
 
 
-> Que o ARQUIVOS DA FORÇA esteja com você! :)
+> Que o "ARQUIVOS DA FORÇA" esteja com você! :)
