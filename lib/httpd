@@ -1,13 +1,5 @@
 #!/bin/bash
 
-# "----------------------------------------------------------------------------------------------------"
-# "Follow these instructions bellow to install"
-# "Apache, PHP, MySQL and/or phpMyAdmin on Mavericks/Yosemite."
-# "https://echo.co/blog/os-x-1010-yosemite-local-development-environment-apache-php-and-mysql-homebrew"
-# "http://coolestguidesontheplanet.com/get-apache-mysql-php-phpmyadmin-working-osx-10-9-mavericks/"
-# "----------------------------------------------------------------------------------------------------"
-
-
 # ------------------------------------------------------------------------------
 # | APACHE Settings                                                            |
 # ------------------------------------------------------------------------------
