@@ -217,6 +217,7 @@ alias update="sudo softwareupdate --install --all && \
 # Daily stuff
 alias subl='open -a "/Applications/Sublime Text 2.app"'
 alias vim='open -a "/Applications/MacVim.app"'
+alias atom='open -a "/Applications/Atom.app"'
 alias db="cd $HOME/Dropbox"
 alias dl="cd $HOME/Downloads"
 alias t="cd $HOME/temp"
@@ -226,11 +227,12 @@ alias nh="node --harmony"
 alias ct="crontab"
 alias o="open ."
 alias mux="tmuxinator"
+alias doit="tictac --growl"
 
 # Logs and Infos
-alias ihttpd="subl $(brew --prefix)/var/log/apache2/error_log"
-alias ifpm="subl $(brew --prefix)/var/log/php-fpm.log"
-alias isql="subl $(brew --prefix)/var/mysql/$(hostname).err"
+alias ihttpd="atom $(brew --prefix)/var/log/apache2/error_log"
+alias ifpm="atom $(brew --prefix)/var/log/php-fpm.log"
+alias isql="atom $(brew --prefix)/var/mysql/$(hostname).err"
 alias idns="dnsmasq --keep-in-foreground"
 
 # Scripts
