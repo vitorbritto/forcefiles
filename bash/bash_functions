@@ -225,13 +225,12 @@ play() {
 # Server
 # -------------------
 
-initws() {
+ws() {
     local IP=$(ipconfig getifaddr en1)
-    printf "→ HINT: Press CTRL+C to stop webserver\n"
-    sleep 1 && open "http://${IP}:4000/"
-    php -S "${IP}:4000"
-    printf "→ Starting Sublime Text\n"
-    subl .
+    local PORT=$1
+    echo "HINT: Press CTRL+C to stop webserver"
+    sleep 1 && open "http://${IP}:${PORT}/"
+    php -S "${IP}:${PORT}"
 }
 
 # MySQL
