@@ -70,8 +70,8 @@ EOT
 nexus_python() {
 
     echo "HINT: Press CTRL+C to stop webserver"
-    sleep 1 && open "http://localhost:8000/"
-    python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();'
+    sleep 1 && open "http://0.0.0.0:4401/"
+    python -c $'import SimpleHTTPServer;\nimport SocketServer;\nHandler = SimpleHTTPServer.SimpleHTTPRequestHandler;\nhttpd = SocketServer.TCPServer(("", 4401), Handler);\nhttpd.serve_forever();\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();'
 
 }
 
@@ -90,12 +90,12 @@ nexus_main() {
 
     if [[ "${1}" == "--php" ]]; then
         nexus_php
-        exit
+        # exit
     fi
 
     if [[ "${1}" == "--py" ]]; then
         nexus_python
-        exit
+        # exit
     fi
 
     # List Classes
