@@ -27,6 +27,7 @@ cd ${FORCEFILES_DIRECTORY}
 # Source Lib Files
 source ./lib/utils
 source ./lib/brew
+source ./lib/py
 source ./lib/npm
 source ./lib/gems
 source ./lib/mysql
@@ -71,6 +72,12 @@ if ! type_exists 'brew'; then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+# Check for Setuptools
+if ! type_exists 'easy_install'; then
+    e_header "Installing Setuptools"
+    curl https://bootstrap.pypa.io/ez_setup.py -o - | python
+fi
+
 # Check for git
 if ! type_exists 'git'; then
     e_header "Updating Homebrew"
@@ -111,10 +118,8 @@ fi
 
 boostrap() {
 
-    # Install Pygments
-    e_header "Installing Pygments"
-    sudo easy_install Pygments
-    e_success "Pygments successfully installed!"
+    # Install Python Dependencies
+    run_py
 
     # Install Homebrew formulaes
     run_brew
@@ -203,8 +208,8 @@ else
 fi
 
 # Ask before setting up my personal Sublime and VIM configurations
-seek_confirmation "Would you like to setup Sublime Text and VIM now?"
-e_warning "This step will overwrite your existing settings on Sublime and VIM"
+seek_confirmation "Would you like to setup your editors now?"
+e_warning "This step will overwrite your existing settings"
 
 if is_confirmed; then
     bash ./bin/editors
