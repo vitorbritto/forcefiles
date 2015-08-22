@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# ------------------------------------------------------------------------------
+# | Python Tools Settings                                                      |
+# ------------------------------------------------------------------------------
+
+run_py() {
+
+    # Check for easy_install
+    if type_exists "easy_install"; then
+
+        sudo -v
+
+        # Install Pygments
+        e_header "Installing Pygments"
+        easy_install Pygments
+        e_success "Pygments successfully installed!"
+
+        # Install Pip
+        e_header "Installing Pip"
+        easy_install pip
+        e_success "Pip successfully installed!"
+
+        # Install Transifex
+        e_header "Installing Transifex"
+        pip -H install transifex-client
+        e_success "Transifex successfully installed!"
+
+        e_header "Installing Transifex"
+        pip -H install mkdocs
+        e_success "mkDocs successfully installed!"
+
+    else
+
+        printf "\n"
+        e_error "Error: easy_install not found."
+        printf "Aborting...\n"
+        exit
+
+    fi
+
+}
