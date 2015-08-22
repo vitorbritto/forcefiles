@@ -39,7 +39,7 @@ run_brew() {
         brew install vim --override-system-vi
 
         # Tests
-        brew install phantomjs casperjs
+        brew install phantomjs
 
         # Services
         brew tap gapple/services
