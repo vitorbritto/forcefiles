@@ -122,7 +122,12 @@ tre() {
 
 # Shortcut to Projects
 code() {
-    cd $HOME/Sites/"$1"
+    # local path="$HOME/Sites/${1}"
+    if [[ $2 == "--wp" ]]; then
+        cd $HOME/Sites/"$1"/wp-content/themes/default
+    else
+        cd $HOME/Sites/"$1"
+    fi
 }
 
 # Shortcut to Respositories
@@ -176,6 +181,14 @@ src() {
 # Grant Permission
 grant() {
     chmod -R a+w ~/Sites/"$1"
+}
+
+godmode() {
+    # WARNING:
+    # This is a bad practice, but hopefully you are just using
+    # this for development, or you have another good reason. =]
+    # Before using either of these, really consider to run "chm function" right bellow.
+    chmod -R 777 "$1"
 }
 
 chm() {
