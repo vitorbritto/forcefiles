@@ -62,7 +62,7 @@ rmf() {
     find . -type f -name "$q" -ls -delete
 }
 
-# Remove directories and echo a message
+# Remove directories
 rmd() {
     rm -rf "$@"
 }
