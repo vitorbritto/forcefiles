@@ -4,6 +4,8 @@
 # Functions
 # ---------------------------------------------------
 
+# Source Lib Files
+source $HOME/.forcefiles/lib/utils
 
 # General
 # -------------------
@@ -24,7 +26,7 @@ datauri() {
                     "$mimeType" \
                     "$(openssl base64 -in "$1" | tr -d "\n")" > "$1".txt
     else
-        echo "'$1' is not a file."
+        e_error "'$1' is not a file."
     fi
 }
 
@@ -50,10 +52,10 @@ targz() {
         fi
     fi
 
-    echo "Compressing .tar using \`${cmd}\`…"
+    e_header "Compressing .tar using \`${cmd}\`…"
     "${cmd}" -v "${tmpFile}" || return 1
     [ -f "${tmpFile}" ] && rm "${tmpFile}"
-    echo "${tmpFile}.gz created successfully."
+    e_success "${tmpFile}.gz successfully created!"
 }
 
 # Delete all files that match a certain pattern from the current directory
@@ -170,12 +172,12 @@ clone() {
     git clone git://github.com/vitorbritto/$repo.git && cd $repo && $npm && $src;
 
     # All done!
-    echo -n "✔ done!"
+    e_success "Done!"
 }
 
 # Making a script executable
 src() {
-    chmod u+x "$@" && ./"$@"
+    chmod u+x "$1" && ./"$_"
 }
 
 # Grant Permission
@@ -201,49 +203,73 @@ chm() {
 
 # Start a new project
 boilerplate() {
-    printf "→ Setting up your new project\n"
+    e_header "Setting up your new project"
     git clone git://github.com/vitorbritto/boilerplates.git $1
     cd $1
 
-    printf "→ Installing dependencies\n"
+    e_header "Installing dependencies"
     npm install && clear
 
-    printf "\n→ Initializing...\n"
+    e_header "Initializing..."
     chmod u+x newproject.js
     ./newproject.js
 }
 
 # Kick Off Boilerplate
 skeleton() {
-    printf "→ Setting up the Boilerplate\n"
+    e_header "Clonning Boilerplate"
     git clone git://github.com/vitorbritto/skeleton.git $1
-    cd $1 && clear
+    cd $_ && clear
 
-    printf "\n→ Initializing...\n"
+    e_header "Initializing.."
     chmod u+x init.sh
     ./init.sh
 }
 
 # Template for Labs and Playground
 play() {
-    printf "→ Setting up your new playground\n"
+    e_header "Setting up your new playground\n"
     mkdir $1 && cd $_
     touch style.css app.js index.html
-    printf "\n→ Initializing...\n"
-    initws
+    e_header "Initializing server..."
+    ws
 
+}
+
+# Clone the latest WordPress
+wp() {
+    git clone https://github.com/WordPress/WordPress $1
 }
 
 
 # Server
 # -------------------
 
-ws() {
-    local IP=$(ipconfig getifaddr en1)
-    local PORT=$1
-    echo "HINT: Press CTRL+C to stop webserver"
-    sleep 1 && open "http://${IP}:${PORT}/"
-    php -S "${IP}:${PORT}"
+# SSH Keys
+sshcon() {
+    local SSHDIR = "~/.ssh"
+    if [ ! -d "$SSHDIR" ]; then
+        e_header "Creating SSH Directory..."
+        mkdir -p "$SSHDIR"
+        e_success "Done!"
+    fi
+    cat "$SSHDIR"/id_rsa.pub | ssh "$1"@"$2" "cat >>  "$SSHDIR"/authorized_keys"
+}
+
+# PHP Built-in WebServer
+phpsrv() {
+    if [[ ! -n "$1" ]]; then
+        exit $E_BADARGS
+    else
+        local CMD="php -S localhost:${1}"
+        if [[ -n "$2" ]]; then
+            CMD="$CMD -t $2"
+        fi
+        e_success "Server started at http://localhost:${1}/"
+        e_warning "HINT: Press CTRL+C to stop webserver"
+        sleep 1 && open "http://localhost:${1}/"
+        exec $CMD
+    fi
 }
 
 # MySQL

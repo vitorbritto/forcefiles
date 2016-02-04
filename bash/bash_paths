@@ -6,22 +6,23 @@
 
 # Directories to be prepended to PATH
 declare -a dirs_to_prepend=(
-    "$(brew --prefix)/bin"                       # Ensure that this bin always takes precedence over
+    "$(brew --prefix)/bin"
     "/usr/local/sbin"
-    "$(brew --prefix homebrew/php/php56)/bin"    # Add PHP to PATH
-    "$(brew --prefix)/mysql/bin"                 # Add MySQL to PATH
-    "$(brew --prefix)/mongodb/bin"               # Add MongoDB to PATH
-    "$(brew --prefix)/psql/bin"                  # Add PostgreSQL to PATH
-    "$HOME/Library/Haskell/bin"                  # Add GHC-platform/Haskell to PATH
-    "$(brew --prefix)/gettext/bin"               # Add GetText to PATH
+    "$(brew --prefix homebrew/php/php56)/bin"           # Add PHP to PATH
+    "$(brew --prefix)/mysql/bin"                        # Add MySQL to PATH
+    "$(brew --prefix)/mongodb/bin"                      # Add MongoDB to PATH
+    "$(brew --prefix)/psql/bin"                         # Add PostgreSQL to PATH
+    "$HOME/Library/Haskell/bin"                         # Add GHC-platform/Haskell to PATH
+    "$(brew --prefix)/gettext/bin"                      # Add GetText to PATH
 )
 
 # Directories to be appended to PATH
 declare -a dirs_to_append=(
-    "/usr/bin"                                   # Add user directory to PATH
-    "$HOME/.forcefiles/bin"                      # Add .forcefiles directory to PATH
-    "$HOME/.rvm/bin"                             # Add RVM to PATH for scripting
-    "$(brew --prefix coreutils)/libexec/gnubin"  # Add brew-installed GNU core utilities bin
+    "/usr/bin"                                          # Add user directory to PATH
+    "$HOME/.forcefiles/bin"                             # Add .forcefiles directory to PATH
+    "$HOME/.rvm/bin"                                    # Add RVM to PATH for scripting
+    "$(brew --prefix coreutils)/libexec/gnubin"         # Add brew-installed GNU core utilities bin
+    "$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"  # Add Android SDK
 )
 # Prepend directories to PATH
 for index in ${!dirs_to_prepend[*]}

@@ -48,3 +48,6 @@ export ARCHFLAGS="-arch x86_64"
 
 # JAVA Environment Variable
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home"
+
+# Android SDK
+export ANDROID_HOME="/usr/local/opt/android-sdk"
