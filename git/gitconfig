@@ -70,7 +70,7 @@
     # Use custom `.gitignore` and `.gitattributes`
     excludesfile = ~/.gitignore
     attributesfile = ~/.gitattributes
-    editor = subl -W -n
+    editor = atom -W -n
 
 [diff]
     tool = mvimdiff
