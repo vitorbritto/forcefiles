@@ -36,6 +36,9 @@ source ./lib/php
 source ./lib/wp
 source ./lib/psql
 source ./lib/hs
+source ./lib/apps
+source ./lib/mobile
+source ./lib/editors
 
 # Help text
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
@@ -148,6 +151,9 @@ boostrap() {
     # Install PostgreSQL
     run_postgresql
 
+    # Setup Mobile Environment
+    run_mobile
+
     # Remove outdated versions from the Cellar
     brew cleanup
 
@@ -191,45 +197,55 @@ seek_confirmation "Are you ready?"
 
 if is_confirmed; then
     boostrap
+    mirrorfiles
+    source ${HOME}/.bash_profile
 else
     e_error "Sorry to see you go. :(\n"
     exit 1
 fi
 
-# Ask before potentially overwriting files
-seek_confirmation "Would you like to overwrite your existing dotfiles?"
-
-if is_confirmed; then
-    mirrorfiles
-    source ${HOME}/.bash_profile
-else
-    e_error "Skipped!\n"
-    exit 1
-fi
-
-# Ask before setting up my personal Sublime and VIM configurations
+# Setup Editors
 seek_confirmation "Would you like to setup your editors now?"
 e_warning "This step will overwrite your existing settings"
 
 if is_confirmed; then
-    bash ./bin/editors
+    run_editors
     e_success "Update complete!"
 else
     e_error "Skipped!\n"
     exit 1
 fi
 
-# Ask before install my personal applications and VMS on my workflow
-seek_confirmation "Would you like to use the force?"
+# Install Applications
+seek_confirmation "Would you like to install your applications now?"
 
 if is_confirmed; then
-    bash ./bin/update
+    run_apps
     e_success "Update complete!"
 else
     e_error "Skipped!\n"
 fi
 
-# Ask before potentially overwriting OS X defaults
+# Setup Virtual Machines
+seek_confirmation "Would you like to install your Virtual Machines now?"
+
+if is_confirmed; then
+
+    # Check for Vagrant
+    if ! type_exists 'vagrant'; then
+        e_error "You need to install Vagrant and VirtualBox."
+    else
+        # Install my Applications
+        e_header "Seat back a while... this may take several minutes to install."
+        bash ./scripts/installvms.sh
+        e_success "Done!"
+    fi
+    e_success "Done!"
+else
+    e_warning "Skipped!"
+fi
+
+# OS X defaults
 seek_confirmation "Would you like to modify your OS X system defaults?"
 
 if is_confirmed; then
