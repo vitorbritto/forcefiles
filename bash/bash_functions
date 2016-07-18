@@ -118,6 +118,13 @@ tre() {
     tree -aC -I '.git|node_modules|bower_components|components|.sass-cache|.DS_Store' --dirsfirst "$@" | less -FRNX
 }
 
+# Convert MOV to GIF animation
+gify() {
+    e_header "Converting..."
+    ffmpeg -i $1.mov -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=3 > $1.gif
+    e_success "Done!"
+}
+
 
 # Development
 # -------------------
@@ -217,7 +224,7 @@ boilerplate() {
 
 # Kick Off Boilerplate
 skeleton() {
-    e_header "Clonning Boilerplate"
+    e_header "Clonning..."
     git clone git://github.com/vitorbritto/skeleton.git $1
     cd $_ && clear
 
@@ -228,7 +235,7 @@ skeleton() {
 
 # Template for Labs and Playground
 play() {
-    e_header "Setting up your new playground\n"
+    e_header "Setting up your new playground..."
     mkdir $1 && cd $_
     touch style.css app.js index.html
     e_header "Initializing server..."
@@ -238,8 +245,24 @@ play() {
 
 # Clone the latest WordPress
 wp() {
+    e_header "Initializing..."
     git clone https://github.com/WordPress/WordPress $1
 }
+
+# Force Skype to Initialize
+hellpe() {
+    local LIBRARY=${HOME}/Library
+
+    e_header "Removing cache and preferences..."
+    rm -rd ${LIBRARY}/Caches/com.skype.skype
+    rm -rf ${LIBRARY}/Preferences/com.skype.skype.plist
+
+    e_header "Initializing Skype..."
+    open -a "/Applications/Skype.app"
+
+    # open -a "/opt/homebrew-cask/Caskroom/skype/latest/Skype.app"
+}
+
 
 
 # Server

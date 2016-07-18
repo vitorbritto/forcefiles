@@ -41,13 +41,15 @@ export LESS_TERMCAP_me=$'\E[0m'       # end bold mode
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/opt/homebrew-cask/Caskroom"
 
 # ARCH FLAGS
 export ARCHFLAGS="-arch x86_64"
 
 # JAVA Environment Variable
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home"
+# export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home"
+export JAVA_HOME="/usr/libexec/java_home"
 
 # Android SDK
-export ANDROID_HOME="/usr/local/opt/android-sdk"
+# export ANDROID_HOME="/usr/local/opt/android-sdk"
+export ANDROID_HOME="/usr/local/Cellar/android-sdk/24.3.4"

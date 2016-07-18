@@ -18,11 +18,13 @@ declare -a dirs_to_prepend=(
 
 # Directories to be appended to PATH
 declare -a dirs_to_append=(
-    "/usr/bin"                                          # Add user directory to PATH
-    "$HOME/.forcefiles/bin"                             # Add .forcefiles directory to PATH
-    "$HOME/.rvm/bin"                                    # Add RVM to PATH for scripting
-    "$(brew --prefix coreutils)/libexec/gnubin"         # Add brew-installed GNU core utilities bin
-    "$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"  # Add Android SDK
+    "/usr/local/bin"                                      # Add user directory to PATH
+    "$HOME/.forcefiles/bin"                               # Add .forcefiles directory to PATH
+    "$HOME/.rvm/bin"                                      # Add RVM to PATH for scripting
+    "$(brew --prefix coreutils)/libexec/gnubin"           # Add brew-installed GNU core utilities bin
+    "$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"    # Add Android SDK
+    "/Applications/Genymotion Shell.app/Contents/MacOS/genyshell" # Add Genymotion Shell
+    "/Applications/Genymotion.app/Contents/MacOS/genymotion"      # Add Genymotion
 )
 # Prepend directories to PATH
 for index in ${!dirs_to_prepend[*]}

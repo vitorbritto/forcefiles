@@ -228,6 +228,7 @@ alias ct="crontab"
 alias o="open ."
 alias mux="tmuxinator"
 alias doit="tictac --growl"
+alias ionlab="ionic serve --lab -c -s"
 
 # Logs and Infos
 alias ihttpd="atom $(brew --prefix)/var/log/apache2/error_log"
