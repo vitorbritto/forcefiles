@@ -73,22 +73,22 @@ run_php() {
     # If it doesn't work right away, try turning WiFi off and on (or unplug/plug your ethernet cable), or reboot your system.
 
     e_header "Installing PHP CS Fixer"
-
     e_warning "The PHP setting 'phar.readonly' is required to be 'Off' for this formula. Otherwise will probably fail!"
 
     seek_confirmation "Would you like to install it now?"
 
     if is_confirmed; then
-
         brew install homebrew/php/php-cs-fixer
-
     else
         exit 0
+
+    e_header "Installing PHP Code Sniffer"
+    
+    brew install homebrew/php/php-code-sniffer
 
     e_header "Installing Composer"
 
     brew install homebrew/php/composer
-
     e_success "PHP successfully installed!"
 
 }

@@ -32,14 +32,11 @@ run_brew() {
         brew install mongodb sqlite couchdb
 
         # Dependencies
-        brew install coreutils findutils libksba libtool libyaml libxslt libmemcached libmpc08 libpng libevent libgpg-error libtiff freetype isl011 gettext memcached pcre pkg-config unixodbc cloog018 gmp4 readline mpfr2 wxmac autoconf automake openssl icu4c figlet bash bash-completion tree gcc46 apple-gcc42 jpeg zlib discount ctags gdb wget ack optipng imagemagick
+        brew install coreutils findutils libksba libtool libyaml libxslt libmemcached libmpc08 libpng libevent libgpg-error libtiff freetype isl011 gettext memcached pcre pkg-config unixodbc cloog018 gmp4 readline mpfr2 wxmac autoconf automake openssl icu4c figlet bash bash-completion tree gcc46 apple-gcc42 jpeg zlib discount ctags gdb wget ack optipng imagemagick gifsicle ffmpeg watchman
 
         # Tools
-        brew install git htop-osx tmux macvim rsync terminal-notifier
+        brew install git git-flow-avh htop-osx tmux macvim rsync terminal-notifier
         brew install vim --override-system-vi
-
-        # Tests
-        brew install phantomjs
 
         # Services
         brew tap gapple/services

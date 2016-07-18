@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# ------------------------------------------------------------------------------
+# | Mobile Settings                                                            |
+# ------------------------------------------------------------------------------
+
+run_mobile() {
+
+    e_header "Setting up your Mobile Environment"
+
+    e_warning "IMPROTANT: You need to accept the XCode License to procced..."
+    xcodebuild -license
+
+    e_header "Installing Gems"
+    sudo gem install xcodeproj cocoapods
+
+    e_header "Setting up CocoaPods Master Repository"
+    mkdir -p ~/.cocoapods/repos && cd ~/.cocoapods/repos && git clone https://github.com/CocoaPods/Specs.git master
+
+    e_header "Installing Formulaes"
+    brew install xcproj android-sdk
+
+    e_header "Setting up Android SDK"
+    android update sdk --filter tools,platform-tools,android-23,build-tools-23.0.3,extra-android-m2repository,extra-google-m2repository,extra-android-support --all --no-ui
+
+    e_info "Remember to get Genymotion (https://www.genymotion.com/)"
+
+    # Install Node Packages
+    e_header "Installing Node Packages"
+    local NPM_MOBILE='ionic cordova ios-sim ios-deploy react-native nativescript'
+    npm i -g "$NPM_MOBILE"
+
+    # Install NativeScript dependencies
+    e_header "Installing NativeScript Dependencies"
+    ruby -e "$(curl -fsSL https://www.nativescript.org/setup/mac)"
+
+    # Check for NativeScript dependencies
+    e_warning "Checking for NativeScript dependencies"
+    tns doctor
+    e_success "All done!"
+
+}

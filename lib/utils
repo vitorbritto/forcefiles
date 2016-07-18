@@ -167,42 +167,55 @@ Brew:
 NPM:
     - grunt-cli
     - gulp
-    - bower
-    - imageoptim-cli
-    - nave
-    - browserify
-    - shelljs
-    - uglifyjs
     - jshint
+    - jscs
+    - clean-css
     - eslint
-    - stylus
+    - babel-eslint
+    - babel
+    - pm2
     - browser-sync
-    - markdown
-    - jade
-    - harp
+    - jspm
+    - phantomjs-prebuilt
+    - casperjs@1.1.0-beta4
+    - slimerjs
+    - dalek-cli
+    - cucumber
+    - pioneer
     - mocha
     - coveralls
     - istanbul
-    - yslow
-    - tictac
+    - karma
+    - protractor
+    - typescript
+    - stylus
+    - pug
+    - node-sass
+    - lodash
+    - uglifyjs
+    - express
+    - shelljs
+    - npm-check
+    - cbt_tunnels
+    - aglio
+    - surge
     - phantomas
     - psi
     - webpagetest
-    - babel
-    - react-tools
-    - webpack
-    - obfuscator
-    - clean-css
-    - node-sass
-    - express
-    - karma
-    - pm2
-    - beefy
-    - yo
-    - hoodie-cli
     - plato
+    - yslow
     - ionic
     - cordova
+    - ios-sim
+    - ios-deploy
+    - electron-prebuilt
+    - add-cors-to-couchdb
+    - nodal
+    - firebase-tools
+    - firebase-bolt
+    - esdoc
+    - sassdoc
+
 
 Dependencies:
     - Pygments

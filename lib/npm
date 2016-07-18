@@ -11,31 +11,61 @@ run_npm() {
 
         # Install Task Runer Packages
         e_header "Installing Task Runner Packages"
-        local NPM_TEST='grunt-cli gulp bower'
-        npm i -g "$NPM_TASK"
+        local NPM_AUTOMATION='grunt-cli gulp-cli'
+        npm i -g "$NPM_AUTOMATION"
         e_success "Task Runner Packages successfully installed!"
 
         # Install Lint Packages
-        e_header "Installing Test Packages"
-        local NPM_LINT='jshint eslint jscs clean-css'
-        npm i -g "$NPM_TEST"
-        e_success "Test Packages successfully installed!"
+        e_header "Installing Lint Packages"
+        local NPM_LINT='jshint jscs clean-css eslint babel-eslint uncss'
+        npm i -g "$NPM_LINT"
+        e_success "Lint Packages successfully installed!"
+
+        # Install ES.next / ES6 / ES2015 Packages
+        e_header "Installing ES.next Packages"
+        local NPM_ES6='babel'
+        npm i -g "$NPM_ES6"
+        e_success "ES.next Packages successfully installed!"
+
+        # Install Live Reload Packages
+        e_header "Installing Live Reload Packages"
+        local NPM_BUNDLE_RELOAD='pm2 browser-sync'
+        npm i -g "$NPM_BUNDLE_RELOAD"
+        e_success "Live Reload Packages successfully installed!"
+
+        # Install Module Bundler Packages
+        e_header "Installing Module Bundler Packages"
+        local NPM_MODULE_BUNDLER='jspm webpack'
+        npm i -g "$NPM_MODULE_BUNDLER"
+        e_success "Module Bundler Packages successfully installed!"
+
+        # Install Helpers
+        e_header "Installing Helpers Packages"
+        local NPM_HELPERS='foundation-cli yo bower slush'
+        npm i -g "$NPM_HELPERS"
+        e_success "Helpers Packages successfully installed!"
+
+        # Install Generators
+        e_header "Installing Generators"
+        local NPM_GENERATORS='slush-generator generator-generator generator-mcfly generator-angm generator-angular-fullstack generator-fountain-webapp generator-ruby-starter-kit react-starter-kit generator-rc generator-redux-stack generator-speedseed'
+        npm i -g "$NPM_GENERATORS"
+        e_success "Generators successfully installed!"
 
         # Install Test Packages
         e_header "Installing Test Packages"
-        local NPM_TEST='phantomjs casperjs slimerjs nightwatch dalek-cli cucumber pioneer mocha coveralls istanbul karma'
+        local NPM_TEST='phantomjs-prebuilt casperjs@1.1.0-beta4 slimerjs dalek-cli cucumber pioneer mocha coveralls istanbul karma protractor'
         npm i -g "$NPM_TEST"
         e_success "Test Packages successfully installed!"
 
         # Install Pre-processors Packages
         e_header "Installing Pre-processors Packages"
-        local NPM_TEST='typescript coffee-script stylus jade node-sass'
-        npm i -g "$NPM_TEST"
+        local NPM_PREPROCESSORS='typescript stylus pug node-sass'
+        npm i -g "$NPM_PREPROCESSORS"
         e_success "Pre-processors Packages successfully installed!"
 
         # Install JavaScript Utils Packages
         e_header "Installing JavaScript Utils Packages"
-        local NPM_UTILS='lodash uglifyjs babel react-tools obfuscator express strongloop shelljs less2stylus sass2stylus npm-check'
+        local NPM_UTILS='lodash uglifyjs express shelljs npm-check cbt_tunnels aglio surge'
         npm i -g "$NPM_UTILS"
         e_success "JavaScript Utils Packages successfully installed!"
 
@@ -45,35 +75,23 @@ run_npm() {
         npm i -g "$NPM_PERF"
         e_success "Performance Packages successfully installed!"
 
-        # Install Bundle and Live Reload Packages
-        e_header "Installing Bundle and Live Reload Packages"
-        local NPM_BUNDLE_RELOAD='browserify pm2 beefy webpack browser-sync'
-        npm i -g "$NPM_BUNDLE_RELOAD"
-        e_success "Bundle and Live Reload Packages successfully installed!"
-
-        # Install Mobile Packages
-        e_header "Installing Mobile Packages"
-        local NPM_MOBILE='ionic cordova ios-sim ios-deploy'
-        npm i -g "$NPM_MOBILE"
-        e_success "Mobile Packages successfully installed!"
-
-        # Install Generators
-        e_header "Installing Generators Packages"
-        local NPM_GENERATORS='harp yo'
-        npm i -g "$NPM_GENERATORS"
-        e_success "Generators Packages successfully installed!"
-
         # Install Native Apps Packages
         e_header "Installing Native Apps Packages"
         local NPM_NATIVE='electron-prebuilt'
         npm i -g "$NPM_NATIVE"
         e_success "Native Apps Packages successfully installed!"
 
-        # Install General Packages
-        e_header "Installing General Packages"
-        local NPM_GENERAL='imageoptim-cli nave markdown tictac hoodie-cli add-cors-to-couchdb nodal'
-        npm i -g "$NPM_GENERAL"
-        e_success "General Packages successfully installed!"
+        # Install Database Extensions
+        e_header "Installing Database Extensions"
+        local NPM_DB_EXT='add-cors-to-couchdb nodal firebase-tools firebase-bolt'
+        npm i -g "$NPM_DB_EXT"
+        e_success "Database Extensions successfully installed!"
+
+        # Install Code Documentation Packages
+        e_header "Installing Code Documentation Packages"
+        local NPM_DOCS='esdoc sassdoc'
+        npm i -g "$NPM_DOCS"
+        e_success "Code Documentation Packages successfully installed!"
 
     else
 
