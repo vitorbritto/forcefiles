@@ -47,9 +47,9 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/opt/homebrew-cask/
 export ARCHFLAGS="-arch x86_64"
 
 # JAVA Environment Variable
-# export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home"
-export JAVA_HOME="/usr/libexec/java_home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home"
+# export JAVA_HOME="/usr/libexec/java_home"
 
 # Android SDK
-# export ANDROID_HOME="/usr/local/opt/android-sdk"
-export ANDROID_HOME="/usr/local/Cellar/android-sdk/24.3.4"
+export ANDROID_HOME="/usr/local/opt/android-sdk"
+# export ANDROID_HOME="/usr/local/Cellar/android-sdk/24.3.4"
