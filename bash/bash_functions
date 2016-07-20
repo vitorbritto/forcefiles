@@ -263,6 +263,12 @@ hellpe() {
     # open -a "/opt/homebrew-cask/Caskroom/skype/latest/Skype.app"
 }
 
+# Come back Mission Control
+miscon() {
+    defaults write com.apple.dock mcx-expose-disabled -bool FALSE
+    killall Dock
+}
+
 
 
 # Server
