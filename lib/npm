@@ -93,6 +93,12 @@ run_npm() {
         npm i -g "$NPM_DOCS"
         e_success "Code Documentation Packages successfully installed!"
 
+        # Install Security Packages
+        e_header "Installing Security Packages"
+        local NPM_DOCS='retire nsp helmet'
+        npm i -g "$NPM_DOCS"
+        e_success "Security Packages successfully installed!"
+
     else
 
         printf "\n"
