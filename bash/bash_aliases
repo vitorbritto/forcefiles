@@ -100,7 +100,7 @@ fi
 alias c="pygmentize -O style=monokai -f console256 -g"
 
 # show process with nice visual
-alias status="htop"
+alias stats="htop"
 
 # Overkill processes
 # 1. Clean up LaunchServices to remove duplicates in the “Open With” menu
@@ -182,14 +182,7 @@ alias gemi="gem install --no-rdoc --no-ri"
 
 # NPM
 alias npmu="npm update"
-alias npmi="npm install"
-alias npms="npm init"
-
-# Grunt
-command -v grunt > /dev/null && alias grunt="grunt --stack" # Make Grunt print stack traces by default
-
-# Bower
-alias bowerup="npm update bower -g"
+alias npmi="npm init"
 
 # Composer
 alias compin="php composer.phar install"
@@ -215,9 +208,8 @@ alias update="sudo softwareupdate --install --all && \
 # ------------------------------------------------------------------------------
 
 # Daily stuff
-alias subl='open -a "/Applications/Sublime Text 2.app"'
 alias vim='open -a "/Applications/MacVim.app"'
-alias atom='open -a "/Applications/Atom.app"'
+alias vsc='open -a "/Applications/Visual Studio Code.app"'
 alias db="cd $HOME/Dropbox"
 alias dl="cd $HOME/Downloads"
 alias t="cd $HOME/temp"
@@ -231,24 +223,24 @@ alias doit="tictac --growl"
 alias ionlab="ionic serve --lab -c -s"
 
 # Logs and Infos
-alias ihttpd="atom $(brew --prefix)/var/log/apache2/error_log"
-alias ifpm="atom $(brew --prefix)/var/log/php-fpm.log"
-alias isql="atom $(brew --prefix)/var/mysql/$(hostname).err"
+alias ihttpd="vsc $(brew --prefix)/var/log/apache2/error_log"
+alias ifpm="vsc $(brew --prefix)/var/log/php-fpm.log"
+alias isql="vsc $(brew --prefix)/var/mysql/$(hostname).err"
 alias idns="dnsmasq --keep-in-foreground"
 
 # Scripts
-alias mkhost="bash ~/.forcefiles/scripts/virtualhost.sh"
-alias rmhost="bash ~/.forcefiles/scripts/virtualhost.sh --delete"
-alias vms="bash ~/.forcefiles/scripts/installvms.sh"
-alias yoda="bash ~/.forcefiles/scripts/yoda.sh"
-alias mify="bash ~/.forcefiles/scripts/markupify.sh"
-alias bkp="bash ~/.forcefiles/scripts/guardian.sh"
-alias nexus="bash ~/.forcefiles/scripts/nexus.sh"
-alias call="bash ~/.forcefiles/scripts/cloneall.sh"
-alias ipost="bash ~/.forcefiles/scripts/initpost.sh"
-alias perf="bash ~/.forcefiles/scripts/perf.sh"
-alias timer="bash ~/.forcefiles/scripts/timer.sh"
-alias reminder="bash ~/.forcefiles/scripts/reminder.sh"
-alias updatedb="bash ~/.forcefiles/scripts/updatedb.sh"
-alias sqlcreate="bash ~/.forcefiles/scripts/sqlcreate.sh"
-alias csstype="bash ~/.forcefiles/scripts/csstype.sh"
+# alias mkhost="bash ~/.forcefiles/scripts/virtualhost.sh"
+# alias rmhost="bash ~/.forcefiles/scripts/virtualhost.sh --delete"
+# alias vms="bash ~/.forcefiles/scripts/installvms.sh"
+# alias yoda="bash ~/.forcefiles/scripts/yoda.sh"
+# alias mify="bash ~/.forcefiles/scripts/markupify.sh"
+# alias bkp="bash ~/.forcefiles/scripts/guardian.sh"
+# alias nexus="bash ~/.forcefiles/scripts/nexus.sh"
+# alias call="bash ~/.forcefiles/scripts/cloneall.sh"
+# alias ipost="bash ~/.forcefiles/scripts/initpost.sh"
+# alias perf="bash ~/.forcefiles/scripts/perf.sh"
+# alias timer="bash ~/.forcefiles/scripts/timer.sh"
+# alias reminder="bash ~/.forcefiles/scripts/reminder.sh"
+# alias updatedb="bash ~/.forcefiles/scripts/updatedb.sh"
+# alias sqlcreate="bash ~/.forcefiles/scripts/sqlcreate.sh"
+# alias csstype="bash ~/.forcefiles/scripts/csstype.sh"

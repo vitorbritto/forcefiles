@@ -5,9 +5,3 @@
 # ---------------------------------------------------
 
 [ -n "$PS1" ] && source ~/.bash_profile
-
-###-tns-completion-start-###
-if [ -f /Users/vitorbritto/.tnsrc ]; then 
-    source /Users/vitorbritto/.tnsrc 
-fi
-###-tns-completion-end-###

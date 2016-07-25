@@ -39,8 +39,7 @@ fi
 [[ -s $nvm_path ]] && source $nvm_path
 
 
-###-tns-completion-start-###
-if [ -f /Users/vitorbritto/.tnsrc ]; then 
-    source /Users/vitorbritto/.tnsrc 
+# TNS - Telerik Native Script
+if [ -f /Users/vitorbritto/.tnsrc ]; then
+    source /Users/vitorbritto/.tnsrc
 fi
-###-tns-completion-end-###
