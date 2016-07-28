@@ -13,4 +13,9 @@ run_apps() {
 
     e_success "Apps successfully installed!"
 
+    e_info "--------------------------------------------------------------------------"
+    e_info "Remember to install:"
+    e_info "Wunderlist, MeisterTask, Adobe Family, Postman and Slack outo of this box!"
+    e_info "--------------------------------------------------------------------------"
+
 }
