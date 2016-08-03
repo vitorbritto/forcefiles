@@ -5,7 +5,7 @@
 # ---------------------------------------------------
 
 # Make Sublime Text the default editor
-export EDITOR="atom -nw"
+export EDITOR="vscode -nw"
 
 # Node Version Manager
 export NVM_DIR=~/.nvm
