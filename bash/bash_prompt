@@ -110,7 +110,6 @@ PS1="\[\033]0;\w\007\]"
 PS1+="\n"
 PS1+="${style_host}May the force be with... ${style_user}\u"    # Username
 PS1+="${style_chars} at "                                       # @
-PS1+="${style_chars} at "                                       # @
 PS1+="${style_path}\w"                                          # Working directory
 PS1+="\$(prompt_git)"                                           # Git details
 PS1+="\n"
