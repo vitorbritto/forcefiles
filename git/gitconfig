@@ -3,7 +3,6 @@
     email = code@vitorbritto.com.br
 
 [alias]
-    # https://git.wiki.kernel.org/articles/a/l/i/Aliases.html
 
     # General
     a = add .
@@ -20,7 +19,6 @@
     ps = push
     pl = pull
     mg = merge
-
 
     # Others
     psm = push origin master
@@ -70,7 +68,6 @@
     # Use custom `.gitignore` and `.gitattributes`
     excludesfile = ~/.gitignore
     attributesfile = ~/.gitattributes
-    editor = atom -W -n
 
 [diff]
     tool = mvimdiff
