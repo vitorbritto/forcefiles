@@ -29,7 +29,7 @@ run_npm() {
 
         # Install Live Reload Packages
         e_header "Installing Live Reload Packages"
-        local NPM_BUNDLE_RELOAD='pm2 browser-sync'
+        local NPM_BUNDLE_RELOAD='nodemon pm2 browser-sync'
         npm i -g "$NPM_BUNDLE_RELOAD"
         e_success "Live Reload Packages successfully installed!"
 
