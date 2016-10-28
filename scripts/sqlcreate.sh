@@ -62,8 +62,8 @@ dir_exists() {
 DBUSER=root
 DBPASS=root
 DBHOST=localhost
-DBEMAIL=vitorbritto@localhost
-DBNAME=db_test
+DBNAME=$1
+DBEMAIL=$2
 
 
 
