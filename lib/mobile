@@ -27,7 +27,7 @@ run_mobile() {
 
     # Install Node Packages
     e_header "Installing Node Packages"
-    local NPM_MOBILE='ionic cordova ios-sim ios-deploy react-native nativescript'
+    local NPM_MOBILE='crosswalk-app-tools ionic cordova ios-sim ios-deploy react-native nativescript'
     npm i -g "$NPM_MOBILE"
 
     # Install NativeScript dependencies
