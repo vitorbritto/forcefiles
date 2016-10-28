@@ -41,7 +41,7 @@ run_npm() {
 
         # Install Helpers
         e_header "Installing Helpers Packages"
-        local NPM_HELPERS='foundation-cli yo bower slush'
+        local NPM_HELPERS='foundation-cli yo bower slush mimosa yarn'
         npm i -g "$NPM_HELPERS"
         e_success "Helpers Packages successfully installed!"
 
@@ -65,7 +65,7 @@ run_npm() {
 
         # Install JavaScript Utils Packages
         e_header "Installing JavaScript Utils Packages"
-        local NPM_UTILS='lodash uglifyjs express shelljs npm-check cbt_tunnels aglio surge'
+        local NPM_UTILS='lodash uglifyjs express shelljs npm-check cbt_tunnels surge'
         npm i -g "$NPM_UTILS"
         e_success "JavaScript Utils Packages successfully installed!"
 
@@ -95,9 +95,16 @@ run_npm() {
 
         # Install Security Packages
         e_header "Installing Security Packages"
-        local NPM_DOCS='retire nsp helmet'
-        npm i -g "$NPM_DOCS"
+        local NPM_SECURITY='retire nsp helmet'
+        npm i -g "$NPM_SECURITY"
         e_success "Security Packages successfully installed!"
+
+        
+        # Install API Packages
+        e_header "Installing API Packages"
+        local NPM_API='aglio dredd api-mock'
+        npm i -g "$NPM_API"
+        e_success "API Packages successfully installed!"
 
     else
 
