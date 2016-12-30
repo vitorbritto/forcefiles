@@ -1,12 +1,6 @@
 #!/bin/bash
 
-# "----------------------------------------------------------------------------------------------------"
-# "Follow these instructions bellow to install"
-# "Apache, PHP, MySQL and/or phpMyAdmin on Mavericks/Yosemite."
-# "https://echo.co/blog/os-x-1010-yosemite-local-development-environment-apache-php-and-mysql-homebrew"
-# "http://coolestguidesontheplanet.com/get-apache-mysql-php-phpmyadmin-working-osx-10-9-mavericks/"
-# "----------------------------------------------------------------------------------------------------"
-
+# PHP Installation Steps: https://php-osx.liip.ch/
 
 # ------------------------------------------------------------------------------
 # | PHP Settings                                                               |
@@ -16,37 +10,8 @@ run_php() {
 
     e_header "Installing PHP 5.6"
 
-    # Install PHP with PHP-FPM and excluding snmp
-    brew install -v homebrew/php/php56 --with-fpm
-
-    e_header "Setting up PHP 5.6"
-
-    # Set timezone and change other PHP settings
-    (export USERHOME=$(dscl . -read /Users/`whoami` NFSHomeDirectory | awk -F"\: " '{print $2}') ; sed -i '-default' -e 's|^;\(date\.timezone[[:space:]]*=\).*|\1 \"'$(sudo systemsetup -gettimezone|awk -F"\: " '{print $2}')'\"|; s|^\(memory_limit[[:space:]]*=\).*|\1 512M|; s|^\(post_max_size[[:space:]]*=\).*|\1 200M|; s|^\(upload_max_filesize[[:space:]]*=\).*|\1 100M|; s|^\(default_socket_timeout[[:space:]]*=\).*|\1 600|; s|^\(max_execution_time[[:space:]]*=\).*|\1 300|; s|^\(max_input_time[[:space:]]*=\).*|\1 600|; $a\'$'\n''\'$'\n''; PHP Error log\'$'\n''error_log = '$USERHOME'/Sites/logs/php-error_log'$'\n' $(brew --prefix)/etc/php/5.6/php.ini)
-
-    # Fix a pear and pecl permissions problem:
-    chmod -R ug+w $(brew --prefix php56)/lib/php
-
-    # Set the location of php_ini in pear to $(brew --prefix)/etc/php/5.6/pear.conf:
-    pear config-set php_ini $(brew --prefix)/etc/php/5.6/php.ini system
-
-    # Install Zend OPcache
-    brew install php56-opcache
-
-    # # The included Opcache extension will speed up your PHP environment dramatically,
-    # # and it's already installed, but needs to be enabled. We'll also bump up the opcache memory limit:
-    # sed -i '' "s|^\(\[opcache\]\)$|\1"\\$'\n'"; Load the opcache extension"\\$'\n'"zend_extension=opcache.so"\\$'\n'"|; s|^;\(opcache\.enable[[:space:]]*=[[:space:]]*\)0|\11|; s|^;\(opcache\.memory_consumption[[:space:]]*=[[:space:]]*\)[0-9]*|\1256|;" $(brew --prefix)/etc/php/5.6/php.ini
-
-    # Put the PHP-FPM launchd plist file in place and start PHP-FPM now:
-    ln -sfv $(brew --prefix php56)/*.plist ~/Library/LaunchAgents
-    launchctl load -Fw ~/Library/LaunchAgents/homebrew.mxcl.php56.plist
-
-    # Optional:
-    # At this point, if you want to switch between PHP versions,
-    # you'd want to stop PHP-FPM by unloading the plist above, run brew unlink php56,
-    # repeat all of the above PHP steps for php55/php54/php53, and loading the new plist.
-    # No need to touch the Apache configuration at all!
-
+    # curl -s https://php-osx.liip.ch/install.sh | bash -s 7.0
+    curl -s https://php-osx.liip.ch/install.sh | bash -s 5.6
 
     # Setup DNSMasq
     e_header "Installing DNSMasq"
@@ -89,6 +54,9 @@ run_php() {
     e_header "Installing Composer"
 
     brew install homebrew/php/composer
+
+    sudo apachectl restart
+    
     e_success "PHP successfully installed!"
 
 }

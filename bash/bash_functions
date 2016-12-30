@@ -201,10 +201,20 @@ skel() {
     ./init.sh
 }
 
-# callgit() {
-#     git init
-#     git remote add master https://vitorbritto@github.com/vitorbritto/slush-bp-wp.git
-# }
+vscode() {
+    if [[ $# = 0 ]]
+    then
+        open -a "Visual Studio Code"
+    else
+        [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
+        open -a "Visual Studio Code" --args "$F"
+    fi
+}
+
+
+
+# Misc
+# -------------------
 
 # Force Skype to Initialize
 hellpe() {
@@ -256,6 +266,11 @@ phpws() {
         sleep 1 && open "http://localhost:${1}/"
         exec $CMD
     fi
+}
+
+# Python SimpleHTTPServer
+pyws() {
+    python -m SimpleHTTPServer 5000
 }
 
 # MySQL

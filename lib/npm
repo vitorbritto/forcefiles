@@ -41,7 +41,7 @@ run_npm() {
 
         # Install Helpers
         e_header "Installing Helpers Packages"
-        local NPM_HELPERS='foundation-cli yo bower slush mimosa yarn'
+        local NPM_HELPERS='foundation-cli yo bower slush mimosa yarn torus-cli lumber-cli'
         npm i -g "$NPM_HELPERS"
         e_success "Helpers Packages successfully installed!"
 

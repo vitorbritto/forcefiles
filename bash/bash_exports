@@ -4,8 +4,8 @@
 # Exports
 # ---------------------------------------------------
 
-# Make Sublime Text the default editor
-export EDITOR="vscode -nw"
+# Make VIm the default editor
+export EDITOR="vim"
 
 # Node Version Manager
 export NVM_DIR=~/.nvm

@@ -35,7 +35,6 @@ source ./lib/httpd
 source ./lib/php
 source ./lib/wp
 source ./lib/psql
-source ./lib/hs
 source ./lib/apps
 source ./lib/mobile
 source ./lib/editors
@@ -43,12 +42,6 @@ source ./lib/editors
 # Help text
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
     run_help
-    exit
-fi
-
-# List stuff that will be installed
-if [[ "$1" == "-l" || "$1" == "--list" ]]; then
-    run_list
     exit
 fi
 
@@ -145,9 +138,6 @@ boostrap() {
     brew tap phinze/homebrew-cask
     brew install brew-cask
 
-    # Install Haskell
-    run_haskell
-
     # Install PostgreSQL
     run_postgresql
 
@@ -182,12 +172,6 @@ mirrorfiles() {
     link "git/gitmodules"           ".gitmodules"
     link "npm/npmrc"                ".npmrc"
     link "tmux/tmux.conf"           "tmux.conf"
-    link "haskell/hirc"             ".hirc"
-    link "haskell/ghci.conf.hs"     ".ghc/ghci.conf"
-
-    # Z Shell
-    # link "zsh/zshrc"          ".zshrc"
-    # link "zsh/zprofile"       ".zprofile"
 
     e_success "Done!"
 }

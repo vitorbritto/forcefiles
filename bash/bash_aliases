@@ -99,9 +99,6 @@ fi
 # sudo easy_install Pygments
 alias c="pygmentize -O style=monokai -f console256 -g"
 
-# show process with nice visual
-alias stats="htop"
-
 # Overkill processes
 # 1. Clean up LaunchServices to remove duplicates in the “Open With” menu
 # 2. Empty the trash, the main HDD and on all mounted volumes
@@ -131,10 +128,6 @@ alias showdesktopicons="defaults write com.apple.finder CreateDesktop -bool true
 alias hidehiddenfiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 alias showhiddenfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 
-# Disable/Enable Spotlight
-alias spotoff="sudo mdutil -a -i off"
-alias spoton="sudo mdutil -a -i on"
-
 # Shutdown the System
 alias off="sudo shutdown -h now"
 
@@ -154,21 +147,11 @@ alias rvmd19="rvm --default use 1.9.3-p448"
 alias rvmd20="rvm --default use 2.0.0-p451"
 
 # PHP
-alias phpini="subl $(brew --prefix)/etc/php/5.6/php.ini"
+alias pi56="sudo vsc /usr/local/php5/php.d/99-liip-developer.ini"
 
-# Apache
-alias apacheon='brew services start httpd22'
-alias apacheoff='brew services stop httpd22'
-alias apacheboot='brew services restart httpd22'
-
-# MySQL
-alias sqlon="brew services start mysql"
-alias sqloff="brew services stop mysql"
+# Reboot Services
+alias httpdboot="sudo apachectl restart"
 alias sqlboot="brew services restart mysql"
-
-# PostgreSQL
-alias psqlon="brew services start postgres"
-alias psqloff="brew services stop postgres"
 alias psqlboot="brew services restart postgres"
 
 # Bundler
@@ -217,30 +200,6 @@ alias h="history"
 alias j="jobs"
 alias nh="node --harmony"
 alias ct="crontab"
-alias o="open ."
 alias mux="tmuxinator"
 alias doit="tictac --growl"
 alias ionlab="ionic serve --lab -c -s"
-
-# Logs and Infos
-alias ihttpd="vsc $(brew --prefix)/var/log/apache2/error_log"
-alias ifpm="vsc $(brew --prefix)/var/log/php-fpm.log"
-alias isql="vsc $(brew --prefix)/var/mysql/$(hostname).err"
-alias idns="dnsmasq --keep-in-foreground"
-
-# Scripts
-# alias mkhost="bash ~/.forcefiles/scripts/virtualhost.sh"
-# alias rmhost="bash ~/.forcefiles/scripts/virtualhost.sh --delete"
-# alias vms="bash ~/.forcefiles/scripts/installvms.sh"
-# alias yoda="bash ~/.forcefiles/scripts/yoda.sh"
-# alias mify="bash ~/.forcefiles/scripts/markupify.sh"
-# alias bkp="bash ~/.forcefiles/scripts/guardian.sh"
-# alias nexus="bash ~/.forcefiles/scripts/nexus.sh"
-# alias call="bash ~/.forcefiles/scripts/cloneall.sh"
-# alias ipost="bash ~/.forcefiles/scripts/initpost.sh"
-# alias perf="bash ~/.forcefiles/scripts/perf.sh"
-# alias timer="bash ~/.forcefiles/scripts/timer.sh"
-# alias reminder="bash ~/.forcefiles/scripts/reminder.sh"
-# alias updatedb="bash ~/.forcefiles/scripts/updatedb.sh"
-# alias sqlcreate="bash ~/.forcefiles/scripts/sqlcreate.sh"
-# alias csstype="bash ~/.forcefiles/scripts/csstype.sh"
