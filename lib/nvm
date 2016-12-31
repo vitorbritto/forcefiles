@@ -13,15 +13,18 @@ run_nvm() {
         e_header "Installing nvm dependencies"
 
         # Install Node.js last stable version
-        nvm install stable
+        nvm install v0.12.18
+        nvm install v4.7.0
+        nvm install v6.9.2
+        nvm install v7.3.0
         ln -s $(brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh     # Symlink (optional)
-        nvm alias default stable
+        nvm alias default 4.7.0
 
         brew update
         brew upgrade nvm
 
         # Install io.js
-        nvm install iojs
+        nvm install iojs-v3.3.1
 
         e_success "Node and io.js successfully installed!"
 
