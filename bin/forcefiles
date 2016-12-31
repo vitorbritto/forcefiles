@@ -155,6 +155,11 @@ link() {
 }
 
 mirrorfiles() {
+    
+    # Remove Default files
+    rm -rf .bash_profile .bash_history .bashrc .mkshrc .zlogin .zshrc .profile
+    rm -rf .bash_sessions
+    
     # Copy `.gitconfig`.
     # Any global git commands in `~/.bash_profile.local` will be written to
     # `.gitconfig`. This prevents them being committed to the repository.
