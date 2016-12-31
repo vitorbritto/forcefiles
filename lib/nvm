@@ -4,7 +4,7 @@
 # | NVM Settings                                                               |
 # ------------------------------------------------------------------------------
 
-run_nvm()) {
+run_nvm() {
 
     # Check for nvm
     if type_exists "nvm"; then
