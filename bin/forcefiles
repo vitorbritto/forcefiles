@@ -1,5 +1,21 @@
 #!/bin/bash
 
+# Source Lib Files
+source ./lib/utils
+source ./lib/brew
+source ./lib/py
+source ./lib/nvm
+source ./lib/npm
+source ./lib/gems
+source ./lib/mysql
+# source ./lib/httpd
+# source ./lib/php
+source ./lib/wp
+source ./lib/psql
+source ./lib/apps
+source ./lib/mobile
+# source ./lib/editors
+
 FORCEFILES_DIRECTORY="${HOME}/.forcefiles"
 FORCEFILES_TARBALL_PATH="https://github.com/vitorbritto/forcefiles/tarball/master"
 FORCEFILES_GIT_REMOTE="https://github.com/vitorbritto/forcefiles"
@@ -23,22 +39,6 @@ if [[ ! -d ${FORCEFILES_DIRECTORY} ]]; then
 fi
 
 cd ${FORCEFILES_DIRECTORY}
-
-# Source Lib Files
-source ./lib/utils
-source ./lib/brew
-source ./lib/py
-source ./lib/nvm
-source ./lib/npm
-source ./lib/gems
-source ./lib/mysql
-# source ./lib/httpd
-# source ./lib/php
-source ./lib/wp
-source ./lib/psql
-source ./lib/apps
-source ./lib/mobile
-# source ./lib/editors
 
 # Help text
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
