@@ -32,7 +32,7 @@ run_brew() {
         brew install mongodb sqlite couchdb
 
         # Dependencies
-        brew install coreutils findutils libksba libtool libyaml libxslt libmemcached libmpc08 libpng libevent libgpg-error libtiff freetype isl011 gettext memcached pcre pkg-config unixodbc cloog018 gmp4 readline mpfr2 wxmac autoconf automake openssl icu4c figlet bash bash-completion tree gcc46 apple-gcc42 jpeg zlib discount ctags gdb wget ack optipng imagemagick gifsicle ffmpeg watchman
+        brew install coreutils findutils freetype isl011 gettext pcre pkg-config unixodbc gmp4 readline mpfr2 wxmac autoconf automake openssl icu4c figlet bash bash-completion tree gcc46 apple-gcc42 jpeg zlib discount ctags gdb wget ack optipng imagemagick gifsicle ffmpeg watchman
 
         # Tools
         brew install git-flow-avh htop-osx tmux macvim rsync terminal-notifier # Install Git if is not running @ OS.
