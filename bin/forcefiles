@@ -28,6 +28,7 @@ cd ${FORCEFILES_DIRECTORY}
 source ./lib/utils
 source ./lib/brew
 source ./lib/py
+source ./lib/nvm
 source ./lib/npm
 source ./lib/gems
 source ./lib/mysql
@@ -119,6 +120,9 @@ bootstrap() {
 
     # Install Homebrew formulaes
     run_brew
+    
+    # Install NodeJS & IO.js
+    run_nvm
 
     # Install Node packages
     run_npm
