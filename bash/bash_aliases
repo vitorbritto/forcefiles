@@ -12,7 +12,6 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias cdd='cd -' # back to last directory
 alias ..='cd ..'
 alias ...='cd ../..'
-alias ....='cd ../../..'
 
 # Network
 # -------------------
@@ -146,9 +145,6 @@ alias rvmd18="rvm --default use 1.8.7"
 alias rvmd19="rvm --default use 1.9.3-p448"
 alias rvmd20="rvm --default use 2.0.0-p451"
 
-# PHP
-alias pi56="sudo vsc /usr/local/php5/php.d/99-liip-developer.ini"
-
 # Reboot Services
 alias httpdboot="sudo apachectl restart"
 alias sqlboot="brew services restart mysql"
@@ -200,6 +196,5 @@ alias h="history"
 alias j="jobs"
 alias nh="node --harmony"
 alias ct="crontab"
-alias mux="tmuxinator"
 alias doit="tictac --growl"
 alias ionlab="ionic serve --lab -c -s"
