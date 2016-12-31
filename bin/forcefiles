@@ -185,8 +185,8 @@ mirrorfiles() {
 seek_confirmation "Are you ready?"
 
 if is_confirmed; then
-    bootstrap
     mirrorfiles
+    bootstrap
     source ${HOME}/.bash_profile
 else
     e_error "Sorry to see you go. :(\n"
