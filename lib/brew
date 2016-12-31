@@ -42,6 +42,9 @@ run_brew() {
 
         # Services
         brew tap gapple/services
+        
+        # Link Apps
+        brew linkapps python terminal-notifier macvim
 
         e_success "Homebrew formulaes successfully installed!"
 
