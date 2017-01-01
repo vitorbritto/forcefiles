@@ -24,7 +24,7 @@ run_gems() {
         e_header "Installing Gems"
         
         sudo su 
-        sudo gem install -n /usr/local/bin sass compass haml slim jekyll bundler capistrano sinatra rack puma homesick capybara rspec rails showterm access_lint teamocil tmuxinator uglifier bourbon cocoapods coffee-script commander data_mapper httpclient i18n json kramdown liquid mail minitest mongo mongodb nokogiri pygments.rb rake rdoc redcarpet scss_lint sdoc shotgun sprockets sqlite3 thin thor turbolinks
+        sudo gem install -n /usr/local/bin bcrypt sass compass haml slim jekyll bundler capistrano sinatra rack puma homesick capybara rspec rails showterm access_lint teamocil tmuxinator uglifier bourbon cocoapods coffee-script commander data_mapper httpclient i18n json kramdown liquid mail minitest mongo mongodb nokogiri pygments.rb rake rdoc redcarpet scss_lint sdoc shotgun sprockets sqlite3 thin thor turbolinks
 
         e_success "Gems successfully installed!"
 
