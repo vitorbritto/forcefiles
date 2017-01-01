@@ -28,9 +28,6 @@ run_brew() {
         # Languages Utilities
         brew install nvm
 
-        # Databases
-        brew install mongodb sqlite couchdb
-
         # Dependencies
         brew install coreutils findutils freetype isl011 gettext pcre pkg-config unixodbc gmp4 readline mpfr2 wxmac autoconf automake openssl icu4c figlet bash bash-completion tree jpeg lzlib discount ctags gdb wget ack optipng imagemagick gifsicle ffmpeg watchman
 
