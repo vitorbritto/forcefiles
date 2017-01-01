@@ -7,10 +7,10 @@ source ./lib/py
 source ./lib/nvm
 source ./lib/npm
 source ./lib/gems
-source ./lib/mysql
 # source ./lib/httpd
 # source ./lib/php
 source ./lib/wp
+source ./lib/mysql
 source ./lib/psql
 source ./lib/apps
 source ./lib/mobile
@@ -130,20 +130,20 @@ bootstrap() {
     # Install RubyGems
     run_gems
 
-    # Install MySQL, Apache and PHP
+    # Install Databases
     run_mysql
+    run_postgresql
+    
+    # Setup PHP Environment
     # run_httpd - Now using Apache 2.4 from mac OS Sierra
     # run_php   - Now using PHP 5.6 from mac OS Sierra
     
-    # Install WordPress CLI and Bash Completions
+    # Install WordPress CLI
     run_wordpress
 
     # Tap HomeBrew Cask
     brew tap phinze/homebrew-cask
     brew install brew-cask
-
-    # Install PostgreSQL
-    run_postgresql
 
     # Setup Mobile Environment
     run_mobile
