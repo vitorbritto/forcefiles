@@ -90,7 +90,7 @@ cpf() {
 # first. The output gets piped into `less` with options to preserve color and
 # line numbers, unless the output is small enough for one screen.
 tre() {
-    tree -aC -I '.git|node_modules|bower_modules|components|.sass-cache|.DS_Store' --dirsfirst "$@" | less -FRNX
+    tree -aC -I '.git|node_modules|bower_modules|components|.sass-cache|.DS_Store|platform|hooks|fixtures|plugins|resources|www|tests' --dirsfirst "$@" | less -FRNX
 }
 
 # Convert MOV to GIF animation
@@ -106,16 +106,11 @@ gify() {
 
 # Shortcut to Projects
 code() {
-    if [[ $3 == "--wp" ]]; then
-        cd $HOME/Sites/"$1"/wp-content/themes/"$2"
+    if [[ $2 == "--wp" ]]; then
+        cd $HOME/Sites/"$1"/wp-content/themes/"$3"
     else
         cd $HOME/Sites/"$1"
     fi
-}
-
-# Shortcut to Respositories
-repo() {
-    cd $HOME/Dropbox/Github/"$1"
 }
 
 # Install Gulp plugins and add them as `devDependencies` to `package.json`
@@ -201,17 +196,6 @@ skel() {
     ./init.sh
 }
 
-vscode() {
-    if [[ $# = 0 ]]
-    then
-        open -a "Visual Studio Code"
-    else
-        [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
-        open -a "Visual Studio Code" --args "$F"
-    fi
-}
-
-
 
 # Misc
 # -------------------
@@ -250,45 +234,4 @@ sshcon() {
         e_success "Done!"
     fi
     cat "$SSHDIR"/id_rsa.pub | ssh "$1"@"$2" "cat >>  "$SSHDIR"/authorized_keys"
-}
-
-# PHP Built-in WebServer
-phpws() {
-    if [[ ! -n "$1" ]]; then
-        exit $E_BADARGS
-    else
-        local CMD="php -S localhost:${1}"
-        if [[ -n "$2" ]]; then
-            CMD="$CMD -t $2"
-        fi
-        e_success "Server started at http://localhost:${1}/"
-        e_warning "HINT: Press CTRL+C to stop webserver"
-        sleep 1 && open "http://localhost:${1}/"
-        exec $CMD
-    fi
-}
-
-# Python SimpleHTTPServer
-pyws() {
-    python -m SimpleHTTPServer 5000
-}
-
-# MySQL
-sqlio() {
-    local DB_PATH="/Downloads"
-    local DB_HOST="localhost"
-    local DB_USER="root"
-    local DB_NAME="$2"
-
-    # Import
-    if [[ "${1}" == "-i" || "${1}" == "--import" ]]; then
-        tar zxf "$DB_NAME.tar.gz"
-        mysql -h "$DB_HOST" -u "$DB_USER" -p "$DB_NAME" < "$DB_PATH/$DB_NAME.sql"
-    fi
-
-    # Export
-    if [[ "${1}" == "-e" || "${1}" == "--export" ]]; then
-        mysqldump -u "$DB_USER" -p "$DB_NAME" > "$DB_PATH/$DB_NAME.sql"
-        tar zcf "$DB_NAME.tar.gz" "$DB_NAME.sql"
-    fi
 }

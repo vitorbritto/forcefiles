@@ -1,0 +1,29 @@
+sudo apachectl stop
+sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist 2>/dev/null
+brew install httpd24 --with-privileged-ports --with-http2
+
+sudo cp -v /usr/local/Cellar/httpd24/2.4.23_2/homebrew.mxcl.httpd24.plist /Library/LaunchDaemons
+sudo chown -v root:wheel /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
+sudo chmod -v 644 /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
+sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
+
+sudo apachectl -k restart
+
+
+open -e /usr/local/etc/apache2/2.4/httpd.conf
+
+# DocumentRoot /Users/vitorbritto/Sites
+
+# <Directory /Users/vitorbritto/Sites>
+
+# AllowOverride All
+
+# LoadModule rewrite_module libexec/mod_rewrite.so
+
+# User vitorbritto
+# Group staff
+
+# mkdir ~/Sites
+# echo "<h1>My User Web Root</h1>" > ~/Sites/index.html
+
+sudo apachectl -k restart

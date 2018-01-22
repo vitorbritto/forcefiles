@@ -11,7 +11,6 @@
 alias ~="cd ~" # `cd` is probably faster to type though
 alias cdd='cd -' # back to last directory
 alias ..='cd ..'
-alias ...='cd ../..'
 
 # Network
 # -------------------
@@ -135,16 +134,6 @@ alias off="sudo shutdown -h now"
 # | Managment and Tasks                                                        |
 # ------------------------------------------------------------------------------
 
-# RVM
-alias rubies="rvm list rubies"
-alias gemsets="rvm gemset list"
-alias rvmu18="rvm use 1.8.7"
-alias rvmu19="rvm use 1.9.3-p448"
-alias rvmu20="rvm use 2.0.0-p451"
-alias rvmd18="rvm --default use 1.8.7"
-alias rvmd19="rvm --default use 1.9.3-p448"
-alias rvmd20="rvm --default use 2.0.0-p451"
-
 # Reboot Services
 alias httpdboot="sudo apachectl restart"
 alias sqlboot="brew services restart mysql"
@@ -194,7 +183,4 @@ alias dl="cd $HOME/Downloads"
 alias t="cd $HOME/temp"
 alias h="history"
 alias j="jobs"
-alias nh="node --harmony"
 alias ct="crontab"
-alias doit="tictac --growl"
-alias ionlab="ionic serve --lab -c -s"

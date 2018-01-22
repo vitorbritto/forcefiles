@@ -4,6 +4,15 @@
 # | NPM Settings                                                               |
 # ------------------------------------------------------------------------------
 
+# npm i -g grunt-cli gulp-cli nodemon pm2 browser-sync slush jspm webpack foundation-cli yo bower babel yarn
+# npm i -g mimosa torus-cli lumber-cli typescript stylus pug node-sass add-cors-to-couchdb nodal 
+# npm i -g firebase-tools firebase-bolt esdoc sassdoc retire nsp helmet aglio dredd api-mock
+# npm i -g jshint jscs clean-css eslint babel-eslint uncss  
+# npm i -g phantomjs-prebuilt casperjs@1.1.0-beta4 slimerjs dalek-cli cucumber pioneer mocha 
+# npm i -g coveralls istanbul karma protractor  lodash uglifyjs express shelljs npm-check 
+# npm i -g cbt_tunnels surge phantomas psi webpagetest plato yslow 
+# npm i -g crosswalk-app-tools ionic cordova ios-sim ios-deploy react-native nativescript
+
 run_npm() {
 
     # Check for npm
@@ -41,7 +50,7 @@ run_npm() {
 
         # Install Helpers
         e_header "Installing Helpers Packages"
-        local NPM_HELPERS='foundation-cli yo bower slush mimosa yarn torus-cli lumber-cli'
+        local NPM_HELPERS='foundation-cli yo bower slush mimosa yarn torus-cli lumber-cli reactotron-cli ignite-cli'
         npm i -g "$NPM_HELPERS"
         e_success "Helpers Packages successfully installed!"
 

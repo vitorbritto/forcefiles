@@ -22,6 +22,7 @@ declare -a dirs_to_append=(
     "$HOME/.rvm/bin"                                      # Add RVM to PATH for scripting
     "$(brew --prefix coreutils)/libexec/gnubin"           # Add brew-installed GNU core utilities bin
     "$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"    # Add Android SDK
+    "$JAVA_HOME/bin"                                      # Add Java to PATH
 )
 # Prepend directories to PATH
 for index in ${!dirs_to_prepend[*]}

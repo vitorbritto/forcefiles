@@ -17,5 +17,3 @@ run_nginx() {
     sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
 
 }
-
-sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist

@@ -29,7 +29,7 @@ run_brew() {
         brew install nvm
 
         # Dependencies
-        brew install coreutils findutils freetype isl011 gettext pcre pkg-config unixodbc gmp4 readline mpfr2 wxmac autoconf automake openssl icu4c figlet bash bash-completion tree jpeg lzlib discount ctags gdb wget ack optipng imagemagick gifsicle ffmpeg watchman
+        brew install coreutils findutils freetype isl011 gettext pcre pkg-config unixodbc gmp4 readline mpfr2 wxmac autoconf automake openssl icu4c figlet bash bash-completion tree jpeg lzlib discount ctags gdb wget ack optipng imagemagick gifsicle ffmpeg watchman potrace
 
         # Tools
         brew install git-flow-avh htop-osx tmux macvim terminal-notifier # Install Git if is not running @ OS.
@@ -39,6 +39,10 @@ run_brew() {
 
         # Services
         brew tap gapple/services
+        brew tap homebrew/dupes
+        brew tap homebrew/versions
+        brew tap homebrew/php
+        brew tap homebrew/apache
         
         # Link Apps
         brew linkapps python terminal-notifier macvim

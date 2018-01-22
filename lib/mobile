@@ -18,7 +18,7 @@ run_mobile() {
     mkdir -p ~/.cocoapods/repos && cd ~/.cocoapods/repos && git clone https://github.com/CocoaPods/Specs.git master
 
     e_header "Installing Formulaes"
-    brew install xcproj android-sdk
+    brew install xcproj android-sdk ideviceinstaller ios-webkit-debug-proxy
 
     e_header "Setting up Android SDK"
     android update sdk --filter tools,platform-tools,android-23,build-tools-23.0.3,extra-android-m2repository,extra-google-m2repository,extra-android-support --all --no-ui
@@ -27,7 +27,7 @@ run_mobile() {
 
     # Install Node Packages
     e_header "Installing Node Packages"
-    local NPM_MOBILE='crosswalk-app-tools ionic cordova ios-sim ios-deploy react-native nativescript'
+    local NPM_MOBILE='crosswalk-app-tools ionic cordova ios-sim ios-deploy react-native-cli nativescript'
     npm i -g "$NPM_MOBILE"
 
     # Install NativeScript dependencies
