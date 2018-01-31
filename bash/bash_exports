@@ -28,6 +28,10 @@ export HISTSIZE=600
 export LANG="en_US"
 export LC_ALL="en_US.UTF-8"
 
+# Enable Atom One Dark theme for Terminal
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+
 # Don't clear the screen after quitting a man page
 export MANPAGER="less -X"
 
@@ -41,7 +45,7 @@ export LESS_TERMCAP_me=$'\E[0m'       # end bold mode
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
-export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/opt/homebrew-cask/Caskroom"
+# export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/opt/homebrew-cask/Caskroom"
 
 # ARCH FLAGS
 export ARCHFLAGS="-arch x86_64"
