@@ -27,16 +27,9 @@ run_mobile() {
 
     # Install Node Packages
     e_header "Installing Node Packages"
-    local NPM_MOBILE='crosswalk-app-tools ionic cordova ios-sim ios-deploy react-native-cli nativescript'
+    local NPM_MOBILE='ios-sim ios-deploy react-native-cli'
     npm i -g "$NPM_MOBILE"
 
-    # Install NativeScript dependencies
-    e_header "Installing NativeScript Dependencies"
-    ruby -e "$(curl -fsSL https://www.nativescript.org/setup/mac)"
-
-    # Check for NativeScript dependencies
-    e_warning "Checking for NativeScript dependencies"
-    tns doctor
     e_success "All done!"
 
 }
