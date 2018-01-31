@@ -20,13 +20,13 @@ run_npm() {
 
         # Install Task Runer Packages
         e_header "Installing Task Runner Packages"
-        local NPM_AUTOMATION='grunt-cli gulp-cli'
+        local NPM_AUTOMATION='gulp-cli'
         npm i -g "$NPM_AUTOMATION"
         e_success "Task Runner Packages successfully installed!"
 
         # Install Lint Packages
         e_header "Installing Lint Packages"
-        local NPM_LINT='jshint jscs clean-css eslint babel-eslint uncss'
+        local NPM_LINT='prettier clean-css eslint uncss'
         npm i -g "$NPM_LINT"
         e_success "Lint Packages successfully installed!"
 
@@ -44,27 +44,15 @@ run_npm() {
 
         # Install Module Bundler Packages
         e_header "Installing Module Bundler Packages"
-        local NPM_MODULE_BUNDLER='jspm webpack'
+        local NPM_MODULE_BUNDLER='webpack'
         npm i -g "$NPM_MODULE_BUNDLER"
         e_success "Module Bundler Packages successfully installed!"
 
         # Install Helpers
         e_header "Installing Helpers Packages"
-        local NPM_HELPERS='foundation-cli yo bower slush mimosa yarn torus-cli lumber-cli reactotron-cli ignite-cli'
+        local NPM_HELPERS='yo slush yarn reactotron-cli ignite-cli'
         npm i -g "$NPM_HELPERS"
         e_success "Helpers Packages successfully installed!"
-
-        # Install Generators
-        e_header "Installing Generators"
-        local NPM_GENERATORS='slush-generator generator-generator generator-mcfly generator-angm generator-angular-fullstack generator-fountain-webapp generator-ruby-starter-kit react-starter-kit generator-rc generator-redux-stack generator-speedseed'
-        npm i -g "$NPM_GENERATORS"
-        e_success "Generators successfully installed!"
-
-        # Install Test Packages
-        e_header "Installing Test Packages"
-        local NPM_TEST='phantomjs-prebuilt casperjs@1.1.0-beta4 slimerjs dalek-cli cucumber pioneer mocha coveralls istanbul karma protractor'
-        npm i -g "$NPM_TEST"
-        e_success "Test Packages successfully installed!"
 
         # Install Pre-processors Packages
         e_header "Installing Pre-processors Packages"
@@ -72,11 +60,11 @@ run_npm() {
         npm i -g "$NPM_PREPROCESSORS"
         e_success "Pre-processors Packages successfully installed!"
 
-        # Install JavaScript Utils Packages
-        e_header "Installing JavaScript Utils Packages"
+        # Install Utils Packages
+        e_header "Installing Utils Packages"
         local NPM_UTILS='lodash uglifyjs express shelljs npm-check cbt_tunnels surge'
         npm i -g "$NPM_UTILS"
-        e_success "JavaScript Utils Packages successfully installed!"
+        e_success "Utils Packages successfully installed!"
 
         # Install Performance Packages
         e_header "Installing Performance Packages"
@@ -84,15 +72,9 @@ run_npm() {
         npm i -g "$NPM_PERF"
         e_success "Performance Packages successfully installed!"
 
-        # Install Native Apps Packages
-        e_header "Installing Native Apps Packages"
-        local NPM_NATIVE='electron-prebuilt'
-        npm i -g "$NPM_NATIVE"
-        e_success "Native Apps Packages successfully installed!"
-
         # Install Database Extensions
         e_header "Installing Database Extensions"
-        local NPM_DB_EXT='add-cors-to-couchdb nodal firebase-tools firebase-bolt'
+        local NPM_DB_EXT='add-cors-to-couchdb sequelize'
         npm i -g "$NPM_DB_EXT"
         e_success "Database Extensions successfully installed!"
 
