@@ -139,15 +139,6 @@ alias httpdboot="sudo apachectl restart"
 alias sqlboot="brew services restart mysql"
 alias psqlboot="brew services restart postgres"
 
-# Bundler
-alias bunin="bundle install"
-alias bunra="bundle exec rake"
-alias bunmi="bundle exec rake migrate"
-
-# Rubygems
-alias gemu="gem update system"
-alias gemi="gem install --no-rdoc --no-ri"
-
 # NPM
 alias npmu="npm update"
 alias npmi="npm init"
