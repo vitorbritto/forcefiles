@@ -14,7 +14,7 @@ run_editors() {
     # VIM Settings
     cd ~ && bash -c "$(curl -fsSL raw.github.com/vitorbritto/setup-vim/master/init.sh)"
 
-    # Atom Settings
-    cd ~ && bash -c "$(curl -fsSL raw.github.com/vitorbritto/setup-atom/master/init.sh)"
+    # Visual Studio Code Settings
+    cd ~ && bash -c "$(curl -fsSL raw.github.com/vitorbritto/setup-vscode/master/init.sh)"
 
 }
