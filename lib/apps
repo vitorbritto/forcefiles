@@ -9,7 +9,7 @@ run_apps() {
     # Install apps
     e_header "Installing Applications"
 
-    brew cask install apache-couchdb firefox psequel spotify appcleaner fluid imageoptim thunderbird google-adwords-editor ionic-lab sketch tomighty google-chrome macvim sketch-toolbox slack visual-studio-code dropbox google-drive messenger skype wercker filezilla google-hangouts mysqlworkbench sourcetree virtualbox vagrant gitscout coconutbattery docker fontprep glueprint numi shuttle spectacle genymotion android-file-transfer postman
+    brew cask install apache-couchdb firefox psequel spotify appcleaner imageoptim thunderbird google-adwords-editor ionic-lab sketch tomighty google-chrome macvim sketch-toolbox slack visual-studio-code dropbox google-drive messenger skype wercker filezilla google-hangouts mysqlworkbench sourcetree virtualbox vagrant docker fontprep glueprint shuttle spectacle genymotion android-file-transfer postman
 
     e_success "Apps successfully installed!"
 
