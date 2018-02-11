@@ -30,9 +30,9 @@ run_brew() {
 
         # Dependencies
         brew install coreutils findutils freetype isl011 gettext pcre pkg-config unixodbc gmp4 readline mpfr2 wxmac autoconf automake openssl icu4c figlet bash bash-completion tree jpeg lzlib discount ctags gdb wget ack optipng imagemagick gifsicle ffmpeg watchman potrace
-
+        
         # Tools
-        brew install git-flow-avh htop-osx tmux macvim terminal-notifier # Install Git if is not running @ OS.
+        brew install git-flow-avh htop-osx tmux macvim terminal-notifier 
         brew install vim --with-override-system-vi
         brew install homebrew/versions/gcc46
         brew install homebrew/dupes/rsync
