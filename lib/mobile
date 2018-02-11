@@ -27,7 +27,7 @@ run_mobile() {
 
     # Install Node Packages
     e_header "Installing Node Packages"
-    local NPM_MOBILE='ios-sim ios-deploy react-native-cli'
+    local NPM_MOBILE='ios-sim ios-deploy react-native-cli create-react-native-app'
     npm i -g "$NPM_MOBILE"
 
     e_success "All done!"
