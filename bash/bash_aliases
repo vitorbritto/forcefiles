@@ -11,6 +11,8 @@
 alias ~="cd ~" # `cd` is probably faster to type though
 alias cdd='cd -' # back to last directory
 alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 # Network
 # -------------------
@@ -134,11 +136,6 @@ alias off="sudo shutdown -h now"
 # | Managment and Tasks                                                        |
 # ------------------------------------------------------------------------------
 
-# Reboot Services
-alias httpdboot="sudo apachectl restart"
-alias sqlboot="brew services restart mysql"
-alias psqlboot="brew services restart postgres"
-
 # NPM
 alias npmu="npm update"
 alias npmi="npm init"
@@ -149,25 +146,22 @@ alias compin="php composer.phar install"
 # Homebrew
 alias brewsl="brew services list"
 alias brewin="brew install -v"
-alias brewout="brew uninstall"
-alias formulaes="brew search"
-alias brewu="brew update &&  \
-             brew upgrade && \
-             brew cleanup"
+alias brewun="brew uninstall"
+alias brewup="brew update && brew upgrade && brew cleanup"
 
-# General Update
-alias update="sudo softwareupdate --install --all && \
-              brewup && \
-              bowerup && \
-              npmu"
+# Reboot Services
+alias httpdboot="sudo apachectl restart"
+alias mysqlboot="brew services restart mysql"
+alias psqlboot="brew services restart postgres"
+
+# General Updates
+alias update="sudo softwareupdate --install --all && brewu && npmu"
 
 
 # ------------------------------------------------------------------------------
 # | Development (based on my workflow)                                         |
 # ------------------------------------------------------------------------------
 
-# Daily stuff
-alias vim='open -a "/Applications/MacVim.app"'
 alias vsc='open -a "/Applications/Visual Studio Code.app"'
 alias db="cd $HOME/Dropbox"
 alias dl="cd $HOME/Downloads"
@@ -175,3 +169,4 @@ alias t="cd $HOME/temp"
 alias h="history"
 alias j="jobs"
 alias ct="crontab"
+alias swphp="brew-php-switcher";
