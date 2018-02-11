@@ -8,21 +8,21 @@
 declare -a dirs_to_prepend=(
     "$(brew --prefix)/bin"
     "/usr/local/sbin"
-    "/usr/local/php5/bin"                               # Add PHP to PATH     
-    "$(brew --prefix)/mysql/bin"                        # Add MySQL to PATH
-    "$(brew --prefix)/mongodb/bin"                      # Add MongoDB to PATH
-    "$(brew --prefix)/psql/bin"                         # Add PostgreSQL to PATH
-    "$(brew --prefix)/gettext/bin"                      # Add GetText to PATH
+    "$(brew --prefix)/mysql/bin"                          # Add MySQL
+    "$(brew --prefix)/mongodb/bin"                        # Add MongoDB
+    "$(brew --prefix)/psql/bin"                           # Add PostgreSQL
+    "$(brew --prefix)/gettext/bin"                        # Add GetText
 )
 
 # Directories to be appended to PATH
 declare -a dirs_to_append=(
-    "/usr/local/bin"                                      # Add user directory to PATH
-    "$HOME/.forcefiles/bin"                               # Add .forcefiles directory to PATH
-    "$HOME/.rvm/bin"                                      # Add RVM to PATH for scripting
+    "/usr/local/bin"                                      # Add user directory
+    "$HOME/.forcefiles/bin"                               # Add .forcefiles directory
+    "$HOME/.rvm/bin"                                      # Add RVM
+    "$HOME/.composer/vendor/bin"                          # Add Composer
     "$(brew --prefix coreutils)/libexec/gnubin"           # Add brew-installed GNU core utilities bin
     "$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"    # Add Android SDK
-    "$JAVA_HOME/bin"                                      # Add Java to PATH
+    "$JAVA_HOME/bin"                                      # Add Java
 )
 # Prepend directories to PATH
 for index in ${!dirs_to_prepend[*]}
