@@ -6,7 +6,6 @@
 
 
 declare -a files=(
-    $HOME/.rvm/scripts/rvm                # Load RVM into a shell session *as a function*
     $HOME/.forcefiles/bash/bash_options   # Options
     $HOME/.forcefiles/bash/bash_exports   # Exports
     $HOME/.forcefiles/bash/bash_aliases   # Aliases
@@ -26,20 +25,14 @@ done
 
 unset files
 
-# Only use `brew` after it has been added to the PATH
-bash_completion_path="$(brew --prefix)/etc/bash_completion"
-nvm_path="$(brew --prefix nvm)/nvm.sh"
+# bash_completion_path="$(brew --prefix)/etc/bash_completion"
+bash_completion_path="$NVM_DIR/bash_completion"
+nvm_path="$NVM_DIR/nvm.sh"
 
-# Source Bash completion (installed via Homebrew)
+# Source Bash completion
 if [[ -r $bash_completion_path ]]; then
     source $bash_completion_path
 fi
 
-# Source nvm (installed via Homebrew)
+# Source nvm
 [[ -s $nvm_path ]] && source $nvm_path
-
-
-# TNS - Telerik Native Script
-if [ -f /Users/vitorbritto/.tnsrc ]; then
-    source /Users/vitorbritto/.tnsrc
-fi

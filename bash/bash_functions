@@ -196,6 +196,14 @@ skel() {
     ./init.sh
 }
 
+# Circle CI branch
+wf() {
+    local account=`git remote -v | grep -m 1 "(push)" | sed -e "s/.*github.com[:/]\(.*\)\/.*\.git.*/\1/"`
+    local repo=`git remote -v | grep -m 1 "(push)" | sed -e "s/.*github.com[:/].*\/\(.*\)\.git.*/\1/"`
+    local branch=`git name-rev --name-only HEAD`
+    open https://circleci.com/gh/$account/workflows/$repo/tree/$branch
+}
+
 
 # Misc
 # -------------------

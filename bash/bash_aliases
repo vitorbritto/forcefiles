@@ -12,7 +12,6 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias cdd='cd -' # back to last directory
 alias ..='cd ..'
 alias ...='cd ../..'
-alias ....='cd ../../..'
 
 # Network
 # -------------------
@@ -162,11 +161,10 @@ alias update="sudo softwareupdate --install --all && brewu && npmu"
 # | Development (based on my workflow)                                         |
 # ------------------------------------------------------------------------------
 
-alias vsc='open -a "/Applications/Visual Studio Code.app"'
+# alias code='open -a "/Applications/Visual Studio Code.app"'
 alias db="cd $HOME/Dropbox"
 alias dl="cd $HOME/Downloads"
 alias t="cd $HOME/temp"
 alias h="history"
 alias j="jobs"
 alias ct="crontab"
-alias swphp="brew-php-switcher";
