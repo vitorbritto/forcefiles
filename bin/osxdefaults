@@ -13,10 +13,10 @@ sudo -v
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "Vitor Britto"
-sudo scutil --set HostName "Vitor Britto"
-sudo scutil --set LocalHostName "vitorbritto"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "vitorbritto"
+sudo scutil --set ComputerName "Colossus"
+sudo scutil --set HostName "Colossus"
+sudo scutil --set LocalHostName "Colossus"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Colossus"
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
@@ -107,7 +107,7 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 defaults write com.apple.screencapture location -string "$HOME/Desktop"
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
-defaults write com.apple.screencapture type -string "png"
+defaults write com.apple.screencapture type -string "jpg"
 
 # Disable shadow in screenshots
 defaults write com.apple.screencapture disable-shadow -bool true
