@@ -195,18 +195,6 @@ else
     exit 1
 fi
 
-# Setup Editors
-seek_confirmation "Would you like to setup your editors now?"
-e_warning "This step will overwrite your existing settings"
-
-if is_confirmed; then
-    run_editors
-    e_success "Update complete!"
-else
-    e_error "Skipped!\n"
-    exit 1
-fi
-
 # Install Applications
 seek_confirmation "Would you like to install your applications now?"
 
@@ -215,25 +203,6 @@ if is_confirmed; then
     e_success "Update complete!"
 else
     e_error "Skipped!\n"
-fi
-
-# Setup Virtual Machines
-seek_confirmation "Would you like to install your Virtual Machines now?"
-
-if is_confirmed; then
-
-    # Check for Vagrant
-    if ! type_exists 'vagrant'; then
-        e_error "You need to install Vagrant and VirtualBox."
-    else
-        # Install my Applications
-        e_header "Seat back a while... this may take several minutes to install."
-        bash ./scripts/installvms.sh
-        e_success "Done!"
-    fi
-    e_success "Done!"
-else
-    e_warning "Skipped!"
 fi
 
 # OS X defaults
