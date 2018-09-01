@@ -4,98 +4,16 @@
 # | NPM Settings                                                               |
 # ------------------------------------------------------------------------------
 
-# npm i -g grunt-cli gulp-cli nodemon pm2 browser-sync slush jspm webpack foundation-cli yo bower babel yarn
-# npm i -g mimosa torus-cli lumber-cli typescript stylus pug node-sass add-cors-to-couchdb nodal 
-# npm i -g firebase-tools firebase-bolt esdoc sassdoc retire nsp helmet aglio dredd api-mock
-# npm i -g jshint jscs clean-css eslint babel-eslint uncss  
-# npm i -g phantomjs-prebuilt casperjs@1.1.0-beta4 slimerjs dalek-cli cucumber pioneer mocha 
-# npm i -g coveralls istanbul karma protractor  lodash uglifyjs express shelljs npm-check 
-# npm i -g cbt_tunnels surge phantomas psi webpagetest plato yslow 
-# npm i -g crosswalk-app-tools ionic cordova ios-sim ios-deploy react-native nativescript
-
 run_npm() {
 
     # Check for npm
     if type_exists "npm"; then
 
-        # Install Task Runer Packages
-        e_header "Installing Task Runner Packages"
-        local NPM_AUTOMATION='gulp-cli'
-        npm i -g "$NPM_AUTOMATION"
-        e_success "Task Runner Packages successfully installed!"
-
-        # Install Lint Packages
-        e_header "Installing Lint Packages"
-        local NPM_LINT='prettier clean-css eslint uncss'
-        npm i -g "$NPM_LINT"
-        e_success "Lint Packages successfully installed!"
-
-        # Install ES.next / ES6 / ES2015 Packages
-        e_header "Installing ES.next Packages"
-        local NPM_ES6='babel'
-        npm i -g "$NPM_ES6"
-        e_success "ES.next Packages successfully installed!"
-
-        # Install Live Reload Packages
-        e_header "Installing Live Reload Packages"
-        local NPM_BUNDLE_RELOAD='nodemon pm2 browser-sync'
-        npm i -g "$NPM_BUNDLE_RELOAD"
-        e_success "Live Reload Packages successfully installed!"
-
-        # Install Module Bundler Packages
-        e_header "Installing Module Bundler Packages"
-        local NPM_MODULE_BUNDLER='webpack'
-        npm i -g "$NPM_MODULE_BUNDLER"
-        e_success "Module Bundler Packages successfully installed!"
-
-        # Install Helpers
-        e_header "Installing Helpers Packages"
-        local NPM_HELPERS='yo slush yarn reactotron-cli ignite-cli'
-        npm i -g "$NPM_HELPERS"
-        e_success "Helpers Packages successfully installed!"
-
-        # Install Pre-processors Packages
-        e_header "Installing Pre-processors Packages"
-        local NPM_PREPROCESSORS='typescript stylus pug node-sass'
-        npm i -g "$NPM_PREPROCESSORS"
-        e_success "Pre-processors Packages successfully installed!"
-
-        # Install Utils Packages
-        e_header "Installing Utils Packages"
-        local NPM_UTILS='lodash uglifyjs express shelljs npm-check cbt_tunnels surge'
-        npm i -g "$NPM_UTILS"
-        e_success "Utils Packages successfully installed!"
-
-        # Install Performance Packages
-        e_header "Installing Performance Packages"
-        local NPM_PERF='phantomas psi webpagetest plato yslow'
-        npm i -g "$NPM_PERF"
-        e_success "Performance Packages successfully installed!"
-
-        # Install Database Extensions
-        e_header "Installing Database Extensions"
-        local NPM_DB_EXT='add-cors-to-couchdb sequelize'
-        npm i -g "$NPM_DB_EXT"
-        e_success "Database Extensions successfully installed!"
-
-        # Install Code Documentation Packages
-        e_header "Installing Code Documentation Packages"
-        local NPM_DOCS='esdoc sassdoc'
-        npm i -g "$NPM_DOCS"
-        e_success "Code Documentation Packages successfully installed!"
-
-        # Install Security Packages
-        e_header "Installing Security Packages"
-        local NPM_SECURITY='retire nsp helmet'
-        npm i -g "$NPM_SECURITY"
-        e_success "Security Packages successfully installed!"
-
-        
-        # Install API Packages
-        e_header "Installing API Packages"
-        local NPM_API='aglio dredd api-mock'
-        npm i -g "$NPM_API"
-        e_success "API Packages successfully installed!"
+        # Install Global Packages
+        e_header "Installing Global Packages"
+        local NPM_GLOBAL_PKGS='gulp-cli bower create-react-app exp ios-sim ios-deploy reactotron-cli ignite-cli react-native-cli create-react-native-app create-react-app detox-cli'
+        npm i -g "$NPM_GLOBAL_PKGS"
+        e_success "Global Packages successfully installed!"
 
     else
 

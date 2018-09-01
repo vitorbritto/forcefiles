@@ -8,33 +8,13 @@
 
 run_php() {
 
-    e_header "Installing PHP 5.6"
-    brew install php56 --with-httpd24
-    brew unlink php56
-    
-    e_header "Installing PHP 7.1"
-    brew install php71 --with-httpd24
-
-    e_header "Installing PHP Switcher"
-    brew install brew-php-switcher
+    curl -s http://php-osx.liip.ch/install.sh | bash -s 7.0
 
     e_header "Installing Composer"
     brew install homebrew/php/composer
 
     #  Reboot Apache
     sudo apachectl restart
-
-    # Change this...
-    # LoadModule php5_module    /usr/local/opt/php55/libexec/apache2/libphp5.so
-    # LoadModule php5_module    /usr/local/opt/php56/libexec/apache2/libphp5.so
-    # LoadModule php7_module    /usr/local/opt/php70/libexec/apache2/libphp7.so
-    # LoadModule php7_module    /usr/local/opt/php71/libexec/apache2/libphp7.so
-    
-    #  To this...
-    # LoadModule php5_module    /usr/local/opt/php55/libexec/apache2/libphp5.so
-    # LoadModule php5_module    /usr/local/opt/php56/libexec/apache2/libphp5.so
-    # LoadModule php7_module    /usr/local/opt/php70/libexec/apache2/libphp7.so
-    # LoadModule php7_module    /usr/local/opt/php71/libexec/apache2/libphp7.so
 
     # Install some CLI Generators
     composer global require "laravel/installer"

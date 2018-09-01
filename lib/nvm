@@ -8,12 +8,13 @@ run_nvm() {
 
     if type_exists "nvm"; then
         e_header "Installing nvm dependencies"
-        nvm install v8.9.4
-        nvm install v9.4.0
-        ln -s $(brew --prefix nvm)/nvm.sh ~/.nvm/nvm.sh     # Symlink (optional)
-        nvm alias default 8.9.4
-        brew update
-        brew upgrade nvm
+        
+        curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+
+        nvm install v8.11.3
+        nvm install v10.4.1
+        nvm use 8.11.3
+        nvm alias default 8.11.3
     else
         printf "\n"
         e_error "Error: nvm not found."

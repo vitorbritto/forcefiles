@@ -8,7 +8,7 @@ run_mobile() {
 
     e_header "Setting up your Mobile Environment"
 
-    e_warning "IMPROTANT: You need to accept the XCode License to procced..."
+    e_warning "IMPORTANT: You need to accept the XCode License to procced..."
     xcodebuild -license
 
     e_header "Installing Gems"
@@ -24,11 +24,6 @@ run_mobile() {
     android update sdk --filter tools,platform-tools,android-23,build-tools-23.0.3,extra-android-m2repository,extra-google-m2repository,extra-android-support --all --no-ui
 
     e_info "Remember to get Genymotion (https://www.genymotion.com/)"
-
-    # Install Node Packages
-    e_header "Installing Node Packages"
-    local NPM_MOBILE='ios-sim ios-deploy react-native-cli create-react-native-app'
-    npm i -g "$NPM_MOBILE"
 
     e_success "All done!"
 
