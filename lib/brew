@@ -22,30 +22,31 @@ run_brew() {
         # Install formulaes
         e_header "Installing Homebrew formulae"
 
-        # Languages - Erlang is a dependency of Couch DB.
-        brew install erlang 
+        # NodeJS Dependencies
+        brew install erlang nvm watchman
+        brew install yarn --without-node
 
-        # Languages Utilities
-        brew install nvm
-
-        # Dependencies
-        brew install coreutils findutils freetype isl011 gettext pcre pkg-config unixodbc gmp4 readline mpfr2 wxmac autoconf automake openssl icu4c figlet bash bash-completion tree jpeg lzlib discount ctags gdb wget ack optipng imagemagick gifsicle ffmpeg watchman potrace
+        # React Native - Detox E2E Tests
+        brew tap wix/brew
+        brew install --HEAD applesimutils
         
-        # Tools
-        brew install git-flow-avh htop-osx tmux macvim terminal-notifier 
-        brew install vim --with-override-system-vi
-        brew install homebrew/versions/gcc46
-        brew install homebrew/dupes/rsync
 
-        # Services
-        brew tap gapple/services
-        brew tap homebrew/dupes
-        brew tap homebrew/versions
-        brew tap homebrew/php
-        brew tap homebrew/apache
+        # # Dependencies
+        # brew install coreutils findutils freetype isl011 gettext pcre pkg-config unixodbc gmp4 readline mpfr2 wxmac autoconf automake openssl icu4c figlet bash bash-completion tree jpeg lzlib discount ctags gdb wget ack optipng imagemagick gifsicle ffmpeg watchman potrace
         
-        # Link Apps
-        brew linkapps python terminal-notifier macvim
+        # # Tools
+        # brew install homebrew/versions/gcc46
+        # brew install homebrew/dupes/rsync
+
+        # # Services
+        # brew tap gapple/services
+        # brew tap homebrew/dupes
+        # brew tap homebrew/versions
+        # brew tap homebrew/php
+        # brew tap homebrew/apache
+        
+        # # Link Apps
+        # brew linkapps python terminal-notifier macvim
 
         e_success "Homebrew formulaes successfully installed!"
 
