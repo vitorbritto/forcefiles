@@ -11,8 +11,6 @@ export EDITOR="code"
 export NVM_DIR="$HOME/.nvm"
 
 # JAVA Environment Variable
-# export JAVA_HOME="/usr/libexec/java_home"
-# export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home"
 
 # Android SDK

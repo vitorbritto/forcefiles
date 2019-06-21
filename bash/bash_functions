@@ -120,7 +120,8 @@ gp() {
 }
 
 # Clones a personal repository, cds into it, asks for install node modules and create executable script.
-# - arg 1 - name of repository
+# - arg 1 
+# - name of repository
 clone() {
     local repo=$1
     local npm=$2
@@ -169,31 +170,6 @@ chm() {
     else
         chmod -R 755 "$1"
     fi
-}
-
-# Start a new project
-gen() {
-    e_header "Setting up your new project"
-    git clone git://github.com/vitorbritto/boilerplates.git $1
-    cd $1
-
-    e_header "Installing dependencies"
-    npm install && clear
-
-    e_header "Initializing..."
-    chmod u+x newproject.js
-    ./newproject.js
-}
-
-# Kick Off Boilerplate
-skel() {
-    e_header "Clonning..."
-    git clone git://github.com/vitorbritto/skeleton.git $1
-    cd $_ && clear
-
-    e_header "Initializing.."
-    chmod u+x init.sh
-    ./init.sh
 }
 
 # Circle CI branch

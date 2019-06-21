@@ -12,6 +12,8 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias cdd='cd -' # back to last directory
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ....='cd ../../../..'
 
 # Network
 # -------------------
@@ -142,6 +144,13 @@ alias npmi="npm init"
 # Composer
 alias compin="php composer.phar install"
 
+# Python
+alias python="python3"
+alias pip="pip3"
+
+# Android
+alias adb="/Users/vitorbritto/Library/Android/sdk/platform-tools/./adb"
+
 # Homebrew
 alias brewsl="brew services list"
 alias brewin="brew install -v"
@@ -161,10 +170,9 @@ alias update="sudo softwareupdate --install --all && brewu && npmu"
 # | Development (based on my workflow)                                         |
 # ------------------------------------------------------------------------------
 
-# alias code='open -a "/Applications/Visual Studio Code.app"'
-alias db="cd $HOME/Dropbox"
+alias dt="cd $HOME/Desktop"
 alias dl="cd $HOME/Downloads"
-alias t="cd $HOME/temp"
+alias lab="cd $HOME/Labs"
 alias h="history"
 alias j="jobs"
 alias ct="crontab"

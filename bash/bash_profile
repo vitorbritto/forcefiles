@@ -35,4 +35,7 @@ if [[ -r $bash_completion_path ]]; then
 fi
 
 # Source nvm
-[[ -s $nvm_path ]] && source $nvm_path
+[[ -s $nvm_path ]] && source $nvm_path 
+
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home
+# export ANDROID_HOME=/usr/local/share/android-sdk
