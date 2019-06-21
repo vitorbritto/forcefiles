@@ -9,6 +9,8 @@ run_brew() {
     # Check for Homebrew
     if type_exists "brew"; then
 
+        sudo chown -R $(whoami) /usr/local/var/homebrew
+        
         # Use the latest version of Homebrew
         e_header "Updating Homebrew"
         brew update

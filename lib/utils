@@ -1,0 +1,106 @@
+# ------------------------------------------------------------------------------
+# | Log Messages                                                               |
+# ------------------------------------------------------------------------------
+
+# Header logging
+e_header() {
+    printf "$(tput setaf 38)→ %s$(tput sgr0)\n" "$@"
+}
+
+# Success logging
+e_success() {
+    printf "$(tput setaf 76)✔ %s$(tput sgr0)\n" "$@"
+}
+
+# Error logging
+e_error() {
+    printf "$(tput setaf 1)✖ %s$(tput sgr0)\n" "$@"
+}
+
+# Warning logging
+e_warning() {
+    printf "$(tput setaf 3)! %s$(tput sgr0)\n" "$@"
+}
+
+# Ask for confirmation before proceeding
+seek_confirmation() {
+    printf "\n"
+    e_warning "$@"
+    read -p "Continue? (y/n) " -n 1
+    printf "\n"
+}
+
+# Test whether the result of an 'ask' is a confirmation
+is_confirmed() {
+    if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+      return 0
+    fi
+    return 1
+}
+
+# Test whether we're in a git repo
+is_git_repo() {
+    $(git rev-parse --is-inside-work-tree &> /dev/null)
+}
+
+# Test whether a command exists
+# $1 - cmd to test
+type_exists() {
+    if [ $(type -P $1) ]; then
+      return 0
+    fi
+    return 1
+}
+
+# Test whether a directory exists
+# $1 - cmd to test
+dir_exists() {
+    if [ $(-d $1) ]; then
+      return 0
+    fi
+    return 1
+}
+
+# Test whether a Homebrew formula is already installed
+# $1 - formula name (may include options)
+formula_exists() {
+    if $(brew list $1 > /dev/null); then
+        printf "%s already installed.\n" "$1"
+        return 0
+    fi
+
+    e_warning "Missing formula: $1"
+    return 1
+}
+
+
+
+# ------------------------------------------------------------------------------
+# | Everybody need some help                                                   |
+# ------------------------------------------------------------------------------
+
+run_help() {
+
+cat <<EOT
+
+------------------------------------------------------------------------------
+OS X dotfiles - Vitor Britto - http://www.vitorbritto.com.br
+------------------------------------------------------------------------------
+
+Usage: $(basename "$0") [options]
+
+Options:
+    -h, --help      output help
+    --no-packages   suppress package updates
+    --no-sync       suppress pulling from the remote repository
+
+Documentation can be found at https://github.com/vitorbritto/forcefiles/
+
+Copyright (c) Vitor Britto
+Licensed under the MIT license.
+
+------------------------------------------------------------------------------
+
+EOT
+
+}
