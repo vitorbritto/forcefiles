@@ -3,17 +3,10 @@
 # Source Lib Files
 source ./lib/utils
 source ./lib/brew
-source ./lib/dbs
-source ./lib/py
 source ./lib/nvm
 source ./lib/npm
 source ./lib/gems
-# source ./lib/httpd
-# source ./lib/php
-source ./lib/wp
-source ./lib/apps
 source ./lib/mobile
-# source ./lib/editors
 
 FORCEFILES_DIRECTORY="${HOME}/.forcefiles"
 FORCEFILES_TARBALL_PATH="https://github.com/vitorbritto/forcefiles/tarball/master"
@@ -114,18 +107,8 @@ fi
 
 bootstrap() {
 
-    # Install Python Dependencies
-    run_py
-
     # Install Homebrew formulaes
     run_brew
-
-    # Install Databases
-    run_mysql
-    run_postgresql
-    run_mongodb
-    run_couchdb
-    run_sqlite
     
     # Setup JavaScript Environment
     run_nvm
@@ -134,15 +117,6 @@ bootstrap() {
     # Install Ruby Environment
     run_gems
     
-    # Setup PHP Environment
-    # run_httpd - Now using Apache 2.4 from mac OS Sierra
-    # run_php   - Now using PHP 5.6 from mac OS Sierra
-    run_wordpress
-
-    # Tap HomeBrew Cask
-    brew tap phinze/homebrew-cask
-    brew install brew-cask
-
     # Setup Mobile Environment
     run_mobile
 
