@@ -10,9 +10,6 @@ declare -a dirs_to_prepend=(
     "/usr/local/sbin"
     "$(brew --prefix)/mysql/bin"                            # Add MySQL
     "/Library/Frameworks/Python.framework/Versions/3.7/bin" # Python
-    # "$(brew --prefix)/mongodb/bin"                        # Add MongoDB
-    # "$(brew --prefix)/psql/bin"                           # Add PostgreSQL
-    # "$(brew --prefix)/gettext/bin"                        # Add GetText
 )
 
 # Directories to be appended to PATH

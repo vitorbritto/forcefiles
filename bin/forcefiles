@@ -81,29 +81,29 @@ if ! type_exists 'rvm'; then
     curl -L https://get.rvm.io | bash -s stable
 fi
 
-# Initialize the git repository if it's missing
-if ! is_git_repo; then
-    e_header "Initializing git repository"
-    git init
-    git remote add origin ${FORCEFILES_GIT_REMOTE}
-    git fetch origin master
-    # Reset the index and working tree to the fetched HEAD
-    # (submodules are cloned in the subsequent sync step)
-    git reset --hard FETCH_HEAD
-    # Remove any untracked files
-    git clean -fd
-fi
+# # Initialize the git repository if it's missing
+# if ! is_git_repo; then
+#     e_header "Initializing git repository"
+#     git init
+#     git remote add origin ${FORCEFILES_GIT_REMOTE}
+#     git fetch origin master
+#     # Reset the index and working tree to the fetched HEAD
+#     # (submodules are cloned in the subsequent sync step)
+#     git reset --hard FETCH_HEAD
+#     # Remove any untracked files
+#     git clean -fd
+# fi
 
-# Conditionally sync with the remote repository
-if [[ $no_sync ]]; then
-    e_header "Skipped forcefiles sync.\n"
-else
-    e_header "Syncing forcefiles"
-    # Pull down the latest changes
-    git pull --rebase origin master
-    # Update submodules
-    git submodule update --recursive --init --quiet
-fi
+# # Conditionally sync with the remote repository
+# if [[ $no_sync ]]; then
+#     e_header "Skipped forcefiles sync.\n"
+# else
+#     e_header "Syncing forcefiles"
+#     # Pull down the latest changes
+#     git pull --rebase origin master
+#     # Update submodules
+#     git submodule update --recursive --init --quiet
+# fi
 
 bootstrap() {
 
