@@ -109,15 +109,153 @@ EOT
 
 
 # ------------------------------------------------------------------------------
-# | Script                                                                     |
+# | Setups                                                                     |
 # ------------------------------------------------------------------------------
 
-# Source Lib Files
-source ./lib/brew
-source ./lib/nvm
-source ./lib/npm
-source ./lib/gems
-source ./lib/mobile
+run_brew() {
+
+    # Check for Homebrew
+    if type_exists "brew"; then
+
+        sudo chown -R $(whoami) /usr/local/var/homebrew
+        
+        # Use the latest version of Homebrew
+        e_header "Updating Homebrew"
+        brew update
+        e_success "Done!"
+
+        # Upgrade any already-installed formulae
+        e_header "Updating any existing Homebrew formulae"
+        brew upgrade
+        e_success "Done"
+
+        # Install formulaes
+        e_header "Installing Homebrew formulae"
+
+        # NodeJS Dependencies
+        brew install erlang nvm watchman
+
+        # React Native - Detox E2E Tests
+        brew tap wix/brew
+        brew install --HEAD applesimutils
+        
+        e_success "Homebrew formulaes successfully installed!"
+
+    else
+
+        printf "\n"
+        e_error "Error: Homebrew not found."
+        printf "Aborting...\n"
+        exit
+
+    fi
+
+}
+
+run_gems() {
+
+    # Check for Homebrew
+    if type_exists "gem"; then
+
+        # Use the latest version of gem
+        e_header "Updating gem"
+        gem update --system
+        e_success "Done"
+
+        # Upgrade any already-installed gem
+        e_header "Updating any installed gem"
+        gem update
+        e_success "Done"
+
+
+        # Install gems
+        e_header "Installing Gems"
+        
+        sudo su 
+        sudo gem install -n /usr/local/bin sass bundler
+
+        e_success "Gems successfully installed!"
+
+    else
+
+        printf "\n"
+        e_error "Error: gem not found."
+        printf "Aborting...\n"
+        exit
+
+    fi
+
+}
+
+run_nvm() {
+
+    if type_exists "nvm"; then
+        e_header "Installing nvm dependencies"
+        
+        curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+
+        nvm install v10.4.1
+        nvm use 10.4.1
+        nvm alias default 10.4.1
+    else
+        printf "\n"
+        e_error "Error: nvm not found."
+        printf "Aborting...\n"
+        exit
+    fi
+
+}
+
+
+run_npm() {
+
+    # Check for npm
+    if type_exists "npm"; then
+
+        # Install Global Packages
+        e_header "Installing Global Packages"
+        local NPM_GLOBAL_PKGS='gulp-cli ios-sim ios-deploy reactotron-cli ignite-cli react-native-cli create-react-native-app create-react-app detox-cli typescript'
+        npm i -g "$NPM_GLOBAL_PKGS"
+        e_success "Global Packages successfully installed!"
+
+    else
+
+        printf "\n"
+        e_error "Error: npm not found."
+        printf "Aborting...\n"
+        exit
+
+    fi
+
+}
+
+run_mobile() {
+
+    e_header "Setting up your Mobile Environment"
+
+    e_warning "IMPORTANT: You need to accept the XCode License to procced..."
+    xcodebuild -license
+
+    e_header "Installing Gems"
+    sudo gem install xcodeproj cocoapods
+
+    e_header "Setting up CocoaPods Master Repository"
+    mkdir -p ~/.cocoapods/repos && cd ~/.cocoapods/repos && git clone https://github.com/CocoaPods/Specs.git master
+
+    e_header "Installing Formulaes"
+    brew install xcproj android-sdk ideviceinstaller ios-webkit-debug-proxy
+
+    e_info "Remember to get Genymotion (https://www.genymotion.com/)"
+
+    e_success "All done!"
+
+}
+
+
+
+# ------------------------------------------------------------------------------
+# | Script                                                                     |
+# ------------------------------------------------------------------------------
 
 FORCEFILES_DIRECTORY="${HOME}/.forcefiles"
 FORCEFILES_TARBALL_PATH="https://github.com/vitorbritto/forcefiles/tarball/master"

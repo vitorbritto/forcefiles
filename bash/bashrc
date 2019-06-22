@@ -11,3 +11,5 @@ if [ -f /Users/Colossus/.tnsrc ]; then
     source /Users/Colossus/.tnsrc 
 fi
 ###-tns-completion-end-###
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
