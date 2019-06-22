@@ -11,7 +11,7 @@ run_npm() {
 
         # Install Global Packages
         e_header "Installing Global Packages"
-        local NPM_GLOBAL_PKGS='gulp-cli ios-sim ios-deploy reactotron-cli ignite-cli react-native-cli create-react-native-app create-react-app detox-cli typeorm typescript'
+        local NPM_GLOBAL_PKGS='gulp-cli ios-sim ios-deploy reactotron-cli ignite-cli react-native-cli create-react-native-app create-react-app detox-cli typescript'
         npm i -g "$NPM_GLOBAL_PKGS"
         e_success "Global Packages successfully installed!"
 

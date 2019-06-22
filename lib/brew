@@ -26,7 +26,6 @@ run_brew() {
 
         # NodeJS Dependencies
         brew install erlang nvm watchman
-        brew install yarn --without-node
 
         # React Native - Detox E2E Tests
         brew tap wix/brew

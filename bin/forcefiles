@@ -1,7 +1,118 @@
 #!/bin/bash
 
+# ------------------------------------------------------------------------------
+# | UI                                                                         |
+# ------------------------------------------------------------------------------
+
+# Header logging
+e_header() {
+    printf "$(tput setaf 38)→ %s$(tput sgr0)\n" "$@"
+}
+
+# Success logging
+e_success() {
+    printf "$(tput setaf 76)✔ %s$(tput sgr0)\n" "$@"
+}
+
+# Error logging
+e_error() {
+    printf "$(tput setaf 1)✖ %s$(tput sgr0)\n" "$@"
+}
+
+# Warning logging
+e_warning() {
+    printf "$(tput setaf 3)! %s$(tput sgr0)\n" "$@"
+}
+
+# Ask for confirmation before proceeding
+seek_confirmation() {
+    printf "\n"
+    e_warning "$@"
+    read -p "Continue? (y/n) " -n 1
+    printf "\n"
+}
+
+# Test whether the result of an 'ask' is a confirmation
+is_confirmed() {
+    if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+      return 0
+    fi
+    return 1
+}
+
+# Test whether we're in a git repo
+is_git_repo() {
+    $(git rev-parse --is-inside-work-tree &> /dev/null)
+}
+
+# Test whether a command exists
+# $1 - cmd to test
+type_exists() {
+    if [ $(type -P $1) ]; then
+      return 0
+    fi
+    return 1
+}
+
+# Test whether a directory exists
+# $1 - cmd to test
+dir_exists() {
+    if [ $(-d $1) ]; then
+      return 0
+    fi
+    return 1
+}
+
+# Test whether a Homebrew formula is already installed
+# $1 - formula name (may include options)
+formula_exists() {
+    if $(brew list $1 > /dev/null); then
+        printf "%s already installed.\n" "$1"
+        return 0
+    fi
+
+    e_warning "Missing formula: $1"
+    return 1
+}
+
+
+
+# ------------------------------------------------------------------------------
+# | Help                                                                       |
+# ------------------------------------------------------------------------------
+
+run_help() {
+
+cat <<EOT
+
+------------------------------------------------------------------------------
+OS X dotfiles - Vitor Britto - http://www.vitorbritto.com.br
+------------------------------------------------------------------------------
+
+Usage: $(basename "$0") [options]
+
+Options:
+    -h, --help      output help
+    --no-packages   suppress package updates
+    --no-sync       suppress pulling from the remote repository
+
+Documentation can be found at https://github.com/vitorbritto/forcefiles/
+
+Copyright (c) Vitor Britto
+Licensed under the MIT license.
+
+------------------------------------------------------------------------------
+
+EOT
+
+}
+
+
+# ------------------------------------------------------------------------------
+# | Script                                                                     |
+# ------------------------------------------------------------------------------
+
 # Source Lib Files
-source ./lib/utils
 source ./lib/brew
 source ./lib/nvm
 source ./lib/npm
@@ -81,48 +192,52 @@ if ! type_exists 'rvm'; then
     curl -L https://get.rvm.io | bash -s stable
 fi
 
-# # Initialize the git repository if it's missing
-# if ! is_git_repo; then
-#     e_header "Initializing git repository"
-#     git init
-#     git remote add origin ${FORCEFILES_GIT_REMOTE}
-#     git fetch origin master
-#     # Reset the index and working tree to the fetched HEAD
-#     # (submodules are cloned in the subsequent sync step)
-#     git reset --hard FETCH_HEAD
-#     # Remove any untracked files
-#     git clean -fd
-# fi
+# Initialize the git repository if it's missing
+if ! is_git_repo; then
+    e_header "Initializing git repository"
+    git init
+    git remote add origin ${FORCEFILES_GIT_REMOTE}
+    git fetch origin master
+    # Reset the index and working tree to the fetched HEAD
+    # (submodules are cloned in the subsequent sync step)
+    git reset --hard FETCH_HEAD
+    # Remove any untracked files
+    git clean -fd
+fi
 
-# # Conditionally sync with the remote repository
-# if [[ $no_sync ]]; then
-#     e_header "Skipped forcefiles sync.\n"
-# else
-#     e_header "Syncing forcefiles"
-#     # Pull down the latest changes
-#     git pull --rebase origin master
-#     # Update submodules
-#     git submodule update --recursive --init --quiet
-# fi
+# Conditionally sync with the remote repository
+if [[ $no_sync ]]; then
+    e_header "Skipped forcefiles sync.\n"
+else
+    e_header "Syncing forcefiles"
+    # Pull down the latest changes
+    git pull --rebase origin master
+    # Update submodules
+    git submodule update --recursive --init --quiet
+fi
 
 bootstrap() {
-
-    # Install Homebrew formulaes
+    
+    # Homebrew formulaes
     run_brew
     
-    # Setup JavaScript Environment
+    # Yarn
+    curl -o- -L https://yarnpkg.com/install.sh | bash
+
+    # NVM 
     run_nvm
+
+    # Npm
     run_npm
 
-    # Install Ruby Environment
+    # Gems
     run_gems
-    
-    # Setup Mobile Environment
+
+    # Mobile Env
     run_mobile
 
-    # Remove outdated versions from the Cellar
+    # Cleanup
     brew cleanup
-
 }
 
 link() {
@@ -167,16 +282,6 @@ if is_confirmed; then
 else
     e_error "Sorry to see you go. :(\n"
     exit 1
-fi
-
-# Install Applications
-seek_confirmation "Would you like to install your applications now?"
-
-if is_confirmed; then
-    run_apps
-    e_success "Update complete!"
-else
-    e_error "Skipped!\n"
 fi
 
 # OS X defaults
