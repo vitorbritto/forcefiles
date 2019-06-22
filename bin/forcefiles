@@ -209,7 +209,7 @@ else
     git submodule update --recursive --init --quiet
 fi
 
-bootstrap() {
+setup_workspace() {
     
     # -------------------------------------------------------
     # Homebrew
@@ -243,10 +243,45 @@ bootstrap() {
     # NVM
     # -------------------------------------------------------
     e_header "Installing NVM"
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+    git clone https://github.com/nvm-sh/nvm.git .nvm
+    cd $HOME/nvm
+    git checkout v0.34.0
+    . nvm.sh
     nvm install v10.4.1
     nvm use 10.4.1
     nvm alias default 10.4.1
+
+
+    # -------------------------------------------------------
+    # Gems
+    # -------------------------------------------------------
+    e_header "Installing Gems"
+    sudo gem install -n /usr/local/bin sass bundler xcodeproj cocoapods
+    e_success "Gems successfully installed!"
+
+    # -------------------------------------------------------
+    # Mobile
+    # -------------------------------------------------------
+    e_header "Setting up your Mobile Environment"
+    e_warning "IMPORTANT: You need to accept the XCode License to procced..."
+
+    seek_confirmation "Are you accept the Xcode License already?"
+    
+    if is_confirmed; then
+        xcodebuild -license
+    fi
+
+    xcode-select --install
+    sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+    
+    e_header "Setting up CocoaPods Master Repository"
+    mkdir -p ~/.cocoapods/repos && cd ~/.cocoapods/repos && git clone https://github.com/CocoaPods/Specs.git master
+    
+    e_header "Installing Formulaes"
+    brew install xcproj android-sdk ideviceinstaller ios-webkit-debug-proxy
+    
+    e_info "Remember to get Genymotion (https://www.genymotion.com/)"
+    e_success "All done!"
 
     # -------------------------------------------------------
     # NPM
@@ -255,35 +290,6 @@ bootstrap() {
     local NPM_GLOBAL_PKGS='gulp-cli ios-sim ios-deploy reactotron-cli ignite-cli react-native-cli create-react-native-app create-react-app detox-cli typescript'
     npm i -g "$NPM_GLOBAL_PKGS"
     e_success "Global Packages successfully installed!"
-
-    # -------------------------------------------------------
-    # Gems
-    # -------------------------------------------------------
-    e_header "Updating gem"
-    gem update --system
-    e_success "Done"
-    e_header "Updating any installed gem"
-    gem update
-    e_success "Done"
-    e_header "Installing Gems"
-    sudo su 
-    sudo gem install -n /usr/local/bin sass bundler
-    e_success "Gems successfully installed!"
-
-    # -------------------------------------------------------
-    # Mobile
-    # -------------------------------------------------------
-    e_header "Setting up your Mobile Environment"
-    e_warning "IMPORTANT: You need to accept the XCode License to procced..."
-    xcodebuild -license
-    e_header "Installing Gems"
-    sudo gem install xcodeproj cocoapods
-    e_header "Setting up CocoaPods Master Repository"
-    mkdir -p ~/.cocoapods/repos && cd ~/.cocoapods/repos && git clone https://github.com/CocoaPods/Specs.git master
-    e_header "Installing Formulaes"
-    brew install xcproj android-sdk ideviceinstaller ios-webkit-debug-proxy
-    e_info "Remember to get Genymotion (https://www.genymotion.com/)"
-    e_success "All done!"
 
     # Cleanup
     brew cleanup
@@ -294,7 +300,7 @@ link() {
     ln -fs "${FORCEFILES_DIRECTORY}/${1}" "${HOME}/${2}"
 }
 
-mirrorfiles() {
+setup_bash() {
     
     # Remove Default files
     rm -rf .bash_profile .bash_history .bashrc .mkshrc .zlogin .zshrc .profile
@@ -316,20 +322,27 @@ mirrorfiles() {
     link "git/gitignore"            ".gitignore"
     link "git/gitmodules"           ".gitmodules"
     link "npm/npmrc"                ".npmrc"
-    link "tmux/tmux.conf"           "tmux.conf"
 
     e_success "Done!"
 }
 
 # Ask before potentially overwriting files
-seek_confirmation "Are you ready?"
+seek_confirmation "Would you like to setup your bash environment?"
 
 if is_confirmed; then
-    mirrorfiles
-    bootstrap
+    setup_bash
     source ${HOME}/.bash_profile
 else
-    e_error "Sorry to see you go. :(\n"
+    e_error "Skipped Bash settings.\n"
+    exit 1
+fi
+
+seek_confirmation "Would you like to setup your Workspace?"
+
+if is_confirmed; then
+    setup_workspace
+else
+    e_error "Skipped environment settings.\n"
     exit 1
 fi
 

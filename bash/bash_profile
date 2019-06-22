@@ -25,17 +25,10 @@ done
 
 unset files
 
-# bash_completion_path="$(brew --prefix)/etc/bash_completion"
-bash_completion_path="$NVM_DIR/bash_completion"
-nvm_path="$NVM_DIR/nvm.sh"
-
-# Source Bash completion
-if [[ -r $bash_completion_path ]]; then
-    source $bash_completion_path
-fi
-
 # Source nvm
-[[ -s $nvm_path ]] && source $nvm_path 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home
 # export ANDROID_HOME=/usr/local/share/android-sdk
