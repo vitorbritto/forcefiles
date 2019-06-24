@@ -8,19 +8,24 @@
 declare -a dirs_to_prepend=(
     "$(brew --prefix)/bin"
     "/usr/local/sbin"
-    "$(brew --prefix)/mysql/bin"                            # Add MySQL
-    "/Library/Frameworks/Python.framework/Versions/3.7/bin" # Python
+    "$(brew --prefix)/mysql/bin"
+    "/Library/Frameworks/Python.framework/Versions/3.7/bin"
+    "$HOME/.yarn/bin"
 )
 
 # Directories to be appended to PATH
 declare -a dirs_to_append=(
-    "/usr/local/bin"                                      # Add user directory
-    "$HOME/.forcefiles/bin"                               # Add .forcefiles directory
-    "$HOME/.composer/vendor/bin"                          # Add Composer
-    "$(brew --prefix coreutils)/libexec/gnubin"           # Add brew-installed GNU core utilities bin
-    "$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"    # Add Android SDK
-    "$JAVA_HOME/bin"                                      # Add Java
+    "/usr/local/bin"
+    "$HOME/.forcefiles/bin"
+    "$HOME/.composer/vendor/bin"
+    "$(brew --prefix coreutils)/libexec/gnubin"
+    "$ANDROID_HOME/tools"
+    "$ANDROID_HOME/tools/bin"
+    "$ANDROID_HOME/platform-tools"
+    "$JAVA_HOME/bin"
+    "$HOME/.config/yarn/global/node_modules/.bin"
 )
+
 # Prepend directories to PATH
 for index in ${!dirs_to_prepend[*]}
 do

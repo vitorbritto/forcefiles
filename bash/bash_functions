@@ -1,12 +1,5 @@
 #!/bin/bash
 
-#
-# Functions
-# ---------------------------------------------------
-
-# Source Lib Files
-source $HOME/.forcefiles/lib/utils
-
 # General
 # -------------------
 
@@ -95,9 +88,9 @@ tre() {
 
 # Convert MOV to GIF animation
 gify() {
-    e_header "Converting..."
+    echo "Converting..."
     ffmpeg -i $1.mov -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=3 > $1.gif
-    e_success "Done!"
+    echo "Done!"
 }
 
 
@@ -111,12 +104,6 @@ code() {
     else
         cd $HOME/Sites/"$1"
     fi
-}
-
-# Install Gulp plugins and add them as `devDependencies` to `package.json`
-# Usage: `gp browser-sync uglify jshint`
-gp() {
-    npm install -D ${*/#/gulp-}
 }
 
 # Clones a personal repository, cds into it, asks for install node modules and create executable script.
@@ -143,7 +130,7 @@ clone() {
     git clone git://github.com/vitorbritto/$repo.git && cd $repo && $npm && $src;
 
     # All done!
-    e_success "Done!"
+    echo "Done!"
 }
 
 # Making a script executable
@@ -188,11 +175,11 @@ wf() {
 hellpe() {
     local LIBRARY=${HOME}/Library
 
-    e_header "Removing cache and preferences..."
+    echo "Removing cache and preferences..."
     rm -rd ${LIBRARY}/Caches/com.skype.skype
     rm -rf ${LIBRARY}/Preferences/com.skype.skype.plist
 
-    e_header "Initializing Skype..."
+    echo "Initializing Skype..."
     open -a "/Applications/Skype.app"
 
     # open -a "/opt/homebrew-cask/Caskroom/skype/latest/Skype.app"
@@ -213,9 +200,9 @@ miscon() {
 sshcon() {
     local SSHDIR = "~/.ssh"
     if [ ! -d "$SSHDIR" ]; then
-        e_header "Creating SSH Directory..."
+        echo "Creating SSH Directory..."
         mkdir -p "$SSHDIR"
-        e_success "Done!"
+        echo "Done!"
     fi
     cat "$SSHDIR"/id_rsa.pub | ssh "$1"@"$2" "cat >>  "$SSHDIR"/authorized_keys"
 }

@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-# Shell prompt based on the Solarized Dark theme.
-# Screenshot: http://i.imgur.com/EkEtphC.png
-# Heavily inspired by @necolas’s prompt: https://github.com/necolas/dotfiles
-# iTerm → Profiles → Text → use 13pt Monaco with 1.1 vertical spacing.
-
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
 	export TERM='gnome-256color';
 elif infocmp xterm-256color >/dev/null 2>&1; then
@@ -67,16 +62,16 @@ if tput setaf 1 &> /dev/null; then
 	tput sgr0; # reset colors
 	bold=$(tput bold);
 	reset=$(tput sgr0);
-  yellow=$(tput setaf 136);
-  orange=$(tput setaf 3);
-  red=$(tput setaf 124);
-  magenta=$(tput setaf 5);
-  violet=$(tput setaf 61);
-  blue=$(tput setaf 33);
-  cyan=$(tput setaf 37);
-  green=$(tput setaf 2);
-  purple=$(tput setaf 141);
-  white=$(tput setaf 256);
+	yellow=$(tput setaf 136);
+	orange=$(tput setaf 3);
+	red=$(tput setaf 124);
+	magenta=$(tput setaf 5);
+	violet=$(tput setaf 61);
+	blue=$(tput setaf 33);
+	cyan=$(tput setaf 37);
+	green=$(tput setaf 2);
+	purple=$(tput setaf 141);
+	white=$(tput setaf 256);
 else
 	bold='';
 	reset="\e[0m";

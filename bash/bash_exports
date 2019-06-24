@@ -4,14 +4,11 @@
 # Exports
 # ---------------------------------------------------
 
-# Make VS Code the default editor
-export EDITOR="code"
-
 # Node Version Manager
 export NVM_DIR="$HOME/.nvm"
 
-# JAVA Environment Variable
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home"
+# JAVA Environment
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
 
 # Android SDK
 export ANDROID_HOME="$HOME/Library/Android/sdk"
@@ -49,9 +46,6 @@ export LESS_TERMCAP_me=$'\E[0m'       # end bold mode
 # Make new shells get the history lines from all previous
 # shells instead of the default "last window closed" history
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
-
-# Link Homebrew casks in `/Applications` rather than `~/Applications`
-# export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/opt/homebrew-cask/Caskroom"
 
 # ARCH FLAGS
 export ARCHFLAGS="-arch x86_64"
